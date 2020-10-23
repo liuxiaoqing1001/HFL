@@ -1,0 +1,155 @@
+git@github.com:yxm1128/HFL.git
+
+git@github.com:liuxiaoqing1001/HFL.git
+
+
+
+
+
+-----------------------------------------项目说明-----------------------------------------
+“HFL”视频平台开发与设计
+主要技术:
+	bootstrap做前台页面
+	后端技术Springboot+mybatis_plus+redis
+
+
+-----------------------------------------相关参考资料-----------------------------------------
+
+
+https://www.jianshu.com/p/9ebad61aea22
+
+https://blog.csdn.net/qq_38850266/article/details/105734453
+
+
+-----------------------------------------项目说明-----------------------------------------
+UI图片说明：
+进入-弹框（登录注册/游客身份）
+
+-首页.png
+--修改部分：
+---头像和搜索调换，头像前加实时时间，头像实现下拉（消息，创作中心，个人中心，修改密码，注销）
+---导航栏：推荐，影视，新闻生活，美食，音乐
+
+--注明：
+---导航栏的设置图标：可修改导航栏（比如 标签顺序or添加导航栏标签）
+---
+
+-个人中心.png
+
+
+平台主页：
+	登录/注册（游客身份）
+	视频推荐（点击视频-视频基本信息，视频收藏，点评，点赞）
+	视频搜索
+	个人中心（个人信息（修改信息，修改密码）示）
+	视频中心
+	消息（视频审核通知，用户私信，其他用户点赞收藏的通知）
+	
+		后台管理（用户管理（用户新增，用户修改，用户删除）
+	视频管理（视频发布（需要审核），视频修改（修改后需要审核），视频删除）
+		用户角色管理
+		视频类型管理）
+		
+		
+		
+		
+		
+-----------------------------------------项目部署-----------------------------------------
+DevTools、Lombok、Web、Thymeleaf，MyBatis-plus
+
+**********pom.xml 添加D依赖项**********
+<properties>
+        <java.version>1.8</java.version>
+        <druid.version>1.1.21</druid.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+</properties>
+
+<!-- redis依赖（还没看明白）-->
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.apache.commons</groupId>
+	<artifactId>commons-pool2</artifactId>
+</dependency>
+    
+<!-- druid数据源-->
+<dependency>
+	<groupId>com.alibaba</groupId>
+	<artifactId>druid</artifactId>
+	<version>${druid.version}</version>
+</dependency>
+
+<!-- 添加依赖mybatis-plus-->
+<dependency>
+	<groupId>com.baomidou</groupId>
+	<artifactId>mybatis-plus-boot-starter-test</artifactId>
+	<version>${mybatis-plus.version}</version>
+</dependency>
+
+
+**********application.properties 中添加配置项**********
+# 应用程序占用的端口号
+server.port=8090
+
+# 配置数据源
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+
+#打印日志
+logging.level.com.example.hfl.dao=debug
+
+#数据库连接
+
+
+#引入mybatis plus框架
+mybatis-plus.mapper-locations=classpath:com/example/hfl/mapper/*.xml
+mybatis-plus.type-aliases-package=com.example.hfl.entity
+
+#DevTools热部署
+spring.devtools.livereload.enabled=true
+spring.devtools.remote.restart.enabled=true
+spring.devtools.restart.poll-interval=3000ms
+spring.devtools.restart.quiet-period=2999ms
+
+
+**********com.example.hfl 下项目部署**********
+entity
+dao
+service
+controller
+
+
+
+********** 额外说明 **********
+DevTools热部署
+​	1）pom.xml  ==> devtools 依赖
+​	2）项目Settings下设置
+​		1) Build ==》Compiler ==》勾选上  "Build project automatically"
+​		2) 按下 ctrl+shift+alt+/  ==》Registry ==》勾选上  "compiler.automake.allow.when.app.running"
+​		3) application.properties 中添加配置项
+
+Spring Mvc 相关配置
+​	1） application.properties
+
+~~~
+# springboot 内置tomcat，tomcat默认占用8080端口号，配置应用程序启动后占用端口号
+server.port=8090
+# server.servlet.context-path=  设置应用程序启动后项目跟位置访问虚拟路径，默认就是 "/"
+# spring web mvc 视图解析器相关配置
+# spring.mvc.view.prefix=/
+# spring.mvc.view.suffix=.html
+~~~
+
+​	2） 基于Springboot框架，静态资源放置位置
+​		resources/static/
+​			imgs、css、js、html
+​		resources/templates/
+​			放：模板页
+
+​	3）首页默认  /static/HomePage.html
+
+
+-----------------------------------------xxx-----------------------------------------
+
+
