@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/Login.css">
+    <script src="../js/user/Login.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form id="LoginForm">
+            <img src="../img/smile.png"  class="img-circle"/>
+            <h4 class="col-md-offset-5">登录账号</h4>
+            <div class="form-group">
+                <label for="userName">用户名</label>
+                <input type="text" class="input-sm" id="userName" placeholder="admin" size="43">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <label class="col-md-offset-8"><a href="Forget.html">忘记密码</a></label>
+                <input type="password" class="input-sm" id="password" size="43">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-info" id="btnLogin">登录</button>
+            </div>
+            <div class="form-group">
+                <label class="col-md-offset-4">不存在账号？<a href="user/Register.html">注册</a></label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

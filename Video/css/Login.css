@@ -1,0 +1,45 @@
+body {
+    background-color: #fbfbfb;
+}
+
+img {
+    margin-left: 140px;
+    width: 80px;
+}
+
+#LoginForm {
+    background-color: #fff;
+    margin: 100px auto;
+    padding-top: 20px;
+    width: 350px;
+    height: 500px;
+}
+h4 {
+    color: #a1cfd9;
+}
+
+label {
+    color: #a1cfd9;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+input {
+    margin-left: 10px;
+    background: #f4fafb;
+    border: 0px;
+    margin-top: 10px;
+}
+
+button {
+    width: 320px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none ;
+    color: #44a0b3;
+    border-bottom:2px dashed #44a0b3;
+}

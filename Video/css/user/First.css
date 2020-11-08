@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('../../font/iconfont.eot');
+    src: url('../../font/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../../font/iconfont.woff2') format('woff2'),
+    url('../../font/iconfont.woff') format('woff'),
+    url('../../font/iconfont.ttf') format('truetype'),
+    url('../../font/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #fbfbfb;
+}
+
+#first {
+    background-color: #fff;
+    width: 1000px;
+    height: 800px;
+}
+
+h4 {
+    color: #007dd3;
+    display:inline-block;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+#TopNav {
+    background-color: #003b64;
+}
+
+.TopNav {
+    color: #fff;
+}
+
+/*.carousel {*/
+/*    width: 525px;*/
+/*    height: 210px;*/
+/*}*/
+
+/*.item img {*/
+/*    width: 1000px;*/
+/*    height: 200px;*/
+/*}*/
+
+#sort ul li {
+    margin-right: 20px;
+    list-style: none ;
+    float: left;
+    background-color: #fcfcfc;
+}
+
+#sort a {
+    text-decoration: none ;
+    color: #338ec8 ;
+    font-size: 20px;
+}
+
+#clear {
+    clear: both;
+}
+
+.sortDiv {
+    background-color: #3b3a3a;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+

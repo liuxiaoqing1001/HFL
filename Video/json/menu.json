@@ -1,0 +1,96 @@
+[
+  {
+    "text": "<span class='glyphicon glyphicon-home' /> 首页",
+    "href":"First.html",
+    "backColor": "#428bca",
+    "color": "#ffffff" ,
+    "state" : {
+      "checked" : true ,
+      "selected" : true
+    }
+  },
+  {
+    "text": "<span class='glyphicon glyphicon-user' /> 用户管理",
+    "backColor": "#428bca",
+    "color": "#ffffff",
+    "selectable": false,
+    "state": {
+      "expanded":true
+    },
+    "nodes": [
+      {
+        "text": "<span class='glyphicon glyphicon-list' /> 用户列表",
+        "href":"UserList.html"
+      },
+      {
+        "text": "<span class='glyphicon glyphicon-pencil' /> 用户修改",
+        "href":"ModifyUser.html"
+      },
+      {
+        "text": "<span class='glyphicon glyphicon-trash' /> 用户删除",
+        "href":"DelUser.html"
+      }
+    ]
+  },
+  {
+    "text": "<span class='glyphicon glyphicon-play-circle' />  视频管理",
+    "backColor": "#428bca",
+    "color": "#ffffff",
+    "selectable": false,
+    "state": {
+      "expanded":false
+    },
+    "nodes": [
+      {
+        "text": "<span class='glyphicon glyphicon-list' /> 视频列表",
+        "href":"VideoList.html"
+      },
+      {
+        "text": "<span class='glyphicon glyphicon-trash' /> 视频删除",
+        "href":"DelVideo.html"
+      }
+    ]
+  },
+  {
+    "text": "<span class='glyphicon glyphicon-transfer' />  角色管理",
+    "backColor": "#428bca",
+    "color": "#ffffff",
+    "selectable": false,
+    "state": {
+      "expanded":false
+    },
+    "nodes": [
+      {
+        "text": "<span class='glyphicon glyphicon-plus' /> 角色列表",
+        "href":"RoleList.html"
+      },
+
+      {
+        "text": "<span class='glyphicon glyphicon-trash' /> 角色删除",
+        "href":"DelRole.html"
+      }
+    ]
+  },
+
+  {
+    "text": "<span class='glyphicon glyphicon-transfer' />  类型管理",
+    "backColor": "#428bca",
+    "color": "#ffffff",
+    "selectable": false,
+    "state": {
+      "expanded":false
+    },
+    "nodes": [
+      {
+        "text": "<span class='glyphicon glyphicon-plus' /> 类型列表",
+        "href":"TypeList.html"
+      },
+
+      {
+        "text": "<span class='glyphicon glyphicon-trash' /> 类型删除",
+        "href":"DelType.html"
+      }
+    ]
+  }
+]
+
