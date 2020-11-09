@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用户列表</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../css/admin/UserList.css">
+    <script src="../../js/admin/UserList.js"></script>
+    <script src="../../js/global.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <span style="font-size: 20px ; font-weight: bold ;padding: 20px 10px">用户列表</span>
+    <button class="btn btn-success btn-sm" id="btnAdd" style="margin: 3px 5px">新增</button>
+    <table class="table table-bordered table-striped table-hover" id="userTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>邮箱</th>
+            <th>手机号</th>
+            <th>地址</th>
+            <th>角色</th>
+            <th>注册时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-3">
+            <h4>当前是第<span id="currentPage"></span>页，共<span id="totalPage"></span>页</h4>
+        </div>
+        <div class="col-md-3">
+            <nav aria-label="Page navigation" style="float: right">
+                <ul class="pagination" style="margin-top: 0">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

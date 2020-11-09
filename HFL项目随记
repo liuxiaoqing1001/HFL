@@ -150,6 +150,29 @@ server.port=8090
 ​	3）首页默认  /static/HomePage.html
 
 
------------------------------------------xxx-----------------------------------------
+---------------------------------------------------------------------------------------
+CREATE TABLE tb_user (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) DEFAULT NULL,
+  password char(32) DEFAULT NULL,
+  age int(3) DEFAULT NULL,
+  sex varchar(10) DEFAULT NULL,
+  email varchar(50) DEFAULT NULL,
+  mobile varchar(230) DEFAULT NULL,
+  photourl varchar(60) DEFAULT NULL,
+  status varchar(100) DEFAULT NULL,
+  regdate timestamp NULL DEFAULT NULL,
+  role int(11) DEFAULT '1',
+  PRIMARY KEY (id) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
+INSERT INTO tb_user VALUES ('1', 'admin', '123456', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
+
+-----------------------------------------xxx-----------------------------------------
+1. 注销：浏览器左右键返回，没注销成功
+2. 忘记密码？
+3. 最上面的搜索未实现
+4. 导航当前未选中
+5. 第一个页面不是登录，是主页，在主页点击除首页之外的按钮时都要求登录
+6. modifyUserPhoto.html设置点击头像，弹出框修改头像，修改成功后返回原页面并更新
 
