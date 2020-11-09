@@ -166,7 +166,7 @@ CREATE TABLE tb_user (
   PRIMARY KEY (id) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-INSERT INTO tb_user VALUES ('1', 'admin', '123456', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
+INSERT INTO tb_user VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
 
 -----------------------------------------xxx-----------------------------------------
 1. 注销：浏览器左右键返回，没注销成功

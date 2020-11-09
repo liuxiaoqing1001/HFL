@@ -17,7 +17,7 @@ $(function () {
                     if(userObj.role==1){
                         location.href = "user/First.html" ;
                     }else{
-                        location.href = "admin/First.html" ;
+                        location.href = "admin/Index.html" ;
                     }
                 } else {
                     $('#LoginForm input[name="loginName"]').focus();

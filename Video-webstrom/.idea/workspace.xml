@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Video - IDEA/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video - IDEA/src/main/java/com/isoft/video/util/VideoUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/ModifyUserPhoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/ModifyUserPhoto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +89,7 @@
       <workItem from="1604800982382" duration="6000000" />
       <workItem from="1604882665601" duration="8493000" />
       <workItem from="1604892510677" duration="4696000" />
+      <workItem from="1604909820814" duration="1671000" />
     </task>
     <servers />
   </component>

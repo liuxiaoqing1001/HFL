@@ -26,20 +26,11 @@ public class VideoController {
 
     @GetMapping("/video")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //获取resources文件夹的绝对地址
+        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/").getPath();
+        String realPath = sourcePath +"tweetsip.mp4";
 
-        //假如我把视频1.mp4放在了static下的video文件夹里面
-        //sourcePath 是获取resources文件夹的绝对地址
-        //realPath 即是视频所在的磁盘地址
-
-        URL url = this.getClass().getClassLoader().getResource("static/video/tweetsip.mp4");
-
-//        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("").getPath().substring(1);
-//        String sourcePath =
-        System.out.println("-------------------------------------------------"+url+"-------------------------------------------------");
-//        String realPath = sourcePath +"static/video/tweetsip.mp4";
-
-
-        Path filePath = Paths.get(url.getPath() );
+        Path filePath = Paths.get(realPath);
         if (Files.exists(filePath)) {
             String mimeType = Files.probeContentType(filePath);
             if (!StringUtils.isEmpty(mimeType)) {
