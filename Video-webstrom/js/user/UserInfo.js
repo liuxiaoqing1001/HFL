@@ -6,6 +6,17 @@ $(function () {
         userObj = JSON.parse(str);
     }
 
+    $("#userName").val(userObj.name)
+    $("#userAge").val(userObj.age);
+    $("#userGender").val(userObj.gender);
+    $("#userEmail").val(userObj.email);
+    $("#userPhone").val(userObj.phone);
+
+    $('#modifyForm input[name="id"]').val(userObj.id);
+    if(userObj.photourl != null && userObj.photourl != '') {
+        $("#userPhoto").attr("src" ,userObj.photourl) ;
+    }
+
     //用户名称模块传递的内容
     $("#userName").text(userObj.name) ;
 
@@ -19,7 +30,7 @@ $(function () {
     $("#userEmail").text(userObj.email) ;
 
     //手机号码模块传递的内容
-    $("#userPhone").text(userObj.mobile) ;
+    $("#userPhone").text(userObj.phone) ;
 
     // //家庭地址模块传递的内容
     // $("#userAddress").text(userObj.) ;

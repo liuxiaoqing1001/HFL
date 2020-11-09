@@ -11,9 +11,9 @@ $(function () {
     $("#userName").attr("disabled" , "disabled")
 
     $("#userAge").val(userObj.age);
-    $("#userGender").val(userObj.sex);
+    $("#userGender").val(userObj.gender);
     $("#userEmail").val(userObj.email);
-    $("#userPhone").val(userObj.mobile);
+    $("#userPhone").val(userObj.phone);
 
     $('#modifyForm input[name="id"]').val(userObj.id);
     if(userObj.photourl != null && userObj.photourl != '') {
@@ -25,9 +25,9 @@ $(function () {
         var upData = {
             id : userObj.id ,
             age : $('input[name="userAge"]').val(),
-            sex : $('select[id="userGender"]').val(),
+            gender : $('select[id="userGender"]').val(),
             email : $('input[name="userEmail"]').val(),
-            mobile : $('input[name="mobile"]').val()
+            phone : $('input[name="userPhone"]').val()
         }
         $.ajax({
             url : serverPath,//'http://localhost:8090/user'
