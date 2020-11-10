@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="" />
+    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/admin/PlayVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -87,6 +92,7 @@
       <workItem from="1604882665601" duration="8493000" />
       <workItem from="1604892510677" duration="4696000" />
       <workItem from="1604909820814" duration="2420000" />
+      <workItem from="1604968758582" duration="6166000" />
     </task>
     <servers />
   </component>
