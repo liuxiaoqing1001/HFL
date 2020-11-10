@@ -3,10 +3,12 @@ $(function(){
         // var src=$(this).data("src");
         var src= videoPath;
     // , sourceDom=$("<source src=\""+src+"\">")
-        $("#video-box video").src=src;
+        $("#video-box showVideo").src=src;
         $("#video-box").play();
     // })
-    // var videoSrc = videoPath;//新的视频播放地址
+
+
+    // var videoSrc = videoPath;
     // document.getElementById("videoid").src=videoSrc ;
     // document.getElementById("videoid").play();
 })

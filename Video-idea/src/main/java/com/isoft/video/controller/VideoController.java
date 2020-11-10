@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,7 +20,7 @@ import java.nio.file.Paths;
 @AllArgsConstructor
 public class VideoController {
 
-    private final VideoUtil nonStaticResourceHttpRequestHandler;
+    private final VideoUtil handler;
 
 
     @GetMapping("/video")
@@ -37,7 +36,7 @@ public class VideoController {
                 response.setContentType(mimeType);
             }
             request.setAttribute(VideoUtil.ATTR_FILE, filePath);
-            nonStaticResourceHttpRequestHandler.handleRequest(request, response);
+            handler.handleRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
