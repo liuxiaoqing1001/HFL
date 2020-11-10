@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/admin/PlayVideo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/fullscreen_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/mute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/play-big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/images/volume.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +90,7 @@
       <workItem from="1604882665601" duration="8493000" />
       <workItem from="1604892510677" duration="4696000" />
       <workItem from="1604909820814" duration="2420000" />
-      <workItem from="1604968758582" duration="14474000" />
+      <workItem from="1604968758582" duration="15616000" />
     </task>
     <servers />
   </component>
