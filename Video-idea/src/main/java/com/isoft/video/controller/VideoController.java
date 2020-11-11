@@ -1,7 +1,11 @@
 package com.isoft.video.controller;
 
+import com.isoft.video.entity.User;
+import com.isoft.video.entity.Video;
+import com.isoft.video.service.VideoService;
 import com.isoft.video.util.VideoUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +18,19 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @RestController
-@RequestMapping("/file")
+@RequestMapping("/video")
 @AllArgsConstructor
 public class VideoController {
 
+    @Autowired
+    VideoService videoService;
+
     private final VideoUtil handler;
 
-
-    @GetMapping("/video")
+    @GetMapping("/play")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //获取resources文件夹的绝对地址
         String videoPath = "1.mp4";
@@ -40,6 +47,12 @@ public class VideoController {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
         }
+    }
+
+    //获取数据库全部信息
+    @GetMapping("/getAll")
+    public List<Video> getAll() {
+        return videoService.getAll() ;
     }
 
 }

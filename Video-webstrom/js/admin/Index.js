@@ -15,7 +15,8 @@ $(function () {
                 } else {
                     // 根据当前选中节点的父节点
                     var parent = $("#tree").treeview("getNode", data.parentId);
-                    navHtml = "<li>" + parent.text + "</li>" +
+                    // var children = $("#tree").treeview("getNode",data.parentId.parentId)
+                    navHtml = navHtml + "<li>" + parent.text + "</li>" +
                         "<li>" + data.text + "</li>" ;
                 }
                 $("#breadcrumb").html(navHtml);

@@ -19,7 +19,8 @@ function initDate(date) {
 }
 
 var serverPath = "http://localhost:8090/user/";
-var videoPath = serverPath+"file/video/";
+var topPath = "http://localhost:8090/";
+var videoPath = topPath+"video/play/";
 
 // var serverPathManager = serverPath + "/system/" ;
 
