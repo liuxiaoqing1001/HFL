@@ -168,6 +168,30 @@ CREATE TABLE tb_user (
 
 INSERT INTO tb_user VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
 
+
+CREATE TABLE tb_videotype  (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  typename varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (id) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+CREATE TABLE tb_video  (
+  id int(5) NOT NULL,
+  typeid int(5) NOT NULL,
+  uname varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  title varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  description varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  pubdatetime datetime(0) NOT NULL,
+  status varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  videopath varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (id) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+
+tb_user(uid)
+tb_video
+tb_u_v(id,uid,vid,)
+
 -----------------------------------------xxx-----------------------------------------
 1. 注销：浏览器左右键返回，没注销成功
 2. 忘记密码？

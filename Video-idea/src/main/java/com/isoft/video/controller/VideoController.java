@@ -26,7 +26,7 @@ public class VideoController {
     @GetMapping("/video")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //获取resources文件夹的绝对地址
-        String videoPath = "tweetsip.mp4";
+        String videoPath = "1.mp4";
         String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
         Path filePath = Paths.get(sourcePath);
         if (Files.exists(filePath)) {
