@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+<!--    aggressiveLazyLoading-->
+<!--    开启时，任一方法调用都会加载该对象的所有延迟加载属性，否则，每个延迟加载属性会按需加载-->
+<!--    3.4.1之前默认为true-->
+</configuration>

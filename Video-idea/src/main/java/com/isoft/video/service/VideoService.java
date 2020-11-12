@@ -24,4 +24,6 @@ public interface VideoService {
     List<Video> getAll() ;
 
     String getVideoPath(String uname, int id );
+
+    Video getVideo(Integer id);
 }

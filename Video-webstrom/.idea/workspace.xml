@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/resources/mybatis/VideoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/VideoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/VideoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/CheckList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/CheckList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/Index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/CheckList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/CheckList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +99,8 @@
       <workItem from="1604892510677" duration="4696000" />
       <workItem from="1604909820814" duration="2420000" />
       <workItem from="1604968758582" duration="16087000" />
-      <workItem from="1605054384723" duration="8755000" />
+      <workItem from="1605054384723" duration="9453000" />
+      <workItem from="1605140912973" duration="590000" />
     </task>
     <servers />
   </component>

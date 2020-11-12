@@ -12,6 +12,9 @@ public interface VideoDao {
     @Select("select * from tb_video")
     List<Video> getAll() ;
 
-    @Select("select videoPath from tb_video where uname={#uname} and id={#id}")
+    @Select("select videopath from tb_video where uname=#{uname} and id=#{id}")
     String getVideoPath(String uname, int id );
+
+//    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
+//    Video getVideo(Integer id,String uname);
 }

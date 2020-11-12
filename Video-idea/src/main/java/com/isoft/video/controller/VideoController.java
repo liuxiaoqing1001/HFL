@@ -6,6 +6,7 @@ import com.isoft.video.service.VideoService;
 import com.isoft.video.util.VideoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +33,10 @@ public class VideoController {
 
     @GetMapping("/play")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String videoPath=videoService.getVideoPath("liu",1);
+        System.out.println(videoPath);
+//        String videoPath = "1.mp4";
         //获取resources文件夹的绝对地址
-        String videoPath = "1.mp4";
         String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
         Path filePath = Paths.get(sourcePath);
         if (Files.exists(filePath)) {
@@ -49,10 +52,24 @@ public class VideoController {
         }
     }
 
+//    @GetMapping("/path")
+//    public String getVideoPath(){
+//        return videoService.getVideoPath("liu",1);
+//    }
+
     //获取数据库全部信息
     @GetMapping("/getAll")
     public List<Video> getAll() {
         return videoService.getAll() ;
+    }
+
+
+    @GetMapping("/play2")
+    public String videoPlay(Integer id, ModelMap model){
+        Video video=videoService.getVideo(id);
+        model.addAttribute("title",video.getTitle());
+        model.addAttribute("videopath",video.getVideopath());
+        return "videoPlay";
     }
 
 }
