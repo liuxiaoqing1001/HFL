@@ -62,14 +62,6 @@ public class VideoController {
     public List<Video> getAll() {
         return videoService.getAll() ;
     }
-
-
-    @GetMapping("/play2")
-    public String videoPlay(Integer id, ModelMap model){
-        Video video=videoService.getVideo(id);
-        model.addAttribute("title",video.getTitle());
-        model.addAttribute("videopath",video.getVideopath());
-        return "videoPlay";
-    }
+    
 
 }
