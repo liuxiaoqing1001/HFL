@@ -81,10 +81,10 @@ public class VideoController {
 //        }
 //    }
 
-//    @GetMapping("/path")
-//    public String getVideoPath(){
-//        return videoService.getVideoPath("liu",1);
-//    }
+    @GetMapping("/path")
+    public String getVideoPath(){
+        return videoService.getVideoPath(1);
+    }
 
     //获取数据库全部信息
     @GetMapping("/getAll")
