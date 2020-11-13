@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,24 +32,24 @@ public class VideoController {
     @Autowired
     VideoService videoService;
 
-    private final VideoUtil handler;
-
-    @GetMapping("/play")
-//    @GetMapping(value = "/getVideos")
-    public String getVideos(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        String videoPath=videoService.getVideoPath("liu",1);
+    @GetMapping("/play/{vid}")
+    public String getVideos(HttpServletRequest request, HttpServletResponse response,@PathVariable("vid") Integer id) throws Exception{
+        String videoPath=videoService.getVideoPath(id);
         //获取resources文件夹的绝对地址
         String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
         System.out.println(sourcePath);
         FileInputStream fis = null;
         OutputStream os = null ;
         fis = new FileInputStream(sourcePath);
-        int size = fis.available(); // 得到文件大小
+        // 得到文件大小
+        int size = fis.available();
         byte data[] = new byte[size];
-        fis.read(data); // 读数据
+        // 读数据
+        fis.read(data);
         fis.close();
 //        fis = null;
-        response.setContentType("video/mp4"); // 设置返回的文件类型
+        // 设置返回的文件类型
+        response.setContentType("video/mp4");
         os = response.getOutputStream();
         os.write(data);
         os.flush();
@@ -56,7 +57,10 @@ public class VideoController {
 //        os = null;
         return null;
     }
-//    不稳定
+
+//    private final VideoUtil handler;
+//
+////    不稳定
 //    public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        String videoPath=videoService.getVideoPath("liu",1);
 //        System.out.println(videoPath);

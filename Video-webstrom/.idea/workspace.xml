@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/PlayVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +100,7 @@
       <workItem from="1604968758582" duration="16087000" />
       <workItem from="1605054384723" duration="9453000" />
       <workItem from="1605140912973" duration="590000" />
-      <workItem from="1605227129767" duration="3007000" />
+      <workItem from="1605227129767" duration="8569000" />
     </task>
     <servers />
   </component>
