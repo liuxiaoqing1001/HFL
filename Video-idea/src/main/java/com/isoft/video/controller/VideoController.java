@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,25 +34,48 @@ public class VideoController {
     private final VideoUtil handler;
 
     @GetMapping("/play")
-    public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//    @GetMapping(value = "/getVideos")
+    public String getVideos(HttpServletRequest request, HttpServletResponse response) throws Exception{
         String videoPath=videoService.getVideoPath("liu",1);
-        System.out.println(videoPath);
-//        String videoPath = "1.mp4";
         //获取resources文件夹的绝对地址
         String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
-        Path filePath = Paths.get(sourcePath);
-        if (Files.exists(filePath)) {
-            String mimeType = Files.probeContentType(filePath);
-            if (!StringUtils.isEmpty(mimeType)) {
-                response.setContentType(mimeType);
-            }
-            request.setAttribute(VideoUtil.ATTR_FILE, filePath);
-            handler.handleRequest(request, response);
-        } else {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-        }
+        System.out.println(sourcePath);
+        FileInputStream fis = null;
+        OutputStream os = null ;
+        fis = new FileInputStream(sourcePath);
+        int size = fis.available(); // 得到文件大小
+        byte data[] = new byte[size];
+        fis.read(data); // 读数据
+        fis.close();
+//        fis = null;
+        response.setContentType("video/mp4"); // 设置返回的文件类型
+        os = response.getOutputStream();
+        os.write(data);
+        os.flush();
+        os.close();
+//        os = null;
+        return null;
     }
+//    不稳定
+//    public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//        String videoPath=videoService.getVideoPath("liu",1);
+//        System.out.println(videoPath);
+////        String videoPath = "1.mp4";
+//        //获取resources文件夹的绝对地址
+//        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
+//        Path filePath = Paths.get(sourcePath);
+//        if (Files.exists(filePath)) {
+//            String mimeType = Files.probeContentType(filePath);
+//            if (!StringUtils.isEmpty(mimeType)) {
+//                response.setContentType(mimeType);
+//            }
+//            request.setAttribute(VideoUtil.ATTR_FILE, filePath);
+//            handler.handleRequest(request, response);
+//        } else {
+//            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+//            response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+//        }
+//    }
 
 //    @GetMapping("/path")
 //    public String getVideoPath(){
@@ -62,6 +87,6 @@ public class VideoController {
     public List<Video> getAll() {
         return videoService.getAll() ;
     }
-    
+
 
 }
