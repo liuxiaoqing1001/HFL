@@ -1,5 +1,6 @@
 package com.isoft.video.controller;
 
+import com.isoft.video.bean.ResponseData;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
 import com.isoft.video.service.VideoService;
@@ -9,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,5 +90,14 @@ public class VideoController {
         return videoService.getAll() ;
     }
 
+    @DeleteMapping("del/{id}")
+    public ResponseData delById(@PathVariable("id") Integer id) {
+        boolean r = videoService.delById(id) ;
+        return new ResponseData(
+                r ? 0 : 1 ,
+                r ? "删除成功" : "删除失败" ,
+                r
+        ) ;
+    }
 
 }

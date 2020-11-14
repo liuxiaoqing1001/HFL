@@ -1,6 +1,7 @@
 package com.isoft.video.dao;
 
 import com.isoft.video.entity.Video;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,6 +15,9 @@ public interface VideoDao {
 
     @Select("select videopath from tb_video where id=#{id}")
     String getVideoPath(int id );
+
+    @Delete("delete from tb_video where id=#{id}")
+    int delById(Integer id) ;
 
 //    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
 //    Video getVideo(Integer id,String uname);

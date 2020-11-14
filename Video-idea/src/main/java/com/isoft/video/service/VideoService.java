@@ -25,4 +25,5 @@ public interface VideoService {
 
     String getVideoPath(int id );
 
+    boolean delById(Integer id);
 }

@@ -24,4 +24,12 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.getVideoPath(id);
     }
 
+    @Override
+    public boolean delById(Integer id) {
+        if(null == id || id < 1) {
+            return false ;
+        }
+        return videoDao.delById(id) > 0;
+    }
+
 }
