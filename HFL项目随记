@@ -190,6 +190,12 @@ CREATE TABLE tb_video  (
 INSERT INTO tb_video VALUES ('1', '1', 'liu', '星巴克', '咖啡', '2020-11-07 16:42:10', '未审核','1.mp4');
 INSERT INTO tb_video VALUES ('2', '2', 'liu', 'startPark', 'coffe', '2020-10-07 16:42:10', '未审核','tweetsip.mp4');
 
+INSERT INTO tb_videotype VALUES ('1', '影视');
+INSERT INTO tb_videotype VALUES ('2', '新闻');
+INSERT INTO tb_videotype VALUES ('3', '生活');
+INSERT INTO tb_videotype VALUES ('4', '美食');
+INSERT INTO tb_videotype VALUES ('5', '音乐');
+
 tb_user(uid)
 tb_video
 tb_u_v(id,uid,vid,)

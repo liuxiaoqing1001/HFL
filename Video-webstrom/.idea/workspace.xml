@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoTypeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/VideoType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoTypeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-datetimepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/UserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/VideroList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/VideoList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/VideoList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/VideoList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,11 +58,11 @@
       <recent name="D:\WebStorm\workproject\Video\pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bootstrap/css" />
       <recent name="$PROJECT_DIR$/bootstrap/js" />
       <recent name="$PROJECT_DIR$/css/admin" />
       <recent name="D:\WebStorm\workproject\Video\js" />
       <recent name="D:\WebStorm\workproject\Video\bootstrap\js" />
-      <recent name="D:\WebStorm\workproject\Video" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -102,7 +106,7 @@
       <workItem from="1605054384723" duration="9453000" />
       <workItem from="1605140912973" duration="590000" />
       <workItem from="1605227129767" duration="19963000" />
-      <workItem from="1605318274473" duration="11745000" />
+      <workItem from="1605318274473" duration="15261000" />
     </task>
     <servers />
   </component>

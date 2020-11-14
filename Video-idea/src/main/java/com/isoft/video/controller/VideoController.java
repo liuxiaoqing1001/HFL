@@ -4,6 +4,7 @@ import com.isoft.video.bean.ResponseData;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
 import com.isoft.video.service.VideoService;
+import com.isoft.video.service.VideoTypeService;
 import com.isoft.video.util.VideoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class VideoController {
 
     @Autowired
     VideoService videoService;
+
+    @Autowired
+    VideoTypeService videoTypeService;
 
     @GetMapping("/play/{vid}")
     public String getVideos(HttpServletRequest request, HttpServletResponse response,@PathVariable("vid") Integer id) throws Exception{
@@ -82,6 +86,15 @@ public class VideoController {
     @GetMapping("/path")
     public String getVideoPath(){
         return videoService.getVideoPath(1);
+    }
+
+    @GetMapping("/videoType")
+    public ResponseData videoType(){
+        return new ResponseData(
+                0,
+                "请求成功",
+                videoTypeService.getAll()
+        );
     }
 
     //获取数据库全部信息

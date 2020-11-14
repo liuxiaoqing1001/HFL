@@ -22,6 +22,7 @@ var serverPath = "http://localhost:8090/";
 var userPath = serverPath + "user/";
 var videoPath = serverPath + "video/";
 var videoPlayPath = videoPath + "play/";
+var videoType = videoPath + "videoType/";
 var videoAll = videoPath + "getAll/";
 var videoDel = videoPath + "del/";
 

@@ -1,9 +1,25 @@
 $(function () {
 
-    //点击审核页面跳转
-    $("#btnShenHe").click(function () {
-        location.href = "PlayVideo.html" ;
-    })
+    // //点击审核页面跳转
+    // $("#btnShenHe").click(function () {
+    //     location.href = "PlayVideo.html" ;
+    // })
+
+    // console.log(videoType);
+    // 页面初始化时，填充视频类别
+    $.get(
+        videoType ,
+        function(reqData) {
+            if(0 == reqData.errCode) {
+                typeArr = reqData.data ;
+                var str = '' ;
+                $.each(typeArr , function(index , item){
+                    str += '<option value="'+item.id+'">' + item.typename + '</option>' ;
+                });
+                $("#search_typeid").html($("#search_typeid").html() + str) ;
+            }
+        }
+    );
 
 //     $("#videoTable").bootstrapTable({
 //         url:videoAll,
