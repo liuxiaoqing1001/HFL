@@ -144,7 +144,7 @@ $(function () {
         var upData = JSON.stringify(userObj) ;
         console.log(upData) ;
         $.ajax({
-            url : serverPath ,
+            url : userPath ,
             type : 'POST',
             data : upData,
             contentType : 'application/json;charset=UTF-8',

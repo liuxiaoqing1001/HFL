@@ -36,7 +36,7 @@ $(function () {
         } ;
         console.log(user.password)
         $.ajax({
-            url : serverPath + "update" ,
+            url : userPath + "update" ,
             type : 'PUT',
             data : user,
             dataType : 'json' ,

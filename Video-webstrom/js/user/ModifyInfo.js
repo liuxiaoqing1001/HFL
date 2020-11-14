@@ -30,7 +30,7 @@ $(function () {
             phone : $('input[name="userPhone"]').val()
         }
         $.ajax({
-            url : serverPath,//'http://localhost:8090/user'
+            url : userPath,//'http://localhost:8090/user'
             type : 'PUT',
             data : upData,
             dataType : 'json' ,
@@ -45,7 +45,7 @@ $(function () {
         alert("kk")
         var formData=new FormData($("#modifyForm")[0]);
         $.ajax({
-            url : serverPath + 'photo/' ,
+            url : userPath + 'photo/' ,
             type : 'POST' ,
             data : formData ,
             contentType : false ,    // 表单数据含有文件域，必须设置该项

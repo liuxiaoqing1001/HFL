@@ -16,7 +16,7 @@ $(function () {
 
     //使用ajax调用分页的url来计算
     $.ajax({
-        url : serverPath + "page/2" ,
+        url : userPath + "page/2" ,
         type : 'GET',
         contentType : 'application/json;charset=UTF-8',
         dataType : 'json' ,

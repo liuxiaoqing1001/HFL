@@ -1,6 +1,6 @@
 $(function () {
     $("#btnLogin").click(function(){
-        prePath = serverPath + $('#LoginForm input[name="loginName"]').val() + '/' +  $('#LoginForm input[name="loginPass"]').val();
+        prePath = userPath + $('#LoginForm input[name="loginName"]').val() + '/' +  $('#LoginForm input[name="loginPass"]').val();
         console.log(prePath);
         $.get(
             prePath ,

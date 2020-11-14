@@ -18,12 +18,12 @@ function initDate(date) {
     return result ;
 }
 
-var serverPath = "http://localhost:8090/user/";
-var topPath = "http://localhost:8090/";
-var videoPath = topPath+"/video/";
-var videoPlayPath = videoPath+"/play/";
-var videoAll = videoPath+"/getAll/";
-var videoDel = videoPath+"/del/";
+var serverPath = "http://localhost:8090/";
+var userPath = serverPath + "user/";
+var videoPath = serverPath + "video/";
+var videoPlayPath = videoPath + "play/";
+var videoAll = videoPath + "getAll/";
+var videoDel = videoPath + "del/";
 
 // var serverPathManager = serverPath + "/system/" ;
 
