@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootbox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap-table.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/admin/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/VideroList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/VideroList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/VideoList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/VideoList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +97,7 @@
       <workItem from="1605054384723" duration="9453000" />
       <workItem from="1605140912973" duration="590000" />
       <workItem from="1605227129767" duration="19963000" />
-      <workItem from="1605318274473" duration="4487000" />
+      <workItem from="1605318274473" duration="6041000" />
     </task>
     <servers />
   </component>
