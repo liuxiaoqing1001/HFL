@@ -14,5 +14,5 @@ public class VideoType implements Serializable {
     private Integer id ;
     private String typename ;
 
-    private ArrayList<Video> newsList ;
+    private ArrayList<Video> videoArrayList;
 }

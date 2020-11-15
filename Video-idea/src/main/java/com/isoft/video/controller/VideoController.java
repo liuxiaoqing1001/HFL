@@ -23,9 +23,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/video")
-@AllArgsConstructor
+//@AllArgsConstructor
 public class VideoController {
 
     @Autowired
@@ -83,9 +84,13 @@ public class VideoController {
 //        }
 //    }
 
-    @GetMapping("/path")
-    public String getVideoPath(){
-        return videoService.getVideoPath(1);
+    @GetMapping("/path/{vid}")
+    public ResponseData getVideoPath(@PathVariable("vid") Integer vid){
+        return new ResponseData(
+                0,
+                "请求成功",
+                videoService.getVideoPath(vid)
+        );
     }
 
     @GetMapping("/videoType")
