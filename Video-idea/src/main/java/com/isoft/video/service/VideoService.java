@@ -1,8 +1,10 @@
 package com.isoft.video.service;
 
+import com.isoft.video.bean.Page;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
 
+import java.util.Date;
 import java.util.List;
 
 public interface VideoService {
@@ -28,4 +30,6 @@ public interface VideoService {
     boolean delById(Integer id);
 
     boolean delByIds(List<Integer> ids);
+
+    Page<Video> videoPage(Integer typeid, String title, Date pubdate, Integer curPage, Integer size);
 }

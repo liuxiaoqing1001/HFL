@@ -18,11 +18,31 @@
         <h3>视频审核</h3>
         <hr/>
         <div class="video-box">
-            <video id="showVideo" src="" controls="controls"  poster="../../img/photo.png" autoplay><!--autoplay-->
-<!--                <source id="sourceVideo" src="" type="video/mp4">-->
-<!--                播放失败！-->
-                <!--            http://localhost:8090/video/play/2-->
-            </video>
+            <video id="showVideo" src="" controls="controls" poster="../../img/photo.png" autoplay></video>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9 ">
+                <div class="page-header" style="margin-top: 0px">
+                    <h1 class="showTitle text-center"></h1>
+                    <div class="showUName text-center"></div>
+                    <div class="showDate text-center"></div>
+                    <div class="showStatus text-center"></div>
+                    <div class="showDescription text-center"></div>
+                    <div id="operation" class="btn-group">
+                        <button id="btn_pass" type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-ok"></span>通过
+                        </button>
+                        <button id="btn_noPass" type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>不通过
+                        </button>
+                    </div>
+                </div>
+<!--                <div class="showdescription"></div>-->
+            </div>
         </div>
 
 <!--        播放被点击的视频    ？？？？？-->

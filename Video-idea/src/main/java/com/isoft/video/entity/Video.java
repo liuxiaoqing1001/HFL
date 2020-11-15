@@ -17,7 +17,7 @@ public class Video implements Serializable {
     private Integer typeid;
     private String uname;
     private String title;
-    private  String describtion ;
+    private  String description ;
     @DateTimeFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
     @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss" , timezone = "Asia/Shanghai")
     private Date pubdatetime ;

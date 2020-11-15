@@ -3,6 +3,7 @@ package com.isoft.video.dao;
 import com.isoft.video.entity.Video;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -26,6 +27,41 @@ public interface VideoDao {
             "        </foreach>"
             +"</script>")
     int delMoreByIds(List<Integer> idList) ;
+
+    @Select("<script>" +
+            "select * from tb_video" +
+            "        <where>" +
+            "            <if test=\"null != typeid\">" +
+            "                and typeid=#{typeid}" +
+            "            </if>" +
+            "            <if test=\"null != title\">" +
+            "                <bind name=\"titleKey\" value=\"'%'+title+'%'\" />" +
+            "                    and title like #{titleKey}" +
+            "            </if>" +
+            "            <if test=\"null != pubdatetime\">" +
+            "                and DATE_FORMAT(pubdatetime,'%Y%m%d')=#{pubdatetime}" +
+            "            </if>" +
+            "        </where>"+
+            " order by pubdatetime desc limit #{offset},#{rows}" +
+            "</script>")
+    List<Video> getMoreBy(@Param("typeid") Integer typeid, @Param("title") String title, @Param("pubdatetime") String pubdate, @Param("offset") Integer offset, @Param("rows") Integer rows) ;
+
+    @Select("<script>" +
+            "select count(*) from tb_video" +
+            "        <where>" +
+            "            <if test=\"null != typeid\">" +
+            "                and typeid=#{typeid}" +
+            "            </if>" +
+            "            <if test=\"null != title\">" +
+            "                <bind name=\"titleKey\" value=\"'%'+title+'%'\" />" +
+            "                    and title like #{titleKey}" +
+            "            </if>" +
+            "            <if test=\"null != pubdatetime\">" +
+            "                and DATE_FORMAT(pubdatetime,'%Y%m%d')=#{pubdatetime}" +
+            "            </if>" +
+            "        </where>"+
+            "</script>")
+    int getMoreCount(@Param("typeid") Integer typeid, @Param("title") String title, @Param("pubdatetime") String pubdate) ;
 
 //    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
 //    Video getVideo(Integer id,String uname);

@@ -24,7 +24,9 @@ var videoPath = serverPath + "video/";
 var videoPlayPath = videoPath + "play/";
 var videoType = videoPath + "videoType/";
 var videoAll = videoPath + "getAll/";
+var videoPage = videoPath + "page";
 var videoDel = videoPath + "del/";
+var videoDelIds = videoPath + "del/ids";
 
 // var serverPathManager = serverPath + "/system/" ;
 

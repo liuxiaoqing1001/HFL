@@ -1,5 +1,6 @@
 package com.isoft.video.controller;
 
+import com.isoft.video.bean.Page;
 import com.isoft.video.bean.ResponseData;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
@@ -8,6 +9,7 @@ import com.isoft.video.service.VideoTypeService;
 import com.isoft.video.util.VideoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
@@ -21,8 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -103,10 +104,21 @@ public class VideoController {
         );
     }
 
-    //获取数据库全部信息
-    @GetMapping("/getAll")
-    public List<Video> getAll() {
-        return videoService.getAll() ;
+//    //获取数据库全部信息
+//    @GetMapping("/getAll")
+//    public List<Video> getAll() {
+//        return videoService.getAll() ;
+//    }
+
+    //获取数据库全部信息,分页
+    @GetMapping("page")
+    public Map<String,Object> page(Integer curPage, Integer size, Integer typeid,
+                                   String title, @DateTimeFormat(pattern = "yyyy年MM月dd日") Date pubdate){
+        Page<Video> page=videoService.videoPage(typeid,title,pubdate,curPage,size);
+        Map<String,Object> map= new HashMap<>();
+        map.put("total",page.getRowCount());
+        map.put("rows",page.getData());
+        return map;
     }
 
     @DeleteMapping("del/{id}")

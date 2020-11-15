@@ -52,7 +52,7 @@ $(function () {
                 });
                 console.log(ids) ;
                 $.ajax({
-                    url : videoDel + "ids"  ,
+                    url : videoDelIds  ,
                     type : 'DELETE' ,
                     data : ids ,
                     datatype : 'json' ,
@@ -69,7 +69,7 @@ $(function () {
     });
 
     $("#videoTable").bootstrapTable({
-        url:videoAll,
+        url:videoPage,
         method:'GET',
         toolbar : '#toolbar' ,   // 为表格绑定工具栏
         striped: true,			// 显示为斑马线格式，奇偶行不通背景色
@@ -89,23 +89,14 @@ $(function () {
         // 参数设定相关
         queryParamsType: "undefined",  // undefined：提交到服务器端的参数自定义
         queryParams: function(params) {
-            // // 参数params中自带 pageSize , pageNumber , sortName , sortOrder
-            //
-            // // 为params对象增加额外三个属性
-            // params.titleKey = $.trim($("#search_title").val()) ;
-            // params.date = $.trim($("#search_date").val()) ;
-            // console.dir(params) ;
-            // return params ;
-
             // 参数params中自带 pageSize , pageNumber , sortName , sortOrder
-// news/page?curPage=1&size=10&typeid=2&title=小&pubdate=2020年10月01日
             params.curPage = params.pageNumber ;
             params.size = params.pageSize ;
-            // params.title = $.trim($("#search_title").val()) ;
-            // params.pubdate = $.trim($("#search_date").val()) ;
-            // if(-1 != $("#search_typeid").val()) {
-            //     params.typeid = $("#search_typeid").val();
-            // }
+            params.title = $.trim($("#search_title").val()) ;
+            params.pubdate = $.trim($("#search_date").val()) ;
+            if(-1 != $("#search_typeid").val()) {
+                params.typeid = $("#search_typeid").val();
+            }
             return params ;
 
         },
@@ -133,7 +124,8 @@ $(function () {
                 // }
             } ,
             {field :'description',title:'内容简述'},
-            {field : 'uname' , title : '用户名' } ,
+            // {field : 'typeid' , title : '类别'},
+            {field : 'uname' , title : '提交用户' } ,
             {field : 'pubdatetime' , title : '提交日期' } ,
             {field : 'status' , title : '审核状态' } ,
             {
@@ -153,10 +145,9 @@ function operateFormatter(value, row, index) {
     var del = '<button  type="button" class="remove btn btn-xs btn-danger">' +
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除' +
         '</button>';
-    var detail = '<button  type="button" class="detail btn btn-xs btn-info">' +
+    var detail = '<button  type="button" class="check btn btn-xs btn-info">' +
         '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>审核' +
         '</button>';
-    // return del ;
     return detail + "&nbsp;&nbsp;" + del ;
 
 }
@@ -182,9 +173,10 @@ window.operateEvent = {
         }) ;
     } ,
 
-    'click .detail' : function(e , value , row , index) {
+    'click .check' : function(e , value , row , index) {
         sessionStorage.setItem("currentVideo" , JSON.stringify(row)) ;
-        window.open('PlayVideo.html') ;
+        // window.open('PlayVideo.html') ;
+        location.href = "PlayVideo.html" ;
     }
 
 };
