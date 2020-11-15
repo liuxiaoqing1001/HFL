@@ -32,4 +32,12 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.delById(id) > 0;
     }
 
+    @Override
+    public boolean delByIds(List<Integer> ids) {
+        if(null == ids || ids.size() < 1) {
+            return false;
+        }
+        return videoDao.delMoreByIds(ids)>0;
+    }
+
 }

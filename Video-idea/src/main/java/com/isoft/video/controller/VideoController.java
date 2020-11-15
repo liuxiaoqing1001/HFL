@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin
@@ -116,6 +117,16 @@ public class VideoController {
                 r ? "删除成功" : "删除失败" ,
                 r
         ) ;
+    }
+
+    @DeleteMapping("/del/ids")
+    public ResponseData delByIds(Integer[] id){
+        boolean r = videoService.delByIds(Arrays.asList(id));
+        return new ResponseData(
+                r?0:1,
+                r?"删除成功":"删除失败",
+                r
+        );
     }
 
 }

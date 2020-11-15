@@ -19,6 +19,14 @@ public interface VideoDao {
     @Delete("delete from tb_video where id=#{id}")
     int delById(Integer id) ;
 
+    @Delete("<script>" +
+            "        delete from tb_video where id in" +
+            "        <foreach collection=\"list\" item=\"delid\" separator=\",\" open=\"(\"  close=\")\">" +
+            "            #{delid}" +
+            "        </foreach>"
+            +"</script>")
+    int delMoreByIds(List<Integer> idList) ;
+
 //    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
 //    Video getVideo(Integer id,String uname);
 }
