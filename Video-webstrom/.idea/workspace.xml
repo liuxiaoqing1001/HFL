@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/MsgDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/MsgDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/MsgService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/MsgService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/MsgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/MsgServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +106,7 @@
       <workItem from="1605318274473" duration="15261000" />
       <workItem from="1605409724115" duration="9895000" />
       <workItem from="1605486610822" duration="17532000" />
+      <workItem from="1605526415495" duration="2730000" />
     </task>
     <servers />
   </component>

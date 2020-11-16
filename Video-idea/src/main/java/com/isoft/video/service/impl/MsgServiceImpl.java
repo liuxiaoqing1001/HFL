@@ -5,7 +5,6 @@ import com.isoft.video.entity.Msg;
 import com.isoft.video.service.MsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -17,8 +16,8 @@ public class MsgServiceImpl implements MsgService {
     MsgDao msgDao;
 
     @Override
-    public List<Msg> getAll(String receiver) {
-        return msgDao.getAll(receiver);
+    public List<Msg> getAllMsg(String receiver) {
+        return msgDao.getAllMsg(receiver);
     }
 
     @Override

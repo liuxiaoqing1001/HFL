@@ -2,7 +2,9 @@ package com.isoft.video.controller;
 
 import com.isoft.video.bean.Page;
 import com.isoft.video.bean.ResponseData;
+import com.isoft.video.entity.Msg;
 import com.isoft.video.entity.User;
+import com.isoft.video.service.MsgService;
 import com.isoft.video.service.UserService;
 import com.isoft.video.util.FileUtil;
 import org.apache.ibatis.annotations.Param;
@@ -29,6 +31,9 @@ import java.util.Map;
 public class UserController {
     @Autowired
     UserService userService ;
+
+    @Autowired
+    MsgService msgService;
 
     @GetMapping("{name}/{pwd}")
     public ResponseData login(@PathVariable("name") String name , @PathVariable("pwd") String password) {
@@ -63,17 +68,6 @@ public class UserController {
         ) ;
     }
 
-
-    // @PostMapping()
-    public ResponseData register(@RequestBody User user) {
-        Map<String , Object> map = new HashMap<>() ;
-        map.put("name" , user.getName()) ;
-        map.put("password" , user.getPassword()) ;
-        return register(map) ;
-
-    }
-    // POST   http://localhost:8090/user , 上传信息是json格式数据
-    //				{"name":"张三","password":"123"}
     @PostMapping("")
     public ResponseData register(@RequestBody Map<String , Object> map) {
         User user = new User() ;
@@ -196,5 +190,10 @@ public class UserController {
     @GetMapping("/getAll")
     public List<User> getAll() {
         return userService.getAll() ;
+    }
+
+    @GetMapping("/getAllMsg/{receiver}")
+    public List<Msg> getAllMsg(@PathVariable("receiver") String uname) {
+        return msgService.getAllMsg(uname) ;
     }
 }

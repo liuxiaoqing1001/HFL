@@ -11,7 +11,7 @@ import java.util.List;
 public interface MsgDao {
 
     @Select("select * from tb_msg where receiver=#{receiver}")
-    List<Msg> getAll(String receiver);
+    List<Msg> getAllMsg(String receiver);
 
     @Insert("insert into tb_msg(title,content,sender,receiver,time) " +
             "values(#{title},#{content},#{sender},#{receiver},#{time})")

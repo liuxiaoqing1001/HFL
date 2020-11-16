@@ -202,6 +202,7 @@ CREATE TABLE tb_msg  (
   title varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   content varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   sender varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  receiver varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   time datetime(0) NOT NULL,
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
