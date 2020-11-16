@@ -44,10 +44,6 @@
       {
         "text": "<span class='glyphicon glyphicon-list' /> 视频列表",
         "href":"VideoList.html"
-      },
-      {
-        "text": "<span class='glyphicon glyphicon-play-circle' /> 视频审核",
-        "href":"CheckList.html"
       }
     ]
   },

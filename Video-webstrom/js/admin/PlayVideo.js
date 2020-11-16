@@ -21,39 +21,35 @@ $(function () {
 
         $("#btn_pass").click(function () {
                 console.log(getDateStr(new Date()));
-                $.ajax({
-                        url : videoUpStatus ,
-                        type : 'POST',
-                        data : id,
-                        success:function (datas) {
-                                bootbox.confirm('发送审核通过结果' , function(confirmData) {
-                                        if(confirmData) {
-                                                // 使用Ajax提交表单并进行校验
-                                                var msgObj = {
-                                                        title : '审核结果',
-                                                        content : '视频审核通过！',
-                                                        sender : 'admin',
-                                                        receiver : video.uname,
-                                                        time : getDateStr(new Date())
-                                                } ;
-                                                var passData = JSON.stringify(msgObj) ;
-
-                                                $.ajax({
-                                                        url : videoAddMsg ,
-                                                        type : 'POST',
-                                                        data : passData,
-                                                        contentType : 'application/json;charset=UTF-8',
-                                                        dataType : 'json' ,
-                                                        success : function(reqData){
-                                                                console.log(reqData)
-                                                                alert(reqData.msg) ;
-                                                                location.href = "VideoList.html" ;
-                                                        }
-                                                });
-                                        }
-                                })
-                        }
-                });
+                $.get(
+                    videoUpStatus + id,
+                    function (datas) {
+                            bootbox.confirm('发送审核通过结果' , function(confirmData) {
+                                    if(confirmData) {
+                                            // 使用Ajax提交表单并进行校验
+                                            var msgObj = {
+                                                    title : '审核结果',
+                                                    content : '视频审核通过！',
+                                                    sender : 'admin',
+                                                    receiver : video.uname,
+                                                    time : new Date()
+                                            } ;
+                                            // var passData = JSON.stringify(msgObj) ;
+                                            $.ajax({
+                                                    url : videoAddMsg ,
+                                                    type : 'POST',
+                                                    data : msgObj,
+                                                    contentType : 'application/json;charset=UTF-8',
+                                                    dataType : 'json' ,
+                                                    success : function(reqData){
+                                                            console.log(reqData)
+                                                            alert(reqData.msg) ;
+                                                            location.href = "VideoList.html" ;
+                                                    }
+                                            });
+                                    }
+                            })
+                    });
         });
 
         $("#btn_noPass").click(function () {
@@ -69,12 +65,12 @@ $(function () {
                                         receiver : video.uname,
                                         time : new Date()
                                 } ;
-                                var noPassData = JSON.stringify(msgObj) ;
+                                // var noPassData = JSON.stringify(msgObj) ;
 
                                 $.ajax({
                                         url : videoAddMsg ,
                                         type : 'POST',
-                                        data : noPassData,
+                                        data : msgObj,
                                         contentType : 'application/json;charset=UTF-8',
                                         dataType : 'json' ,
                                         success : function(reqData){

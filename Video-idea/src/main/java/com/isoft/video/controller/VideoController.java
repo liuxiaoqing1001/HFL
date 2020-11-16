@@ -148,14 +148,18 @@ public class VideoController {
         );
     }
 
-    @PostMapping("/update/status/{id}")
+    @GetMapping("/update/status/{id}")
     public ResponseData updateStatus(@PathVariable("id") Integer id){
-        boolean result = videoService.updateStatus(id);
-        return new ResponseData(
-                result?0:1,
-                result?"修改审核状态成功":"修改审核状态失败",
-                result
-        );
+        if(id== null || id < 1) {
+            return null ;
+        }else {
+            boolean result = videoService.updateStatus(id);
+            return new ResponseData(
+                    result?0:1,
+                    result?"修改审核状态成功":"修改审核状态失败",
+                    result
+            );
+        }
     }
 
     @PostMapping("/addMsg")
