@@ -126,7 +126,7 @@ $(function () {
             {field :'description',title:'内容简述'},
             // {field : 'typeid' , title : '类别'},
             {field : 'uname' , title : '提交用户' } ,
-            {field : 'pubdatetime' , title : '提交日期' } ,
+            {field : 'pubdatetime' , title : '提交时间' } ,
             {field : 'status' , title : '审核状态' } ,
             {
                 title : '' ,

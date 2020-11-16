@@ -17,7 +17,7 @@ $(function () {
         $(".showUName").text(video.uname);
         $(".showDate").text(video.pubdatetime) ;
         $(".showStatus").text(video.status);
-        $(".showdescription").html(video.description) ;
+        $(".showDescription").text(video.description) ;
 
         if(video.status=="通过"){
                 $("#btn_pass").text("返回");
@@ -37,7 +37,18 @@ $(function () {
                                                 // time : initDate(new Date())
                                         } ;
                                         var msgData = JSON.stringify(msgObj) ;
-                                        videoAddMsg(msgData);
+                                        $.ajax({
+                                                url : videoAddMsg ,
+                                                type : 'POST',
+                                                data : msgData,
+                                                contentType : 'application/json;charset=UTF-8',
+                                                dataType : 'json' ,
+                                                success : function(reqData){
+                                                        console.log(reqData);
+                                                        alert(reqData.msg) ;
+                                                        location.href = "VideoList.html" ;
+                                                }
+                                        });
                                 }
                         });
                 });
@@ -57,7 +68,18 @@ $(function () {
                                                             // time : initDate(new Date())
                                                     } ;
                                                     var passData = JSON.stringify(msgObj);
-                                                    videoAddMsg(passData);
+                                                    $.ajax({
+                                                            url : videoAddMsg ,
+                                                            type : 'POST',
+                                                            data : passData,
+                                                            contentType : 'application/json;charset=UTF-8',
+                                                            dataType : 'json' ,
+                                                            success : function(reqData){
+                                                                    console.log(reqData);
+                                                                    alert(reqData.msg) ;
+                                                                    location.href = "VideoList.html" ;
+                                                            }
+                                                    });
                                             }
                                     });
                             });
@@ -77,24 +99,20 @@ $(function () {
                                                 // time : initDate(new Date())
                                         } ;
                                         var noPassData = JSON.stringify(msgObj);
-                                        videoAddMsg(noPassData);
+                                        $.ajax({
+                                                url : videoAddMsg ,
+                                                type : 'POST',
+                                                data : noPassData,
+                                                contentType : 'application/json;charset=UTF-8',
+                                                dataType : 'json' ,
+                                                success : function(reqData){
+                                                        console.log(reqData);
+                                                        alert(reqData.msg) ;
+                                                        location.href = "VideoList.html" ;
+                                                }
+                                        });
                                 }
                         });
                 });
         }
 });
-
-function videoAddMsg(msgData) {
-        $.ajax({
-                url : videoAddMsg ,
-                type : 'POST',
-                data : msgData,
-                contentType : 'application/json;charset=UTF-8',
-                dataType : 'json' ,
-                success : function(reqData){
-                        console.log(reqData);
-                        alert(reqData.msg) ;
-                        location.href = "VideoList.html" ;
-                }
-        });
-}

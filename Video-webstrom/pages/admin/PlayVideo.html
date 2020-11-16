@@ -20,22 +20,21 @@
     <div class="container-fluid">
         <h3>视频审核</h3>
         <hr/>
-        <div class="video-box">
-            <video id="showVideo" src="" controls="controls" poster="../../img/photo.png" autoplay></video>
-        </div>
+<!--        <div class="video-box">-->
+<!--        </div>-->
 
         <div class="row">
-            <div class="col-md-3">
-
+            <div class="col-md-5">
+                <video id="showVideo" src="" controls="controls" poster="../../img/photo.png" autoplay></video>
             </div>
-            <div class="col-md-9 ">
-                <div class="page-header" style="margin-top: 0px">
-                    <h1 class="showTitle text-center"></h1>
-                    <div class="showUName text-center"></div>
-                    <div class="showDate text-center"></div>
-                    <div class="showStatus text-center"></div>
-                    <div class="showDescription text-center"></div>
-                    <div id="operation" class="btn-group">
+            <div class="col-md-2">
+                <div class="page-header" style="margin-top: 10px">
+                    <h1 class="showTitle text-left"></h1>
+                    <p>提交用户：<span class="showUName text-left"></span></p>
+                    <p>提交时间：<span class="showDate text-left"></span></p>
+                    <p>审核状态：<span class="showStatus text-left"></span></p>
+                    <p>内容简述：<span class="showDescription text-left"></span></p>
+                    <div id="operation" class="btn-group text-right">
                         <button id="btn_pass" type="button" class="btn btn-success">
                             <span class="glyphicon glyphicon-ok"></span>通过
                         </button>
@@ -44,7 +43,7 @@
                         </button>
                     </div>
                 </div>
-<!--                <div class="showdescription"></div>-->
+                <div class="showdescription"></div>
             </div>
         </div>
 
