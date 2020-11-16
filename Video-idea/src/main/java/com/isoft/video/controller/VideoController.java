@@ -27,6 +27,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.util.*;
 
 @CrossOrigin
@@ -169,7 +170,7 @@ public class VideoController {
         msg.setContent((String)map.get("content"));
         msg.setSender((String)map.get("sender"));
         msg.setReceiver((String)map.get("receiver"));
-        msg.setTime((Date) map.get("time"));
+        msg.setTime(new Date());
         Integer result = msgService.addMsg(msg) ;
         String str = "" ;
         switch (result) {

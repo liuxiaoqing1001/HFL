@@ -4,10 +4,7 @@
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/CheckList.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/admin/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/CheckList.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +98,7 @@
       <workItem from="1605227129767" duration="19963000" />
       <workItem from="1605318274473" duration="15261000" />
       <workItem from="1605409724115" duration="9895000" />
-      <workItem from="1605486610822" duration="8338000" />
+      <workItem from="1605486610822" duration="15269000" />
     </task>
     <servers />
   </component>
