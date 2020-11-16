@@ -175,6 +175,12 @@ CREATE TABLE tb_videotype  (
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
+INSERT INTO tb_videotype VALUES ('1', '影视');
+INSERT INTO tb_videotype VALUES ('2', '新闻');
+INSERT INTO tb_videotype VALUES ('3', '生活');
+INSERT INTO tb_videotype VALUES ('4', '美食');
+INSERT INTO tb_videotype VALUES ('5', '音乐');
+
 CREATE TABLE tb_video  (
   id int(5) NOT NULL,
   typeid int(5) NOT NULL,
@@ -191,11 +197,17 @@ INSERT INTO tb_video VALUES ('1', '1', 'liu', '星巴克', '咖啡', '2020-11-07
 INSERT INTO tb_video VALUES ('2', '2', 'liu', 'startPark', 'coffe', '2020-10-07 16:42:10', '未审核','tweetsip.mp4');
 INSERT INTO tb_video VALUES ('3', '1', 'wang', 'python', '爬虫', '2020-11-07 16:42:10', '审核通过','1.mp4');
 
-INSERT INTO tb_videotype VALUES ('1', '影视');
-INSERT INTO tb_videotype VALUES ('2', '新闻');
-INSERT INTO tb_videotype VALUES ('3', '生活');
-INSERT INTO tb_videotype VALUES ('4', '美食');
-INSERT INTO tb_videotype VALUES ('5', '音乐');
+CREATE TABLE tb_msg  (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  title varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  content varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  sender varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  time datetime(0) NOT NULL,
+  PRIMARY KEY (id) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+title:审核结果
+
 
 tb_user(uid)
 tb_video

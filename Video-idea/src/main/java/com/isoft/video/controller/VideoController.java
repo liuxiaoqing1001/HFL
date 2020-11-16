@@ -2,12 +2,16 @@ package com.isoft.video.controller;
 
 import com.isoft.video.bean.Page;
 import com.isoft.video.bean.ResponseData;
+import com.isoft.video.entity.Msg;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
+import com.isoft.video.service.MsgService;
+import com.isoft.video.service.UserService;
 import com.isoft.video.service.VideoService;
 import com.isoft.video.service.VideoTypeService;
 import com.isoft.video.util.VideoUtil;
 import lombok.AllArgsConstructor;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.ModelMap;
@@ -36,6 +40,9 @@ public class VideoController {
 
     @Autowired
     VideoTypeService videoTypeService;
+
+    @Autowired
+    MsgService msgService;
 
     @GetMapping("/play/{vid}")
     public String getVideos(HttpServletRequest request, HttpServletResponse response,@PathVariable("vid") Integer id) throws Exception{
@@ -139,6 +146,44 @@ public class VideoController {
                 r?"删除成功":"删除失败",
                 r
         );
+    }
+
+    @PostMapping("/update/status/{id}")
+    public ResponseData updateStatus(@PathVariable("id") Integer id){
+        boolean result = videoService.updateStatus(id);
+        return new ResponseData(
+                result?0:1,
+                result?"修改审核状态成功":"修改审核状态失败",
+                result
+        );
+    }
+
+    @PostMapping("/addMsg")
+    public ResponseData addMsg(@RequestBody Map<String , Object> map) {
+        Msg msg = new Msg() ;
+        msg.setTitle((String)map.get("title"));
+        msg.setContent((String)map.get("content"));
+        msg.setSender((String)map.get("sender"));
+        msg.setReceiver((String)map.get("receiver"));
+        msg.setTime((Date) map.get("time"));
+        Integer result = msgService.addMsg(msg) ;
+        String str = "" ;
+        switch (result) {
+            case MsgService.REG_MSG_OK :
+                str = "发送消息成功" ;
+                break;
+            case MsgService.REG_MSG_FAIL_INFO_NON:
+                str = "信息不完整" ;
+                break;
+            default :
+                str = "发送失败" ;
+                break;
+        }
+        return new ResponseData(
+                result ,
+                str,
+                result == 0
+        ) ;
     }
 
 }

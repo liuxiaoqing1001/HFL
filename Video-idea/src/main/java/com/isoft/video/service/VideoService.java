@@ -32,4 +32,7 @@ public interface VideoService {
     boolean delByIds(List<Integer> ids);
 
     Page<Video> videoPage(Integer typeid, String title, Date pubdate, Integer curPage, Integer size);
+
+    boolean updateStatus(Integer id);
+
 }

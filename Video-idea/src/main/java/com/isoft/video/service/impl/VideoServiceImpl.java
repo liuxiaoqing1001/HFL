@@ -77,4 +77,12 @@ public class VideoServiceImpl implements VideoService {
         return pageInfo ;
     }
 
+    @Override
+    public boolean updateStatus(Integer id) {
+        if(null == id || id < 1) {
+            return false ;
+        }
+        return videoDao.updateStatus(id)>0;
+    }
+
 }

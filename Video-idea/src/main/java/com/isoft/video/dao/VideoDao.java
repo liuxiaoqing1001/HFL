@@ -1,10 +1,7 @@
 package com.isoft.video.dao;
 
 import com.isoft.video.entity.Video;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -62,6 +59,9 @@ public interface VideoDao {
             "        </where>"+
             "</script>")
     int getMoreCount(@Param("typeid") Integer typeid, @Param("title") String title, @Param("pubdatetime") String pubdate) ;
+
+    @Update("update tb_video set status='通过' where id=#{id}")
+    int updateStatus(Integer id);
 
 //    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
 //    Video getVideo(Integer id,String uname);
