@@ -69,10 +69,16 @@ h4 {
 }
 
 .sortDiv {
-    background-color: #3b3a3a;
+    background-color: #3c3c3c;
     color: #fff;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.sortDiv a{
+    color: white;
+    margin-left: 10px;
 }
 
 
