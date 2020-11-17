@@ -20,10 +20,10 @@ $(function () {
                         '<span class="msg-title">'+item.title+'</span>'+
                         '<span class="option">'+
                         '<em class="data-time">'+item.time+'</em>'+
-                        '<a id="'+item.id+'" class="glyphicon glyphicon-remove">删除</a>'+
                         '</span>'+
                         '<div class="content">'+
                         '<p class="msg">'+item.content+'</p></div></li>';
+                    //'<a id="'+item.id+'" class="glyphicon glyphicon-remove">删除</a>'+
                     i++;
                     // console.log(str);
                 });
@@ -31,5 +31,18 @@ $(function () {
             }
         }
     );
+
+    // $.ajax({
+    //     url : msgDel + row.id ,
+    //     type : 'DELETE' ,
+    //     datatype : 'json' ,
+    //     success : function(reqData) {
+    //         bootbox.alert(reqData.msg) ;
+    //         if(0 == reqData.errCode) {
+    //             // 表格刷新
+    //             $("#videoTable").bootstrapTable('refresh') ;
+    //         }
+    //     }
+    // });
 
 });

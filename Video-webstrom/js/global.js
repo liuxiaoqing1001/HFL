@@ -30,6 +30,7 @@ var videoDelIds = videoDel + "ids/";
 var videoUpStatus = videoPath + "update/status/";
 var videoAddMsg = videoPath + "addMsg/";
 var msgAllReceiver = userPath + "getAllMsg/";
+// var msgDel = userPath + "delMsg/";
 
 // var serverPathManager = serverPath + "/system/" ;
 
