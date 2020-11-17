@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -198,6 +195,26 @@ public class UserController {
                 0,
                 "请求成功",
                 msgService.getAllMsg(uname)
+        );
+    }
+
+    @DeleteMapping("delMsg/{id}")
+    public ResponseData delById(@PathVariable("id") Integer id) {
+        boolean r = msgService.delById(id) ;
+        return new ResponseData(
+                r ? 0 : 1 ,
+                r ? "删除成功" : "删除失败" ,
+                r
+        ) ;
+    }
+
+    @DeleteMapping("/delAll/{uname}")
+    public ResponseData delByIds(@PathVariable("uname") String uname){
+        boolean r = msgService.delAll(uname);
+        return new ResponseData(
+                r?0:1,
+                r?"删除成功":"删除失败",
+                r
         );
     }
 }

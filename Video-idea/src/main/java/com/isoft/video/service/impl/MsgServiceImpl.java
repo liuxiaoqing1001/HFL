@@ -38,4 +38,20 @@ public class MsgServiceImpl implements MsgService {
             return REG_MSG_FAIL_OTHER ;
         }
     }
+
+    @Override
+    public boolean delById(Integer id) {
+        if(null == id || id < 1) {
+            return false ;
+        }
+        return msgDao.delById(id) > 0;
+    }
+
+    @Override
+    public boolean delAll(String uname) {
+        if(uname!=null) {
+            return false ;
+        }
+        return msgDao.delAll(uname) > 0;
+    }
 }

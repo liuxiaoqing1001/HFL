@@ -14,4 +14,7 @@ public interface MsgService {
     List<Msg> getAllMsg(String receiver);
     Integer addMsg(Msg msg) ;
 
+    boolean delById(Integer id);
+
+    boolean delAll(String uname);
 }

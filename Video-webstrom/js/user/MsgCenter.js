@@ -1,7 +1,7 @@
 $(function () {
 
     // 日期
-    setInterval(function () { 
+    setInterval(function () {
         var now = new Date() ;
         document.getElementById("showDt").innerHTML = initDate(now) ;
     },1000);
