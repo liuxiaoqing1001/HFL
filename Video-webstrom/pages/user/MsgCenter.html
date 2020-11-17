@@ -6,13 +6,38 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>消息列表</title>
 
-    <script src="../js/global.js"></script>
+    <link rel="stylesheet" href="../../css/user/MsgCenter.css">
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/user/MsgCenter.js"></script>
+
 </head>
 <body>
 <div class="container-fluid">
     <h3>消息列表</h3>
     <hr/>
-
+    <div class="row">
+        <div class="msg-clear">
+            <span class="msg-cl text-right">
+                <a class="cl">清空所有消息</a>
+            </span>
+        </div>
+        <div class="msg-list">
+            <ul class="list">
+                <li id="li_0" class="msg-unread">
+                    <span id="notice" class="msg-type">aaa</span>
+                    <span class="msg-title">ss</span>
+                    <span class="option">
+                        <em class="data-time">2020-11-17</em>
+                        <a class="delete">图标</a>
+                    </span>
+                    <div class="content">
+                        <span>xxxx</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 </body>
 </html>
