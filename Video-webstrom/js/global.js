@@ -23,12 +23,13 @@ var userPath = serverPath + "user/";
 var videoPath = serverPath + "video/";
 var videoPlayPath = videoPath + "play/";
 var videoType = videoPath + "videoType/";
-var videoAll = videoPath + "getAll/";
+// var videoAll = videoPath + "getAll/";
 var videoPage = videoPath + "page/";
 var videoDel = videoPath + "del/";
 var videoDelIds = videoDel + "ids/";
 var videoUpStatus = videoPath + "update/status/";
-var videoAddMsg = videoPath + "addMsg";
+var videoAddMsg = videoPath + "addMsg/";
+var msgAllReceiver = userPath + "getAllMsg/";
 
 // var serverPathManager = serverPath + "/system/" ;
 
