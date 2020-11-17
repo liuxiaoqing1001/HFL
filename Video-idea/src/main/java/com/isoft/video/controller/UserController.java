@@ -193,7 +193,11 @@ public class UserController {
     }
 
     @GetMapping("/getAllMsg/{receiver}")
-    public List<Msg> getAllMsg(@PathVariable("receiver") String uname) {
-        return msgService.getAllMsg(uname) ;
+    public ResponseData getAllMsg(@PathVariable("receiver") String uname) {
+        return new ResponseData(
+                0,
+                "请求成功",
+                msgService.getAllMsg(uname)
+        );
     }
 }

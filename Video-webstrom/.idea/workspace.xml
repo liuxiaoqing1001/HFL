@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/MsgCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/MsgCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../excellentcourse_springboot" beforeDir="false" afterPath="$PROJECT_DIR$/../excellentcourse_springboot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +104,7 @@
       <workItem from="1605409724115" duration="9895000" />
       <workItem from="1605486610822" duration="17532000" />
       <workItem from="1605526415495" duration="2730000" />
-      <workItem from="1605575513980" duration="8387000" />
+      <workItem from="1605575513980" duration="15125000" />
     </task>
     <servers />
   </component>
@@ -122,6 +129,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" width="777" height="824" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1604651101918" />
+    <state x="1014" y="251" key="run.anything.popup" timestamp="1605596163440">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="1014" y="251" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1605596163440" />
     <state x="998" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1604888777026">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
