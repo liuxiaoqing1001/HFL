@@ -67,9 +67,10 @@ function getVideoByType(videoData) {
     var str = '' ;
     $.each(videoArr , function(index , item){
         if(index<4){
-            sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
+            // sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
+            // var thisVideo=JSON.parse(sessionStorage.getItem("thisVideo"));
             str += '<div class="flexitem">'+
-                '<a href="PlayVideo.html">'+
+                '<a href="PlayVideo.html?id=">'+
                 '<img src="../../img/yyqx1.jpg" height="220" width="300"/>'+
                 '</a>'+
                 '<p>'+
