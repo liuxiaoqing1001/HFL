@@ -21,6 +21,6 @@ public interface MsgDao {
     @Delete("delete from tb_msg where id=#{id}")
     int delById(Integer id) ;
 
-    @Delete("delete from tb_msg where receiver=#{uname}")
-    int delAll(String uname);
+    @Delete("delete from tb_msg where receiver=#{receiver}")
+    int delAll(String receiver);
 }

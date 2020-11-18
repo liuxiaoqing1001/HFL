@@ -208,9 +208,9 @@ public class UserController {
         ) ;
     }
 
-    @DeleteMapping("/delAll/{uname}")
-    public ResponseData delByIds(@PathVariable("uname") String uname){
-        boolean r = msgService.delAll(uname);
+    @DeleteMapping("/delAll/{receiver}")
+    public ResponseData delByIds(@PathVariable("receiver") String receiver){
+        boolean r = msgService.delAll(receiver);
         return new ResponseData(
                 r?0:1,
                 r?"删除成功":"删除失败",

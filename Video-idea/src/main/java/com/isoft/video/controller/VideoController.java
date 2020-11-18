@@ -191,4 +191,13 @@ public class VideoController {
         ) ;
     }
 
+    @GetMapping("/getVideoByType/{typename}")
+    public ResponseData getVideoByType(@PathVariable("typename") String typename) {
+        return new ResponseData(
+                0,
+                "请求成功",
+                videoService.getVideoByType(typename)
+        );
+    }
+
 }

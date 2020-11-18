@@ -10,4 +10,7 @@ import java.util.List;
 public interface VideoTypeDao {
     @Select("select * from tb_videotype")
     List<VideoType> getAll() ;
+
+    @Select("select id from tb_videotype where typename=#{typename}")
+    Integer getIdByName(String typename);
 }

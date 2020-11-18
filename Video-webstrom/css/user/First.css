@@ -138,6 +138,12 @@ h4 {
     margin: 0 auto;
 }
 
+.hr{
+    background-color:blue;
+    height:1px;
+    border:none;
+}
+
 .font {
     padding-top: 20px!important;
 }

@@ -7,6 +7,7 @@ $(function () {
     },1000);
 
     $.get(
+        //"liu“替换成用户名
         msgAllReceiver + "liu" ,
         function(msgData) {
             // console.log(msgData);

@@ -35,4 +35,6 @@ public interface VideoService {
 
     boolean updateStatus(Integer id);
 
+    List<Video> getVideoByType(String typename);
+
 }

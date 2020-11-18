@@ -8,29 +8,75 @@ $(function () {
         interval: 2000
     });
 
+
     $.get(
-        msgAllReceiver + "liu" ,
-        function(msgData) {
-            // console.log(msgData);
-            if(0 == msgData.errCode) {
-                msgArr = msgData.data ;
-                var str = '' ;
-                var i=0;
-                $.each(msgArr , function(index , item){
-                    str += '<li id="'+"li_"+i+'">'+
-                        '<span id="sender" class="msg-type">'+item.sender+'</span>'+
-                        '<span class="msg-title">'+item.title+'</span>'+
-                        '<span class="option">'+
-                        '<em class="data-time">'+item.time+'</em>'+
-                        '</span>'+
-                        '<div class="content">'+
-                        '<p class="msg">'+item.content+'</p></div></li>';
-                    //'<a id="'+item.id+'" class="glyphicon glyphicon-remove">删除</a>'+
-                    i++;
-                    // console.log(str);
-                });
-                $(".list").append(str) ;
+        videoByType + "影视" ,
+        function(videoData) {
+            // console.log(videoData);
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#type1").append(str) ;
             }
         }
     );
+
+    $.get(
+        videoByType + "新闻" ,
+        function(videoData) {
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#type2").append(str) ;
+            }
+        }
+    );
+
+    $.get(
+        videoByType + "生活" ,
+        function(videoData) {
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#type3").append(str) ;
+            }
+        }
+    );
+
+    $.get(
+        videoByType + "美食" ,
+        function(videoData) {
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#type4").append(str) ;
+            }
+        }
+    );
+
+    $.get(
+        videoByType + "音乐" ,
+        function(videoData) {
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#type5").append(str) ;
+            }
+        }
+    );
+
 });
+
+function getVideoByType(videoData) {
+    videoArr = videoData.data ;
+    var str = '' ;
+    $.each(videoArr , function(index , item){
+        if(index<4){
+            sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
+            str += '<div class="flexitem">'+
+                '<a href="PlayVideo.html">'+
+                '<img src="../../img/yyqx1.jpg" height="220" width="300"/>'+
+                '</a>'+
+                '<p>'+
+                '<a href="PlayVideo.html">'+item.title+'</a>'+
+                '</p>'+
+                '</div>';
+        }
+    });
+    return str;
+}

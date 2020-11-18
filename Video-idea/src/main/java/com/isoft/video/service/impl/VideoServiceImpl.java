@@ -2,6 +2,7 @@ package com.isoft.video.service.impl;
 
 import com.isoft.video.bean.Page;
 import com.isoft.video.dao.VideoDao;
+import com.isoft.video.dao.VideoTypeDao;
 import com.isoft.video.entity.Video;
 import com.isoft.video.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     VideoDao videoDao;
+
+    @Autowired
+    VideoTypeDao videoTypeDao;
 
     @Override
     public List<Video> getAll() {
@@ -83,6 +87,15 @@ public class VideoServiceImpl implements VideoService {
             return false ;
         }
         return videoDao.updateStatus(id)>0;
+    }
+
+    @Override
+    public List<Video> getVideoByType(String typename) {
+        if(typename==null) {
+            return null ;
+        }
+        Integer id = videoTypeDao.getIdByName(typename);
+        return videoDao.getVideoByType(id);
     }
 
 }

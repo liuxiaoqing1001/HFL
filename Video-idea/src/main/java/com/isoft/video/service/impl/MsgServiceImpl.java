@@ -48,10 +48,10 @@ public class MsgServiceImpl implements MsgService {
     }
 
     @Override
-    public boolean delAll(String uname) {
-        if(uname!=null) {
+    public boolean delAll(String receiver) {
+        if(receiver!=null) {
             return false ;
         }
-        return msgDao.delAll(uname) > 0;
+        return msgDao.delAll(receiver) > 0;
     }
 }
