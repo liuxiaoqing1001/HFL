@@ -70,7 +70,7 @@ function getVideoByType(videoData) {
             // sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
             // var thisVideo=JSON.parse(sessionStorage.getItem("thisVideo"));
             str += '<div class="flexitem">'+
-                '<a href="PlayVideo.html?id=">'+
+                '<a href="PlayVideo.html?'+item.title+'">'+
                 '<img src="../../img/yyqx1.jpg" height="220" width="300"/>'+
                 '</a>'+
                 '<p>'+
@@ -78,6 +78,7 @@ function getVideoByType(videoData) {
                 '</p>'+
                 '</div>';
         }
+        sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
     });
     return str;
 }
