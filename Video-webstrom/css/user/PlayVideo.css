@@ -4,13 +4,45 @@
 }
 
 .video-box{
-    /*margin: 0 auto;*/
-    min-width: 1080px;
-    max-width: 1080px;
+    margin: 0 auto;
+    /*min-width: 1080px;*/
+    /*max-width: 1080px;*/
 }
 
 .video-box video{
     width: 100%;
+}
+
+.videoMsg{
+    font-size: 20px;
+    color: blue;
+}
+
+span{
+    font-size: 18px;
+}
+
+.opera{
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.num{
+    font-size: 14px;
+    color: blue;
+}
+
+.msg-sender{
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    padding: 0 5px;
+    color: blue;
+    font-style: normal;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    vertical-align: top;
 }
 
 /*.content-box{*/

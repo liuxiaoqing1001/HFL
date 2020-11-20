@@ -18,3 +18,8 @@
     min-width: 500px;
     max-width: 600px;
 }
+
+.videoMsg{
+    font-size: 16px;
+    color: #1b6d85;
+}

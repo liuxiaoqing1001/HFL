@@ -10,16 +10,47 @@ $(function () {
 
         // $(".showTitle").html("title");
 
-        // $.get(
-        //     videoById + id ,
-        //     function(videoData) {
-        //             console.log(videoData);
-        //             if(0 == videoData.errCode) {
-        //                     video = videoData.data ;
-        //                     $("#title").val(video.title);
-        //             }
-        //     }
-        // );
+        $.get(
+            videoById + id ,
+            function(videoData) {
+                    console.log(videoData);
+                    if(0 == videoData.errCode) {
+                            video = videoData.data ;
+                            $(".showTitle").html(video.title);
+                            $(".showUName").text(video.uname);
+                            $(".showDate").text(video.pubdatetime) ;
+                            $(".showDescription").text(video.description) ;
+                    }
+            }
+        );
+
+        $.get(
+            commentByVid + id ,
+            function(commentData) {
+                    console.log(commentData);
+                    if(0 == commentData.errCode) {
+                            commentArr = commentData.data ;
+                            console.log(commentArr);
+                            var str = '' ;
+                            var i=0;
+                            if(commentArr.length==0){
+                                    str='<p class="comment">该视频还没有评论<p>';
+                            }else {
+                                    $.each(commentArr , function(index , item){
+                                            str += '<li id="'+"li_"+i+'">'+
+                                                '<span id="sender" class="msg-sender">'+item.sender+'</span>'+
+                                                '<span class="msg-comment">'+item.comment+'</span>'+
+                                                '<div class="option">'+
+                                                '<em class="data-time">'+item.time+'</em>'+
+                                                '</div></li>';
+                                            i++;
+                                            console.log(str);
+                                    });
+                            }
+                            $(".list").append(str) ;
+                    }
+            }
+        );
 
 
 

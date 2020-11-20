@@ -19,7 +19,11 @@ function initDate(date) {
 }
 
 var serverPath = "http://localhost:8090/";
+
 var userPath = serverPath + "user/";
+var msgAllReceiver = userPath + "getAllMsg/";
+// var msgDel = userPath + "delMsg/";
+
 var videoPath = serverPath + "video/";
 var videoPlayPath = videoPath + "play/";
 var videoType = videoPath + "videoType/";
@@ -30,9 +34,11 @@ var videoDelIds = videoDel + "ids/";
 var videoUpStatus = videoPath + "update/status/";
 var videoAddMsg = videoPath + "addMsg/";
 var videoByType = videoPath + "getVideoByType/";
-var msgAllReceiver = userPath + "getAllMsg/";
 var videoById = videoPath + "getVideoById/";
-// var msgDel = userPath + "delMsg/";
+
+var commentPath = serverPath + "comment/";
+var commentByVid = commentPath + "getAllByVid/";
+
 
 // var serverPathManager = serverPath + "/system/" ;
 

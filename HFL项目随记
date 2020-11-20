@@ -213,15 +213,20 @@ CREATE TABLE tb_msg  (
 
 title:审核结果
 
-CREATE TABLE tb_recommend  (
+CREATE TABLE tb_comment  (
   id int(11) NOT NULL AUTO_INCREMENT,
-  content varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  vid int(5) NOT NULL,
+  comment varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   sender varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   receiver varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   time datetime(0) NOT NULL,
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
+
+INSERT INTO tb_comment VALUES ('1', '2', '这是星巴克阿','rose', 'liu', '2020-11-07 16:42:10');
+INSERT INTO tb_comment VALUES ('2', '2', '这老头是个逗b吧', 'wang', 'liu', '2020-10-07 16:42:10');
+INSERT INTO tb_comment VALUES ('3', '2', '路过～', 'qing', 'liu', '2020-11-07 16:42:10');
 
 tb_user(uid)
 tb_video
