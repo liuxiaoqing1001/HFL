@@ -149,6 +149,10 @@ server.port=8090
 
 ​	3）首页默认  /static/HomePage.html
 
+js获取url传递参数
+正则分析法：
+https://www.cnblogs.com/h5monkey/p/5912974.html
+
 
 ---------------------------------------------------------------------------------------
 CREATE TABLE tb_user (

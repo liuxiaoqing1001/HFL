@@ -60,25 +60,25 @@ $(function () {
         }
     );
 
+
+
 });
+
+// var i=0;
 
 function getVideoByType(videoData) {
     videoArr = videoData.data ;
     var str = '' ;
     $.each(videoArr , function(index , item){
         if(index<4){
-            // sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
-            // var thisVideo=JSON.parse(sessionStorage.getItem("thisVideo"));
             str += '<div class="flexitem">'+
-                '<a href="PlayVideo.html?'+item.title+'">'+
+                '<a href="PlayVideo.html?id='+item.id+'">'+
                 '<img src="../../img/yyqx1.jpg" height="220" width="300"/>'+
-                '</a>'+
-                '<p>'+
+                '</a><p>'+
                 '<a href="PlayVideo.html">'+item.title+'</a>'+
-                '</p>'+
-                '</div>';
+                '</p></div>';
         }
-        sessionStorage.setItem("thisVideo" , JSON.stringify(item)) ;
     });
     return str;
 }
+
