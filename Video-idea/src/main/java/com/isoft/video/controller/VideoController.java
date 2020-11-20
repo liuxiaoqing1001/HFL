@@ -200,4 +200,14 @@ public class VideoController {
         );
     }
 
+    @GetMapping("/getVideoById/{id}")
+    public ResponseData getVideoById(@PathVariable("id") Integer id) {
+        Video v = videoService.getVideoById(id) ;
+        return new ResponseData(
+                v !=null ? 0 : 1 ,
+                v !=null ? "请求成功" : "请求失败" ,
+                v
+        ) ;
+    }
+
 }

@@ -1,4 +1,11 @@
+// 从sessionStorage取出登录者信息
+var userObj = new Object() ;
+var str = sessionStorage.getItem("loginuser") ;
+
 $(function () {
+    if (str != null || str != "" || str != undefined) {
+        userObj = JSON.parse(str);
+    }
 
     // 日期
     setInterval(function () {
@@ -8,26 +15,31 @@ $(function () {
 
     $.get(
         //"liu“替换成用户名
-        msgAllReceiver + "liu" ,
+        msgAllReceiver + userObj.name ,
         function(msgData) {
-            // console.log(msgData);
+            console.log(msgData);
             if(0 == msgData.errCode) {
                 msgArr = msgData.data ;
+                console.log(msgArr);
                 var str = '' ;
                 var i=0;
-                $.each(msgArr , function(index , item){
-                    str += '<li id="'+"li_"+i+'">'+
-                        '<span id="sender" class="msg-type">'+item.sender+'</span>'+
-                        '<span class="msg-title">'+item.title+'</span>'+
-                        '<span class="option">'+
-                        '<em class="data-time">'+item.time+'</em>'+
-                        '</span>'+
-                        '<div class="content">'+
-                        '<p class="msg">'+item.content+'</p></div></li>';
-                    //'<a id="'+item.id+'" class="glyphicon glyphicon-remove">删除</a>'+
-                    i++;
-                    // console.log(str);
-                });
+                if(msgArr.length==0){
+                    str='<p class="msg">目前没有任何消息<p>';
+                }else {
+                    $.each(msgArr , function(index , item){
+                        str += '<li id="'+"li_"+i+'">'+
+                            '<span id="sender" class="msg-type">'+item.sender+'</span>'+
+                            '<span class="msg-title">'+item.title+'</span>'+
+                            '<span class="option">'+
+                            '<em class="data-time">'+item.time+'</em>'+
+                            '</span>'+
+                            '<div class="content">'+
+                            '<p class="msg">'+item.content+'</p></div></li>';
+                        //'<a id="'+item.id+'" class="glyphicon glyphicon-remove">删除</a>'+
+                        i++;
+                        // console.log(str);
+                    });
+                }
                 $(".list").append(str) ;
             }
         }

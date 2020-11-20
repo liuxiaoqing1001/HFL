@@ -31,6 +31,7 @@ var videoUpStatus = videoPath + "update/status/";
 var videoAddMsg = videoPath + "addMsg/";
 var videoByType = videoPath + "getVideoByType/";
 var msgAllReceiver = userPath + "getAllMsg/";
+var videoById = videoPath + "getVideoById/";
 // var msgDel = userPath + "delMsg/";
 
 // var serverPathManager = serverPath + "/system/" ;

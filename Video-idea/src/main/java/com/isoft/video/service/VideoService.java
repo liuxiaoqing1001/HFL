@@ -37,4 +37,5 @@ public interface VideoService {
 
     List<Video> getVideoByType(String typename);
 
+    Video getVideoById(Integer id);
 }

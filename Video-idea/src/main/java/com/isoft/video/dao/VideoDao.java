@@ -11,6 +11,9 @@ public interface VideoDao {
     @Select("select * from tb_video")
     List<Video> getAll() ;
 
+    @Select("select * from tb_video where id=#{id}")
+    Video getVideoById(int id) ;
+
     @Select("select videopath from tb_video where id=#{id}")
     String getVideoPath(int id );
 

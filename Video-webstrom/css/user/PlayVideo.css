@@ -1,0 +1,20 @@
+/* 全局样式 */
+.none{
+    display: none;
+}
+
+.video-box{
+    /*margin: 0 auto;*/
+    min-width: 1080px;
+    max-width: 1080px;
+}
+
+.video-box video{
+    width: 100%;
+}
+
+/*.content-box{*/
+/*    margin: 0 auto;*/
+/*    min-width: 500px;*/
+/*    max-width: 600px;*/
+/*}*/

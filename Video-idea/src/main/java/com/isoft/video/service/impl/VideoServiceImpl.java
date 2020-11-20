@@ -98,4 +98,12 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.getVideoByType(id);
     }
 
+    @Override
+    public Video getVideoById(Integer id) {
+        if(id == null || id < 1) {
+            return null ;
+        }else {
+            return videoDao.getVideoById(id);
+        }
+    }
 }

@@ -8,7 +8,6 @@ $(function () {
         interval: 2000
     });
 
-
     $.get(
         videoByType + "影视" ,
         function(videoData) {
@@ -63,8 +62,6 @@ $(function () {
 
 
 });
-
-// var i=0;
 
 function getVideoByType(videoData) {
     videoArr = videoData.data ;
