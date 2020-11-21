@@ -38,6 +38,8 @@ var videoById = videoPath + "getVideoById/";
 
 var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";
+var commentSumByVid = commentPath + "getSumByVId/";
+var commentAddComment = commentPath + "addComment/";
 
 
 // var serverPathManager = serverPath + "/system/" ;

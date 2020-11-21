@@ -15,4 +15,7 @@ public interface CommentDao {
     @Insert("insert into tb_comment(vid,comment,sender,receiver,time) " +
             "values(#{vid},#{comment},#{sender},#{receiver},#{time})")
     int add(Comment comment);
+
+    @Select("select count(*) from tb_comment where vid=#{vid}")
+    int getSumByVId(Integer vid);
 }

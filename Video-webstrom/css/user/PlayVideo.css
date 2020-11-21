@@ -37,6 +37,7 @@ span{
 }
 
 .num{
+    margin-left: 1px;
     font-size: 14px;
     color: blue;
 }

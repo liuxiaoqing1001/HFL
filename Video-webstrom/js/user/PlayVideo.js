@@ -1,4 +1,12 @@
+// 从sessionStorage取出登录者信息
+var userObj = new Object() ;
+var str = sessionStorage.getItem("loginuser") ;
+var videoName;
+
 $(function () {
+    if (str != null || str != "" || str != undefined) {
+        userObj = JSON.parse(str);
+    }
     // //获取url中"?"符后的字串
     // var req=GetRequest();
     // var a=req["id"];
@@ -12,53 +20,48 @@ $(function () {
     $.get(
         videoById + id ,
         function(videoData) {
-            console.log(videoData);
+            // console.log(videoData);
             if(0 == videoData.errCode) {
                 video = videoData.data ;
                 $(".showTitle").html(video.title);
                 $(".showUName").text(video.uname);
+                videoName=video.uname;
                 $(".showDate").text(video.pubdatetime) ;
                 $(".showDescription").text(video.description) ;
             }
         });
 
     $.get(
+        commentSumByVid + id ,
+        function(videoData) {
+            console.log(videoData);
+            $("#comm").text(videoData.data);
+        });
+
+    $.get(
         commentByVid + id ,
         function(commentData) {
-            console.log(commentData);
+            // console.log(commentData);
             if(0 == commentData.errCode) {
                 commentArr = commentData.data ;
                 console.log(commentArr);
                 var str = '' ;
                 var str2 = '';
-                var i=0;
                 var t =0;
                 if(commentArr.length==0){
                     str='<p class="comment">该视频还没有评论<p>';
                 }else {
                     $.each(commentArr , function(index , item){
-                        str += '<li id="'+"li_"+i+'">'+
+                        str += '<li>'+
                             '<span id="sender" class="msg-sender">'+item.sender+":"+'</span>'+
                             '<span class="msg-comment">'+item.comment+'</span>'+
                             '<div class="option">'+
                             '<em class="data-time">'+item.time+'</em>'+
                             '</div></li>';
-                        i++;
-                        // str2 = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" +
-                        //     item.sender+":"+ item.comment+ "</div>");
-                        str2 = '<div style="right:20px;top:0px;opacity:1;color:' + getColor() + '" class="content_text">' +
-                            item.sender+":"+ item.comment+ '</div>';
-                        setTimeout(function () {
-                            $(".content").append(str2);
-                            init_barrage();
-                        },t);
-                        t+=2000;
-
                         // console.log(str);
                     });
                 }
                 $(".list").append(str) ;
-
 
             }
         });
@@ -77,13 +80,39 @@ $(function () {
             alert('你的内容为空，请填写评论在再发送');
             return false;
         }
+
+        // var commentObj = {
+        //     vid : id,
+        //     comment : text,
+        //     sender : userObj.name,
+        //     receiver : videoName,
+        // } ;
+        // var commentData = JSON.stringify(commentObj) ;
+        // console.log(commentData);
+        // $.ajax({
+        //     url : commentAddComment ,
+        //     type : 'POST',
+        //     data : commentData,
+        //     contentType : 'application/json;charset=UTF-8',
+        //     dataType : 'json' ,
+        //     success : function(reqData){
+        //         console.log(reqData);
+        //         // alert(reqData.msg) ;
+        //         var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + text + "</div>");
+        //         $(".content").append(lable.show());
+        //         init_barrage();
+        //         $(".s_text").val("");
+        //     }
+        // });
+
         var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + text + "</div>");
         $(".content").append(lable.show());
         init_barrage();
         $(".s_text").val("");
+
     });
 
-    init_barrage();
+    // init_barrage();
 
 });
 
@@ -100,9 +129,9 @@ function init_barrage() {
     var top = 0;
     $(".content div").show().each(function () {
         var wid =$(".video-box").width();
-        console.log(wid);
+        // console.log(wid);
         var height =$(".video-box").height();
-        console.log(height);
+        // console.log(height);
         top += 35;
         if (top >= (height - 150)) {
             top = 10;
