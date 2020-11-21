@@ -5,12 +5,13 @@
 
 .video-box{
     margin: 0 auto;
+    text-align: center;
     /*min-width: 1080px;*/
     /*max-width: 1080px;*/
 }
 
 .video-box video{
-    width: 100%;
+    width: 90%;
 }
 
 .videoMsg{
@@ -45,8 +46,115 @@ span{
     vertical-align: top;
 }
 
+li{
+    list-style-type: none;
+}
+
 /*.content-box{*/
 /*    margin: 0 auto;*/
 /*    min-width: 500px;*/
 /*    max-width: 600px;*/
 /*}*/
+
+input{
+    outline: none;
+    margin-right: 10px;
+}
+
+.screen {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 100%;
+    height: 300px;
+}
+
+.screen .content {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    z-index: 1;
+    /*z-index:设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。*/
+    /*        注释：元素可拥有负的 z-index 属性值。*/
+    /*        注释：Z-index 仅能在定位元素上奏效（例如 position:absolute;）*/
+}
+
+.screen .content div {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    line-height: 40px;
+    z-index: 40;
+}
+
+.send {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.video-box:hover .send{
+    display: block;
+}
+
+.send .s_text {
+    width: 60%;
+    height: 35px;
+    line-height:35px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    border-radius:20px;
+    opacity: 0.8;
+}
+
+.send .s_btn {
+    width: 105px;
+    height: 35px;
+    line-height: 35px;
+    background: #22B14C;
+    color: #fff;
+    border-radius: 10px;
+    opacity: 0.8;
+    font-size: 16px;
+}
+
+.barrage_close {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #22B14C;
+    background:#fff;
+    cursor: pointer;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.barrage_close1{
+    color: #fff;
+    background: #fff;
+}
+
+/* css动画 */
+.content div{
+    animation:Text 15s infinite normal;
+}
+
+@keyframes Text{
+    0%{
+        left:100%;
+
+    }
+    20%{
+        left:75%;
+
+    }
+    80%{
+        left:0%;
+
+    }
+    100%{
+        left:-30%;
+    }
+}

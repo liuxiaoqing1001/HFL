@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/CommentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/resources/static/video/2.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/admin/PlayVideo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/admin/PlayVideo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/user/PlayVideo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/PlayVideo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/PlayVideo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/PlayVideo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +105,7 @@
       <workItem from="1605660380826" duration="6572000" />
       <workItem from="1605680638146" duration="8956000" />
       <workItem from="1605832361263" duration="14003000" />
+      <workItem from="1605919077525" duration="5905000" />
     </task>
     <servers />
   </component>
