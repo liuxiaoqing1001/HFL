@@ -5,12 +5,20 @@
 
 .video-box{
     margin: 0 auto;
-    text-align: center;
+    /*text-align: center;*/
     /*min-width: 1080px;*/
     /*max-width: 1080px;*/
 }
 
-.video-box video{
+.video-content{
+    text-align: center;
+}
+
+.video-barrage{
+    text-align: center;
+}
+
+.video-content video{
     width: 90%;
 }
 
@@ -33,6 +41,10 @@ span{
     color: blue;
 }
 
+.comment{
+    color: green;
+}
+
 .msg-sender{
     display: inline-block;
     height: 20px;
@@ -46,8 +58,18 @@ span{
     vertical-align: top;
 }
 
+.msg-comment{
+    font-size: 15px;
+}
+
+.data-time{
+    color: #3e8f3e;
+    font-size: 13px;
+}
+
 li{
     list-style-type: none;
+    margin-bottom: 10px;
 }
 
 /*.content-box{*/
@@ -98,7 +120,7 @@ input{
 }
 
 .send .s_text {
-    width: 60%;
+    width: 70%;
     height: 35px;
     line-height:35px;
     font-size: 16px;
@@ -129,11 +151,6 @@ input{
     cursor: pointer;
     opacity: 0.8;
     font-size: 14px;
-}
-
-.barrage_close1{
-    color: #fff;
-    background: #fff;
 }
 
 /* css动画 */

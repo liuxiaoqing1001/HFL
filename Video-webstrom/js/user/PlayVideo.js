@@ -30,22 +30,36 @@ $(function () {
                 commentArr = commentData.data ;
                 console.log(commentArr);
                 var str = '' ;
+                var str2 = '';
                 var i=0;
+                var t =0;
                 if(commentArr.length==0){
                     str='<p class="comment">该视频还没有评论<p>';
                 }else {
                     $.each(commentArr , function(index , item){
                         str += '<li id="'+"li_"+i+'">'+
-                            '<span id="sender" class="msg-sender">'+item.sender+'</span>'+
+                            '<span id="sender" class="msg-sender">'+item.sender+":"+'</span>'+
                             '<span class="msg-comment">'+item.comment+'</span>'+
                             '<div class="option">'+
                             '<em class="data-time">'+item.time+'</em>'+
                             '</div></li>';
                         i++;
+                        // str2 = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" +
+                        //     item.sender+":"+ item.comment+ "</div>");
+                        str2 = '<div style="right:20px;top:0px;opacity:1;color:' + getColor() + '" class="content_text">' +
+                            item.sender+":"+ item.comment+ '</div>';
+                        setTimeout(function () {
+                            $(".content").append(str2);
+                            init_barrage();
+                        },t);
+                        t+=2000;
+
                         // console.log(str);
                     });
                 }
                 $(".list").append(str) ;
+
+
             }
         });
 
@@ -73,10 +87,6 @@ $(function () {
 
 });
 
-//将弹幕内容放进数组贮存起来
-var arr=[];
-var barra=arr.push();
-
 // 按enter发送
 document.onkeydown=function(event){
     var e = event || window.event;
@@ -95,11 +105,12 @@ function init_barrage() {
         console.log(height);
         top += 35;
         if (top >= (height - 150)) {
-            top = 0;
+            top = 10;
         }
         $(this).css({ left: wid, top: top, color: getColor() });
     });
 }
+
 //随机颜色
 function getColor() {
     return '#' + (function (h) {

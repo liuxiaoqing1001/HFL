@@ -19,14 +19,18 @@
             <h1 class="showTitle text-left"></h1>
             <hr/>
             <div class="video-box">
-                <video id="showVideo" src="" controls="controls" poster="../../img/photo.png" autoplay loop></video>
+                <div class="video-content">
+                    <video id="showVideo" src="" controls="controls" poster="../../img/photo.png" autoplay loop></video>
+                </div>
                 <div class="screen">
                     <div class="content"></div>
                 </div>
-                <div class="send">
-                    <input type="text" class="s_text" placeholder=" 使用回车可以快速发送弹幕评论"/>
-                    <input type="button" class="s_btn" value="发送" />
-                    <span class="barrage_close">关闭弹幕</span>
+                <div class="video-barrage">
+                    <div class="send">
+                        <input type="text" class="s_text" placeholder=" 使用回车可以快速发送弹幕评论"/>
+                        <input type="button" class="s_btn" value="发送" />
+                        <span class="barrage_close">关闭弹幕</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,7 +46,7 @@
                 <p>
                     <span class="opera">点赞<span class="num">xx</span></span>
                     <span class="opera">收藏<span class="num">xx</span></span>
-                    <span class="opera">评论<span class="num">xx</span></span>
+                    <span class="opera">评论<span id="comm" class="num">xx</span></span>
                 </p>
                 <hr>
                 <p>
