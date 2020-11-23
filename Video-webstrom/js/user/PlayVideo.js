@@ -5,6 +5,7 @@ var videoName;
 
 var tag = [];
 var t;
+var i=0;
 
 $(function () {
     if (str != null || str != "" || str != undefined) {
@@ -64,19 +65,24 @@ $(function () {
                 }
                 $(".list").append(str) ;
 
-                console.log(tag);
-                i=0;
-
+                // console.log(tag);
                 t=setInterval('show(i++)',3000);
-
-
             }
         });
 
     //弹幕
     $(".barrage_close").click(function(){
-        // console.log("barrage_close");
-        $(".content div").remove();
+        // console.log($(".barrage_close")[0].firstChild.data);
+        if ($(".barrage_close")[0].firstChild.data=="关闭弹幕"){
+            i=tag.length;
+            $(".content div").remove();
+            $(".barrage_close")[0].firstChild.data="开启弹幕";
+        }else {
+            i=0;
+            t=setInterval('show(i++)',3000);
+            $(".barrage_close")[0].firstChild.data="关闭弹幕";
+        }
+
     });
 
     //提交评论
@@ -110,6 +116,9 @@ $(function () {
                 $(".content").append(lable.show());
                 init_barrage();
                 $(".s_text").val("");
+
+                tag.push(text);
+
                 str = '<li>'+
                     '<span id="sender" class="msg-sender">'+userObj.name+":"+'</span>'+
                     '<span class="msg-comment">'+text+'</span></li>';
@@ -131,14 +140,15 @@ $(function () {
 });
 
 function show(i) {
-    var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + tag[i] + "</div>");
-    $(".content").append(lable.show());
-    init_barrage();
-    // i=i+1;
-    console.log("i:"+i);
     //如果超过数组长度，清除定时器
-    if(i>tag.length){
-        clearInterval(t)
+    if(i>tag.length-1){
+        clearInterval(t);
+        i=0;
+    }else {
+        var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + tag[i] + "</div>");
+        $(".content").append(lable.show());
+        init_barrage();
+        // console.log("i:"+i);
     }
 }
 

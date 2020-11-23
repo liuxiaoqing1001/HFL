@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
     </list>
@@ -104,7 +103,7 @@
       <workItem from="1605680638146" duration="8956000" />
       <workItem from="1605832361263" duration="14003000" />
       <workItem from="1605919077525" duration="14960000" />
-      <workItem from="1606102450801" duration="5634000" />
+      <workItem from="1606102450801" duration="7332000" />
     </task>
     <servers />
   </component>
