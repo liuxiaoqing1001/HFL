@@ -3,7 +3,6 @@ package com.isoft.video.controller;
 import com.isoft.video.bean.ResponseData;
 import com.isoft.video.entity.Comment;
 import com.isoft.video.service.CommentService;
-import com.isoft.video.service.MsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,20 +36,21 @@ public class CommentController {
     }
 
     @PostMapping("/addComment")
-    public ResponseData addComment(@RequestBody Map<Object , Object> map) {
+    public ResponseData addComment(@RequestBody Map<String , Object> map) {
         Comment comment = new Comment() ;
-        comment.setVid((Integer) map.get("vid"));
+        comment.setVid((String) map.get("vid"));
         comment.setComment((String)map.get("comment"));
         comment.setSender((String)map.get("sender"));
         comment.setReceiver((String)map.get("receiver"));
         comment.setTime(new Date());
         Integer result = commentService.addComment(comment) ;
         String str = "" ;
+//        System.out.println(result);
         switch (result) {
-            case MsgService.REG_MSG_OK :
+            case CommentService.REG_MSG_OK :
                 str = "发送评论成功" ;
                 break;
-            case MsgService.REG_MSG_FAIL_INFO_NON:
+            case CommentService.REG_MSG_FAIL_INFO_NON:
                 str = "信息不完整" ;
                 break;
             default :

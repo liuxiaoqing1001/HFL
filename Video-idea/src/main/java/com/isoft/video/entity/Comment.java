@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Comment implements Serializable {
     private Integer id;
-    private Integer vid;
+    private String vid;
     private  String comment ;
     private String sender;
     private String receiver;

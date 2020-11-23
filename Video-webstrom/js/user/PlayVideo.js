@@ -3,6 +3,9 @@ var userObj = new Object() ;
 var str = sessionStorage.getItem("loginuser") ;
 var videoName;
 
+var tag = [];
+var t;
+
 $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
@@ -34,7 +37,7 @@ $(function () {
     $.get(
         commentSumByVid + id ,
         function(videoData) {
-            console.log(videoData);
+            // console.log(videoData);
             $("#comm").text(videoData.data);
         });
 
@@ -44,7 +47,7 @@ $(function () {
             // console.log(commentData);
             if(0 == commentData.errCode) {
                 commentArr = commentData.data ;
-                console.log(commentArr);
+                // console.log(commentArr);
                 var str = '' ;
                 var str2 = '';
                 var t =0;
@@ -54,14 +57,18 @@ $(function () {
                     $.each(commentArr , function(index , item){
                         str += '<li>'+
                             '<span id="sender" class="msg-sender">'+item.sender+":"+'</span>'+
-                            '<span class="msg-comment">'+item.comment+'</span>'+
-                            '<div class="option">'+
-                            '<em class="data-time">'+item.time+'</em>'+
-                            '</div></li>';
+                            '<span class="msg-comment">'+item.comment+'</span></li>';
                         // console.log(str);
+                        tag.push(item.comment);
                     });
                 }
                 $(".list").append(str) ;
+
+                console.log(tag);
+                i=0;
+
+                t=setInterval('show(i++)',3000);
+
 
             }
         });
@@ -81,40 +88,59 @@ $(function () {
             return false;
         }
 
-        // var commentObj = {
-        //     vid : id,
-        //     comment : text,
-        //     sender : userObj.name,
-        //     receiver : videoName,
-        // } ;
-        // var commentData = JSON.stringify(commentObj) ;
-        // console.log(commentData);
-        // $.ajax({
-        //     url : commentAddComment ,
-        //     type : 'POST',
-        //     data : commentData,
-        //     contentType : 'application/json;charset=UTF-8',
-        //     dataType : 'json' ,
-        //     success : function(reqData){
-        //         console.log(reqData);
-        //         // alert(reqData.msg) ;
-        //         var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + text + "</div>");
-        //         $(".content").append(lable.show());
-        //         init_barrage();
-        //         $(".s_text").val("");
-        //     }
-        // });
+        var commentObj = {
+            vid : id,
+            comment : text,
+            sender : userObj.name,
+            receiver : videoName,
+        } ;
+        var commentData = JSON.stringify(commentObj) ;
+        // console.log(commentObj);
+        console.log(commentData);
+        $.ajax({
+            url : commentAddComment ,
+            type : 'POST',
+            data : commentData,
+            contentType : 'application/json;charset=UTF-8',
+            dataType : 'json' ,
+            success : function(reqData){
+                console.log(reqData);
+                // alert(reqData.msg) ;
+                var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + text + "</div>");
+                $(".content").append(lable.show());
+                init_barrage();
+                $(".s_text").val("");
+                str = '<li>'+
+                    '<span id="sender" class="msg-sender">'+userObj.name+":"+'</span>'+
+                    '<span class="msg-comment">'+text+'</span></li>';
+                $(".list").append(str) ;
 
-        var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + text + "</div>");
-        $(".content").append(lable.show());
-        init_barrage();
-        $(".s_text").val("");
+                $.get(
+                    commentSumByVid + id ,
+                    function(videoData) {
+                        // console.log(videoData);
+                        $("#comm").text(videoData.data);
+                    });
+            }
+        });
 
     });
 
     // init_barrage();
 
 });
+
+function show(i) {
+    var lable = $("<div style='right:20px;top:0px;opacity:1;color:" + getColor() + ";'class='content_text'>" + tag[i] + "</div>");
+    $(".content").append(lable.show());
+    init_barrage();
+    // i=i+1;
+    console.log("i:"+i);
+    //如果超过数组长度，清除定时器
+    if(i>tag.length){
+        clearInterval(t)
+    }
+}
 
 // 按enter发送
 document.onkeydown=function(event){
