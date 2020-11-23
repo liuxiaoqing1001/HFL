@@ -200,6 +200,7 @@ CREATE TABLE tb_video  (
 INSERT INTO tb_video VALUES ('1', '1', 'liu', '星巴克', '咖啡', '2020-11-07 16:42:10', '未审核','1.mp4');
 INSERT INTO tb_video VALUES ('2', '2', 'liu', 'startPark', 'coffe', '2020-10-07 16:42:10', '未审核','tweetsip.mp4');
 INSERT INTO tb_video VALUES ('3', '1', 'wang', 'python', '爬虫', '2020-11-07 16:42:10', '审核通过','1.mp4');
+INSERT INTO tb_video VALUES ('4', '3', 'rose', '动画', '巴拉巴拉巴拉', '2020-11-07 16:42:10', '未审核','2.mp4');
 
 CREATE TABLE tb_msg  (
   id int(11) NOT NULL AUTO_INCREMENT,
