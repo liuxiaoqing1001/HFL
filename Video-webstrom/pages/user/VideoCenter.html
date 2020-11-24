@@ -10,7 +10,7 @@
     <script src="../../bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../../css/user/UserCenter.css">
     <script src="../../js/global.js"></script>
-    <script src="../../js/user/VideoPlay.js"></script>
+    <script src="../../js/user/VideoCenter.js"></script>
 </head>
 <body>
 <div id="head"></div>
@@ -42,12 +42,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li id="videoLibrary" class="active"><a target="contentFrame">视频库</a></li>
-                        <li id="materialLibrary"><a target="contentFrame">素材库</a></li>
-                        <li id="examine"><a target="contentFrame">待审核</a></li>
-                        <li id="auditFailure"><a target="contentFrame">审核失败</a></li>
+                        <li id="videoLibrary" class="active"><a target="contentFrame">上传视频</a></li>
+                        <li id="materialLibrary"><a target="contentFrame">视频库</a></li>
+<!--                        <li id="examine"><a target="contentFrame">待审核</a></li>-->
+<!--                        <li id="auditFailure"><a target="contentFrame">审核失败</a></li>-->
                         <li id="collection"><a target="contentFrame">收藏</a></li>
-                        <li id="record"><a target="contentFrame">播放记录</a></li>
+<!--                        <li id="record"><a target="contentFrame">播放记录</a></li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" id="showDt"></a></li>
@@ -60,6 +60,10 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        <hr/>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="contentFrame" class="embed-responsive-item" src="videoLibrary.html"></iframe>
+        </div>
     </div>
 </div>
 <div id="foot">

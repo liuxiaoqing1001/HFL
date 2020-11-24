@@ -11,14 +11,14 @@ $(function () {
     //通过 ajax 根据当前登录者的名字获取他的视频
     $.ajax({
         async : false,
-        url : videoServerPath + "/" + userObj.name  ,
+        url : videoPath + userObj.name  ,
         type : 'GET',
         contentType : 'application/json;charset=UTF-8',
         dataType : 'json' ,
         success : function(reqData){
-            console.log(reqData)
+            console.log(reqData);
             for (var i = 0 ; i < reqData.length ; i++) {
-                createDiv(userObj.name  , reqData[i].description , reqData[i].status , videoServerPath + "/" + userObj.name + "/" + i , i , reqData[i].id)
+                createDiv(userObj.name  , reqData[i].description , reqData[i].status , videoServerPath + "/" + userObj.name + "/" + i , i , reqData[i].id);
                 console.log(reqData[i].id)
             }
         }
@@ -41,41 +41,41 @@ $(function () {
 
         var video = $('<video id="video" controls="controls" src="'+url+'" ' +
             'style="float: left ;margin-left: 10px ; padding-top: 0 ; width: 294px;height: 170px;">' +
-            '</video>')    //创建一个video
-        video.appendTo(childdiv)
+            '</video>') ;   //创建一个video
+        video.appendTo(childdiv);
 
 
-        var infoDiv = $('<div></div>')  //div
-        infoDiv.text('简介：' + description)
+        var infoDiv = $('<div></div>') ; //div
+        infoDiv.text('简介：' + description);
         infoDiv.css("margin-left" , "10px");
 
-        infoDiv.appendTo(childdiv)
+        infoDiv.appendTo(childdiv);
 
-        var statusDiv = $('<div id="videoStatus"></div>')  //div
-        statusDiv.text("状态：" + status)
+        var statusDiv = $('<div id="videoStatus"></div>');  //div
+        statusDiv.text("状态：" + status);
         statusDiv.css("margin-left" , "10px");
-        var button = $('<button type="button" style="float:right; padding-bottom: 2px" class="btn btn-sm btn-info btnOption">操作</button>')
-        button.appendTo(statusDiv)
-        statusDiv.appendTo(childdiv)
+        var button = $('<button type="button" style="float:right; padding-bottom: 2px" class="btn btn-sm btn-info btnOption">操作</button>');
+        button.appendTo(statusDiv);
+        statusDiv.appendTo(childdiv);
 
         parentdiv.appendTo('form');
 
-        $(".btnOption").eq(i).attr("id" , videoId)
+        $(".btnOption").eq(i).attr("id" , videoId);
     }
 
     //点击操作按钮
     $(".btnOption").click(function () {
-        var id =  $(this).attr("id")
-        alert(id)
-        sessionStorage.setItem("videoId" , id)
+        var id =  $(this).attr("id");
+        alert(id);
+        sessionStorage.setItem("videoId" , id);
         //更改数据库中视频状态为 审核中
         $.ajax({
-            url : videoServerPath + "/审核中/" + id  ,
+            url : videoPath + "未审核/" + id  ,
             type : 'PUT',
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success : function(reqData){
-                console.log(reqData)
+                console.log(reqData);
                 $("#videoStatus").text("状态：" + reqData.data)
             }
         })

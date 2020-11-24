@@ -4,6 +4,7 @@ import com.isoft.video.bean.Page;
 import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -38,4 +39,33 @@ public interface VideoService {
     List<Video> getVideoByType(String typename);
 
     Video getVideoById(Integer id);
+
+    /**
+     * 根据登录用户获取属于该用户的视频
+     * @param uname
+     * @return
+     */
+    List<Video> getByUname(String uname) ;
+
+    /**
+     * 根据视频id修改视频状态
+     * @param status
+     * @param id
+     * @return
+     */
+    Integer updateStatusById(String status, Integer id);
+
+    /**
+     * 用户上传视频
+     * @param video
+     * @return
+     */
+    Integer addVideo(Video video) ;
+
+    /**
+     * 根据用户名获得视频路径
+     * @param uname
+     * @return
+     */
+    List<File> getVideoPathByUname(String uname) ;
 }

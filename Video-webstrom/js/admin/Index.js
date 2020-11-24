@@ -1,4 +1,31 @@
+var userObj = new Object() ;
+var str = sessionStorage.getItem("loginuser") ;
 $(function () {
+    if (str != null || str != "" || str != undefined) {
+        userObj = JSON.parse(str);
+    }
+    if(str == null || str == undefined || str == "") {
+        location.href="../Login.html" ;
+    }
+    if(userObj.photourl != null && userObj.photourl != '') {
+        $("#photo").attr("src" ,userObj.photourl) ;
+    }
+    if (null != userObj) {
+        $("#showLoginUser").text(userObj.name);
+    } else {
+        $("#showLoginUser").text('未登录');
+    }
+
+    $("#exitBtn").click(function () {
+        location.href="../../pages/Login.html"
+
+    });
+
+    setInterval(function () {       //setInterval(function(){},1000)：该方法可按照指定的周期<即第二个参数[以毫秒为单位]>来调用函数或计算表达式
+        var now = new Date() ;
+        document.getElementById("showLoginTime").innerHTML = initDate(now) ;
+    },1000);
+
     // treeview设置
     // $.getJSON(url , 回调函数) 是使用ajax的get请求方式，请求结果是一个json字符串
     $.getJSON('../../json/menu.json', function (data) {
@@ -25,4 +52,4 @@ $(function () {
             }
         })
     })
-})
+});

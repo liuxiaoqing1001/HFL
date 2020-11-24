@@ -8,6 +8,31 @@ $(function () {
         interval: 2000
     });
 
+    // 从sessionStorage取出登录者信息
+    var userObj = new Object() ;
+    var str = sessionStorage.getItem("loginuser") ;
+    // 未登录用户不允许访问该页
+    if(str == null || str == undefined || str == "") {
+        location.href="../Login.html" ;
+    }
+    $(function() {
+        if (str != null || str != "" || str != undefined) {
+            userObj = JSON.parse(str);
+        }
+        $("#photo").attr("src" ,userObj.photourl);
+
+
+        // if(userObj.photourl != null && userObj.photourl != '') {
+        //     $("#showLoginPhoto").attr("src" ,userObj.photourl) ;
+        // }
+
+        if (null != userObj) {
+            $("#showLoginUser").text(userObj.name);
+        } else {
+            $("#showLoginUser").text('未登录');
+        }
+    })
+
     $.get(
         videoByType + "影视" ,
         function(videoData) {

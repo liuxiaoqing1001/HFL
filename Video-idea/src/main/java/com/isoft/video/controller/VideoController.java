@@ -18,11 +18,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -208,6 +208,174 @@ public class VideoController {
                 v !=null ? "请求成功" : "请求失败" ,
                 v
         ) ;
+    }
+
+    /**
+     * 根据用户名查询相关视频列表
+     * @param uname
+     * @return
+     */
+    @GetMapping("{uname}")
+    public List<Video> getByUname(@PathVariable("uname") String uname) {
+        return videoService.getByUname(uname);
+    }
+
+    @PutMapping("{status}/{id}")
+    public ResponseData updateStatusById(@PathVariable("status") String status, @PathVariable("id") Integer id) {
+        Integer updateStatus = videoService.updateStatusById(status, id);
+        Video video = new Video() ;
+        video.setStatus(status);
+        return new ResponseData(
+                updateStatus > 0 ? 0 : 1 ,
+                updateStatus > 0 ? "更新成功" : "更新失败" ,
+                video.getStatus()
+        ) ;
+    }
+
+    /**
+     * 上传视频
+     * @param request
+     * @param response
+     * @param file 上传的文件，支持多文件
+     * @throws Exception
+     */
+    @PostMapping("/upload/insert")
+    @ResponseBody
+    public ResponseData insert(HttpServletRequest request,HttpServletResponse response
+            ,@RequestParam("file") MultipartFile[] file) throws Exception{
+        //组合image名称，“;隔开”
+        List<String> fileName =new ArrayList<>();
+        if(file!=null&&file.length>0){
+            try {
+                for (int i = 0; i < file.length; i++) {
+                    if (!file[i].isEmpty()) {
+                        fileName.add(file[i].getOriginalFilename());
+                        //上传文件，随机名称，";"分号隔开
+                        // fileName.add(FileUtil.uploadImage(request, "/upload/"+TimeUtils.formateString(new Date(), "yyyy-MM-dd")+"/", file[i], true));
+                    }
+                }
+
+                //上传成功
+                return new ResponseData(
+                        fileName!= null && fileName.size() > 0 ? 0 : 1 ,
+                        fileName!= null && fileName.size() > 0 ? "上传成功！" : "上传失败！文件格式错误！" ,
+                        fileName
+                ) ;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(response.toString()+ "上传出现异常！异常出现在：class.UploadController.insert()");
+            }
+        }else {
+            System.out.println(response.toString()+ "没有检测到文件！");
+        }
+        return null ;
+    }
+
+    /**
+     * 添加视频到数据库
+     * @param map
+     * @return
+     */
+    @PostMapping("addVideo")
+    public ResponseData addVideo(@RequestBody Map<String , Object> map) {
+        Video video = new Video() ;
+        video.setUname((String)map.get("uname"));
+        video.setTypeid(Integer.parseInt(map.get("typeid").toString()));
+        video.setTitle((String)map.get("title"));
+        video.setDescription((String)map.get("description"));
+        video.setVideopath((String)map.get("videopath"));
+        Integer result = videoService.addVideo(video);
+        //调用下载视频的方法
+        loadVideo((String)map.get("uname"));
+        return new ResponseData(
+                result > 0 ? 0 : 1 ,
+                result > 0 ? "添加成功！" : "添加失败！" ,
+                result
+        ) ;
+    }
+
+    /**
+     * 下载视频
+     * @param uname
+     */
+    @GetMapping("loadVideo/{uname}")
+    public void loadVideo(@PathVariable("uname") String uname) {
+        FileInputStream fis = null;
+        FileOutputStream fos = null ;
+        String originName = null ;
+        String newPath = null ;
+        List<File> files = new ArrayList<>() ;
+        files = videoService.getVideoPathByUname(uname) ;
+        System.out.println("files:::::::" + files);
+//        for (int i = count; i < files.size(); i++) {
+        File file = files.get(files.size() - 1) ;
+        System.out.println("file------------------->" + file);
+        try {
+            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
+            System.out.println("path-------------------------------->" + path);
+            newPath = path.substring(1) ;
+            System.out.println("newPath=======================================>" + newPath);
+
+            fis = new FileInputStream(file);
+            //创建字节输出流对象，构造方法中绑定写入的目的地
+            // 1）获取上传文件名
+            originName = file.getName();
+            System.out.println("originName:" + originName);
+
+            fos = new FileOutputStream(newPath + "/" + originName) ;
+            //使用字节流对象中的方法 read 读取文件
+            //使用数组缓冲读取多个字节写入多个字节
+            byte[] bytes = new byte[1024] ;
+            int len = 0 ;
+            while ((len = fis.read(bytes)) != -1) {
+                fos.write(bytes , 0 , len);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //释放资源  【先关闭写的后关闭读的】
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+//            String realPath = newPath + "/" + originName;
+//System.out.println("realPath..........................................>" + realPath);
+//            Path filePath = Paths.get(realPath );
+//            if (Files.exists(filePath)) {
+//                String mimeType = null;
+//                try {
+//                    mimeType = Files.probeContentType(filePath);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                if (!StringUtils.isEmpty(mimeType)) {
+//                    response.setContentType(mimeType);
+//                }
+//                request.setAttribute(NonStaticResourceHttpRequestHandler.ATTR_FILE, filePath);
+//                try {
+//                    nonStaticResourceHttpRequestHandler.handleRequest(request, response);
+//                } catch (ServletException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            } else {
+//                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+//                response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+//            }
+//        }
     }
 
 }

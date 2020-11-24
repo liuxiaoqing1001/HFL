@@ -38,6 +38,8 @@ var videoUpStatus = videoPath + "update/status/";
 var videoAddMsg = videoPath + "addMsg/";
 var videoByType = videoPath + "getVideoByType/";
 var videoById = videoPath + "getVideoById/";
+var videoUpload = videoPath + "upload/insert/";
+var videoAdd = videoPath + "addVideo/";
 
 var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";

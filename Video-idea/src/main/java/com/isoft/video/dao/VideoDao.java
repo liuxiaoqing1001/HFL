@@ -3,6 +3,7 @@ package com.isoft.video.dao;
 import com.isoft.video.entity.Video;
 import org.apache.ibatis.annotations.*;
 
+import java.io.File;
 import java.util.List;
 
 @Mapper
@@ -71,4 +72,38 @@ public interface VideoDao {
 
 //    @Select("select * from tb_video where id=#{id} and uname=#{uname}")
 //    Video getVideo(Integer id,String uname);
+
+    /**
+     * 根据登录用户查找对应视频信息
+     * @param uname
+     * @return
+     */
+    @Select("select * from tb_video where uname = #{uname}")
+    List<Video> getByUname(String uname) ;
+
+    /**
+     * 根据视频id修改视频状态
+     * @param status
+     * @param id
+     * @return
+     */
+    @Update("update tb_video set status = #{status} where id=#{id}")
+    Integer updateStatusById(@Param("status") String status , @Param("id") Integer id) ;
+
+    /**
+     * 添加视频记录
+     * @param video
+     * @return
+     */
+    @Insert("insert into tb_video(typeid , uname , title , description , pubdatetime , status , videopath)" +
+            " values(#{typeid} , #{uname} , #{title} , #{description} , now() , '未审核' , #{videopath}) ")
+    int addVideo(Video video) ;
+
+    /**
+     * 查找视频路径
+     * @param uname
+     * @return
+     */
+    @Select("select videopath from tb_video where uname = #{uname}")
+    List<File> getVideoPathByUname(String uname);
 }

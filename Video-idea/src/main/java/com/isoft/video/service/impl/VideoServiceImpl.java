@@ -8,6 +8,7 @@ import com.isoft.video.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -106,4 +107,41 @@ public class VideoServiceImpl implements VideoService {
             return videoDao.getVideoById(id);
         }
     }
+
+    /**
+     * 根据用户名获得相应的视频列表
+     * @param uname
+     * @return
+     */
+    @Override
+    public List<Video> getByUname(String uname) {
+        return videoDao.getByUname(uname);
+    }
+
+    @Override
+    public Integer updateStatusById(String status, Integer id) {
+        return videoDao.updateStatusById(status, id);
+    }
+
+    /**
+     * 用户添加视频
+     * @param video
+     * @return
+     */
+    @Override
+    public Integer addVideo(Video video) {
+        return videoDao.addVideo(video);
+    }
+
+    /**
+     * 根据用户名得到视频路径
+     * @param uname
+     * @return
+     */
+    @Override
+    public List<File> getVideoPathByUname(String uname) {
+        return videoDao.getVideoPathByUname(uname);
+    }
+
+
 }
