@@ -84,7 +84,7 @@ $(function () {
         } ;
         console.log(user);
         $.ajax({
-            url : serverPath + "/update"  ,
+            url : userUpdate  ,
             type : 'PUT',
             data : user ,
             dataType : 'json' ,
@@ -93,7 +93,7 @@ $(function () {
                 location.href = "UserList.html" ;
             }
         });
-        alert("更新成功！")
+        // alert("更新成功！")
 
     })
 });

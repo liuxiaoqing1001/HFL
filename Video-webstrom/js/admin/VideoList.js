@@ -98,17 +98,12 @@ $(function () {
                 params.typeid = $("#search_typeid").val();
             }
             return params ;
-
         },
 
         columns : [
-            /*{checkbox : true} ,*/
             {checkbox : true} ,   // 显示复选框列
 
             {field : 'id' , title : 'ID' , visible : false} ,
-            // {title : '序号' , formatter:function (value, row, index) {
-            //         return index+1 ;
-            //     }} ,
             {
                 field : 'title' ,
                 title : '标题' ,
@@ -133,10 +128,7 @@ $(function () {
                 formatter: operateFormatter,
                 events: operateEvent ,
             }
-
         ] ,
-
-
     });
 });
 
@@ -149,7 +141,6 @@ function operateFormatter(value, row, index) {
         '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>审核' +
         '</button>';
     return detail + "&nbsp;&nbsp;" + del ;
-
 }
 
 window.operateEvent = {
@@ -180,4 +171,141 @@ window.operateEvent = {
     }
 
 };
+
+
+// $(function () {
+//     var currentPage = 1;//当前页
+//     // var size = 10;   //每页记录个数
+//     function f(currentPage , size) {
+//         $.ajax({
+//             url: videoServerPath+"/page/" + currentPage + "/" + size,
+//             type: 'GET',
+//             contentType: 'application/json;charset=UTF-8',
+//             dataType: 'json',
+//             success: function (reqData) {
+//                 console.log(reqData)
+//                 for (var i = 0; i < reqData.rows.length; i++) {
+//                     record = i;
+//                     var line = i + 1;
+//                     var trtd = $('<tr><td>' + line + '</td>' +
+//                         // '<td>'+videoObj[i].typeid+'</td>' +
+//                         '<td>' + reqData.rows[i].title + '</td>' +
+//                         '<td>' + reqData.rows[i].description + '</td>' +
+//                         '<td>' + reqData.rows[i].typename + '</td>' +
+//                         '<td>' + reqData.rows[i].pubdatetime + '</td>' +
+//                         '<td>' + reqData.rows[i].uname + '</td>' +
+//                         '<td>' + reqData.rows[i].status + '</td>' +
+//                         '<td><button class="btn btn-info btn-sm btnModify">审核</button>' +
+//                         '&nbsp;<button class="btn btn-danger btn-sm btnDel">删除</button></td></tr>');
+//                     trtd.appendTo($("#videoTable"));
+//
+//                     // 给每一行的修改、删除按钮动态添加id属性并给值
+//                     $(".btnModify").eq(i).attr("id", reqData.rows[i].id);
+//                     $(".btnDel").eq(i).attr("id", reqData.rows[i].id);
+//                 }
+//
+//                 //当前是第几页
+//                 $("#currentPage").text(currentPage);
+//                 //总页数
+//                 $("#totalPage").text(Math.ceil((reqData.total) * 1.0 / size));
+//
+//                 var firstID = size * (currentPage - 1) + 1;
+//                 var lastID = firstID + size - 1;
+//                 $("#firstId").text(firstID);
+//                 if (lastID >= reqData.total) {
+//                     $("#lastID").text(reqData.total)
+//                 } else {
+//                     $("#lastID").text(lastID)
+//                 }
+//                 $("#totalID").text(reqData.total);
+//
+//                 //点击审核按钮操作
+//                 $(".btnModify").click(function () {
+//                     var id = $(this).attr("id");
+//                     getAdata(id);
+//                     var str = sessionStorage.setItem("id", id);
+//
+//                     location.href = "ModifyStatus.html";
+//                 });
+//
+//                 //点击删除按钮操作
+//                 $(".btnDel").click(function () {
+//                     alert("ss");
+//                     var id = $(this).attr("id");
+//                     console.log(id);
+//                     deleteById(id);
+//                     $("#tb").text("");
+//                     location.reload([true]);
+//                 });
+//             }
+//         });
+//     }
+//     //初始化
+//     f(currentPage , $("#size").val())
+//     $("#size").change(function () {
+//         $("#tb").text("");
+//         f(currentPage , $("#size").val())
+//     })
+//     //下一页
+//     $("#right").click(function () {
+//         currentPage++;
+//         if (currentPage <= $("#totalPage").text()) {
+//             $("#Videotable").text("");
+//             f(currentPage , $("#size").val())
+//         } else {
+//             alert("当前是最后一页");
+//             currentPage = $("#totalPage").text()
+//         }
+//     });
+//     //上一页
+//     $("#left").click(function () {
+//         currentPage--;
+//         if (currentPage > 0) {
+//             $("#Videotable").text("");
+//             f(currentPage , $("#size").val())
+//         } else {
+//             alert("当前是第一页");
+//             currentPage = 1
+//         }
+//     });
+//     //第一页
+//     $("#backwardFirst").click(function () {
+//         currentPage = 1;
+//         if (currentPage > 0) {
+//             $("#Videotable").text("");
+//             f(currentPage , $("#size").val())
+//         }
+//     });
+//     //最后一页
+//     $("#forwardLast").click(function () {
+//         currentPage = $("#totalPage").text();
+//         console.log($("#totalPage").text());
+//         if (currentPage <= $("#totalPage").text()) {
+//             $("#Videotable").text("");
+//             f(currentPage , $("#size").val())
+//         }
+//     });
+//     function deleteById(id){
+//         $.ajax({
+//             url : serverPath+"video"+"/delete/" + id ,
+//             type:'DELETE',
+//             contentType : 'application/json;charset=UTF-8',
+//             dataType : 'json' ,
+//             success:function(reqData) {
+//                 console.log(reqData) ;
+//             }
+//         });
+//     }
+//     function getAdata(id){
+//         $.ajax({
+//             url : serverPath+"video/"+id,
+//             type:'GET',
+//             contentType : 'application/json;charset=UTF-8',
+//             dataType : 'json' ,
+//             success:function(reqData) {
+//                 sessionStorage.setItem("videoAData" ,JSON.stringify(reqData.data))
+//             }
+//         });
+//     }
+// });
 

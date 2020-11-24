@@ -124,9 +124,17 @@ public class UserController {
         ) ;
     }
 
-    //分页
-    @GetMapping("/page/{size}")
-    public Map<String , Object> page(Integer curPage , @PathVariable("size") Integer size ,
+    /**
+     * 用户列表的分页实现
+     * @param curPage
+     * @param size
+     * @param id
+     * @param name
+     * @param regdate
+     * @return
+     */
+    @GetMapping("/page/{size}/{curPage}")
+    public Map<String , Object> page(@PathVariable("curPage") Integer curPage , @PathVariable("size") Integer size ,
                                      Integer id , String name , @DateTimeFormat(pattern = "yyyy年MM月dd日") Date regdate){
         Page<User> page = userService.newsPage(id , name , regdate , curPage , size) ;
         Map<String  , Object> map = new HashMap<>() ;
@@ -135,6 +143,31 @@ public class UserController {
         map.put("total" , page.getRowCount()) ; //总行数
         map.put("rows" , page.getData()) ;  //本页数据
         return map ;
+    }
+
+    /**
+     * 根据id获取数据库相关信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public User getById(@PathVariable("id") Integer id) {
+        return userService.getById(id) ;
+    }
+
+    /**
+     * 根据id删除相关用户信息
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/delete/{id}")
+    public ResponseData deleteById(@PathVariable("id") Integer id) {
+        int result = userService.DeleteById(id) ;
+        return  new ResponseData(
+                result !=0 ? 0 : 1 ,
+                result !=0 ? "删除成功" : "删除失败" ,
+                result
+        ) ;
     }
 
     /**

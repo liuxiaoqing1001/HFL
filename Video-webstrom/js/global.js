@@ -21,6 +21,9 @@ function initDate(date) {
 var serverPath = "http://localhost:8090/";
 
 var userPath = serverPath + "user/";
+var userUpdate = userPath + "update/";
+var userPage = userPath + "page/";
+var userDel = userPath + "delete/";
 var msgAllReceiver = userPath + "getAllMsg/";
 // var msgDel = userPath + "delMsg/";
 

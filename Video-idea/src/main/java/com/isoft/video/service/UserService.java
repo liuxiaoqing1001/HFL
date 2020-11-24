@@ -58,4 +58,9 @@ public interface UserService {
 
     List<User> getAll() ;
 
+    //根据id获取用户信息
+    User getById(Integer id) ;
+
+    //根据id删除用户信息
+    int DeleteById(Integer id) ;
 }

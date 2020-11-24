@@ -65,6 +65,12 @@ public class UserServiceImpl implements UserService {
         }
         // 注册
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+        user.setAge(user.getAge());
+        user.setSex(user.getSex());
+        user.setEmail(user.getEmail());
+        user.setMobile(user.getMobile());
+//        user.setPhotourl(user.getPhotourl());
+//        user.setRole(user.getRole());
         int r = userDao.add(user) ;
         if(r > 0) {
             return REG_MSG_OK ;
@@ -121,4 +127,17 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userDao.getAll();
     }
+
+    //根据id获取用户信息
+    @Override
+    public User getById(Integer id) {
+        return userDao.getById(id);
+    }
+
+    //根据id删除用户信息
+    @Override
+    public int DeleteById(Integer id) {
+        return userDao.DeleteById(id);
+    }
+
 }
