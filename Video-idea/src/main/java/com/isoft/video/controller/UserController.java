@@ -32,6 +32,12 @@ public class UserController {
     @Autowired
     MsgService msgService;
 
+    /**
+     * 登录
+     * @param name
+     * @param password
+     * @return
+     */
     @GetMapping("{name}/{pwd}")
     public ResponseData login(@PathVariable("name") String name , @PathVariable("pwd") String password) {
         // 调用service中方法进行login处理
@@ -65,6 +71,11 @@ public class UserController {
         ) ;
     }
 
+    /**
+     * 注册
+     * @param map
+     * @return
+     */
     @PostMapping("")
     public ResponseData register(@RequestBody Map<String , Object> map) {
         User user = new User() ;
@@ -98,7 +109,11 @@ public class UserController {
         ) ;
     }
 
-    //更新密码
+    /**
+     * 更新
+     * @param user
+     * @return
+     */
     @PutMapping("/update")
     public ResponseData update(User user) {
         User u = userService.update(user) ;
