@@ -42,6 +42,8 @@ $(function () {
             dataType : 'json' ,
             success : function(reqData){
                 alert(reqData.msg) ;
+                alert("密码已修改，请重新登录");
+                window.parent.location.href="../../pages/Login.html" ;
             }
         })
 

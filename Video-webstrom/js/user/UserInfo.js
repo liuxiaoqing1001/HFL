@@ -1,6 +1,7 @@
 // 从sessionStorage取出登录者信息
 var userObj = new Object() ;
 var str = sessionStorage.getItem("loginuser") ;
+
 $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
