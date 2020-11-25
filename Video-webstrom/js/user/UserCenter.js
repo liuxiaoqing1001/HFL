@@ -8,13 +8,15 @@ $(function () {
     // 个人信息
     $("#userInfo").click(function () {
         // $("#userInfo ").attr("aria-expanded" , true) ;
+        // $("#userInfoA").style.color="white";
         $("#contentFrame").attr("src", "UserInfo.html");
+
     })
 
-    // 账户信息
-    $("#accountInfo").click(function () {
-        $("#contentFrame").attr("src", "AccountInfo.html");
-    })
+    // // 账户信息
+    // $("#accountInfo").click(function () {
+    //     $("#contentFrame").attr("src", "AccountInfo.html");
+    // })
 
     // 修改信息
     $("#modifyInfo").click(function () {

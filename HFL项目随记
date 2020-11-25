@@ -171,6 +171,7 @@ CREATE TABLE tb_user (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 INSERT INTO tb_user VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
+INSERT INTO tb_user VALUES ('2', 'aaa', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '1');
 
 
 CREATE TABLE tb_videotype  (
@@ -250,4 +251,10 @@ tb_u_v(id,uid,vid,)
 4. 导航当前未选中
 5. 第一个页面不是登录，是主页，在主页点击除首页之外的按钮时都要求登录
 6. modifyUserPhoto.html设置点击头像，弹出框修改头像，修改成功后返回原页面并更新
+
+
+管理员，用户头像
+管理端管理员管理（增加管理员，删除管理员）
+用户修改信息update和上传头像失败
+
 

@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/admin/AddRole.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/UserInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/UserList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/UserList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/ModifyInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/ModifyInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/ModifyUserPhoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/ModifyUserPhoto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/ShowUserInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/ShowUserInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/UserInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserInfo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +116,7 @@
       <workItem from="1605919077525" duration="14960000" />
       <workItem from="1606102450801" duration="8937000" />
       <workItem from="1606178579915" duration="12260000" />
-      <workItem from="1606272605706" duration="2771000" />
+      <workItem from="1606272605706" duration="8618000" />
     </task>
     <servers />
   </component>

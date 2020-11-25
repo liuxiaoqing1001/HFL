@@ -19,11 +19,12 @@ $(function () {
         if (str != null || str != "" || str != undefined) {
             userObj = JSON.parse(str);
         }
-        $("#photo").attr("src" ,userObj.photourl);
+        // console.log(userObj)
+        // $("#showUserPhoto").attr("src" ,userObj.photourl);
 
 
         // if(userObj.photourl != null && userObj.photourl != '') {
-        //     $("#showLoginPhoto").attr("src" ,userObj.photourl) ;
+        //     $("#showUserPhoto").attr("src" ,userObj.photourl) ;
         // }
 
         if (null != userObj) {
