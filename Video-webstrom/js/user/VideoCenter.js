@@ -7,7 +7,7 @@ $(function () {
 
     //视频库
     $("#videoLibrary").click(function () {
-        $("#contentFrame").attr("src", "videoLibrary.html");
+        $("#contentFrame").attr("src", "VideoLibrary.html");
     })
 
     //素材库
@@ -17,6 +17,6 @@ $(function () {
 
     //待审核
     $("#collection").click(function () {
-        $("#contentFrame").attr("src", "collection.html");
+        $("#contentFrame").attr("src", "Collection.html");
     })
 })

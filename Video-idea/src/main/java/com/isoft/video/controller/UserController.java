@@ -175,7 +175,7 @@ public class UserController {
      */
     @Value("${userphoto.path}")    // 从配置文件中读取 userphoto.path属性的值
     private String upPhotoPath ;
-    @PostMapping("photo")
+    @PostMapping("/photo")
     public ResponseData upPhoto(@RequestParam("userphoto") MultipartFile file, Integer id , HttpServletRequest request) {
         // 保存是否成功boolean
         boolean  result = false ;
@@ -212,11 +212,11 @@ public class UserController {
                 // 修改数据库
                 User user = new User();
                 user.setId(id);
-                user.setAge(user.getAge());
-                user.setSex(user.getSex());
-                user.setEmail(user.getEmail());
-                user.setMobile(user.getMobile());
-                user.setAddress(user.getAddress());
+//                user.setAge(user.getAge());
+//                user.setSex(user.getSex());
+//                user.setEmail(user.getEmail());
+//                user.setMobile(user.getMobile());
+//                user.setAddress(user.getAddress());
                 user.setPhotourl(photoUri);
                 userResult = userService.update(user) ;
             } catch (IOException e) {

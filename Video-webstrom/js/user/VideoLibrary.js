@@ -7,27 +7,40 @@ $(function () {
     $("#userName").val(userObj.name);
     $("#userName").attr("disabled" , "disabled");
 
-    $.ajax({
-        url : videoType,
-        type : 'GET' ,
-        contentType : 'application/json;charset=UTF-8',
-        success:function(reqData) {
-            console.log(reqData) ;
-            for (var i = 0 ; i < reqData.length ; i++) {
-                var optgroup = $('<optgroup label='+reqData[i].id+'>' +
-                    '<option value='+reqData[i].id+'>'+reqData[i].typename+'</option>' +
-                    '</optgroup>')
-                optgroup.appendTo($("#videoType"))
+    // $.ajax({
+    //     url : videoType,
+    //     type : 'GET' ,
+    //     contentType : 'application/json;charset=UTF-8',
+    //     success:function(reqData) {
+    //         console.log(reqData) ;
+    //         // for (var i = 0 ; i < reqData.length ; i++) {
+    //         //     var optgroup = $('<optgroup label='+reqData[i].id+'>' +
+    //         //         '<option value='+reqData[i].id+'>'+reqData[i].typename+'</option>' +
+    //         //         '</optgroup>');
+    //         //     optgroup.appendTo($("#videoType"));
+    //         // }
+    //     }
+    // });
+
+    $.get(
+        videoType ,
+        function(reqData) {
+            // console.log(reqData);
+            if(0 == reqData.errCode) {
+                typeArr = reqData.data ;
+                // console.log(typeArr);
+                var str = '' ;
+                $.each(typeArr , function(index , item){
+                    str += '<option value="'+item.id+'">' + item.typename + '</option>' ;
+                });
+                $("#videoType").html($("#videoType").html() + str) ;
             }
         }
-    });
-
+    );
 
     initFileInput(userObj.name);
 
-
-
-})
+});
 
 function initFileInput(uname) {
     // var videopath = $("#input-id").val() ;
@@ -61,14 +74,14 @@ function initFileInput(uname) {
             //actionUpload:'',//去除上传预览缩略图中的上传图片；
             //actionZoom:''   //去除上传预览缩略图中的查看详情预览的缩略图标。
         },
-    })
+    });
 
 
     $("#input-id").on('filepreupload', function(event, data, previewId, index) {     //上传中
         var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
         console.log('文件正在上传' + response);
-    })
+    });
     $("#input-id").on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
         var videoName = $("#videoName").val() ;
         var videoDes = $("#description").val() ;
@@ -84,7 +97,7 @@ function initFileInput(uname) {
             description : videoDes.trim() ,
             videopath : videopath ,
             title : videoName
-        }
+        };
         var upData = JSON.stringify(obj) ;
         console.log(upData);
         $.ajax({
@@ -99,11 +112,9 @@ function initFileInput(uname) {
             }
         });
         location.href = "Material.html";
-    })
+    });
     $("#input-id").on('fileerror', function(event, data, msg) {  //一个文件上传失败
         alert('文件上传失败！'+data.id);
     })
-
-
 
 }

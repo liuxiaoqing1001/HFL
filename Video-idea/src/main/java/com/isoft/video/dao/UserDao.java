@@ -34,15 +34,24 @@ public interface UserDao {
             "            <if test=\"null != password\">" +
             "                password=#{password} , " +
             "            </if>\n" +
+            "            <if test=\"null != age\">" +
+            "                age=#{age} , " +
+            "            </if>\n" +
+            "            <if test=\"null != sex\"> " +
+            "                sex=#{sex}, " +
+            "            </if>\n" +
+            "            <if test=\"null != email\"> " +
+            "                email = #{email} , " +
+            "            </if>\n" +
+            "            <if test=\"null != mobile\"> " +
+            "                mobile=#{mobile} , " +
+            "            </if>" +
             "            <if test=\"null != photourl\"> " +
             "                photourl=#{photourl}, " +
             "            </if>\n" +
             "            <if test=\"null != status\"> " +
             "                status = #{status} , " +
             "            </if>\n" +
-            "            <if test=\"null != mobile\"> " +
-            "                mobile=#{mobile} , " +
-            "            </if>" +
             "            <if test=\"null != role\">" +
             "                role=#{role} , " +
             "            </if>\n" +

@@ -86,13 +86,14 @@ $(function () {
                 email : userEmail,
                 mobile : userPhone
             };
+            // console.log(upData)
             $.ajax({
                 url : userUpdate,
                 type : 'PUT',
                 data : upData,
                 dataType : 'json' ,
                 success : function(reqData){
-                    //console.log(reqData) ;
+                    // console.log(reqData.data) ;
                     alert(reqData.msg) ;
                     sessionStorage.setItem("loginuser" , JSON.stringify(reqData.data)) ;
                 }
