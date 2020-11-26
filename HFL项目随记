@@ -187,7 +187,7 @@ INSERT INTO tb_videotype VALUES ('4', '美食');
 INSERT INTO tb_videotype VALUES ('5', '音乐');
 
 CREATE TABLE tb_video  (
-  id int(5) NOT NULL,
+  id int(5) NOT NULL AUTO_INCREMENT,
   typeid int(5) NOT NULL,
   uname varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   title varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,

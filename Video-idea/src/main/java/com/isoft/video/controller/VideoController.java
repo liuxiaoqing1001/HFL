@@ -1,25 +1,21 @@
 package com.isoft.video.controller;
 
+import com.alibaba.druid.util.StringUtils;
+import com.isoft.video.bean.NonStaticResourceHttpRequestHandler;
 import com.isoft.video.bean.Page;
 import com.isoft.video.bean.ResponseData;
 import com.isoft.video.entity.Msg;
-import com.isoft.video.entity.User;
 import com.isoft.video.entity.Video;
 import com.isoft.video.service.MsgService;
-import com.isoft.video.service.UserService;
 import com.isoft.video.service.VideoService;
 import com.isoft.video.service.VideoTypeService;
-import com.isoft.video.util.VideoUtil;
-import lombok.AllArgsConstructor;
-import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -27,7 +23,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.util.*;
 
 @CrossOrigin
@@ -44,6 +39,13 @@ public class VideoController {
 
     @Autowired
     MsgService msgService;
+
+    private final NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler;
+
+    public VideoController(NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler) {
+        this.nonStaticResourceHttpRequestHandler = nonStaticResourceHttpRequestHandler;
+    }
+
 
     @GetMapping("/play/{vid}")
     public String getVideos(HttpServletRequest request, HttpServletResponse response,@PathVariable("vid") Integer id) throws Exception{
@@ -149,6 +151,11 @@ public class VideoController {
         );
     }
 
+    /**
+     * 修改审核状态
+     * @param id
+     * @return
+     */
     @GetMapping("/update/status/{id}")
     public ResponseData updateStatus(@PathVariable("id") Integer id){
         if(id== null || id < 1) {
@@ -163,6 +170,11 @@ public class VideoController {
         }
     }
 
+    /**
+     * 发送审核消息
+     * @param map
+     * @return
+     */
     @PostMapping("/addMsg")
     public ResponseData addMsg(@RequestBody Map<String , Object> map) {
         Msg msg = new Msg() ;
@@ -220,6 +232,12 @@ public class VideoController {
         return videoService.getByUname(uname);
     }
 
+    /**
+     * 根据id修改视频状态
+     * @param status
+     * @param id
+     * @return
+     */
     @PutMapping("{status}/{id}")
     public ResponseData updateStatusById(@PathVariable("status") String status, @PathVariable("id") Integer id) {
         Integer updateStatus = videoService.updateStatusById(status, id);
@@ -245,6 +263,8 @@ public class VideoController {
             ,@RequestParam("file") MultipartFile[] file) throws Exception{
         //组合image名称，“;隔开”
         List<String> fileName =new ArrayList<>();
+        System.out.println("file:"+file);
+        System.out.println("file.length:"+file.length);
         if(file!=null&&file.length>0){
             try {
                 for (int i = 0; i < file.length; i++) {
@@ -377,5 +397,75 @@ public class VideoController {
 //            }
 //        }
     }
+
+    /**
+     * 播放视频
+     * @param uname
+     * @param id
+     * @param request
+     * @param response
+     */
+    @GetMapping("{uname}/{id}")
+    public void play(@PathVariable("uname") String uname , @PathVariable("id") Integer id , HttpServletRequest request, HttpServletResponse response) {
+        String originName = null ;
+        String newPath = null ;
+        List<File> files = new ArrayList<>();
+        files = videoService.getVideoPathByUname(uname);
+        System.out.println("files:::::::" + files);
+        for (int i = 0; i < files.size(); i++) {
+            File file = files.get(i);
+            System.out.println("file------------------->" + file);
+            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
+            System.out.println("path-------------------------------->" + path);
+            newPath = path.substring(1);
+            System.out.println("newPath=======================================>" + newPath);
+            // 1）获取上传文件名
+            originName = file.getName();
+            System.out.println("originName:" + originName);
+
+            String realPath = newPath + id + "_" + originName;
+            System.out.println("realPath..........................................>" + realPath);
+            Path filePath = Paths.get(realPath );
+            if (Files.exists(filePath)) {
+                String mimeType = null;
+                try {
+                    mimeType = Files.probeContentType(filePath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (!StringUtils.isEmpty(mimeType)) {
+                    response.setContentType(mimeType);
+                }
+                request.setAttribute(NonStaticResourceHttpRequestHandler.ATTR_FILE, filePath);
+                try {
+                    nonStaticResourceHttpRequestHandler.handleRequest(request, response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+            }
+        }
+    }
+
+    /**
+     * 视频列表的分页实现
+     * @param curPage
+     * @param size
+     * @param pubdate
+     * @return
+     */
+//    @GetMapping("page/{curPage}/{size}")
+//    public Map<String , Object> page(@PathVariable("curPage") Integer curPage , @PathVariable("size")Integer size ,
+//                                     @DateTimeFormat(pattern = "yyyy年MM月dd日") Date pubdate){
+//        Page<Video> page = videoService.videoPage(pubdate , curPage , size) ;
+//        Map<String  , Object> map = new HashMap<>() ;
+//        map.put("total" , page.getRowCount()) ;
+//        map.put("rows" , page.getData()) ;
+//        return map ;
+//    }
 
 }

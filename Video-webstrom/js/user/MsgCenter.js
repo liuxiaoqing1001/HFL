@@ -6,6 +6,12 @@ $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
     }
+    if (null != userObj) {
+        $(".showLoginUser").text(userObj.name);
+        // $(".caret").text(userObj.name);
+    } else {
+        $(".showLoginUser").text('未登录');
+    }
 
     // 日期
     setInterval(function () {

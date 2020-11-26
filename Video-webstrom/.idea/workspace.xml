@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/bean/NonStaticResourceHttpRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/userphoto_default.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/fileinput.css" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/css/fileinput.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/UserCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/Material.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Material.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/VideoCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/VideoLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoLibrary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/VideoLibrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoLibrary.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,23 +50,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/qq-files/2445991914/file_recv/Video-webstorm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/pages/user" />
-      <recent name="$PROJECT_DIR$/js/user" />
-      <recent name="$PROJECT_DIR$/css/user" />
-      <recent name="$PROJECT_DIR$/bootstrap/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bootstrap/css" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="D:\WebStorm\workproject\Video\css\user" />
       <recent name="D:\WebStorm\workproject\Video\js\user" />
       <recent name="D:\WebStorm\workproject\Video\pages\user" />
-      <recent name="D:\WebStorm\workproject\Video\pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/pages/user" />
+      <recent name="$PROJECT_DIR$/js/user" />
+      <recent name="$PROJECT_DIR$/css/user" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -106,7 +122,7 @@
       <workItem from="1606102450801" duration="8937000" />
       <workItem from="1606178579915" duration="12260000" />
       <workItem from="1606272605706" duration="12776000" />
-      <workItem from="1606350970628" duration="1230000" />
+      <workItem from="1606350970628" duration="6636000" />
     </task>
     <servers />
   </component>

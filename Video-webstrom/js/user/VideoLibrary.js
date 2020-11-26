@@ -3,7 +3,7 @@ $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
     }
-    console.log(userObj.name);
+    // console.log(userObj.name);
     $("#userName").val(userObj.name);
     $("#userName").attr("disabled" , "disabled");
 
