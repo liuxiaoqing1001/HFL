@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/UserCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserCenter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoLibrary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoLibrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoLibrary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Collection.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Material.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Material.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +106,7 @@
       <workItem from="1606102450801" duration="8937000" />
       <workItem from="1606178579915" duration="12260000" />
       <workItem from="1606272605706" duration="12776000" />
+      <workItem from="1606350970628" duration="1230000" />
     </task>
     <servers />
   </component>

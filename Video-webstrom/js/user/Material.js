@@ -17,8 +17,9 @@ $(function () {
         dataType : 'json' ,
         success : function(reqData){
             console.log(reqData);
+            
             for (var i = 0 ; i < reqData.length ; i++) {
-                createDiv(userObj.name  , reqData[i].description , reqData[i].status , videoServerPath + "/" + userObj.name + "/" + i , i , reqData[i].id);
+                createDiv(userObj.name  , reqData[i].description , reqData[i].status , videoPath + userObj.name + "/" + i , i , reqData[i].id);
                 console.log(reqData[i].id)
             }
         }
