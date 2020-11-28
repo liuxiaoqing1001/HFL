@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoLibrary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoLibrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoLibrary.html" afterDir="false" />
-    </list>
+    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +104,7 @@
       <workItem from="1606178579915" duration="12260000" />
       <workItem from="1606272605706" duration="12776000" />
       <workItem from="1606350970628" duration="10748000" />
-      <workItem from="1606522831899" duration="7697000" />
+      <workItem from="1606522831899" duration="8824000" />
     </task>
     <servers />
   </component>
