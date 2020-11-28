@@ -9,7 +9,10 @@ import com.isoft.video.entity.Video;
 import com.isoft.video.service.MsgService;
 import com.isoft.video.service.VideoService;
 import com.isoft.video.service.VideoTypeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @CrossOrigin
@@ -270,6 +274,7 @@ public class VideoController {
                 for (int i = 0; i < file.length; i++) {
                     if (!file[i].isEmpty()) {
                         fileName.add(file[i].getOriginalFilename());
+                        System.out.println("fileName:"+fileName);
                         //上传文件，随机名称，";"分号隔开
                         // fileName.add(FileUtil.uploadImage(request, "/upload/"+TimeUtils.formateString(new Date(), "yyyy-MM-dd")+"/", file[i], true));
                     }
@@ -299,6 +304,7 @@ public class VideoController {
     @PostMapping("addVideo")
     public ResponseData addVideo(HttpServletResponse response,@RequestBody Map<String , Object> map) {
         Video video = new Video() ;
+        String videopathAll = (String)map.get("videopathAll");
         video.setUname((String)map.get("uname"));
         video.setTypeid(Integer.parseInt(map.get("typeid").toString()));
         video.setTitle((String)map.get("title"));
@@ -306,7 +312,7 @@ public class VideoController {
         video.setVideopath((String)map.get("videopath"));
         Integer result = videoService.addVideo(video);
         //调用下载视频的方法
-        loadVideo((String)map.get("videopathAll"));
+        loadVideo(videopathAll);
 //        getVideos(response,7);
         return new ResponseData(
                 result > 0 ? 0 : 1 ,
@@ -314,51 +320,6 @@ public class VideoController {
                 result
         ) ;
     }
-
-//    @RequestMapping("/download/{uname}")
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response,@PathVariable("uname") String uname)
-//            throws ServletException, IOException {
-//        String id = request.getParameter("id");
-//
-//        // 参数合法性
-//        if (Objects.isNull(id) || StringUtils.isEmpty(id)) {
-//            return;
-//        }
-//
-//        FileInputStream fis = null;
-//        FileOutputStream fos = null ;
-//        String originName = null ;
-//        String newPath = null ;
-//        List<File> files = new ArrayList<>() ;
-//        files = videoService.getVideoPathByUname(uname) ;
-//        System.out.println("files:::::::" + files);
-////        for (int i = count; i < files.size(); i++) {
-//        File file = files.get(files.size() - 1) ;
-//        System.out.println("file------------------->" + file);
-//        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
-//        System.out.println("path-------------------------------->" + path);
-//        newPath = path.substring(1) ;
-//        System.out.println("newPath=======================================>" + newPath);
-//
-//        fis = new FileInputStream(newPath);
-//
-//
-//        // 设置response的响应头
-//        String mimeType = servletContext.getMimeType(filename);
-//        response.setHeader("content-type",mimeType);
-//        String agent = request.getHeader("user-agent");
-//        filename = DownLoadUtils.getFileName(agent, filename);
-//        response.setHeader("content-disposition","attachment;filename=" + filename);
-//
-//        ServletOutputStream sos = response.getOutputStream();
-//        byte[] buff = new byte[1024 * 8];
-//        int len = 0;
-//        while((len = fis.read(buff)) != -1){
-//            sos.write(buff,0,len);
-//        }
-//
-//        fis.close();
-//    }
 
     /**
      * 下载视频
@@ -369,28 +330,17 @@ public class VideoController {
         FileInputStream fis = null;
         FileOutputStream fos = null ;
         String originName = null ;
-        String newPath = null ;
-        List<File> files = new ArrayList<>() ;
-//        files = videoService.getVideoPathByUname(uname) ;
-
-//        System.out.println("files:::::::" + files);
-////        for (int i = count; i < files.size(); i++) {
-//        File file = files.get(files.size() - 1) ;
-        File file = new File(videopathAll);
-        System.out.println("file------------------->" + file);
         try {
             String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
             System.out.println("path-------------------------------->" + path);
-            newPath = path.substring(1) ;
-            System.out.println("newPath=======================================>" + newPath);
 
-            fis = new FileInputStream(file);
+            fis = new FileInputStream(videopathAll);
             //创建字节输出流对象，构造方法中绑定写入的目的地
             // 1）获取上传文件名
-            originName = file.getName();
+            originName = videopathAll.substring(videopathAll.lastIndexOf("/") + 1);
             System.out.println("originName:" + originName);
 
-            fos = new FileOutputStream(file) ;//newPath + "/" + originName
+            fos = new FileOutputStream(path +"static/video/"+ originName) ;//newPath + "/" + originName
             //使用字节流对象中的方法 read 读取文件
             //使用数组缓冲读取多个字节写入多个字节
             byte[] bytes = new byte[1024] ;
@@ -418,8 +368,35 @@ public class VideoController {
                 }
             }
         }
-//            String realPath = newPath + "/" + originName;
-//System.out.println("realPath..........................................>" + realPath);
+    }
+
+//    /**
+//     * 播放视频
+//     * @param uname
+//     * @param id
+//     * @param request
+//     * @param response
+//     */
+//    @GetMapping("{uname}/{id}")
+//    public void play(@PathVariable("uname") String uname , @PathVariable("id") Integer id , HttpServletRequest request, HttpServletResponse response) {
+//        String originName = null ;
+//        String newPath = null ;
+//        List<File> files = new ArrayList<>();
+//        files = videoService.getVideoPathByUname(uname);
+//        System.out.println("files:::::::" + files);
+//        for (int i = 0; i < files.size(); i++) {
+//            File file = files.get(i);
+//            System.out.println("file------------------->" + file);
+//            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
+//            System.out.println("path-------------------------------->" + path);
+//            newPath = path.substring(1);
+//            System.out.println("newPath=======================================>" + newPath);
+//            // 1）获取上传文件名
+//            originName = file.getName();
+//            System.out.println("originName:" + originName);
+//
+//            String realPath = newPath + id + "_" + originName;
+//            System.out.println("realPath..........................................>" + realPath);
 //            Path filePath = Paths.get(realPath );
 //            if (Files.exists(filePath)) {
 //                String mimeType = null;
@@ -444,60 +421,7 @@ public class VideoController {
 //                response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 //            }
 //        }
-    }
-
-    /**
-     * 播放视频
-     * @param uname
-     * @param id
-     * @param request
-     * @param response
-     */
-    @GetMapping("{uname}/{id}")
-    public void play(@PathVariable("uname") String uname , @PathVariable("id") Integer id , HttpServletRequest request, HttpServletResponse response) {
-        String originName = null ;
-        String newPath = null ;
-        List<File> files = new ArrayList<>();
-        files = videoService.getVideoPathByUname(uname);
-        System.out.println("files:::::::" + files);
-        for (int i = 0; i < files.size(); i++) {
-            File file = files.get(i);
-            System.out.println("file------------------->" + file);
-            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
-            System.out.println("path-------------------------------->" + path);
-            newPath = path.substring(1);
-            System.out.println("newPath=======================================>" + newPath);
-            // 1）获取上传文件名
-            originName = file.getName();
-            System.out.println("originName:" + originName);
-
-            String realPath = newPath + id + "_" + originName;
-            System.out.println("realPath..........................................>" + realPath);
-            Path filePath = Paths.get(realPath );
-            if (Files.exists(filePath)) {
-                String mimeType = null;
-                try {
-                    mimeType = Files.probeContentType(filePath);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (!StringUtils.isEmpty(mimeType)) {
-                    response.setContentType(mimeType);
-                }
-                request.setAttribute(NonStaticResourceHttpRequestHandler.ATTR_FILE, filePath);
-                try {
-                    nonStaticResourceHttpRequestHandler.handleRequest(request, response);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-                response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-            }
-        }
-    }
+//    }
 
     /**
      * 视频列表的分页实现

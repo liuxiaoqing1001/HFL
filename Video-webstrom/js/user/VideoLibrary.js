@@ -82,16 +82,19 @@ function initFileInput(uname) {
             response = data.response, reader = data.reader;
         console.log('文件正在上传' + response);
     });
+
     $("#input-id").on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
         var videoName = $("#videoName").val() ;
         var videoDes = $("#description").val() ;
         var videoType = $("#videoType").val() ;
         var videopath = getValue($("#input-id").val()) ;
-        var videopathAll = "/home/liu/视频/"+getValue($("#input-id").val()) ;
-        alert('文件上传成功！');
-        debugger
-        alert('文件上传成功！'+ data);
-        console.log(videoName + videoDes + videoType + videopath );
+        var videopathAll = "/home/liu/视频/"+videopath ;
+        // console.log("videopath:"+videopath)
+        // console.log("videopathAll:"+videopathAll)
+        // alert('文件上传成功！');
+        // debugger
+        // alert('文件上传成功！'+ data);
+        // console.log(videoName + videoDes + videoType + videopath );
         var obj ={
             uname : uname ,
             typeid : videoType ,
@@ -110,7 +113,8 @@ function initFileInput(uname) {
             contentType : 'application/json;charset=UTF-8',
             success:function(reqData) {
                 console.log(reqData) ;
-                alert(reqData.msg) ;
+                // alert(reqData.msg) ;
+                alert('文件上传成功！');
             }
         });
         location.href = "Material.html";
