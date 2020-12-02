@@ -142,7 +142,7 @@ $(function () {
             // photourl : $('#formRegister input[name="registerPhoto"]').val()
         } ;
         var upData = JSON.stringify(userObj) ;
-        console.log(upData) ;
+        // console.log(upData) ;
         $.ajax({
             url : userRoleAdd ,
             type : 'POST',
@@ -150,7 +150,7 @@ $(function () {
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success : function(reqData){
-                console.log(reqData);
+                // console.log(reqData);
                 if(reqData.errorCode==1){
                     alert(reqData.msg);
                     location.href = "UserList.html" ;

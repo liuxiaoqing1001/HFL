@@ -69,8 +69,8 @@ $(function () {
                 $(".btnDel").click(function () {
                     var id = $(this).attr("id");
                     deleteById(id);
-                    $("#roleTable").text("");
-                    location.reload([true]);
+                    // $("#roleTable").text("");
+                    // location.reload([true]);
                 });
             });
     }
@@ -119,12 +119,14 @@ $(function () {
 
     function deleteById(id){
         $.ajax({
-            url : serverPath +"delRole/" + id ,
+            url : userDelPole + id ,
             type:'DELETE',
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success:function(reqData) {
-                console.log(reqData) ;
+                // console.log(reqData) ;
+                alert(reqData.msg);
+                location.href = "RoleList.html" ;
             }
 
         });

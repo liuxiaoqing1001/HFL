@@ -10,9 +10,7 @@
     <script src="../../bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../../css/user/UserCenter.css">
     <script src="../../js/global.js"></script>
-    <script src="../../js/user/Dynamic.js"></script>
-
-
+    <script src="../../js/user/DynamicCenter.js"></script>
 </head>
 <body>
 <div class="container-fluid" id="userCenter">
@@ -41,16 +39,23 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li id="AddSay"><a target="contentFrame" href="MySay.html">说说</a></li>
-                    <li class="active"><a target="contentFrame" href="say.html">好友动态</a></li>
-
+                    <li class="active"><a target="contentFrame" href="Say.html">好友动态</a></li>
+                    <li id="AddSay"><a target="contentFrame" href="MySay.html">我的说说</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" id="showDt"></a></li>
-                    <li>
-                        <a href="#">
-                            <span class="iconfont">&#xe60e;</span>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="showLoginUser"></span>
+                            <span class="caret"></span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../Login.html">注销</a></li>
+<!--                            <li><a href="#">Another action</a></li>-->
+<!--                            <li><a href="#">Something else here</a></li>-->
+<!--                            <li role="separator" class="divider"></li>-->
+<!--                            <li><a href="#">Separated link</a></li>-->
+                        </ul>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -58,7 +63,7 @@
     </nav>
     <hr/>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe name="contentFrame" class="embed-responsive-item" src="say.html"></iframe>
+        <iframe name="contentFrame" class="embed-responsive-item" src="Say.html"></iframe>
     </div>
 </div>
 </body>

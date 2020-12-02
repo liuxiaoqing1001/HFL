@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/admin/AddRole.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/admin/ModifyName.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/ModifyName.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/AddType.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/AddType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/ModifyRole.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/AddRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/AddRole.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/admin/RoleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/RoleList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/AddRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/AddRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/ModifyRole.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/RoleList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/RoleList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/TypeList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/TypeList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Dynamic.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/DynamicCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Saysay2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Say.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/DynamicCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MySay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MySay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/Say.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Say.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,7 @@
       <workItem from="1606272605706" duration="12776000" />
       <workItem from="1606350970628" duration="10748000" />
       <workItem from="1606522831899" duration="8824000" />
-      <workItem from="1606869162281" duration="9536000" />
+      <workItem from="1606869162281" duration="11541000" />
     </task>
     <servers />
   </component>

@@ -8,4 +8,11 @@ $(function () {
         $("#img").attr("src",userObj.photourl);
     }
 
+    if (null != userObj) {
+        $(".showLoginUser").text(userObj.name);
+        // $(".caret").text(userObj.name);
+    } else {
+        $(".showLoginUser").text('未登录');
+    }
+
 });
