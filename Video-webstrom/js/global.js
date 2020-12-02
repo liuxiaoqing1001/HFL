@@ -59,7 +59,7 @@ var videoTypeTN = videoTypePath + "typename/";
 
 var sayPath = serverPath + "say/";
 var sayGetAll = sayPath + "getAll/";
-var sayGetSay = sayPath + "getSay/";
+// var sayGetSay = sayPath + "getSay/";
 var sayGetPraiseCount = sayPath + "getPraiseCount/";
 var sayPraiseCount = sayPath + "praiseCount/";
 var sayForward = sayPath + 'forward/';
