@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>添加管理员</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../bootstrap/js/bootstrapValidator.js"></script>
+    <script src="../../js/global.js"></script>
+    <script src="../../js/admin/AddRole.js"></script>
 </head>
 <body>
+<div class="container-fluid">
+    <form class="form-horizontal" id="formRegister">
+<!--        <h3 class="text-warning text-center" style="margin-bottom: 30px"></h3>-->
+        <h3>添加管理员</h3>
+        <hr/>
+        <div class="form-group">
+            <label class="col-md-3 control-label">用户名</label>
+            <div class="col-md-8">
+                <input type="text" name="registerName" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">密码</label>
+            <div class="col-md-8">
+                <input type="password" name="registerPass" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">年龄</label>
+            <div class="col-md-8">
+                <input type="text" name="registerAge" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">性别</label>
+            <div class="col-md-8">
+                <select id="userGender" class="form-control" name="registerSex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">邮箱</label>
+            <div class="col-md-8">
+                <input type="text" name="registerEmail" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">手机号码</label>
+            <div class="col-md-8">
+                <input type="text" name="registerPhone" class="form-control">
+            </div>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label class="col-md-3 control-label">头像</label>-->
+<!--            <div class="col-md-8">-->
+<!--                <input type="file" name="registerPhoto" class="form-control">-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="form-group">
+            <label class="col-md-3 control-label">验证码</label>
+            <div class="col-md-2">
+                <input type="text" name="verify" id="verify" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <canvas width="80" height="40" id="verifyCanvas"></canvas>
+                <img style="margin-top: 2px" id="code_img">
+            </div>
+        </div>
 
+        <div class="form-group">
+            <div style="float: right;margin-right: 100px">
+                <button type="submit" id="btnRegister" class="btn btn-success" style="margin-right: 20px">添加</button>
+                <button type="button" id="btnRegisterReset" class="btn btn-info">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>

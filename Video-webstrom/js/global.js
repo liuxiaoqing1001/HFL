@@ -27,6 +27,7 @@ var userDel = userPath + "delete/";
 var msgAllReceiver = userPath + "getAllMsg/";
 var userRole = userPath + "role/";
 var userRolePage = userPath + "RolePage/";
+var userRoleAdd = userPath + "addRole/";
 var userDelPole = userPath +"delRole/";
 // var msgDel = userPath + "delMsg/";
 
@@ -54,6 +55,8 @@ var videoTypeNC = videoType+ "nameCount/";
 var videoTypeAdd = videoType + "add/";
 var videoTypePage = videoType + "page/";
 var videoTypeDel = videoType + "delete/";
+var videoTypeTN = videoType + "typename/";
+
 
 
 // var serverPathManager = serverPath + "/system/" ;

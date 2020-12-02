@@ -2,39 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/SayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/VideoTypeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/SayDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Say.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/SayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/SayServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/user/AddSay.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/user/Say.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/admin/AddType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/admin/ModifyRole.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/admin/RoleList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/admin/TypeList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/AddSay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/Dynamic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/Mysay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/Saysay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/Saysay2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/user/UpdateSay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/AddType.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/ModifyRole.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/AddSay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/MySay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/Say.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoTypeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoTypeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/VideoTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoTypeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/admin/AddRole.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/admin/ModifyName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/admin/ModifyName.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/VideoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/VideoList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/AddType.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/AddType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/ModifyRole.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin/RoleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/RoleList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoLibrary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/AddRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/AddRole.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/ModifyRole.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/RoleList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/RoleList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/TypeList.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/TypeList.html" afterDir="false" />
     </list>
@@ -47,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -67,15 +50,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/css/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css/user" />
-      <recent name="$PROJECT_DIR$/js/user" />
       <recent name="$PROJECT_DIR$/js/admin" />
       <recent name="$PROJECT_DIR$/pages/admin" />
+      <recent name="$PROJECT_DIR$/css/user" />
+      <recent name="$PROJECT_DIR$/js/user" />
       <recent name="$PROJECT_DIR$/pages/user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -141,7 +124,7 @@
       <workItem from="1606272605706" duration="12776000" />
       <workItem from="1606350970628" duration="10748000" />
       <workItem from="1606522831899" duration="8824000" />
-      <workItem from="1606869162281" duration="3916000" />
+      <workItem from="1606869162281" duration="9536000" />
     </task>
     <servers />
   </component>

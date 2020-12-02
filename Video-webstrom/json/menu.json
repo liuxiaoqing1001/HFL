@@ -56,7 +56,6 @@
         "text": "<span class='glyphicon glyphicon-list' /> 管理员列表",
         "href":"RoleList.html"
       },
-
       {
         "text": "<span class='glyphicon glyphicon-plus' /> 新增管理员",
         "href":"AddRole.html"

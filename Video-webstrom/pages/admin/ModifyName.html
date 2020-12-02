@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改类型名称</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/admin/TypeList.js"></script>
+    <script src="../../js/admin/ModifyName.js"></script>
+
+
+</head>
+<body>
+<div class="container-fluid">
+    <h3>修改类型名称</h3>
+    <hr/>
+    <form id="ModifyNameForm" class="form-horizontal" >
+
+        <div class="form-group">
+            <label for="typename" class="col-sm-2 control-label">请输入要修改的名称:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="TypeName" name="TypeName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4">
+                <button type="button" class="btn btn-success" id="ModifyName">确认</button>
+                <button type="button" class="btn btn-info" id="goback">返回</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

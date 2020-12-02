@@ -1,20 +1,27 @@
-//进行添加
+var NameId = new Object() ;
+//得到id字段
+var str = sessionStorage.getItem("Nameid") ;
+if (str != null || str != "" || str != undefined) {
+    NameId = JSON.parse(str);
+}
+
+//进行修改
 $(function () {
-    $("#AddName").click(function () {
-        var typeName = $('#ModifyNameForm input[name="AddTypeName"]').val();
+    $("#ModifyName").click(function () {
+        var typeName = $('#ModifyNameForm input[name="TypeName"]').val();
 
         $.ajax({
-            url : videoTypeNC+typeName,
+            url : videoTypeNC + typeName,
             type : 'GET',
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
-            success : function(reqData){
+            success : function(reqData) {
                 // console.log(reqData);
                 // alert(reqData.msg);
                 if(reqData.errCode==0){
                     $.ajax({
-                        url :  videoTypeAdd + typeName,
-                        type : 'POST',
+                        url :  videoTypeTN + typeName + "/" + NameId,
+                        type : 'PUT',
                         contentType : 'application/json;charset=UTF-8',
                         dataType : 'json' ,
                         success : function(reqData){
@@ -23,30 +30,19 @@ $(function () {
                                 location.href = "TypeList.html" ;
                             }
                         }
+
                     })
+
                 }
-
-
-
             }
-        })
 
-
-
-
-
-
-
-
-
-
+            })
 
     });
 
     $("#goback").click(function () {
         window.history.go(-1);
     });
-
 
 });
 

@@ -141,15 +141,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer upRole(Integer role,Integer id) {
+    public Integer upRole(Integer id) {
         if(id == null || id<1) {
             return null ;
         }
-        int r = userDao.upRole(role,id) ;
+        int r = userDao.upRole(id) ;
         if(r != 1) {
             return null ;
         } else {
-            return userDao.upRole(role,id) ;
+            return userDao.upRole(id) ;
         }
     }
 
@@ -185,5 +185,37 @@ public class UserServiceImpl implements UserService {
         pageInfo.setSize(size);
         return pageInfo ;
     }
+
+    @Override
+    public Integer addRole(User user) {
+//        System.out.println(user.toString());
+        if(null == user) {
+            return REG_MSG_FAIL_INFO_NON ;
+        }
+        if(StringUtils.isEmpty(user.getName()) || StringUtils.isEmpty(user.getPassword()) ||
+                StringUtils.isEmpty(user.getAge()) || StringUtils.isEmpty(user.getSex()) ||
+                StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getMobile())) {
+            return REG_MSG_FAIL_INFO_NON ;
+        }
+        // 先进行账号是否存在检测
+        int nameC = userDao.nameSearch(user.getName()) ;
+        if(nameC > 0) {
+            return REG_MSG_FAIL_NAMEEXISTS ;
+        }
+        // 注册
+        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+        user.setAge(user.getAge());
+        user.setSex(user.getSex());
+        user.setEmail(user.getEmail());
+        user.setMobile(user.getMobile());
+//        user.setPhotourl(user.getPhotourl());
+//        user.setRole(user.getRole());
+//        System.out.println(user);
+        int r = userDao.addRole(user) ;
+        if(r > 0) {
+            return REG_MSG_OK ;
+        } else {
+            return REG_MSG_FAIL_OTHER ;
+        }    }
 
 }

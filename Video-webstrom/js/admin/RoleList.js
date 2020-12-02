@@ -5,22 +5,25 @@ $(function () {
         $.get(
             userRolePage + currentPage + "/" + size,
             function (reqData) {
+                // console.log(reqData);
+                // console.log(reqData.rows.length);
                 for (var i = 0; i < reqData.rows.length; i++) {
                     record = i;
                     var line = i + 1;
 
-                    var role ;
-                    if(reqData.rows[i].role==0){
-                        role = "管理员" ;
-                    }else if(reqData.rows[i].role==1){
-                        role = "用户";
-                    }
+                    // var role;
+                    var role = "管理员" ;
+                    // if(reqData.rows[i].role==0){
+                    //     role = "管理员" ;
+                    // }else if(reqData.rows[i].role==1){
+                    //     role = "用户";
+                    // }
 
                     var trtd = $('<tr><td>' + line + '</td>' +
                         '<td >'+reqData.rows[i].name+'</td>' +
                         '<td class="role" id="roleTd">'+role+'</td>' +
-                        '<td><button class="btn btn-info btn-sm btnModify">修改</button>' +
-                        '&nbsp;<button class="btn btn-danger btn-sm btnDel">删除</button></td></tr>');
+                        '<td><button class="btn btn-info btn-sm btnModify">转为普通用户</button>' +
+                        '&nbsp;<button class="btn btn-danger btn-sm btnDel">彻底删除</button></td></tr>');
                     trtd.appendTo($("#roleTable"));
 
                     $(".btnModify").eq(i).attr("id", reqData.rows[i].id);
@@ -49,18 +52,17 @@ $(function () {
                 $(".btnModify").click(function () {
                     var id = $(this).attr("id");
                     $.ajax({
-                        url : userPath + id  ,
-                        type : 'GET',
+                        url : userRole + id,
+                        type:'PUT',
                         contentType : 'application/json;charset=UTF-8',
                         dataType : 'json' ,
-                        success : function(req){
-                            console.log(req);
-                            sessionStorage.setItem("userInfo" , JSON.stringify(req));
-
+                        success:function(reqData) {
+                            if(reqData.errCode == 0) {
+                                alert(reqData.msg);
+                                location.href = "RoleList.html" ;
+                            }
                         }
                     });
-                    location.href = "ModifyRole.html";
-                    var str = sessionStorage.setItem("id", id);
                 });
 
                 //点击删除按钮操作

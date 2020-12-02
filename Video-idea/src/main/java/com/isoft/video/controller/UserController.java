@@ -133,9 +133,47 @@ public class UserController {
         return map ;
     }
 
-    @PutMapping("role/{role}/{id}")
-    public ResponseData upRole(@PathVariable("role") Integer role,@PathVariable("id")Integer id){
-        Integer r=userService.upRole(role, id);
+    /**
+     * 添加管理员
+     * @param map
+     * @return
+     */
+    @PostMapping("addRole/")
+    public ResponseData addRole(@RequestBody Map<String , Object> map) {
+        User user = new User() ;
+        user.setName((String)map.get("name"));
+        user.setPassword((String)map.get("password"));
+        user.setAge(Integer.parseInt(map.get("age").toString()));
+        user.setSex((String)map.get("sex"));
+        user.setEmail((String)map.get("email"));
+        user.setMobile((String)map.get("mobile"));
+//        user.setPhotourl((String)map.get("photourl"));
+        Integer result = userService.addRole(user) ;
+        String msg = "" ;
+        switch (result) {
+            case UserService.REG_MSG_OK :
+                msg = "添加成功" ;
+                break;
+            case UserService.REG_MSG_FAIL_NAMEEXISTS :
+                msg = "账户已存在，可从用户列表修改为管理员权限" ;
+                break;
+            case UserService.REG_MSG_FAIL_INFO_NON:
+                msg = "信息不完整" ;
+                break;
+            default :
+                msg = "添加失败" ;
+                break;
+        }
+        return new ResponseData(
+                result ,
+                msg,
+                result == 0
+        ) ;
+    }
+
+    @PutMapping("role/{id}")
+    public ResponseData upRole(@PathVariable("id")Integer id){
+        Integer r=userService.upRole(id);
         return new ResponseData(
                 r != null ? 0 : 1 ,
                 r != null ? "修改成功" : "修改失败" ,

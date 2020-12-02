@@ -103,16 +103,19 @@ public interface UserDao {
     @Delete("delete from tb_user where id=#{id}")
     int DeleteById(Integer id) ;
 
-    @Update("update tb_user set role=#{role} where id=#{id}")
-    int upRole(@Param("role")Integer role,@Param("id")Integer id);
+    @Update("update tb_user set role=1 where id=#{id}")
+    int upRole(@Param("id")Integer id);
 
     @Delete("delete from tb_user where id=#{id}")
     int delById(Integer id);
 
-    @Select("select count(*) from tb_user")
+    @Select("select count(*) from tb_user where role=0")
     Integer getCount();
 
-    @Select("select * from tb_user order by id asc limit #{offset},#{rows}")
+    @Select("select * from tb_user where role=0 order by id asc limit #{offset},#{rows}")
     List<User> getLimit(@Param("offset")Integer offset,@Param("rows")Integer rows);
 
+    @Insert("insert into tb_user(name,password,age,sex,email,mobile,photourl,role,regdate) " +
+            "values(#{name},#{password},#{age},#{sex},#{email},#{mobile},#{photourl},0,now())")
+    int addRole(User user);
 }
