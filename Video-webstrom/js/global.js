@@ -50,14 +50,23 @@ var commentByVid = commentPath + "getAllByVid/";
 var commentSumByVid = commentPath + "getSumByVId/";
 var commentAddComment = commentPath + "addComment/";
 
-var videoType = serverPath + "videoType/";
-var videoTypeNC = videoType+ "nameCount/";
-var videoTypeAdd = videoType + "add/";
-var videoTypePage = videoType + "page/";
-var videoTypeDel = videoType + "delete/";
-var videoTypeTN = videoType + "typename/";
+var videoTypePath = serverPath + "videoType/";
+var videoTypeNC = videoTypePath+ "nameCount/";
+var videoTypeAdd = videoTypePath + "add/";
+var videoTypePage = videoTypePath + "page/";
+var videoTypeDel = videoTypePath + "delete/";
+var videoTypeTN = videoTypePath + "typename/";
 
-
+var sayPath = serverPath + "say/";
+var sayGetAll = sayPath + "getAll/";
+var sayGetSay = sayPath + "getSay/";
+var sayGetPraiseCount = sayPath + "getPraiseCount/";
+var sayPraiseCount = sayPath + "praiseCount/";
+var sayForward = sayPath + 'forward/';
+var sayOtherSay = sayPath + "OtherSay/";
+var sayPublish = sayPath + 'publish/';
+var sayMyData = sayPath + "MyData/";
+var sayDel = sayPath + "delete/";
 
 // var serverPathManager = serverPath + "/system/" ;
 

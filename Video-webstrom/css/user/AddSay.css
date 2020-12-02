@@ -12,6 +12,20 @@ button {
 
 }
 
+.sender{
+    font-size: 20px;
+}
+
+#uname{
+    font-size: 18px;
+}
+
+#description{
+    margin: 0;
+    width: 897px;
+    height: 300px;
+}
+
 
 
 

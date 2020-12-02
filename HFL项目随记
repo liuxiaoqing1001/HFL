@@ -173,6 +173,7 @@ CREATE TABLE tb_user (
 
 INSERT INTO tb_user VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
 INSERT INTO tb_user VALUES ('2', 'liu', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '1');
+INSERT INTO tb_user VALUES ('3', 'rose', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '1');
 
 
 CREATE TABLE tb_videotype  (
@@ -244,32 +245,39 @@ CREATE TABLE tb_say (
 ) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 
-INSERT INTO `tb_say` VALUES (2, 'dmy', '2020-11-23 17:13:13', '我dddd', 79);
-INSERT INTO `tb_say` VALUES (3, 'grl', '2020-11-23 16:56:38', '有需要票的找我', 10);
-INSERT INTO `tb_say` VALUES (4, 'joe', '2020-11-23 20:58:36', '天气真好', 28);
-INSERT INTO `tb_say` VALUES (5, 'joe', '2020-11-23 22:32:36', '崩溃', 56);
-INSERT INTO `tb_say` VALUES (6, 'rose', '2020-11-25 15:58:18', '崩溃了。。。                            ', 14);
-INSERT INTO `tb_say` VALUES (7, 'ccc', '2020-11-26 15:17:34', '多好友隐藏', 8);
-INSERT INTO `tb_say` VALUES (8, 'czj', '2020-11-26 15:18:01', '测试', 68);
-INSERT INTO `tb_say` VALUES (9, 'rose', '2020-11-27 22:27:25', 'word                            ', 263);
-INSERT INTO `tb_say` VALUES (10, 'rose', '2020-11-27 22:27:04', '啊啊                            ', 828);
-INSERT INTO `tb_say` VALUES (13, 'rose', '2020-11-28 09:26:01', '不是转发', 60);
-INSERT INTO `tb_say` VALUES (14, 'rose', '2020-11-29 13:14:11', 'dmy:我dddd', 4);
-INSERT INTO `tb_say` VALUES (17, 'rose', '2020-11-29 15:50:49', '测试                            ', 24);
+INSERT INTO tb_say VALUES (2, 'rose', '2020-11-23 17:13:13', '我dddd', 79);
+INSERT INTO tb_say VALUES (3, 'rose', '2020-11-23 16:56:38', '有需要票的找我', 10);
+INSERT INTO tb_say VALUES (4, 'rose', '2020-11-23 20:58:36', '天气真好', 28);
+INSERT INTO tb_say VALUES (5, 'rose', '2020-11-23 22:32:36', '崩溃', 56);
+INSERT INTO tb_say VALUES (6, 'rose', '2020-11-25 15:58:18', '崩溃了。。。                            ', 14);
+INSERT INTO tb_say VALUES (7, 'liu', '2020-11-26 15:17:34', '多好友隐藏', 8);
+INSERT INTO tb_say VALUES (8, 'liu', '2020-11-26 15:18:01', '测试', 68);
+INSERT INTO tb_say VALUES (9, 'liu', '2020-11-27 22:27:25', 'word                           ', 263);
+INSERT INTO tb_say VALUES (10, 'liu', '2020-11-27 22:27:04', '啊啊                            ', 828);
+INSERT INTO tb_say VALUES (13, 'liu', '2020-11-28 09:26:01', '不是转发', 60);
+INSERT INTO tb_say VALUES (14, 'liu', '2020-11-29 13:14:11', 'dmy:我dddd', 4);
+INSERT INTO tb_say VALUES (17, 'liu', '2020-11-29 15:50:49', '测试                            ', 24);
 
 SET FOREIGN_KEY_CHECKS = 1;
+//https://www.cnblogs.com/loveLands/articles/11298610.html
 
 
 tb_user(uid)
 tb_video
 tb_u_v(id,uid,vid,)
 
------------------------------------------xxx-----------------------------------------
-1. 注销：浏览器左右键返回，没注销成功
+---------------------------------------xxx-----------------------------------------
+1. 注销：浏览器左右键返回还是原来的账号，没注销成功
 2. 忘记密码？
-3. 最上面的搜索未实现
-4. 导航当前未选中
-5. 第一个页面不是登录，是主页，在主页点击除首页之外的按钮时都要求登录
+3. 最上面的搜索未实现（做模糊查询，根据视频标题或视频描述）
+4. 当前导航未选中和选中的问题
+5. 登录和注册页面做背景动画，各个center背景动画
+6. 有些输入框会有历史记录，设置不可见
+7. 管理端导航
+8. 修改所有的alert标题为对应的操作标题
+9. 
+
+
 6. modifyUserPhoto.html设置点击头像，弹出框修改头像，修改成功后返回原页面并更新
 
 
@@ -277,5 +285,7 @@ tb_u_v(id,uid,vid,)
 管理端管理员管理（增加管理员，删除管理员）
 用户修改信息上传头像失败
 个人信息点击头像修改头像（弹框）
+
+5. 第一个页面不是登录，是主页，在主页点击除首页之外的按钮时都要求登录
 
 

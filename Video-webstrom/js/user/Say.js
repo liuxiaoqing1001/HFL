@@ -4,11 +4,11 @@ if (str != null || str != "" || str != undefined) {
     userObj = JSON.parse(str);
 }
 var uname=userObj.name;
-
+// console.log("uname:"+uname);
 
 $(function () {
     $.ajax({
-        url: Path + "say/getSay/" + uname,
+        url: sayGetAll,
         type: 'GET',
         contentType: 'application/json;charset=UTF-8',
         dataType: 'json',
@@ -22,14 +22,13 @@ $(function () {
                     srcUrl = reqData.data[i].photourl ;
                 }
 
-                var content = $('<div style="float: left;clear: both" class="content" ><img src='+srcUrl+' class="img-circle img"/>' + '</div>' +
-                    '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span>' + '</p>' +
+                var content = $('<div style="float: left;clear: both;margin-top: 10px" class="content" ><img src='+srcUrl+' class="img-circle img"/>' + '</div>' +
+                    '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span>' +
                     '<span>' + reqData.data[i].time + '</span>' +
                     '</div>' +
                     '<div class="btn-group" style="float: right;margin-right: 110px;" >' +
                     '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
                     '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
-                    '</button>' +
                     '<ul class="dropdown-menu " id="menu">' +
                     '<li><a href="say.html" >' + "所有" + '</a></li>' +
                     '<li><a href="#" class="NoLookit">' + "不看他" + '</a></li>' +
@@ -40,7 +39,7 @@ $(function () {
                     '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px">' + reqData.data[i].say + '</div>' +
                     '<div style="float: right"><button class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</button>' +
                     '<button class="glyphicon glyphicon-level-up  forward" style="margin-right: 50px;" type="button"/>' +
-                    '</div>'
+                    '</div><hr/>'
                 );
                 content.appendTo($("#say"));
 
@@ -63,16 +62,16 @@ $(function () {
             $(".praise").click(function () {
                 var id = $(this).attr("id");
                 $.ajax({
-                    url: Path+"say/getPraiseCount/"+id,
+                    url: sayGetPraiseCount + id,
                     type : 'GET',
                     dataType : 'json' ,
                     success: function (reqdata) {
                         console.log(reqdata);
-                        sessionStorage.setItem("praiseCount",reqdata.data)
+                        sessionStorage.setItem("praiseCount",reqdata.data);
                         count=reqdata.data+1;
                         if(reqdata.errCode==0){
                             $.ajax({
-                                url: Path+"say/praiseCount/"+id+"/"+count,
+                                url: sayPraiseCount + id + "/" + count,
                                 type : 'PUT',
                                 dataType : 'json' ,
                                 success: function (data) {
@@ -85,42 +84,27 @@ $(function () {
 
                     }
                 });
-
-
                 location.reload([true]);
-
-
-
             });
 
             $(".forward").click(function () {
                 var id = $(this).attr("id");
                 $.ajax({
-                    url : Path+'/say/forward/'+id ,
+                    url : sayForward + id ,
                     type : 'GET',
                     dataType : 'json' ,
                     success : function(reqData) {
                         console.log(reqData.data);
                         sessionStorage.setItem("descripiton",JSON.stringify(reqData.data));
                     }
-
                 });
-
-
                 location.href="AddSay.html"
-
-
             });
-
-
 
             $(".NoLookit").click(function () {
                 var id = $(this).attr("id");
                 NoLookit(id,uname);
-
-
             });
-
         }
     });
 
@@ -128,7 +112,7 @@ $(function () {
         var ids=new Array();
         ids.push(id);
         $.ajax({
-            url : Path+"say/OtherSay/"+ids+"/"+uname,
+            url : sayOtherSay + ids + "/" + uname,
             type:'GET',
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
@@ -178,7 +162,7 @@ $(function () {
                 $(".forward").click(function () {
                     var id = $(this).attr("id");
                     $.ajax({
-                        url : Path+'/say/forward/'+id ,
+                        url : sayForward + id ,
                         type : 'GET',
                         dataType : 'json' ,
                         success : function(reqData) {
@@ -187,56 +171,33 @@ $(function () {
                         }
 
                     });
-
-
-                    location.href="AddSay.html"
-
-
-
+                    location.href="AddSay.html";
                 });
                 $(".praise").click(function () {
                     var id = $(this).attr("id");
                     $.ajax({
-                        url: Path+"say/getPraiseCount/"+id,
+                        url: sayGetPraiseCount + id,
                         type : 'GET',
                         dataType : 'json' ,
                         success: function (reqdata) {
                             console.log(reqdata);
-                            sessionStorage.setItem("praiseCount",reqdata.data)
+                            sessionStorage.setItem("praiseCount",reqdata.data);
                             count=reqdata.data+1;
                             if(reqdata.errCode==0){
                                 $.ajax({
-                                    url: Path+"say/praiseCount/"+id+"/"+count,
+                                    url: sayPraiseCount + id + "/" + count,
                                     type : 'PUT',
                                     dataType : 'json' ,
                                     success: function (data) {
                                         alert("爱你哦~");
-
                                     }
                                 });
-
                             }
-
                         }
                     });
-
-
                     location.reload([true]);
-
-
-
                 });
-
-
-
             }
-
         });
-
-
     }
-
-
-
-
 });

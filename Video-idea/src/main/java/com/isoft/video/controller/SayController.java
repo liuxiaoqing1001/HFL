@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class SayController {
     @Autowired
     SayService sayService;
+
     @Autowired
     SayDao sayDao;
+
     @GetMapping("/getAll")
     public ResponseData getAll(){
         return new ResponseData(
@@ -63,7 +65,7 @@ public class SayController {
      * @param uname
      * @return
      */
-    @GetMapping("/getSay/{uname}")
+    @GetMapping("getSay/{uname}")
     public ResponseData getSay(@PathVariable("uname")String uname){
         return new ResponseData(
                 0 ,
@@ -93,7 +95,7 @@ public class SayController {
 
 
     //自己的说说
-    @GetMapping("/Mydata/{uname}/{name}")
+    @GetMapping("/MyData/{uname}/{name}")
     public ResponseData getAperson(@PathVariable("uname") String uname, @PathVariable("name") String name){
         return new ResponseData(
                 0 ,

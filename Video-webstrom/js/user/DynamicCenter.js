@@ -4,9 +4,9 @@ $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
     }
-    if(userObj.photourl!=null){
-        $("#img").attr("src",userObj.photourl);
-    }
+    // if(userObj.photourl!=null){
+    //     $("#img").attr("src",userObj.photourl);
+    // }
 
     if (null != userObj) {
         $(".showLoginUser").text(userObj.name);
