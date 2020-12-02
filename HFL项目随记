@@ -236,9 +236,11 @@ INSERT INTO tb_comment VALUES ('3', '2', '路过～', 'qing', 'liu', '2020-11-07
 CREATE TABLE tb_say (
   id int(11) NOT NULL AUTO_INCREMENT,
   uname varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  vid int(5) NOT NULL,
   time datetime(0) NOT NULL,
-  say varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  say varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   praise int(20) NULL DEFAULT NULL,
+  collect int(20) NULL DEFAULT NULL,
   PRIMARY KEY (id) USING BTREE,
   INDEX name(uname) USING BTREE,
   CONSTRAINT name FOREIGN KEY(uname) REFERENCES tb_user(name) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -275,7 +277,9 @@ tb_u_v(id,uid,vid,)
 6. 有些输入框会有历史记录，设置不可见
 7. 管理端导航
 8. 修改所有的alert标题为对应的操作标题
-9. 点赞后给发送者发送消息（xxx给你点赞）
+9. 点赞,收藏后给发送者发送消息（xxx给你点赞），评论后给发送者发送消息（xxx评论你的xxx视频xxx）
+
+
 10. 将动态中心的好友动态，改成广场（显示所有用户上传视频的动态，即在上传的时候在say中保存相关消息）（动态内容变为视频描述，点击foward跳入视频播放界面（有弹幕那个页面））
 11. 将动态中心的我的说说改成我的动态，显示自己上传视频的消息
 12. 消息中心增加其他用户给你点赞和评论的部分

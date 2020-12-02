@@ -30,7 +30,7 @@ $(function () {
                     // '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
                     // '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
                     // '<ul class="dropdown-menu " id="menu">' +
-                    // '<li><a href="Say.html" >' + "所有" + '</a></li>' +
+                    // '<li><a href="NewSay.html" >' + "所有" + '</a></li>' +
                     // '<li><a href="#" class="NoLookit">' + "不看他" + '</a></li>' +
                     // '<li role="separator" class="divider"></li>' +
                     // '<li><a href="#">' + "取消" + '</a></li>' +
@@ -44,9 +44,9 @@ $(function () {
                 content.appendTo($("#say"));
 
                 $(".name").eq(i).attr("id", reqData.data[i].id);
-                console.log($(".name").val())
-                $(".NoLookit").eq(i).attr("id", reqData.data[i].id);
-                $(".menu").eq(i).attr("id", reqData.data[i].id);
+                console.log($(".name").val());
+                // $(".NoLookit").eq(i).attr("id", reqData.data[i].id);
+                // $(".menu").eq(i).attr("id", reqData.data[i].id);
                 $(".content").eq(i).attr("id", reqData.data[i].id);
 
                 $(".img").eq(i).attr("id", reqData.data[i].id);
@@ -135,7 +135,7 @@ $(function () {
     //                     '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
     //                     '</button>' +
     //                     '<ul class="dropdown-menu" id="menu">' +
-    //                     '<li><a target="contentFrame" href="Say.html">'+"所有"+'</a></li>' +
+    //                     '<li><a target="contentFrame" href="NewSay.html">'+"所有"+'</a></li>' +
     //                     '<li><a href="#" class="NoLookit">' + "不看他" + '</a></li>' +
     //                     '<li role="separator" class="divider"></li>' +
     //                     '<li><a href="#">' + "取消" + '</a></li>' +
