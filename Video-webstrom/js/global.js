@@ -59,11 +59,13 @@ var videoTypeTN = videoTypePath + "typename/";
 
 var sayPath = serverPath + "say/";
 var sayGetAll = sayPath + "getAll/";
-// var sayGetSay = sayPath + "getSay/";
+var sayGetPAndC = sayPath + "getPAndC/";
 var sayGetPraiseCount = sayPath + "getPraiseCount/";
 var sayPraiseCount = sayPath + "praiseCount/";
-var sayForward = sayPath + 'forward/';
-var sayOtherSay = sayPath + "OtherSay/";
+var sayGetCollectCount = sayPath + "getCollectCount/";
+var sayCollectCount = sayPath + "collectCount/";
+// var sayForward = sayPath + 'forward/';
+// var sayOtherSay = sayPath + "OtherSay/";
 var sayPublish = sayPath + 'publish/';
 var sayMyData = sayPath + "MyData/";
 var sayDel = sayPath + "delete/";

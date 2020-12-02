@@ -17,88 +17,46 @@ $(function () {
                     '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span></p>' +
                     '<span>' + reqData.data[i].time + '</span>' +
                     '</div>' +
-                    // '<div class="btn-group" style="float: right;margin-right: 110px;" >' +
-                    // '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
-                    // '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
-                    // '<ul class="dropdown-menu" id="menu">' +
+                    '<div class="btn-group" style="float: right;margin-right: 20px;" >' +
+                    '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
+                    '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
+                    '<ul class="dropdown-menu" id="menu">' +
                     // '<li><a href="UpdateSay.html" class="editor">'+"编辑"+'</a></li>' +
-                    // '<li><a href="#" class="delete">' + "删除" + '</a></li>' +
+                    '<li><a class="delete">' + "删除" + '</a></li>' +
                     // '<li role="separator" class="divider"></li>' +
                     // '<li><a href="#">' + "取消" + '</a></li>' +
-                    // '</ul>' +
-                    // '</div>' +
-                    '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px" class="say">' + reqData.data[i].say + '</div>' +
-                    '<div style="float: right"><button class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</button>'+
-                    '<button class="glyphicon glyphicon-level-up forward" style="margin-right: 50px;"/>'+
+                    '</ul>' +
+                    '</div>' +
+                    '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px" class="say">' +
+                    '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
+                    '<div style="float: right"><span class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</span>'+
+                    '<span class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+reqData.data[i].collect + '</span>'+
                     '</div><hr/>'
                 );
                 content.appendTo($("#mysay"));
-                $(".forward").eq(i).attr("id", reqData.data[i].id);
-                $(".praise").eq(i).attr("id", reqData.data[i].id);
 
                 $(".img").eq(i).attr("id", reqData.data[i].id);
-                $(".editor").eq(i).attr("id", reqData.data[i].id);
+
+                // $(".editor").eq(i).attr("id", reqData.data[i].id);
                 $(".delete").eq(i).attr("id", reqData.data[i].id);
-                $(".say").eq(i).attr("id", reqData.data[i].id);
+                // $(".say").eq(i).attr("id", reqData.data[i].id);
 
                 if (reqData.data[i].photourl != null) {
                     $(".img").attr("src", reqData.data[i].photourl);
                 }
             }
-            //点击修改按钮操作
-            $(".editor").click(function () {
-                var id =  $(this).attr("id");
-                location.href="UpdateSay.html";
-                var id=sessionStorage.setItem("id",id)
-            });
-
+            // //点击修改按钮操作
+            // $(".editor").click(function () {
+            //     var id =  $(this).attr("id");
+            //     location.href="UpdateSay.html";
+            //     var id=sessionStorage.setItem("id",id)
+            // });
+            //
             //点击删除按钮操作
             $(".delete").click(function () {
                 var id =  $(this).attr("id");
                 deleteById(id);
-                location.reload([true]);
-
             })
-
-            $(".forward").click(function () {
-                var id = $(this).attr("id");
-                $.ajax({
-                    url : sayForward + id ,
-                    type : 'GET',
-                    dataType : 'json' ,
-                    success : function(reqData) {
-                        console.log(reqData.data);
-                        sessionStorage.setItem("descripiton",JSON.stringify(reqData.data));
-                    }
-                });
-                location.href="AddSay.html"
-            });
-            $(".praise").click(function () {
-                var id = $(this).attr("id");
-                $.ajax({
-                    url: sayGetPraiseCount + id,
-                    type : 'GET',
-                    dataType : 'json' ,
-                    success: function (reqdata) {
-                        console.log(reqdata);
-                        sessionStorage.setItem("praiseCount",reqdata.data);
-                        count=reqdata.data+1;
-
-                        if(reqdata.errCode==0){
-                            $.ajax({
-                                url: sayPraiseCount + id + "/" + count,
-                                type : 'PUT',
-                                dataType : 'json' ,
-                                success: function (data) {
-                                    alert("爱你哦~");
-
-                                }
-                            });
-                        }
-                    }
-                });
-                location.reload([true]);
-            });
         }
     });
 
@@ -110,7 +68,9 @@ $(function () {
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success : function(reqData){
-                console.log(reqData+"删除")
+                // console.log(reqData+"删除");
+                alert(reqData.msg);
+                location.reload([true]);
 
             }
         })

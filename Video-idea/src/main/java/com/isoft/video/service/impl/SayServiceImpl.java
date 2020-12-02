@@ -37,11 +37,11 @@ public class SayServiceImpl implements SayService {
     }
 
     @Override
-    public Integer upDateCount(Integer id, Integer praise) {
-        if(id==null || id<1){
+    public Integer upPraiseCount(Integer vid, Integer praise) {
+        if(vid==null || vid<1){
             return null;
         }
-        return sayDao.upDateCount(id, praise);
+        return sayDao.upDateCount(vid, praise);
     }
 
     @Override
@@ -49,7 +49,23 @@ public class SayServiceImpl implements SayService {
         if(id==null || id<1){
             return null;
         }
-        return sayDao.PraiseCount(id);
+        return sayDao.getPraiseCount(id);
+    }
+
+    @Override
+    public Integer upCollectCount(Integer vid, Integer collect) {
+        if(vid==null || vid<1){
+            return null;
+        }
+        return sayDao.upCollectCount(vid, collect);
+    }
+
+    @Override
+    public Integer getCollectCount(Integer id) {
+        if(id==null || id<1){
+            return null;
+        }
+        return sayDao.getCollectCount(id);
     }
 
     @Override
@@ -120,12 +136,12 @@ public class SayServiceImpl implements SayService {
     }
 
     @Override
-    public Say getAdata(Integer id) {
-        if(id == null || id < 1) {
+    public Say getPAndC(Integer vid) {
+        if(vid == null || vid < 1) {
             return null ;
         }
 
-        return sayDao.getAdata(id);
+        return sayDao.getPAndC(vid);
     }
 
 

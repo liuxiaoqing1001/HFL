@@ -247,18 +247,12 @@ CREATE TABLE tb_say (
 ) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 
-INSERT INTO tb_say VALUES (2, 'rose', '2020-11-23 17:13:13', '我dddd', 79);
-INSERT INTO tb_say VALUES (3, 'rose', '2020-11-23 16:56:38', '有需要票的找我', 10);
-INSERT INTO tb_say VALUES (4, 'rose', '2020-11-23 20:58:36', '天气真好', 28);
-INSERT INTO tb_say VALUES (5, 'rose', '2020-11-23 22:32:36', '崩溃', 56);
-INSERT INTO tb_say VALUES (6, 'rose', '2020-11-25 15:58:18', '崩溃了。。。                            ', 14);
-INSERT INTO tb_say VALUES (7, 'liu', '2020-11-26 15:17:34', '多好友隐藏', 8);
-INSERT INTO tb_say VALUES (8, 'liu', '2020-11-26 15:18:01', '测试', 68);
-INSERT INTO tb_say VALUES (9, 'liu', '2020-11-27 22:27:25', 'word                           ', 263);
-INSERT INTO tb_say VALUES (10, 'liu', '2020-11-27 22:27:04', '啊啊                            ', 828);
-INSERT INTO tb_say VALUES (13, 'liu', '2020-11-28 09:26:01', '不是转发', 60);
-INSERT INTO tb_say VALUES (14, 'liu', '2020-11-29 13:14:11', 'dmy:我dddd', 4);
-INSERT INTO tb_say VALUES (17, 'liu', '2020-11-29 15:50:49', '测试                            ', 24);
+INSERT INTO tb_say VALUES (2, 'rose', 4,'2020-11-23 17:13:13', '我dddd', 79,12);
+INSERT INTO tb_say VALUES (3, 'wang', 3,'2020-11-23 16:56:38', '有需要票的找我', 10,10);
+INSERT INTO tb_say VALUES (7, 'liu', 1,'2020-11-26 15:17:34', '多好友隐藏', 8,2);
+INSERT INTO tb_say VALUES (8, 'liu', 2,'2020-11-26 15:18:01', '测试', 68,3);
+INSERT INTO tb_say VALUES (13, 'liu', 21,'2020-11-28 09:26:01', '不是转发', 60,44);
+
 
 SET FOREIGN_KEY_CHECKS = 1;
 //https://www.cnblogs.com/loveLands/articles/11298610.html
@@ -281,8 +275,8 @@ tb_u_v(id,uid,vid,)
 
 
 10. 将动态中心的好友动态，改成广场（显示所有用户上传视频的动态，即在上传的时候在say中保存相关消息）（动态内容变为视频描述，点击foward跳入视频播放界面（有弹幕那个页面））
-11. 将动态中心的我的说说改成我的动态，显示自己上传视频的消息
-12. 消息中心增加其他用户给你点赞和评论的部分
+*11. 将动态中心的我的说说改成我的动态，显示自己上传视频的消息
+12. 消息中心增加其他用户给你点赞和评论的部分(点赞的时候发送)
 13. 头像的问题（可以先空着，要是谁研究出来了就说一声）
 
 

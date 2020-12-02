@@ -17,3 +17,11 @@ img {
     height: 50px;
 }
 
+.dropdown-menu{
+    min-width: 60px;
+}
+
+/*#menu{*/
+/*    width: 50px;*/
+/*}*/
+

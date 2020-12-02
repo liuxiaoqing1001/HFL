@@ -15,11 +15,13 @@ import java.util.Date;
 public class Say implements Serializable {
     private Integer id;
     private String uname;
+    private Integer vid;
     @DateTimeFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
     @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss",timezone = "Asia/Beijing")
     private Date time;
     private String say;
     private String photourl;
     private Integer praise;
+    private Integer collect;
 
 }

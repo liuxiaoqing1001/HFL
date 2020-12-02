@@ -73,14 +73,14 @@ public class SayController {
                 sayService.getSay(uname)
         );
     }
-    //查看id  一条说说
 
-    @GetMapping("/getMost/{id}")
-    public ResponseData getAdata(@PathVariable("id") Integer id){
+    //查看id  一条说说
+    @GetMapping("/getPAndC/{vid}")
+    public ResponseData getPAndC(@PathVariable("vid") Integer vid){
         return new ResponseData(
                 0,
                 "请求成功",
-                sayService.getAdata(id)
+                sayService.getPAndC(vid)
         );
     }
     //不看某一个人的说说
@@ -146,13 +146,37 @@ public class SayController {
         );
     }
 
-    @PutMapping("/praiseCount/{id}/{praise}")
-    public ResponseData UppraiseCount(@PathVariable("id")Integer id, @PathVariable("praise")Integer praise){
-        Integer r =sayService.upDateCount(id,praise);
+    @PutMapping("/praiseCount/{vid}/{praise}")
+    public ResponseData UpPraiseCount(@PathVariable("vid")Integer vid, @PathVariable("praise")Integer praise){
+        Integer r =sayService.upPraiseCount(vid,praise);
         return new ResponseData(
                 r != null ? 0 : 1 ,
                 r != null ? "更新成功" : "更新失败" ,
                 r
         );
     }
+
+    @GetMapping("/getCollectCount/{id}")
+    public ResponseData getCollectCount(@PathVariable("id")Integer id){
+        Integer r =sayService.getCollectCount(id);
+        return new ResponseData(
+                r != null ? 0 : 1 ,
+                r != null ? "获取数量" : "失败" ,
+                r
+        );
+    }
+
+    @PutMapping("/collectCount/{vid}/{collect}")
+    public ResponseData UpCollectCount(@PathVariable("vid")Integer vid, @PathVariable("collect")Integer collect){
+        Integer r =sayService.upCollectCount(vid,collect);
+        return new ResponseData(
+                r != null ? 0 : 1 ,
+                r != null ? "更新成功" : "更新失败" ,
+                r
+        );
+    }
+
+
+
+
 }

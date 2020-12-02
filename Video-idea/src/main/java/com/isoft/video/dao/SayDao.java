@@ -15,10 +15,16 @@ public interface SayDao {
     List<Say> getAll();
 
     @Select("select praise from tb_say where id=#{id}")
-    Integer PraiseCount(Integer id);
+    Integer getPraiseCount(Integer id);
 
-    @Update("update tb_say set praise=#{praise} where id=#{id}")
-    Integer upDateCount(@Param("id") Integer id, @Param("praise") Integer praise);
+    @Update("update tb_say set praise=#{praise} where vid=#{vid}")
+    Integer upDateCount(@Param("vid") Integer vid, @Param("praise") Integer praise);
+
+    @Select("select collect from tb_say where id=#{id}")
+    Integer getCollectCount(Integer id);
+
+    @Update("update tb_say set collect=#{collect} where vid=#{vid}")
+    Integer upCollectCount(@Param("vid") Integer vid, @Param("collect") Integer collect);
 
     @Select("select uname,say from tb_say where id=#{id} ")
     Say forward(Integer id);
@@ -72,16 +78,23 @@ public interface SayDao {
     @Select("select s.*,u.photourl from tb_user u,tb_say s where s.uname=#{uname} and u.name=#{name} order by s.time desc")
     List<Say> get(@Param("uname") String uname, @Param("name") String name);
 
+//    /**
+//     * 根据id查内容
+//     * @param id
+//     * @return
+//     */
+//    @Select("select s.id,s.uname,u.photourl " +
+//            "from tb_user u,tb_say s " +
+//            "where u.name=s.uname and s.id=#{id}")
+//    Say getPAndC(Integer vid);
+
     /**
-     * 根据id查内容
-     * @param id
+     * 根据vid查praise,collect
+     * @param vid
      * @return
      */
-
-    @Select("select s.id,s.uname,u.photourl " +
-            "from tb_user u,tb_say s " +
-            "where u.name=s.uname and s.id=#{id}")
-    Say getAdata(Integer id);
+    @Select("select praise,collect from tb_say where vid=#{vid}")
+    Say getPAndC(Integer vid);
 
     /**
      * 不看某个人的说说

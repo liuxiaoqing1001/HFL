@@ -6,6 +6,7 @@ var videoName;
 var tag = [];
 var t;
 var i=0;
+var p,c;
 
 $(function () {
     if (str != null || str != "" || str != undefined) {
@@ -41,6 +42,56 @@ $(function () {
             // console.log(videoData);
             $("#comm").text(videoData.data);
         });
+
+    $.get(
+        commentSumByVid + id ,
+        function(videoData) {
+            // console.log(videoData);
+            $("#comm").text(videoData.data);
+        });
+
+    $.ajax({
+        url: sayGetPAndC + id,
+        type : 'GET',
+        dataType : 'json' ,
+        success: function (reqdata) {
+            p = reqdata.data.praise;
+            c = reqdata.data.collect;
+            $("#praise").text(p);
+            $("#collect").text(c);
+        }
+    });
+
+
+    $(".praiseOpera").click(function () {
+        p=p+1;
+        // console.log("p:"+count);
+        $.ajax({
+            url: sayPraiseCount + id + "/" + p,
+            type : 'PUT',
+            dataType : 'json' ,
+            success: function (data) {
+                $("#praise").text(p);
+                // alert("爱你哦~");
+                // location.reload([true]);
+            }
+        });
+    });
+
+    $(".collectOpera").click(function () {
+        c=c+1;
+        // console.log("c:"+count);
+        $.ajax({
+            url: sayCollectCount + id + "/" + c,
+            type : 'PUT',
+            dataType : 'json' ,
+            success: function (data) {
+                $("#collect").text(c);
+                // alert("爱你哦~");
+                // location.reload([true]);
+            }
+        });
+    });
 
     $.get(
         commentByVid + id ,

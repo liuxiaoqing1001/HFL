@@ -56,7 +56,7 @@ public class VideoController {
         String videoPath=videoService.getVideoPath(id);
         //获取resources文件夹的绝对地址
         String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+videoPath).getPath();
-        System.out.println(sourcePath);
+//        System.out.println(sourcePath);
         FileInputStream fis = null;
         OutputStream os = null ;
         fis = new FileInputStream(sourcePath);

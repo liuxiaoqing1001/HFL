@@ -36,30 +36,38 @@ $(function () {
                     // '<li><a href="#">' + "取消" + '</a></li>' +
                     // '</ul>' +
                     // '</div>' +
-                    '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px">' + reqData.data[i].say + '</div>' +
+                    '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px">' +
+                    '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
                     '<div style="float: right"><button class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</button>' +
-                    '<button class="glyphicon glyphicon-level-up forward" style="margin-right: 50px;" type="button"/>' +
+                    '<button class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+reqData.data[i].collect + '</button>'+
+                    // '<button class="glyphicon glyphicon-pencil forward" style="margin-right: 50px;" type="button"/>' +
                     '</div><hr/>'
                 );
                 content.appendTo($("#say"));
 
-                $(".name").eq(i).attr("id", reqData.data[i].id);
-                console.log($(".name").val());
+                // $(".name").eq(i).attr("id", reqData.data[i].id);
+                // console.log($(".name").val());
                 // $(".NoLookit").eq(i).attr("id", reqData.data[i].id);
                 // $(".menu").eq(i).attr("id", reqData.data[i].id);
-                $(".content").eq(i).attr("id", reqData.data[i].id);
+                // $(".content").eq(i).attr("id", reqData.data[i].id);
 
                 $(".img").eq(i).attr("id", reqData.data[i].id);
-                var sid = reqData.data[i].id;
-
-                $(".forward").eq(i).attr("id", reqData.data[i].id);
+                // var sid = reqData.data[i].id;
 
                 $(".praise").eq(i).attr("id", reqData.data[i].id);
+                $(".collect").eq(i).attr("id", reqData.data[i].id);
+                $(".praise").eq(i).attr("vid", reqData.data[i].vid);
+                $(".collect").eq(i).attr("vid", reqData.data[i].vid);
+
+                // $(".forward").eq(i).attr("id", reqData.data[i].id);
+
+
 
             }
 
             $(".praise").click(function () {
                 var id = $(this).attr("id");
+                var vid = $(this).attr("vid");
                 $.ajax({
                     url: sayGetPraiseCount + id,
                     type : 'GET',
@@ -70,7 +78,7 @@ $(function () {
                         count=reqdata.data+1;
                         if(reqdata.errCode==0){
                             $.ajax({
-                                url: sayPraiseCount + id + "/" + count,
+                                url: sayPraiseCount + vid + "/" + count,
                                 type : 'PUT',
                                 dataType : 'json' ,
                                 success: function (data) {
@@ -78,34 +86,56 @@ $(function () {
                                     location.reload([true]);
                                 }
                             });
-
                         }
-
                     }
                 });
-
             });
 
-            $(".forward").click(function () {
-                //调转到对应的动态视频
-
-                // var id = $(this).attr("id");
-                // $.ajax({
-                //     url : sayForward + id ,
-                //     type : 'GET',
-                //     dataType : 'json' ,
-                //     success : function(reqData) {
-                //         console.log(reqData.data);
-                //         sessionStorage.setItem("descripiton",JSON.stringify(reqData.data));
-                //     }
-                // });
-                // location.href="AddSay.html"
-            });
-
-            $(".NoLookit").click(function () {
+            $(".collect").click(function () {
                 var id = $(this).attr("id");
-                NoLookit(id,uname);
+                var vid = $(this).attr("vid");
+                $.ajax({
+                    url: sayGetCollectCount + id,
+                    type : 'GET',
+                    dataType : 'json' ,
+                    success: function (reqdata) {
+                        // console.log(reqdata);
+                        sessionStorage.setItem("praiseCount",reqdata.data);
+                        count=reqdata.data+1;
+                        if(reqdata.errCode==0){
+                            $.ajax({
+                                url: sayCollectCount + vid + "/" + count,
+                                type : 'PUT',
+                                dataType : 'json' ,
+                                success: function (data) {
+                                    alert("爱你哦~");
+                                    location.reload([true]);
+                                }
+                            });
+                        }
+                    }
+                });
             });
+
+            // $(".forward").click(function () {
+            //     //调转到对应的视频
+            //     var id = $(this).attr("id");
+            //     console.log(id);
+            //     // $.ajax({
+            //     //     url : sayForward + id ,
+            //     //     type : 'GET',
+            //     //     dataType : 'json' ,
+            //     //     success : function(reqData) {
+            //     //         console.log(reqData.data);
+            //     //         sessionStorage.setItem("descripiton",JSON.stringify(reqData.data));
+            //     //     }
+            //     // });
+            //     // location.href="AddSay.html"
+            // });
+            // $(".NoLookit").click(function () {
+            //     var id = $(this).attr("id");
+            //     NoLookit(id,uname);
+            // });
         }
     });
 

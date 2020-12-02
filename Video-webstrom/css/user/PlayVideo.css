@@ -3,6 +3,20 @@
     display: none;
 }
 
+button {
+    -webkit-border-radius:6px;/*适配以webkit为核心的浏览器(chrome、safari等)*/
+    -moz-border-radius:6px;/*适配firefox浏览器*/
+    -ms-border-radius:6px;/*适配IE浏览器*/
+    -o-border-radius:6px;/*适配opera浏览器*/
+    border-radius:6px;/*适配所有浏览器*/
+    border: 1px solid #C6C4C4;
+    outline: none;
+    background:none;
+    box-shadow:none;
+    border: 0;
+
+}
+
 .video-box{
     margin: 0 auto;
     /*text-align: center;*/

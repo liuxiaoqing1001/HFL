@@ -12,10 +12,13 @@ public interface SayService {
     List<Say> getOtherSay(Integer id, String uname);
 
 
-    Integer upDateCount(Integer id, Integer praise);
+    Integer upPraiseCount(Integer vid, Integer praise);
 
     Integer getPraiseCount(Integer id);
 
+    Integer upCollectCount(Integer vid, Integer collect);
+
+    Integer getCollectCount(Integer id);
 
     List<Say> OtherSay(Integer[] idList, String uname);
 
@@ -31,5 +34,5 @@ public interface SayService {
 
     Say forward(Integer id);
 
-    Say getAdata(Integer id);
+    Say getPAndC(Integer vid);
 }
