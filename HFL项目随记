@@ -167,11 +167,12 @@ CREATE TABLE tb_user (
   status varchar(100) DEFAULT NULL,
   regdate timestamp NULL DEFAULT NULL,
   role int(11) DEFAULT '1',
-  PRIMARY KEY (id) USING BTREE
+  PRIMARY KEY (id) USING BTREE,
+  INDEX name(name) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 INSERT INTO tb_user VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '0');
-INSERT INTO tb_user VALUES ('2', 'aaa', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '1');
+INSERT INTO tb_user VALUES ('2', 'liu', 'e10adc3949ba59abbe56e057f20f883e', '22', '女', '962746554@qq.com', '15032408116', 'http://aa', null, '2020-11-07 16:42:10', '1');
 
 
 CREATE TABLE tb_videotype  (
@@ -229,6 +230,35 @@ CREATE TABLE tb_comment  (
 INSERT INTO tb_comment VALUES ('1', '2', '这是星巴克阿','rose', 'liu', '2020-11-07 16:42:10');
 INSERT INTO tb_comment VALUES ('2', '2', '这老头是个逗b吧', 'wang', 'liu', '2020-10-07 16:42:10');
 INSERT INTO tb_comment VALUES ('3', '2', '路过～', 'qing', 'liu', '2020-11-07 16:42:10');
+
+
+CREATE TABLE tb_say (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  uname varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  time datetime(0) NOT NULL,
+  say varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  praise int(20) NULL DEFAULT NULL,
+  PRIMARY KEY (id) USING BTREE,
+  INDEX name(uname) USING BTREE,
+  CONSTRAINT name FOREIGN KEY(uname) REFERENCES tb_user(name) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+
+INSERT INTO `tb_say` VALUES (2, 'dmy', '2020-11-23 17:13:13', '我dddd', 79);
+INSERT INTO `tb_say` VALUES (3, 'grl', '2020-11-23 16:56:38', '有需要票的找我', 10);
+INSERT INTO `tb_say` VALUES (4, 'joe', '2020-11-23 20:58:36', '天气真好', 28);
+INSERT INTO `tb_say` VALUES (5, 'joe', '2020-11-23 22:32:36', '崩溃', 56);
+INSERT INTO `tb_say` VALUES (6, 'rose', '2020-11-25 15:58:18', '崩溃了。。。                            ', 14);
+INSERT INTO `tb_say` VALUES (7, 'ccc', '2020-11-26 15:17:34', '多好友隐藏', 8);
+INSERT INTO `tb_say` VALUES (8, 'czj', '2020-11-26 15:18:01', '测试', 68);
+INSERT INTO `tb_say` VALUES (9, 'rose', '2020-11-27 22:27:25', 'word                            ', 263);
+INSERT INTO `tb_say` VALUES (10, 'rose', '2020-11-27 22:27:04', '啊啊                            ', 828);
+INSERT INTO `tb_say` VALUES (13, 'rose', '2020-11-28 09:26:01', '不是转发', 60);
+INSERT INTO `tb_say` VALUES (14, 'rose', '2020-11-29 13:14:11', 'dmy:我dddd', 4);
+INSERT INTO `tb_say` VALUES (17, 'rose', '2020-11-29 15:50:49', '测试                            ', 24);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
 
 tb_user(uid)
 tb_video

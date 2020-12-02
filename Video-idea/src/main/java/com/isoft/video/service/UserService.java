@@ -63,4 +63,10 @@ public interface UserService {
 
     //根据id删除用户信息
     int DeleteById(Integer id) ;
+
+    Integer upRole(Integer role,Integer id);
+
+    Integer delById(Integer id);
+
+    Page<User> RolePage(Integer curPage , Integer size);
 }

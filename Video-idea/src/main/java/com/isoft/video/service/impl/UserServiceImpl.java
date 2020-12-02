@@ -140,4 +140,50 @@ public class UserServiceImpl implements UserService {
         return userDao.DeleteById(id);
     }
 
+    @Override
+    public Integer upRole(Integer role,Integer id) {
+        if(id == null || id<1) {
+            return null ;
+        }
+        int r = userDao.upRole(role,id) ;
+        if(r != 1) {
+            return null ;
+        } else {
+            return userDao.upRole(role,id) ;
+        }
+    }
+
+    @Override
+    public Integer delById(Integer id) {
+        if(id == null || id<1) {
+            return null ;
+        }
+        int r = userDao.delById(id) ;
+        if(r != 1) {
+            return null ;
+        } else {
+            return userDao.delById(id) ;
+        }
+    }
+
+    @Override
+    public Page<User> RolePage(Integer curPage, Integer size) {
+        if(null == curPage || curPage < 1) {
+            curPage = 1 ;
+        }
+        if(null == size || size < 1) {
+            size = 10 ;
+        }
+        List<User> list = userDao.getLimit(size * (curPage-1) , size) ;
+        int count = userDao.getCount() ;
+        int pageCount = (int) Math.ceil(count * 1.0 / size);
+        Page<User> pageInfo = new Page() ;
+        pageInfo.setData((ArrayList<User>) list);
+        pageInfo.setCurPage(curPage);
+        pageInfo.setPageCount(pageCount);
+        pageInfo.setRowCount(count) ;
+        pageInfo.setSize(size);
+        return pageInfo ;
+    }
+
 }

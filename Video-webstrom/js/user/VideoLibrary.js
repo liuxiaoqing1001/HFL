@@ -23,7 +23,7 @@ $(function () {
     // });
 
     $.get(
-        videoType ,
+        videoVType ,
         function(reqData) {
             // console.log(reqData);
             if(0 == reqData.errCode) {

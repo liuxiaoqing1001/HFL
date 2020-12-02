@@ -124,6 +124,25 @@ public class UserController {
         ) ;
     }
 
+    @GetMapping("RolePage/{curPage}/{size}")
+    public Map<String , Object> page(@PathVariable("curPage") Integer curPage , @PathVariable("size")Integer size ){
+        Page<User> page = userService.RolePage(curPage , size) ;
+        Map<String  , Object> map = new HashMap<>() ;
+        map.put("total" , page.getRowCount()) ;
+        map.put("rows" , page.getData()) ;
+        return map ;
+    }
+
+    @PutMapping("role/{role}/{id}")
+    public ResponseData upRole(@PathVariable("role") Integer role,@PathVariable("id")Integer id){
+        Integer r=userService.upRole(role, id);
+        return new ResponseData(
+                r != null ? 0 : 1 ,
+                r != null ? "修改成功" : "修改失败" ,
+                r
+        );
+    }
+
     /**
      * 用户列表的分页实现
      * @param curPage
@@ -262,6 +281,16 @@ public class UserController {
         return new ResponseData(
                 r?0:1,
                 r?"删除成功":"删除失败",
+                r
+        );
+    }
+
+    @DeleteMapping("delRole/{id}")
+    public ResponseData delRoleById(@PathVariable("id")Integer id){
+        Integer r =userService.delById(id);
+        return new ResponseData(
+                r != null ? 0 : 1 ,
+                r != null ? "删除" : "删除失败" ,
                 r
         );
     }

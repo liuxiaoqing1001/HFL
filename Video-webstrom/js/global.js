@@ -25,11 +25,14 @@ var userUpdate = userPath + "update/";
 var userPage = userPath + "page/";
 var userDel = userPath + "delete/";
 var msgAllReceiver = userPath + "getAllMsg/";
+var userRole = userPath + "role/";
+var userRolePage = userPath + "RolePage/";
+var userDelPole = userPath +"delRole/";
 // var msgDel = userPath + "delMsg/";
 
 var videoPath = serverPath + "video/";
 var videoPlayPath = videoPath + "play/";
-var videoType = videoPath + "videoType/";
+var videoVType = videoPath + "videoType/";
 // var videoAll = videoPath + "getAll/";
 var videoPage = videoPath + "page/";
 var videoDel = videoPath + "del/";
@@ -45,6 +48,12 @@ var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";
 var commentSumByVid = commentPath + "getSumByVId/";
 var commentAddComment = commentPath + "addComment/";
+
+var videoType = serverPath + "videoType/";
+var videoTypeNC = videoType+ "nameCount/";
+var videoTypeAdd = videoType + "add/";
+var videoTypePage = videoType + "page/";
+var videoTypeDel = videoType + "delete/";
 
 
 // var serverPathManager = serverPath + "/system/" ;

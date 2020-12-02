@@ -17,4 +17,6 @@ public interface MsgService {
     boolean delById(Integer id);
 
     boolean delAll(String receiver);
+
+
 }

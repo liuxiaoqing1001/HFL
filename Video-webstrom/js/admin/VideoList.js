@@ -5,10 +5,10 @@ $(function () {
     //     location.href = "PlayVideo.html" ;
     // })
 
-    console.log(videoType);
+    // console.log(videoVType);
     // 页面初始化时，填充视频类别
     $.get(
-        videoType ,
+        videoVType ,
         function(reqData) {
             console.log(reqData);
             if(0 == reqData.errCode) {

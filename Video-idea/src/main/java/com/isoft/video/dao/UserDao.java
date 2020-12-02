@@ -102,4 +102,17 @@ public interface UserDao {
     //根据id删除对应用户信息
     @Delete("delete from tb_user where id=#{id}")
     int DeleteById(Integer id) ;
+
+    @Update("update tb_user set role=#{role} where id=#{id}")
+    int upRole(@Param("role")Integer role,@Param("id")Integer id);
+
+    @Delete("delete from tb_user where id=#{id}")
+    int delById(Integer id);
+
+    @Select("select count(*) from tb_user")
+    Integer getCount();
+
+    @Select("select * from tb_user order by id asc limit #{offset},#{rows}")
+    List<User> getLimit(@Param("offset")Integer offset,@Param("rows")Integer rows);
+
 }
