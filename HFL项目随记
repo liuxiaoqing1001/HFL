@@ -197,8 +197,17 @@ CREATE TABLE tb_video  (
   pubdatetime datetime(0) NOT NULL,
   status varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   videopath varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (id) USING BTREE
+  PRIMARY KEY (id) USING BTREE,
+  INDEX vid(id) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+
+  PRIMARY KEY (id),
+  KEY uname (uname),
+  KEY fk_typeid (typeid),
+  CONSTRAINT fk_typeid FOREIGN KEY (typeid) REFERENCES tb_videotype (id),
+  CONSTRAINT fk_uname FOREIGN KEY (uname) REFERENCES tb_user (name)
+
 
 INSERT INTO tb_video VALUES ('1', '1', 'liu', '星巴克', '咖啡', '2020-11-07 16:42:10', '未审核','1.mp4');
 INSERT INTO tb_video VALUES ('2', '2', 'liu', 'startPark', 'coffe', '2020-10-07 16:42:10', '未审核','tweetsip.mp4');
@@ -232,19 +241,6 @@ INSERT INTO tb_comment VALUES ('1', '2', '这是星巴克阿','rose', 'liu', '20
 INSERT INTO tb_comment VALUES ('2', '2', '这老头是个逗b吧', 'wang', 'liu', '2020-10-07 16:42:10');
 INSERT INTO tb_comment VALUES ('3', '2', '路过～', 'qing', 'liu', '2020-11-07 16:42:10');
 
-
-CREATE TABLE tb_say (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  uname varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  vid int(5) NOT NULL,
-  time datetime(0) NOT NULL,
-  say varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  praise int(20) NULL DEFAULT NULL,
-  collect int(20) NULL DEFAULT NULL,
-  PRIMARY KEY (id) USING BTREE,
-  INDEX name(uname) USING BTREE,
-  CONSTRAINT name FOREIGN KEY(uname) REFERENCES tb_user(name) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 CREATE TABLE tb_say (
   id int(11) NOT NULL AUTO_INCREMENT,

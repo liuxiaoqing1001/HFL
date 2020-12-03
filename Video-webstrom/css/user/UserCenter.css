@@ -29,8 +29,21 @@
     background: #fbfbfb;
 }
 
+html{
+    height: 100%;
+}
+
 body {
     background-color: #fbfbfb;
+    height: 100%;
+}
+
+#iframe{
+    height: 100%;
+}
+
+#body{
+    height: 100%;
 }
 
 #userCenter {

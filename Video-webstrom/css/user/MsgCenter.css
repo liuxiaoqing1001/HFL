@@ -2,14 +2,23 @@
     display: none;
 }
 
+html{
+    height: 100%;
+}
+
 body {
     background-color: #fbfbfb;
+    height: 100%;
+}
+
+#body{
+    height: 100%;
 }
 
 #msgCenter {
     background-color: #fff;
     width: 1000px;
-    height: 800px;
+    height: 100%;
 }
 
 h4 {

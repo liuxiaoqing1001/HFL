@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/resources/static/video/1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/resources/static/video/2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/resources/static/video/tweetsip.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/NewSay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/NewSay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/First.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/First.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/MsgCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/MsgCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/UserCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/DynamicCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +119,7 @@
       <workItem from="1606350970628" duration="10748000" />
       <workItem from="1606522831899" duration="8824000" />
       <workItem from="1606869162281" duration="34843000" />
-      <workItem from="1606956139913" duration="13949000" />
+      <workItem from="1606956139913" duration="18253000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface MsgDao {
 
-    @Select("select * from tb_msg where receiver=#{receiver}")
+    @Select("select * from tb_msg where receiver=#{receiver}  order by time desc")
     List<Msg> getAllMsg(String receiver);
 
     @Insert("insert into tb_msg(title,content,sender,receiver,time) " +
