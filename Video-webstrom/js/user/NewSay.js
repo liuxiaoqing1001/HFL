@@ -95,7 +95,7 @@ $(function () {
                                         // time : initDate(new Date())
                                     } ;
                                     var msgData = JSON.stringify(msgObj) ;
-                                    console.log(msgData);
+                                    // console.log(msgData);
                                     $.ajax({
                                         url : msgAdd ,
                                         type : 'POST',

@@ -209,6 +209,26 @@ $(function () {
                     '<span class="msg-comment">'+text+'</span></li>';
                 $(".list").append(str) ;
 
+                var msgObj = {
+                    title : "评论你",
+                    content : text,
+                    sender : userObj.name,
+                    receiver : vUname,
+                    // time : initDate(new Date())
+                } ;
+                var msgData = JSON.stringify(msgObj) ;
+                console.log(msgData);
+                $.ajax({
+                    url : msgAdd ,
+                    type : 'POST',
+                    data : msgData,
+                    contentType : 'application/json;charset=UTF-8',
+                    dataType : 'json' ,
+                    success : function(reqData){
+                        console.log(reqData.msg);
+                    }
+                });
+
                 $.get(
                     commentSumByVid + id ,
                     function(videoData) {
