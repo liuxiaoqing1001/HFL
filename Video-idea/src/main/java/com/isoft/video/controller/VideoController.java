@@ -321,6 +321,15 @@ public class VideoController {
         ) ;
     }
 
+    @GetMapping("/newId")
+    public ResponseData getNewId() {
+        return new ResponseData(
+                0,
+                "请求成功",
+                videoService.getNewId()
+        );
+    }
+
     /**
      * 下载视频
      * @param videopathAll

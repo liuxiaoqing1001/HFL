@@ -5,6 +5,7 @@ import com.isoft.video.entity.Say;
 import com.isoft.video.service.SayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -142,6 +143,25 @@ public class SayServiceImpl implements SayService {
         }
 
         return sayDao.getPAndC(vid);
+    }
+
+    @Override
+    public Integer addSay(Say say) {
+        if(null == say) {
+            System.out.println(say.toString());
+            return REG_MSG_FAIL_INFO_NON ;
+        }
+        if(StringUtils.isEmpty(say.getUname()) || say.getVid()!=0 ||
+                StringUtils.isEmpty(say.getTime()) || StringUtils.isEmpty(say.getSay())) {
+            System.out.println("2");
+            return REG_MSG_FAIL_INFO_NON ;
+        }
+        int r = sayDao.add(say) ;
+        if(r > 0) {
+            return REG_MSG_OK ;
+        } else {
+            return REG_MSG_FAIL_OTHER ;
+        }
     }
 
 

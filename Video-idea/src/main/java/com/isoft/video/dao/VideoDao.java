@@ -99,6 +99,15 @@ public interface VideoDao {
             " values(#{typeid} , #{uname} , #{title} , #{description} , now() , '未审核' , #{videopath}) ")
     int addVideo(Video video) ;
 
+//    @Insert("<script>" +
+//            "insert into tb_video(typeid , uname , title , description , pubdatetime , status , videopath) " +
+//            "values(#{typeid} , #{uname} , #{title} , #{description} , now() , '未审核' , #{videopath}) " +
+//            "        <selectKey keyProperty=\"id\" order=\"AFTER\" resultType=\"int\">" +
+//            "            select LAST_INSERT_ID()" +
+//            "        </selectKey>" +
+//            "</script>")
+//    int addVideo(Video video) ;
+
     /**
      * 查找视频路径
      * @param uname
@@ -106,4 +115,7 @@ public interface VideoDao {
      */
     @Select("select videopath from tb_video where uname = #{uname}")
     List<File> getVideoPathByUname(String uname);
+
+    @Select("SELECT @@IDENTITY AS ID")
+    Object getNewId();
 }

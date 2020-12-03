@@ -1,11 +1,18 @@
 package com.isoft.video.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.isoft.video.bean.ResponseData;
 import com.isoft.video.dao.SayDao;
+import com.isoft.video.entity.Msg;
 import com.isoft.video.entity.Say;
+import com.isoft.video.service.MsgService;
 import com.isoft.video.service.SayService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -176,7 +183,40 @@ public class SayController {
         );
     }
 
-
-
+    /**
+     * 发送上传视频的动态
+     * @param map
+     * @return
+     */
+    @PostMapping("/addSay")
+    public ResponseData addSay(@RequestBody Map<String , Object> map) {
+        Say say = new Say() ;
+        say.setUname((String)map.get("uname"));
+        System.out.println("vid---------------"+Integer.parseInt(map.get("vid").toString()));
+        say.setVid(Integer.parseInt(map.get("vid").toString()));
+        say.setTime(new Date());
+        say.setSay((String)map.get("say"));
+        say.setPraise(0);//Integer.parseInt(map.get("praise").toString())
+        say.setCollect(0);//Integer.parseInt(map.get("collect").toString())
+        Integer result = sayService.addSay(say) ;
+        System.out.println(result);
+        String str = "" ;
+        switch (result) {
+            case SayService.REG_MSG_OK :
+                str = "动态发送成功" ;
+                break;
+            case SayService.REG_MSG_FAIL_INFO_NON:
+                str = "信息不完整" ;
+                break;
+            default :
+                str = "发送失败" ;
+                break;
+        }
+        return new ResponseData(
+                result ,
+                str,
+                result == 0
+        ) ;
+    }
 
 }

@@ -8,16 +8,9 @@
       <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/SayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/SayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/SayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/SayServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/PlayVideo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/PlayVideo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/Say.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/NewSay.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Mysay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Mysay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/NewSay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/NewSay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/MySay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MySay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/NewSay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/NewSay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/PlayVideo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/PlayVideo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/VideoLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoLibrary.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +115,8 @@
       <workItem from="1606272605706" duration="12776000" />
       <workItem from="1606350970628" duration="10748000" />
       <workItem from="1606522831899" duration="8824000" />
-      <workItem from="1606869162281" duration="34578000" />
+      <workItem from="1606869162281" duration="34843000" />
+      <workItem from="1606956139913" duration="7525000" />
     </task>
     <servers />
   </component>

@@ -104,7 +104,7 @@ function initFileInput(uname) {
             videopathAll:videopathAll
         };
         var upData = JSON.stringify(obj) ;
-        console.log(upData);
+        // console.log(upData);
         $.ajax({
             async : false ,
             url : videoAdd ,
@@ -112,9 +112,39 @@ function initFileInput(uname) {
             data : upData ,
             contentType : 'application/json;charset=UTF-8',
             success:function(reqData) {
-                console.log(reqData) ;
-                // alert(reqData.msg) ;
-                alert('文件上传成功！');
+                $.get(
+                    videoNewId,
+                    function(idData) {
+                        // console.log(idData);
+                        if(0 == idData.errCode) {
+                            // console.log("id:"+idData.data);
+                            var sayObj = {
+                                uname : uname,
+                                vid : idData.data,
+                                say : videoDes.trim(),
+                            } ;
+                            var sayData = JSON.stringify(sayObj) ;
+                            console.log(sayData);
+                            $.ajax({
+                                url : sayAdd ,
+                                type : 'POST',
+                                data : sayData,
+                                contentType : 'application/json;charset=UTF-8',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    console.log(reqData);
+                                    console.log("say:"+reqData.data);
+                                    console.log(reqData.msg);
+                                    // alert(reqData.msg) ;
+                                    // location.href = "VideoList.html" ;
+                                    if(reqData.errorCode==0){
+                                        alert('文件上传成功！');
+                                    }
+                                }
+                            });
+                        }
+                    }
+                );
             }
         });
         location.href = "Material.html";

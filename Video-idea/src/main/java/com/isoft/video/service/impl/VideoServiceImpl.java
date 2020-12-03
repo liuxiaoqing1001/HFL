@@ -143,5 +143,11 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.getVideoPathByUname(uname);
     }
 
+    @Override
+    public Object getNewId() {
+//        System.out.println("videoDao.getNewId()------"+videoDao.getNewId());
+        return videoDao.getNewId();
+    }
+
 
 }

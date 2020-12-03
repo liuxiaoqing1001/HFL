@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface SayService {
 
+    public static final int REG_MSG_OK = 0 ;
+    public static final int REG_MSG_FAIL_INFO_NON = 1 ;
+    public static final int REG_MSG_FAIL_OTHER = 2 ;
+
     List<Say> getAll();
 
     List<Say> getSay(String uname);
@@ -35,4 +39,6 @@ public interface SayService {
     Say forward(Integer id);
 
     Say getPAndC(Integer vid);
+
+    Integer addSay(Say say);
 }

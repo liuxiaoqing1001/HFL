@@ -17,7 +17,7 @@ public class Say implements Serializable {
     private String uname;
     private Integer vid;
     @DateTimeFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
-    @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss",timezone = "Asia/Beijing")
+    @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss",timezone = "Asia/Shanghai")
     private Date time;
     private String say;
     private String photourl;

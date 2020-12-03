@@ -44,6 +44,7 @@ var videoByType = videoPath + "getVideoByType/";
 var videoById = videoPath + "getVideoById/";
 var videoUpload = videoPath + "upload/insert/";
 var videoAdd = videoPath + "addVideo/";
+var videoNewId = videoPath + "newId/";
 
 var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";
@@ -66,9 +67,11 @@ var sayGetCollectCount = sayPath + "getCollectCount/";
 var sayCollectCount = sayPath + "collectCount/";
 // var sayForward = sayPath + 'forward/';
 // var sayOtherSay = sayPath + "OtherSay/";
-var sayPublish = sayPath + 'publish/';
+
+// var sayPublish = sayPath + 'publish/';
 var sayMyData = sayPath + "MyData/";
 var sayDel = sayPath + "delete/";
+var sayAdd = sayPath + "addSay/";
 
 // var serverPathManager = serverPath + "/system/" ;
 

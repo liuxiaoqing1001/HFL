@@ -68,4 +68,6 @@ public interface VideoService {
      * @return
      */
     List<File> getVideoPathByUname(String uname) ;
+
+    Object getNewId();
 }

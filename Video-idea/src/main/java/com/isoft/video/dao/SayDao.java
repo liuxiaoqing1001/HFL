@@ -1,5 +1,6 @@
 package com.isoft.video.dao;
 
+import com.isoft.video.entity.Msg;
 import com.isoft.video.entity.Say;
 import org.apache.ibatis.annotations.*;
 
@@ -116,4 +117,8 @@ public interface SayDao {
 
     @Update("update tb_say set say=#{say},time=NOW() where id=#{id}")
     int upSay(@Param("say") String say, @Param("id") Integer id);
+
+    @Insert("insert into tb_say(uname,vid,time,say,praise,collect) " +
+            "values(#{uname},#{vid},#{time},#{say},#{praise},#{collect})")
+    int add(Say say);
 }
