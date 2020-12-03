@@ -148,12 +148,12 @@ public class SayServiceImpl implements SayService {
     @Override
     public Integer addSay(Say say) {
         if(null == say) {
-            System.out.println(say.toString());
+//            System.out.println("x");
             return REG_MSG_FAIL_INFO_NON ;
         }
-        if(StringUtils.isEmpty(say.getUname()) || say.getVid()!=0 ||
+        if(StringUtils.isEmpty(say.getUname()) || StringUtils.isEmpty(say.getVid()) ||
                 StringUtils.isEmpty(say.getTime()) || StringUtils.isEmpty(say.getSay())) {
-            System.out.println("2");
+//            System.out.println("2");
             return REG_MSG_FAIL_INFO_NON ;
         }
         int r = sayDao.add(say) ;

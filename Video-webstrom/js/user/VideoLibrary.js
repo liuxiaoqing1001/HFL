@@ -115,16 +115,13 @@ function initFileInput(uname) {
                 $.get(
                     videoNewId,
                     function(idData) {
-                        // console.log(idData);
                         if(0 == idData.errCode) {
-                            // console.log("id:"+idData.data);
                             var sayObj = {
                                 uname : uname,
                                 vid : idData.data,
                                 say : videoDes.trim(),
                             } ;
                             var sayData = JSON.stringify(sayObj) ;
-                            console.log(sayData);
                             $.ajax({
                                 url : sayAdd ,
                                 type : 'POST',
@@ -132,12 +129,9 @@ function initFileInput(uname) {
                                 contentType : 'application/json;charset=UTF-8',
                                 dataType : 'json' ,
                                 success : function(reqData){
-                                    console.log(reqData);
-                                    console.log("say:"+reqData.data);
-                                    // alert(reqData.msg) ;
-                                    // location.href = "VideoList.html" ;
-                                    if(reqData.errorCode==0){
-                                        console.log(reqData.msg);
+                                    console.log(reqData.msg);
+                                    if(reqData.errCode!=0){
+                                        alert(reqData.msg) ;
                                     }
                                 }
                             });

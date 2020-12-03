@@ -109,6 +109,15 @@ public class VideoController {
         );
     }
 
+    @GetMapping("/uname/{vid}")
+    public ResponseData getVideoUname(@PathVariable("vid") Integer vid){
+        return new ResponseData(
+                0,
+                "请求成功",
+                videoService.getVideoUname(vid)
+        );
+    }
+
     @GetMapping("/videoType")
     public ResponseData videoType(){
         return new ResponseData(

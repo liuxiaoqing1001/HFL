@@ -28,6 +28,8 @@ public interface VideoService {
 
     String getVideoPath(int id );
 
+    String getVideoUname(Integer vid);
+
     boolean delById(Integer id);
 
     boolean delByIds(List<Integer> ids);

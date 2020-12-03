@@ -192,14 +192,14 @@ public class SayController {
     public ResponseData addSay(@RequestBody Map<String , Object> map) {
         Say say = new Say() ;
         say.setUname((String)map.get("uname"));
-        System.out.println("vid---------------"+Integer.parseInt(map.get("vid").toString()));
+//        System.out.println("vid---------------"+Integer.parseInt(map.get("vid").toString()));
         say.setVid(Integer.parseInt(map.get("vid").toString()));
         say.setTime(new Date());
         say.setSay((String)map.get("say"));
         say.setPraise(0);//Integer.parseInt(map.get("praise").toString())
         say.setCollect(0);//Integer.parseInt(map.get("collect").toString())
         Integer result = sayService.addSay(say) ;
-        System.out.println(result);
+//        System.out.println("result:"+result);
         String str = "" ;
         switch (result) {
             case SayService.REG_MSG_OK :

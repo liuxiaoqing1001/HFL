@@ -18,6 +18,9 @@ public interface VideoDao {
     @Select("select videopath from tb_video where id=#{id}")
     String getVideoPath(int id );
 
+    @Select("select uname from tb_video where id=#{id}")
+    String getVideoUname(int id);
+
     @Delete("delete from tb_video where id=#{id}")
     int delById(Integer id) ;
 
@@ -118,4 +121,6 @@ public interface VideoDao {
 
     @Select("SELECT @@IDENTITY AS ID")
     Object getNewId();
+
+
 }

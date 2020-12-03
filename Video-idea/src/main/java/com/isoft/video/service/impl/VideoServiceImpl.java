@@ -34,6 +34,11 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    public String getVideoUname(Integer vid) {
+        return videoDao.getVideoUname(vid);
+    }
+
+    @Override
     public boolean delById(Integer id) {
         if(null == id || id < 1) {
             return false ;

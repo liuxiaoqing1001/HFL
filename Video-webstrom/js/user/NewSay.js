@@ -4,6 +4,7 @@ if (str != null || str != "" || str != undefined) {
     userObj = JSON.parse(str);
 }
 var uname=userObj.name;
+var vUname;
 // console.log("uname:"+uname);
 
 $(function () {
@@ -13,7 +14,7 @@ $(function () {
         contentType: 'application/json;charset=UTF-8',
         dataType: 'json',
         success: function (reqData) {
-            console.log(reqData.data);
+            // console.log(reqData.data);
             for (var i = 0; i < reqData.data.length; i++) {
 
                 if(reqData.data[i].photourl == null || reqData.data[i].photourl == '') {
@@ -61,19 +62,22 @@ $(function () {
 
                 // $(".forward").eq(i).attr("id", reqData.data[i].id);
 
-
-
             }
 
             $(".praise").click(function () {
                 var id = $(this).attr("id");
                 var vid = $(this).attr("vid");
+                $.get(
+                    videoVUname +vid,
+                    function(reqData) {
+                        vUname=reqData.data;
+                    }
+                );
                 $.ajax({
                     url: sayGetPraiseCount + id,
                     type : 'GET',
                     dataType : 'json' ,
                     success: function (reqdata) {
-                        // console.log(reqdata);
                         sessionStorage.setItem("praiseCount",reqdata.data);
                         count=reqdata.data+1;
                         if(reqdata.errCode==0){
@@ -83,6 +87,25 @@ $(function () {
                                 dataType : 'json' ,
                                 success: function (data) {
                                     alert("爱你哦~");
+                                    var msgObj = {
+                                        title : "给你点赞",
+                                        content : "-"+uname+"-biu～地给你点了个赞",
+                                        sender : uname,
+                                        receiver : vUname,
+                                        // time : initDate(new Date())
+                                    } ;
+                                    var msgData = JSON.stringify(msgObj) ;
+                                    console.log(msgData);
+                                    $.ajax({
+                                        url : msgAdd ,
+                                        type : 'POST',
+                                        data : msgData,
+                                        contentType : 'application/json;charset=UTF-8',
+                                        dataType : 'json' ,
+                                        success : function(reqData){
+                                            console.log(reqData.msg);
+                                        }
+                                    });
                                     location.reload([true]);
                                 }
                             });
@@ -94,12 +117,17 @@ $(function () {
             $(".collect").click(function () {
                 var id = $(this).attr("id");
                 var vid = $(this).attr("vid");
+                $.get(
+                    videoVUname +vid,
+                    function(reqData) {
+                        vUname=reqData.data;
+                    }
+                );
                 $.ajax({
                     url: sayGetCollectCount + id,
                     type : 'GET',
                     dataType : 'json' ,
                     success: function (reqdata) {
-                        // console.log(reqdata);
                         sessionStorage.setItem("praiseCount",reqdata.data);
                         count=reqdata.data+1;
                         if(reqdata.errCode==0){
@@ -109,6 +137,23 @@ $(function () {
                                 dataType : 'json' ,
                                 success: function (data) {
                                     alert("爱你哦~");
+                                    var msgObj = {
+                                        title : "收藏了你的视频",
+                                        content : "-"+uname+"-华丽丽地～收藏了你的视频",
+                                        sender : uname,
+                                        receiver : vUname,
+                                    } ;
+                                    var msgData = JSON.stringify(msgObj) ;
+                                    $.ajax({
+                                        url : msgAdd ,
+                                        type : 'POST',
+                                        data : msgData,
+                                        contentType : 'application/json;charset=UTF-8',
+                                        dataType : 'json' ,
+                                        success : function(reqData){
+                                            console.log(reqData.msg);
+                                        }
+                                    });
                                     location.reload([true]);
                                 }
                             });

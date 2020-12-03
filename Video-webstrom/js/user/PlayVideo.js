@@ -72,8 +72,26 @@ $(function () {
             dataType : 'json' ,
             success: function (data) {
                 $("#praise").text(p);
-                // alert("爱你哦~");
-                // location.reload([true]);
+                var msgObj = {
+                    title : "给你点赞",
+                    content : "-"+userObj.name+"-biu～地给你点了个赞",
+                    sender : userObj.name,
+                    receiver : video.uname,
+                    // time : initDate(new Date())
+                } ;
+                var msgData = JSON.stringify(msgObj) ;
+                $.ajax({
+                    url : msgAdd ,
+                    type : 'POST',
+                    data : msgData,
+                    contentType : 'application/json;charset=UTF-8',
+                    dataType : 'json' ,
+                    success : function(reqData){
+                        console.log(reqData.msg);
+                        // alert(reqData.msg) ;
+                        // location.href = "VideoList.html" ;
+                    }
+                });
             }
         });
     });
@@ -87,8 +105,24 @@ $(function () {
             dataType : 'json' ,
             success: function (data) {
                 $("#collect").text(c);
-                // alert("爱你哦~");
-                // location.reload([true]);
+                var msgObj = {
+                    title : "收藏了你的视频",
+                    content : "-"+userObj.name+"-华丽丽地～收藏了你的视频",
+                    sender : userObj.name,
+                    receiver : video.uname,
+                    // time : initDate(new Date())
+                } ;
+                var msgData = JSON.stringify(msgObj) ;
+                $.ajax({
+                    url : msgAdd ,
+                    type : 'POST',
+                    data : msgData,
+                    contentType : 'application/json;charset=UTF-8',
+                    dataType : 'json' ,
+                    success : function(reqData){
+                        console.log(reqData.msg);
+                    }
+                });
             }
         });
     });
