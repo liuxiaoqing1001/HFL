@@ -134,14 +134,14 @@ function initFileInput(uname) {
                                 success : function(reqData){
                                     console.log(reqData);
                                     console.log("say:"+reqData.data);
-                                    console.log(reqData.msg);
                                     // alert(reqData.msg) ;
                                     // location.href = "VideoList.html" ;
                                     if(reqData.errorCode==0){
-                                        alert('文件上传成功！');
+                                        console.log(reqData.msg);
                                     }
                                 }
                             });
+                            alert('文件上传成功！');
                         }
                     }
                 );
