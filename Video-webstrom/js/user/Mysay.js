@@ -5,6 +5,13 @@ if (str != null || str != "" || str != undefined) {
 }
 var uname=userObj.name;
 $(function () {
+
+    if(userObj.photourl == null || userObj.photourl == '') {
+        srcUrl = "../../img/userphoto_default.jpg" ;
+    } else {
+        srcUrl = userPhotoPath + uname ;
+    }
+
     $.ajax({
         url : sayMyData + uname + "/" + uname,
         type:'GET',
@@ -13,7 +20,8 @@ $(function () {
         cache: false,
         success:function(reqData) {
             for (var i = 0 ; i < reqData.data.length ; i++) {
-                var content = $('<div style="float: left;clear: both" id="content" ><img src="../../img/yyqx1.jpg" class="img-circle img" width="50" height="50" class="img"/>' + '</div>' +
+                var content = $('<div style="float: left;clear: both" id="content" >' +
+                    '<img src='+srcUrl+' class="img-circle img"/>' + '</div>' +
                     '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span></p>' +
                     '<span>' + reqData.data[i].time + '</span>' +
                     '</div>' +
@@ -41,9 +49,6 @@ $(function () {
                 $(".delete").eq(i).attr("id", reqData.data[i].id);
                 // $(".say").eq(i).attr("id", reqData.data[i].id);
 
-                if (reqData.data[i].photourl != null) {
-                    $(".img").attr("src", reqData.data[i].photourl);
-                }
             }
             // //点击修改按钮操作
             // $(".editor").click(function () {

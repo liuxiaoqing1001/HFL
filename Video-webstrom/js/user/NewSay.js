@@ -20,7 +20,7 @@ $(function () {
                 if(reqData.data[i].photourl == null || reqData.data[i].photourl == '') {
                     srcUrl = "../../img/userphoto_default.jpg" ;
                 } else {
-                    srcUrl = reqData.data[i].photourl ;
+                    srcUrl = userPhotoPath + reqData.data[i].uname ;
                 }
 
                 var content = $('<div style="float: left;clear: both;" class="content" >' +
