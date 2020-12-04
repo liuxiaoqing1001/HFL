@@ -19,10 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -231,6 +229,19 @@ public class UserController {
         ) ;
     }
 
+    private static String getFileType(String path){
+        String fileType = "";
+        try{
+            InputStream file = new BufferedInputStream(new FileInputStream(path));
+            fileType = URLConnection.guessContentTypeFromStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileType;
+    }
+
     //获取头像地址
     @GetMapping("/photoUrl/{name}")
     public String getVideos(HttpServletResponse response, @PathVariable("name") String name) throws Exception{
@@ -249,7 +260,9 @@ public class UserController {
         fis.close();
 //        fis = null;
         // 设置返回的文件类型
-        response.setContentType("image/png");
+        String fileType=getFileType(sourcePath);
+//        System.out.println("................."+fileType);
+        response.setContentType(fileType);
         os = response.getOutputStream();
         os.write(data);
         os.flush();
@@ -279,13 +292,17 @@ public class UserController {
             String extName = originName.substring(originName.lastIndexOf(".")) ;
             // 3）构造文件新名字
             newFile = new SimpleDateFormat("yyyyMMddHHmmssSSSS").format(new Date()) + "_" + id + extName ;
-            System.out.println(newFile);
+            System.out.println("-------------------"+newFile);
 
-            // 构造文件上传保存物理路径
-            ServletContext app = request.getServletContext() ;
-            photoPath = app.getRealPath(upPhotoPath) + "/" ;
+//            // 构造文件上传保存物理路径
+//            ServletContext app = request.getServletContext() ;
+//            photoPath = app.getRealPath(upPhotoPath) + "/" ;
+
+            String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/img/").getPath();
+            System.out.println("sourcePath:"+sourcePath);
+
             // 判断文件保存的物理路径是否存在，不存在创建
-            File f = new File(photoPath) ;
+            File f = new File(sourcePath) ;
             if(! f.exists()) {
                 f.mkdirs() ;
             }

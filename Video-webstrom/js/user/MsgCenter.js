@@ -13,6 +13,15 @@ $(function () {
         $(".showLoginUser").text('未登录');
     }
 
+    if(userObj.photourl == null || userObj.photourl == '') {
+        $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
+    } else {
+        // console.log("name:"+userObj.name);
+        var photoSrc = userPhotoPath + userObj.name;
+        // console.log(photoSrc);
+        $("#showUserPhoto").attr("src",photoSrc);
+    }
+
     // 日期
     setInterval(function () {
         var now = new Date() ;

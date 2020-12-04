@@ -22,12 +22,18 @@ $(function () {
     //手机号码模块传递的内容
     $("#userPhone").text(userObj.mobile) ;
 
-    // //家庭地址模块传递的内容
-    // $("#userAddress").text(userObj.) ;
-
     //头像模块传递的内容
-    // $("#userPhoto").attr("src",userObj.photourl) ;
-    $("#userPhoto").attr("src" ,"../../img/yyqx1.jpg") ;
-    console.log( $("#userPhoto").attr("src"))
+    if(userObj.photourl == null || userObj.photourl == '') {
+        $("#userPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
+    } else {
+        // console.log("name:"+userObj.name);
+        var photoSrc = userPhotoPath + userObj.name;
+        // console.log(photoSrc);
+        $("#userPhoto").attr("src",photoSrc);
+    }
+
+    $("#userPhoto").click(function () {
+       console.log("更换头像");
+    });
 
 });

@@ -24,7 +24,10 @@ $(function () {
     if(userObj.photourl == null || userObj.photourl == '') {
         $("#showPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
     } else {
-        $("#showPhoto").attr("src" ,userObj.photourl) ;
+        // console.log("name:"+userObj.name);
+        var photoSrc = userPhotoPath + userObj.name;
+        // console.log(photoSrc);
+        $("#showPhoto").attr("src",photoSrc);
     }
 
     // 更新头像-FileInput 初始化,更换uploadUrl？？？？？？？？？？？
@@ -76,10 +79,6 @@ $(function () {
         if (isChecked == false) {
             alert("请勾选同意协议的复选框")
         }else {
-            // if(userObj.photourl != null && userObj.photourl != '') {
-            //     $("#userPhoto").attr("src" ,userObj.photourl) ;
-            // }
-
             var upData = {
                 id : userObj.id ,
                 age : userAge,
@@ -98,29 +97,8 @@ $(function () {
                     alert(reqData.msg) ;
                     sessionStorage.setItem("loginuser" , JSON.stringify(reqData.data)) ;
                 }
-
             });
-
-            // // alert("kk")
-            // var formData=new FormData($("#modifyForm")[0]);
-            // $.ajax({
-            //     url : userPath + 'photo/' ,
-            //     type : 'POST' ,
-            //     data : formData ,
-            //     contentType : false ,    // 表单数据含有文件域，必须设置该项
-            //     processData : false ,    // 上传不需要进行序列化处理
-            //     success:function(reqData) {
-            //         console.log(reqData) ;
-            //         alert(reqData.msg) ;
-            //         if(reqData.errCode == 0) {
-            //             sessionStorage.setItem("loginuser" , JSON.stringify(reqData.data)) ;
-            //             $("#showphoto").attr("src" , reqData.data.photourl) ;
-            //         }
-            //     }
-            //
-            // });
         }
-
     });
 
     //点击取消按钮之后，设置值为原数据库中数据
@@ -134,13 +112,13 @@ $(function () {
     })
 });
 
-
 //初始化FileInput
 var FileInput = function () {
     var oFile = new Object();
     //初始化fileinput控件（第一次初始化）
     oFile.Init = function(ctrlName, uploadUrl) {
         var control = $('#' + ctrlName);
+        console.log("uploadUrl:"+uploadUrl);
         //初始化上传控件的样式
         control.fileinput({
             language: 'zh', //设置语言
@@ -178,15 +156,17 @@ var FileInput = function () {
 
                 // 更新数据存储？？？？？？？？？？？？？？
                 sessionStorage.setItem("loginuser" , JSON.stringify(responseData.data)) ;
+                console.log("data:"+JSON.stringify(responseData.data));
                 userObj.photourl = responseData.data.photourl ;
-                // 刷新index页面头像显示
-                $("#showLoginPhoto", window.parent.document).attr("src", responseData.data.photourl);
+                console.log("userObj.photourl:"+userObj.photourl);
+                // // 刷新index页面头像显示
+                // $("#showLoginPhoto", window.parent.document).attr("src", responseData.data.photourl);
 
             }
         }).on("fileerror" , function(event , data , msg){
             console.log(msg) ;
         }) ;
-    }
+    };
     return oFile;
 
 };

@@ -2,30 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/user/More.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/fullscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/fullscreen_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/mute.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/play-big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/stop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/images/volume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/Index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/DynamicCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/DynamicCenter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/menu.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/AddRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/AddRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/More.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/DynamicCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/ModifyInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/ModifyInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoLibrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoLibrary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +120,7 @@
       <workItem from="1606522831899" duration="8824000" />
       <workItem from="1606869162281" duration="34843000" />
       <workItem from="1606956139913" duration="20759000" />
-      <workItem from="1607042122355" duration="9328000" />
+      <workItem from="1607042122355" duration="16393000" />
     </task>
     <servers />
   </component>
