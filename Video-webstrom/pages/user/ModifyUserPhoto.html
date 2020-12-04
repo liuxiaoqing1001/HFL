@@ -6,15 +6,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="../../css/user/UserInfo.css">
-    <script src="../../js/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
     <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../bootstrap/js/bootbox.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/fileinput.css">
+    <script src="../../bootstrap/js/fileinput.js"></script>
+    <script src="../../bootstrap/js/fileinput_locale_zh.js"></script>
     <script src="../../js/global.js"></script>
     <script src="../../js/user/UserInfo.js"></script></head>
 <body>
 <div>
-    <img id="userPhoto" width="120" height="120" class="img-circle"/>
+    <img id="showPhoto" height="120" width="120" class="img-circle" data-toggle="modal"/>
 </div>
+<!--data-target="#updatePhoto"-->
+<!--<div class="modal fade" id="updatePhoto">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            &lt;!&ndash; 模态框头部&ndash;&gt;-->
+<!--            <div class="modal-header bg-primary">-->
+<!--                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
+<!--                <h3>修改头像</h3>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form enctype="multipart/form-data">-->
+<!--                    <input id="userphoto" class="file-loading" type="file" name="userphoto">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-info"  id="modalBtnCancel" style="width: 100px;">取消</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div> &lt;!&ndash; 模态框结束div &ndash;&gt;-->
 <!--<div><br>-->
 <!--    <label style="font-size: 1px;color: silver">点击头像可修改</label>-->
 <!--</div>-->

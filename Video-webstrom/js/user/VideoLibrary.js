@@ -7,21 +7,6 @@ $(function () {
     $("#userName").val(userObj.name);
     $("#userName").attr("disabled" , "disabled");
 
-    // $.ajax({
-    //     url : videoType,
-    //     type : 'GET' ,
-    //     contentType : 'application/json;charset=UTF-8',
-    //     success:function(reqData) {
-    //         console.log(reqData) ;
-    //         // for (var i = 0 ; i < reqData.length ; i++) {
-    //         //     var optgroup = $('<optgroup label='+reqData[i].id+'>' +
-    //         //         '<option value='+reqData[i].id+'>'+reqData[i].typename+'</option>' +
-    //         //         '</optgroup>');
-    //         //     optgroup.appendTo($("#videoType"));
-    //         // }
-    //     }
-    // });
-
     $.get(
         videoVType ,
         function(reqData) {

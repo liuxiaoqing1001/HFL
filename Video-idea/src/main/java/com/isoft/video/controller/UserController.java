@@ -326,6 +326,7 @@ public class UserController {
 //                user.setAddress(user.getAddress());
                 user.setPhotourl(newFile);
                 userResult = userService.update(user) ;
+                System.out.println("userResult-----"+userResult);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -337,6 +338,8 @@ public class UserController {
                 userResult
         ) ;
     }
+
+
 
     //获取数据库全部信息
     @GetMapping("/getAll")

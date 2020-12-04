@@ -75,43 +75,8 @@ $(function () {
                 sessionStorage.setItem("typename" , typename) ;
                 location.href = "More.html" ;
             });
-
-
-
-            // console.log(reqData) ;
-            // for (var i = 0 ; i < reqData.length ; i++) {
-            //
-            //
-            // }
-
-
-
         }
     });
-
-    // $.ajax({
-    //     url : videoTypeServerPath + "/getAllType" ,
-    //     type : 'GET' ,
-    //     contentType : 'application/json;charset=UTF-8',
-    //     success:function(reqData) {
-    //         console.log(reqData) ;
-    //         for (var i = 0 ; i < reqData.length ; i++) {
-    //             var ul = $('<li style="margin-right: 20px ; list-style: none ; float: left ; background-color: #fcfcfc;">' +
-    //                 '<a class="ulType">'+reqData[i].typename+'</a>' +
-    //                 '</li>')
-    //             ul.appendTo($("#sort"))
-    //
-    //             $(".ulType").eq(i).attr("href" , "#" + reqData[i].typename)
-    //
-    //         }
-    //
-    //         var bottom = $('<div style="float: right ; background-color: #fcfcfc; width: 40px ;height: 40px ; text-align: center;" >' +
-    //             '<a class="top" href="First.html">返回顶部</a>' +
-    //             '</div>')
-    //         bottom.appendTo($("#first"))
-    //
-    //     }
-    // });
 });
 
 function getVideoByTypeName(id , typename) {

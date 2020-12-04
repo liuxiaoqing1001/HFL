@@ -1,6 +1,8 @@
 // 从sessionStorage取出登录者信息
 var userObj = new Object() ;
 var str = sessionStorage.getItem("loginuser") ;
+
+var userAge,userEmail,userPhone,userGender;
 $(function () {
     if (str != null || str != "" || str != undefined) {
         userObj = JSON.parse(str);
@@ -14,11 +16,6 @@ $(function () {
     $("#userGender").val(userObj.sex);
     $("#userEmail").val(userObj.email);
     $("#userPhone").val(userObj.mobile);
-
-    // $('#modifyForm input[name="id"]').val(userObj.id);
-    // if(userObj.photourl != null && userObj.photourl != '') {
-    //     $("#userPhoto").attr("src" ,userObj.photourl) ;
-    // }
 
     $('#modifyForm input[name="id"]').val(userObj.id);
     if(userObj.photourl == null || userObj.photourl == '') {
@@ -38,7 +35,7 @@ $(function () {
     $("#btnUpLoad").click(function () {
 
         //获取输入的年龄内容
-        var userAge = $("#userAge").val();
+        userAge = $("#userAge").val();
         // console.log(userAge);
         //校验年龄
         if ('' == userAge) {
@@ -50,7 +47,7 @@ $(function () {
         }
 
         //获得输入的邮箱内容
-        var userEmail =  $("#userEmail").val() ;
+        userEmail =  $("#userEmail").val() ;
         // console.log(userEmail)
         //校验邮箱
         if ('' == userEmail) {
@@ -62,7 +59,7 @@ $(function () {
         }
 
         //获得输入的手机号码内容
-        var userPhone = $("#userPhone").val() ;
+        userPhone = $("#userPhone").val() ;
         // console.log(userPhone)
         //校验手机号码
         if ('' == userPhone) {
@@ -73,6 +70,8 @@ $(function () {
             $("#userPhone").val(userPhone)
         }
 
+        userGender = $('select[id="userGender"]').val();
+
         //校验复选框是否选中
         var isChecked = $("#checkbox").is(':checked');
         // console.log(isChecked)
@@ -82,7 +81,7 @@ $(function () {
             var upData = {
                 id : userObj.id ,
                 age : userAge,
-                sex : $('select[id="userGender"]').val(),
+                sex : userGender,
                 email : userEmail,
                 mobile : userPhone
             };
@@ -96,7 +95,7 @@ $(function () {
                     // console.log(reqData.data) ;
                     alert(reqData.msg) ;
                     sessionStorage.setItem("loginuser" , JSON.stringify(reqData.data)) ;
-                    location.href = "UserCenter.html" ;
+                    window.parent.location.href= "UserCenter.html" ;
                 }
             });
         }
@@ -119,7 +118,7 @@ var FileInput = function () {
     //初始化fileinput控件（第一次初始化）
     oFile.Init = function(ctrlName, uploadUrl) {
         var control = $('#' + ctrlName);
-        console.log("uploadUrl:"+uploadUrl);
+        // console.log("uploadUrl:"+uploadUrl);
         //初始化上传控件的样式
         control.fileinput({
             language: 'zh', //设置语言
@@ -152,17 +151,22 @@ var FileInput = function () {
                 bootbox.alert('上传成功');
                 // 清除文件上传预览框
                 $(event.target).fileinput('clear') ;
+
+                location.reload([true]);
+
+                // $("#uPhoto").load(location.href+" #uPhoto>*","");
+
                 // 刷新头像？？？？？？？？？
-                $("#showPhoto").attr("src" ,responseData.data.photourl) ;
+                // $("#showPhoto").attr("src" ,responseData.data.photourl) ;
+                // console.log("userPhotoPath + userObj.name:::"+responseData.data.photourl);
+
                 // $("#showUserPhoto", window.parent.document).attr("src", responseData.data.photourl);
 
                 // $("#showPhoto").attr("src" ,userPhotoPath + userObj.name) ;
                 // console.log("userPhotoPath + userObj.name:::"+userPhotoPath + userObj.name);
 
-                sessionStorage.setItem("loginuser" , JSON.stringify(responseData.data)) ;
-                console.log("data:"+JSON.stringify(responseData.data));
-
-
+                // sessionStorage.setItem("loginuser" , JSON.stringify(responseData.data)) ;
+                // console.log("data:"+JSON.stringify(responseData.data));
 
             }
         }).on("fileerror" , function(event , data , msg){
