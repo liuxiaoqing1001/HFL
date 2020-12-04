@@ -2,7 +2,7 @@ $(function () {
     setInterval(function () {       //setInterval(function(){},1000)：该方法可按照指定的周期<即第二个参数[以毫秒为单位]>来调用函数或计算表达式
         var now = new Date() ;
         document.getElementById("showDt").innerHTML = initDate(now) ;
-    },1000)
+    },1000);
 
     $('.carousel').carousel({
         interval: 2000
@@ -11,84 +11,64 @@ $(function () {
     // 从sessionStorage取出登录者信息
     var userObj = new Object() ;
     var str = sessionStorage.getItem("loginuser") ;
+    if (str != null || str != "" || str != undefined) {
+        userObj = JSON.parse(str);
+    }
+
+    if (null != userObj) {
+        $("#loginUser").text(userObj.name);
+        $(".showLoginUser").text(userObj.name);
+        // $(".caret").text(userObj.name);
+    } else {
+        $(".showLoginUser").text('未登录');
+    }
+
     // 未登录用户不允许访问该页
     if(str == null || str == undefined || str == "") {
         location.href="../Login.html" ;
     }
-    $(function() {
-        if (str != null || str != "" || str != undefined) {
-            userObj = JSON.parse(str);
-        }
-        // console.log(userObj)
-        // $("#showUserPhoto").attr("src" ,userObj.photourl);
 
+    // if(userObj.photourl == null || userObj.photourl == '') {
+    //     $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
+    // } else {
+    //     $("#showUserPhoto").attr("src" ,userObj.photourl) ;
+    // }
 
-        // if(userObj.photourl != null && userObj.photourl != '') {
-        //     $("#showUserPhoto").attr("src" ,userObj.photourl) ;
-        // }
+    $.ajax({
+        url : videoVType ,
+        type : 'GET' ,
+        contentType : 'application/json;charset=UTF-8',
+        success:function(reqData) {
+            // console.log(reqData.data.length) ;
+            for (var i = 0 ; i < reqData.data.length ; i++) {
+                var div1 = $('<div class="sortDiv">' +
+                    '<a name="news">'+reqData.data[i].typename+'</a>' +
+                    '<a class="more" href="#">更多>></a>' +
+                    '</div>');
+                var div2 = $('<div id='+reqData.data[i].id+' class="block page"></div>');
+                div1.appendTo($("#mainBody"));
+                div2.appendTo($("#mainBody"));
 
-        if (null != userObj) {
-            $(".showLoginUser").text(userObj.name);
-            // $(".caret").text(userObj.name);
-        } else {
-            $(".showLoginUser").text('未登录');
-        }
-    })
+                f(reqData.data[i].id , reqData.data[i].typename);
 
-    $.get(
-        videoByType + "影视" ,
-        function(videoData) {
-            // console.log(videoData);
-            if(0 == videoData.errCode) {
-                var str=getVideoByType(videoData);
-                $("#type1").append(str) ;
             }
         }
-    );
-
-    $.get(
-        videoByType + "新闻" ,
-        function(videoData) {
-            if(0 == videoData.errCode) {
-                var str=getVideoByType(videoData);
-                $("#type2").append(str) ;
-            }
-        }
-    );
-
-    $.get(
-        videoByType + "生活" ,
-        function(videoData) {
-            if(0 == videoData.errCode) {
-                var str=getVideoByType(videoData);
-                $("#type3").append(str) ;
-            }
-        }
-    );
-
-    $.get(
-        videoByType + "美食" ,
-        function(videoData) {
-            if(0 == videoData.errCode) {
-                var str=getVideoByType(videoData);
-                $("#type4").append(str) ;
-            }
-        }
-    );
-
-    $.get(
-        videoByType + "音乐" ,
-        function(videoData) {
-            if(0 == videoData.errCode) {
-                var str=getVideoByType(videoData);
-                $("#type5").append(str) ;
-            }
-        }
-    );
-
-
-
+    });
 });
+
+function f(id , typename) {
+    $.get(
+        videoByType + typename ,
+        function(videoData) {
+            // console.log(videoByType + typename);
+            if(0 == videoData.errCode) {
+                var str=getVideoByType(videoData);
+                $("#" + id).append(str) ;
+            }
+        }
+    );
+
+}
 
 function getVideoByType(videoData) {
     videoArr = videoData.data ;
