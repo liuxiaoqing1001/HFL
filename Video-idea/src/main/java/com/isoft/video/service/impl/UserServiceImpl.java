@@ -218,4 +218,9 @@ public class UserServiceImpl implements UserService {
             return REG_MSG_FAIL_OTHER ;
         }    }
 
+    @Override
+    public String getPhotoUrl(String name) {
+        return userDao.getPhotoUrl(name);
+    }
+
 }

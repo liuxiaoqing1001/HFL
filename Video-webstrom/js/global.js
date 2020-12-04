@@ -29,6 +29,8 @@ var userRole = userPath + "role/";
 var userRolePage = userPath + "RolePage/";
 var userRoleAdd = userPath + "addRole/";
 var userDelPole = userPath +"delRole/";
+var userPhoto = userPath + "photo?id=";
+var userPhotoPath = userPath + "photoUrl/";
 // var msgDel = userPath + "delMsg/";
 
 var videoPath = serverPath + "video/";

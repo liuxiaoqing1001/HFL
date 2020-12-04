@@ -22,8 +22,8 @@
                 <h1 style="float:left;margin-top: 0">视频<small>管理系统</small></h1>
                 <div style="float:right;margin-right: 50px;">
                     <span class="glyphicon glyphicon-time"></span>
-                    <span id="showLoginTime">2019-06-13 10:27:22</span>
-                    <span>登录者头像？</span>
+                    <span id="showLoginTime"></span>
+                    <span><img src="../../img/yyqx1.jpg" height="50" width="50" class="img-circle"/></span>&nbsp;
                     欢迎您，<b><span id="showLoginUser">登录者名称</span></b>
                     &nbsp;&nbsp;
                     <button type="button" id="exitBtn" class="btn btn-default"><span class="glyphicon glyphicon-off"></span> 注销</button>
@@ -39,11 +39,17 @@
             <div class="col-md-9">
 <!--                 <h4>路径导航</h4>-->
                 <ol id="breadcrumb" class="breadcrumb">
-                    <li><a href="#">首页</a></li>
+<!--                    <li><a href="#">首页</a></li>-->
+                    <li>
+                        <span class='glyphicon glyphicon-user' />用户管理
+                    </li>
+                    <li>
+                        <span class='glyphicon glyphicon-list' />用户列表
+                    </li>
                 </ol>
                 <!--内嵌iframe -->
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="contentFrame" class="embed-responsive-item" src="First.html"></iframe>
+                    <iframe id="contentFrame" class="embed-responsive-item" src="UserList.html"></iframe>
                 </div>
             </div>
 

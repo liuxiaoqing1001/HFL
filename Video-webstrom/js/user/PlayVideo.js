@@ -213,7 +213,7 @@ $(function () {
                     title : "评论你",
                     content : text,
                     sender : userObj.name,
-                    receiver : vUname,
+                    receiver : video.uname,
                     // time : initDate(new Date())
                 } ;
                 var msgData = JSON.stringify(msgObj) ;

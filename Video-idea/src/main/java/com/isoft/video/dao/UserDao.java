@@ -118,4 +118,8 @@ public interface UserDao {
     @Insert("insert into tb_user(name,password,age,sex,email,mobile,photourl,role,regdate) " +
             "values(#{name},#{password},#{age},#{sex},#{email},#{mobile},#{photourl},0,now())")
     int addRole(User user);
+
+    @Select("select photourl from tb_user where name=#{name}")
+    String getPhotoUrl(String name);
+
 }

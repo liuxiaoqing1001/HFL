@@ -37,18 +37,21 @@ $(function () {
             expandIcon : '' ,    // 子项未展开时去掉前面默认 + 图标
             onNodeSelected: function (event, data) {
                 var navHtml = '' ;
-                if(data.text.indexOf('首页') >= 0) {
-                    navHtml = "<li>首页</li>" ;
-                } else {
-                    // 根据当前选中节点的父节点
-                    var parent = $("#tree").treeview("getNode", data.parentId);
-                    // var children = $("#tree").treeview("getNode",data.parentId.parentId)
-                    navHtml = navHtml + "<li>" + parent.text + "</li>" +
-                        "<li>" + data.text + "</li>" ;
-                }
+                // if(data.text.indexOf('首页') >= 0) {
+                //     navHtml = "<li>首页</li>" ;
+                // } else {
+                //     // 根据当前选中节点的父节点
+                //     var parent = $("#tree").treeview("getNode", data.parentId);
+                //     // var children = $("#tree").treeview("getNode",data.parentId.parentId)
+                //     navHtml = navHtml + "<li>" + parent.text + "</li>" +
+                //         "<li>" + data.text + "</li>" ;
+                // }
+                var parent = $("#tree").treeview("getNode", data.parentId);
+                navHtml = "<li>" + parent.text + "</li>" +
+                    "<li>" + data.text + "</li>" ;
                 $("#breadcrumb").html(navHtml);
                 $("#contentFrame").attr("src", data.href);
-                console.log(data.href)
+                // console.log(data.href)
             }
         })
     })

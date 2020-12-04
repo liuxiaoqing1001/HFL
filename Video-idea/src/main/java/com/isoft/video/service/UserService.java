@@ -71,4 +71,6 @@ public interface UserService {
     Page<User> RolePage(Integer curPage , Integer size);
 
     Integer addRole(User user);
+
+    String getPhotoUrl(String name);
 }

@@ -1,26 +1,17 @@
 [
   {
-    "text": "<span class='glyphicon glyphicon-home' /> 首页",
-    "href":"First.html",
-    "backColor": "#428bca",
-    "color": "#ffffff" ,
-    "state" : {
-      "checked" : true ,
-      "selected" : true
-    }
-  },
-  {
     "text": "<span class='glyphicon glyphicon-user' /> 用户管理",
     "backColor": "#428bca",
     "color": "#ffffff",
     "selectable": false,
-    "state": {
-      "expanded":true
-    },
     "nodes": [
       {
         "text": "<span class='glyphicon glyphicon-list' /> 用户列表",
-        "href":"UserList.html"
+        "href":"UserList.html",
+        "state": {
+          "checked" : true ,
+          "selected" : true
+        }
       },
       {
         "text": "<span class='glyphicon glyphicon-pencil' /> 用户修改",

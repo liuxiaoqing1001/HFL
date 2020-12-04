@@ -28,11 +28,15 @@ $(function () {
         location.href="../Login.html" ;
     }
 
-    // if(userObj.photourl == null || userObj.photourl == '') {
-    //     $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
-    // } else {
-    //     $("#showUserPhoto").attr("src" ,userObj.photourl) ;
-    // }
+
+
+    if(userObj.photourl == null || userObj.photourl == '') {
+        $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
+    } else {
+        var photoSrc = userPhotoPath + userObj.name;
+        $("#showUserPhoto").attr("src",photoSrc);
+        // $("#showUserPhoto").attr("src" ,userObj.photourl) ;
+    }
 
     $.ajax({
         url : videoVType ,
@@ -42,21 +46,76 @@ $(function () {
             // console.log(reqData.data.length) ;
             for (var i = 0 ; i < reqData.data.length ; i++) {
                 var div1 = $('<div class="sortDiv">' +
-                    '<a name="news">'+reqData.data[i].typename+'</a>' +
-                    '<a class="more" href="#">更多>></a>' +
+                    '<a name="'+reqData.data[i].typename+'">'+reqData.data[i].typename+'</a>' +
+                    '<a class="more moreVideo">更多>></a>' +
                     '</div>');
                 var div2 = $('<div id='+reqData.data[i].id+' class="block page"></div>');
+
+                var ul = $('<li style="margin-right: 20px ; list-style: none ; float: left ; background-color: #fcfcfc;">' +
+                    '<a class="ulType">'+reqData.data[i].typename+'</a>' +
+                    '</li>');
+
+                ul.appendTo($("#sort"));
                 div1.appendTo($("#mainBody"));
                 div2.appendTo($("#mainBody"));
 
-                f(reqData.data[i].id , reqData.data[i].typename);
+                $(".ulType").eq(i).attr("href" , "#" + reqData.data[i].typename);
+                $(".moreVideo").eq(i).attr("name" , reqData.data[i].typename);
+                getVideoByTypeName(reqData.data[i].id , reqData.data[i].typename);
 
             }
+
+            //写成漂浮按钮
+            var bottom = $('<div style="float: right ; background-color: #fcfcfc; width: 60px ;height: 20px ; text-align: center;" >' +
+                '<a class="top" href="First.html">返回顶部</a>' +
+                '</div>');
+            bottom.appendTo($("#first"));
+
+            $(".more").click(function () {
+                var typename = $(this).attr("name") ;
+                sessionStorage.setItem("typename" , typename) ;
+                location.href = "More.html" ;
+            });
+
+
+
+            // console.log(reqData) ;
+            // for (var i = 0 ; i < reqData.length ; i++) {
+            //
+            //
+            // }
+
+
+
         }
     });
+
+    // $.ajax({
+    //     url : videoTypeServerPath + "/getAllType" ,
+    //     type : 'GET' ,
+    //     contentType : 'application/json;charset=UTF-8',
+    //     success:function(reqData) {
+    //         console.log(reqData) ;
+    //         for (var i = 0 ; i < reqData.length ; i++) {
+    //             var ul = $('<li style="margin-right: 20px ; list-style: none ; float: left ; background-color: #fcfcfc;">' +
+    //                 '<a class="ulType">'+reqData[i].typename+'</a>' +
+    //                 '</li>')
+    //             ul.appendTo($("#sort"))
+    //
+    //             $(".ulType").eq(i).attr("href" , "#" + reqData[i].typename)
+    //
+    //         }
+    //
+    //         var bottom = $('<div style="float: right ; background-color: #fcfcfc; width: 40px ;height: 40px ; text-align: center;" >' +
+    //             '<a class="top" href="First.html">返回顶部</a>' +
+    //             '</div>')
+    //         bottom.appendTo($("#first"))
+    //
+    //     }
+    // });
 });
 
-function f(id , typename) {
+function getVideoByTypeName(id , typename) {
     $.get(
         videoByType + typename ,
         function(videoData) {

@@ -11,14 +11,18 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.ClassUtils;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -225,6 +229,33 @@ public class UserController {
                 result !=0 ? "删除成功" : "删除失败" ,
                 result
         ) ;
+    }
+
+    //获取头像地址
+    @GetMapping("/photoUrl/{name}")
+    public String getVideos(HttpServletResponse response, @PathVariable("name") String name) throws Exception{
+        String photoUrl=userService.getPhotoUrl(name);
+        //获取resources文件夹的绝对地址
+        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/img/"+photoUrl).getPath();
+//        System.out.println(sourcePath);
+        FileInputStream fis = null;
+        OutputStream os = null ;
+        fis = new FileInputStream(sourcePath);
+        // 得到文件大小
+        int size = fis.available();
+        byte data[] = new byte[size];
+        // 读数据
+        fis.read(data);
+        fis.close();
+//        fis = null;
+        // 设置返回的文件类型
+        response.setContentType("image/png");
+        os = response.getOutputStream();
+        os.write(data);
+        os.flush();
+        os.close();
+//        os = null;
+        return null;
     }
 
     /**
