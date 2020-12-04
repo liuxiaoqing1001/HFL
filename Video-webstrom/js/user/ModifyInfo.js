@@ -96,6 +96,7 @@ $(function () {
                     // console.log(reqData.data) ;
                     alert(reqData.msg) ;
                     sessionStorage.setItem("loginuser" , JSON.stringify(reqData.data)) ;
+                    location.href = "UserCenter.html" ;
                 }
             });
         }
@@ -153,14 +154,15 @@ var FileInput = function () {
                 $(event.target).fileinput('clear') ;
                 // 刷新头像？？？？？？？？？
                 $("#showPhoto").attr("src" ,responseData.data.photourl) ;
+                // $("#showUserPhoto", window.parent.document).attr("src", responseData.data.photourl);
 
-                // 更新数据存储？？？？？？？？？？？？？？
+                // $("#showPhoto").attr("src" ,userPhotoPath + userObj.name) ;
+                // console.log("userPhotoPath + userObj.name:::"+userPhotoPath + userObj.name);
+
                 sessionStorage.setItem("loginuser" , JSON.stringify(responseData.data)) ;
                 console.log("data:"+JSON.stringify(responseData.data));
-                userObj.photourl = responseData.data.photourl ;
-                console.log("userObj.photourl:"+userObj.photourl);
-                // // 刷新index页面头像显示
-                // $("#showLoginPhoto", window.parent.document).attr("src", responseData.data.photourl);
+
+
 
             }
         }).on("fileerror" , function(event , data , msg){

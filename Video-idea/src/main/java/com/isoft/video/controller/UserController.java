@@ -308,12 +308,14 @@ public class UserController {
             }
             // 保存文件
             try {
-                file.transferTo(new File(photoPath + newFile));
-                System.out.println(new File(photoPath + newFile  + "---ok"));
-                result  = true ;
-                // 构造所保存文件的基于http协议的uri
-                photoUri = FileUtil.url(request , upPhotoPath , newFile) ;
-                System.out.println(photoUri);
+                photoPath=sourcePath + newFile;
+                file.transferTo(new File(photoPath));
+                System.out.println(new File(photoPath  + "---ok"));
+//                result  = true ;
+//                // 构造所保存文件的基于http协议的uri
+//                photoUri = FileUtil.url(request , upPhotoPath , newFile) ;
+//                System.out.println(photoUri);
+//                photoUri =
                 // 修改数据库
                 User user = new User();
                 user.setId(id);
@@ -322,7 +324,7 @@ public class UserController {
 //                user.setEmail(user.getEmail());
 //                user.setMobile(user.getMobile());
 //                user.setAddress(user.getAddress());
-                user.setPhotourl(photoUri);
+                user.setPhotourl(newFile);
                 userResult = userService.update(user) ;
             } catch (IOException e) {
                 e.printStackTrace();
