@@ -18,16 +18,19 @@
 
 body {
     background-color: #fbfbfb;
-    background-image: url(../../img/back/1.jpeg);
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-    background-attachment: fixed;
+    /*background-image: url(../../img/back/1.jpg);*/
+    /*background-repeat:no-repeat;*/
+    /*background-size:100% 100%;*/
+    /*background-attachment: fixed;*/
+    /*filter: blur(2px);*/
+    /*z-index: 1;*/
 }
 
 #first {
     background-color: #fff;
     width: 1000px;
     height: 100%;
+    /*background: inherit;*/
 }
 
 h4 {
