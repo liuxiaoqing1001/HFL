@@ -122,4 +122,11 @@ public interface UserDao {
     @Select("select photourl from tb_user where name=#{name}")
     String getPhotoUrl(String name);
 
+    @Select("select * from tb_user where name=#{name}")
+    User searchByName(@Param("name") String name);
+
+    //修改密码
+    @Update("update tb_user set password=#{password} where name=#{name}")
+    int forget(@Param("password") String password, @Param("name") String name) ;
+
 }

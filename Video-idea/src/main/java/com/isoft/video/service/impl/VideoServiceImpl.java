@@ -54,6 +54,14 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.delMoreByIds(ids)>0;
     }
 
+    @Override
+    public List<Video> getByKeyWord(String title) {
+        if(title==""||title==null){
+            videoDao.getAll();
+        }
+        return videoDao.getByKeyWord(title);
+    }
+
     /**
      *
      * @param typeid

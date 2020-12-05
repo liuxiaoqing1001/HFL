@@ -79,6 +79,24 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public User searchByName(String name) {
+        if(name==""||name==null){
+            return null;
+        }
+        return userDao.searchByName(name);
+    }
+
+    @Override
+    public Integer forget(String password, String name) {
+//        User user=new User();
+        if(name==null||name==""){
+            return null;
+        }
+        password=DigestUtils.md5DigestAsHex(password.getBytes());
+        return userDao.forget(password, name);
+    }
+
     //修改
     @Override
     public User update(User user) {

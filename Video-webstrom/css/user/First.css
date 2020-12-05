@@ -18,6 +18,10 @@
 
 body {
     background-color: #fbfbfb;
+    background-image: url(../../img/back/1.jpeg);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-attachment: fixed;
 }
 
 #first {

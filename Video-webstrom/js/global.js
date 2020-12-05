@@ -31,6 +31,8 @@ var userRoleAdd = userPath + "addRole/";
 var userDelPole = userPath +"delRole/";
 var userPhoto = userPath + "photo?id=";
 var userPhotoPath = userPath + "photoUrl/";
+var userByName = userPath + "searchByName/";
+var userModifyP = userPath + 'forget/';
 // var msgDel = userPath + "delMsg/";
 
 var videoPath = serverPath + "video/";
@@ -48,6 +50,7 @@ var videoUpload = videoPath + "upload/insert/";
 var videoAdd = videoPath + "addVideo/";
 var videoNewId = videoPath + "newId/";
 var videoVUname = videoPath + "uname/";
+var videoByKeyWord = videoPath + "getByKeyWord/";
 
 var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";

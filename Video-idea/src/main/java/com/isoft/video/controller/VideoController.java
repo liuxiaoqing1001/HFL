@@ -50,7 +50,6 @@ public class VideoController {
         this.nonStaticResourceHttpRequestHandler = nonStaticResourceHttpRequestHandler;
     }
 
-
     @GetMapping("/play/{vid}")
     public String getVideos(HttpServletResponse response,@PathVariable("vid") Integer id) throws Exception{
         String videoPath=videoService.getVideoPath(id);
@@ -125,6 +124,16 @@ public class VideoController {
                 "请求成功",
                 videoTypeService.getAll()
         );
+    }
+
+    @GetMapping("/getByKeyWord/{title}")
+    public ResponseData getByKeyWord(@PathVariable("title") String title) {
+        List<Video> v = videoService.getByKeyWord(title);
+        return new ResponseData(
+                0,
+                "请求成功",
+                v
+        ) ;
     }
 
 //    //获取数据库全部信息

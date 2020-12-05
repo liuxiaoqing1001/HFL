@@ -73,4 +73,8 @@ public interface UserService {
     Integer addRole(User user);
 
     String getPhotoUrl(String name);
+
+    User searchByName(String name);
+
+    Integer forget(String password, String name);
 }

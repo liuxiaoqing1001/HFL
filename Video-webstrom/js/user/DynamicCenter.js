@@ -24,4 +24,41 @@ $(function () {
         $("#showUserPhoto").attr("src",photoSrc);
     }
 
+    $("#Search").click(function () {
+        var content=$('#searchByKeyWord input[name="content"]').val();
+        console.log(content);
+        if(content==""){
+            alert("要想搜索，搜索框不能为空");
+        }else {
+            $.ajax({
+                url : videoByKeyWord + content ,
+                type : 'GET',
+                dataType : 'json' ,
+                success : function(reqData){
+                    console.log(reqData) ;
+                    $("#carousel").empty();
+                    for (var i = 0 ; i < reqData.data.length ; i++) {
+                        var content = $('<div style="float: left;both:clear;margin-right: 23px"><div >' +
+                            '<video controls="controls" src="#" />' + '</div>' +
+                            '<div ><span class="name">' +"用户:"+ reqData.data[i].uname + '</span>' + '</p>' +
+                            '<span>'  +"标题:"+ reqData.data[i].title + '</span>' +
+                            '</div></div>'
+                        );
+                        content.appendTo($("#carousel"));
+
+                        // $(".img").eq(i).attr("id", reqData.data[i].id);
+                        // $(".editor").eq(i).attr("id", reqData.data[i].id);
+                        // $(".delete").eq(i).attr("id", reqData.data[i].id);
+                        // $(".say").eq(i).attr("id", reqData.data[i].id);
+
+                        // if (reqData.data[i].photourl != null) {
+                        //     $(".img").attr("src", reqData.data[i].photourl);
+                        // }
+                    }
+                }
+            })
+        }
+
+    });
+
 });

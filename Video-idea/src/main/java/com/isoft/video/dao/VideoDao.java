@@ -122,5 +122,12 @@ public interface VideoDao {
     @Select("SELECT @@IDENTITY AS ID")
     Object getNewId();
 
-
+    @Select("<script>" +
+            "select * from tb_video " +
+            "        <if test=\"titleKey != null\"> " +
+            "            <bind name=\"title\" value=\"'%'+titleKey+'%'\"/> " +
+            "            where title like #{title} or description like #{title}" +
+            "        </if>"
+            +"</script>")
+    List<Video> getByKeyWord(String titleKey) ;
 }

@@ -111,6 +111,26 @@ public class UserController {
         ) ;
     }
 
+    @GetMapping("/searchByName/{name}")
+    public ResponseData searchByname(@PathVariable("name")String name){
+        User result=userService.searchByName(name);
+        return new ResponseData(
+                result !=null ? 0 : 1 ,
+                result !=null ? "查找成功" : "查找失败" ,
+                result
+        );
+    }
+
+    @PutMapping("/forget/{password}/{name}")
+    public ResponseData forget(@PathVariable("password")String password, @PathVariable("name")String name){
+        Integer result=userService.forget(password, name);
+        return new ResponseData(
+                result !=null ? 0 : 1 ,
+                result !=null ? "修改成功" : "修改失败" ,
+                result
+        );
+    }
+
     /**
      * 更新
      * @param user
@@ -310,7 +330,7 @@ public class UserController {
             try {
                 photoPath=sourcePath + newFile;
                 file.transferTo(new File(photoPath));
-                System.out.println(new File(photoPath  + "---ok"));
+//                System.out.println(new File(photoPath  + "---ok"));
 //                result  = true ;
 //                // 构造所保存文件的基于http协议的uri
 //                photoUri = FileUtil.url(request , upPhotoPath , newFile) ;
@@ -326,7 +346,7 @@ public class UserController {
 //                user.setAddress(user.getAddress());
                 user.setPhotourl(newFile);
                 userResult = userService.update(user) ;
-                System.out.println("userResult-----"+userResult);
+//                System.out.println("userResult-----"+userResult);
             } catch (IOException e) {
                 e.printStackTrace();
             }
