@@ -257,23 +257,32 @@ CREATE TABLE tb_say (
   CONSTRAINT vid FOREIGN KEY (vid) REFERENCES tb_video (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-INSERT INTO tb_say VALUES (2, 'rose', 4,'2020-11-23 17:13:13', '我dddd', 79,12);
-INSERT INTO tb_say VALUES (3, 'wang', 3,'2020-11-23 16:56:38', '有需要票的找我', 10,10);
-INSERT INTO tb_say VALUES (7, 'liu', 1,'2020-11-26 15:17:34', '多好友隐藏', 8,2);
-INSERT INTO tb_say VALUES (8, 'liu', 2,'2020-11-26 15:18:01', '测试', 68,3);
-INSERT INTO tb_say VALUES (13, 'liu', 21,'2020-11-28 09:26:01', '不是转发', 60,44);
-
-
-insert into tb_videotype(typename) values('影音') select @@IDENTITY; 
-<selectKey keyProperty="id" order="AFTER" resultType="int">select LAST_INSERT_ID()</selectKey>
-
 SELECT @@IDENTITY AS ID;
-
 
 SET FOREIGN_KEY_CHECKS = 1;
 //https://www.cnblogs.com/loveLands/articles/11298610.html
 
+CREATE TABLE tb_collect (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vid int(11) NOT NULL,
+  uname varchar(30) DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY video_id (vid),
+  KEY user_name (uname),
+  CONSTRAINT user_name FOREIGN KEY (uname) REFERENCES tb_user (name),
+  CONSTRAINT video_id FOREIGN KEY (vid) REFERENCES tb_video (id)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+
+CREATE TABLE tb_praise (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vid int(11) NOT NULL,
+  uname varchar(30) DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY videoId (vid),
+  KEY userName (uname),
+  CONSTRAINT userName FOREIGN KEY (uname) REFERENCES tb_user (name),
+  CONSTRAINT videoId FOREIGN KEY (vid) REFERENCES tb_video (id)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 tb_user(uid)
 tb_video

@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/CollectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/PraiseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/CollectDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/PraiseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Collect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/entity/Praise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/CollectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/PraiseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/CollectServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/PraiseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/SayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/controller/SayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/SayDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/SayDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/dao/VideoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/SayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/SayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/SayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/SayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Mysay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Mysay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Collection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/Collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Collection.html" afterDir="false" />
-    </list>
+    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +108,7 @@
       <workItem from="1606869162281" duration="34843000" />
       <workItem from="1606956139913" duration="20759000" />
       <workItem from="1607042122355" duration="32395000" />
-      <workItem from="1607158157596" duration="16084000" />
+      <workItem from="1607158157596" duration="16374000" />
     </task>
     <servers />
   </component>
