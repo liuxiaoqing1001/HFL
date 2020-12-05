@@ -40,17 +40,17 @@ $(function () {
 
         var video = $('<video id="video" controls="controls" src="'+url+'" ' +
             'style="float: left ;margin-left: 10px ; padding-top: 0 ; width: 294px;height: 170px;">' +
-            '</video>')    //创建一个video
-        video.appendTo(childdiv)
+            '</video>');    //创建一个video
+        video.appendTo(childdiv);
 
 
-        var infoDiv = $('<div></div>')  //div
-        infoDiv.text('简介：' + description)
+        var infoDiv = $('<div></div>');  //div
+        infoDiv.text('简介：' + description);
         infoDiv.css("margin-left" , "10px");
 
-        infoDiv.appendTo(childdiv)
+        infoDiv.appendTo(childdiv);
 
         parentdiv.appendTo('form');
     }
-})
+});
 
