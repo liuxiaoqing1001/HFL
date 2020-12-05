@@ -102,12 +102,12 @@ public class SayController {
 
 
     //自己的说说
-    @GetMapping("/MyData/{uname}/{name}")
-    public ResponseData getAperson(@PathVariable("uname") String uname, @PathVariable("name") String name){
+    @GetMapping("/MyData/{uname}")
+    public ResponseData getAperson(@PathVariable("uname") String uname){
         return new ResponseData(
                 0 ,
                 "请求成功" ,
-                sayService.getData(uname,name)
+                sayService.getData(uname)
         );
     }
     //发表

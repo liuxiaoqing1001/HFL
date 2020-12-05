@@ -13,7 +13,7 @@ $(function () {
     }
 
     $.ajax({
-        url : sayMyData + uname + "/" + uname,
+        url : sayMyData + uname ,
         type:'GET',
         contentType : 'application/json;charset=UTF-8',
         dataType : 'json' ,

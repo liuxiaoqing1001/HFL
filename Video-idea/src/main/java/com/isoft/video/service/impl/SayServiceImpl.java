@@ -88,13 +88,12 @@ public class SayServiceImpl implements SayService {
     /**
      * 看自己的说说
      * @param uname
-     * @param name
      * @return
      */
 
     @Override
-    public List<Say> getData(String uname, String name) {
-        return sayDao.get(uname,name);
+    public List<Say> getData(String uname) {
+        return sayDao.get(uname);
     }
 
     @Override

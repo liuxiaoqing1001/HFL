@@ -12,7 +12,9 @@ public interface SayDao {
      * 得到发表的所有说说
      * @return
      */
-    @Select("select s.*,u.photourl from tb_user u,tb_say s where u.name=s.uname order by s.time desc")
+//    @Select("select s.*,u.photourl from tb_user u,tb_say s where u.name=s.uname order by s.time desc")
+    @Select("select s.*,u.photourl from tb_user u,tb_say s,tb_video v where u.name=s.uname " +
+            "and v.id=s.vid and v.status='通过' order by s.time desc")
     List<Say> getAll();
 
     @Select("select praise from tb_say where id=#{id}")
@@ -73,11 +75,14 @@ public interface SayDao {
     /**
      * 只看某一个人的说说
      * @param uname
-     * @param name
      * @return
      */
-    @Select("select s.*,u.photourl from tb_user u,tb_say s where s.uname=#{uname} and u.name=#{name} order by s.time desc")
-    List<Say> get(@Param("uname") String uname, @Param("name") String name);
+//    @Select("select s.*,u.photourl from tb_user u,tb_say s where " +
+//            "s.uname=#{uname} and u.name=#{name} order by s.time desc")
+    @Select("select s.*,u.photourl from tb_user u,tb_say s,tb_video v where " +
+            "s.uname=#{uname} and u.name=s.uname and " +
+            "v.id=s.vid and v.status='通过' order by s.time desc")
+    List<Say> get(@Param("uname") String uname);
 
 //    /**
 //     * 根据id查内容

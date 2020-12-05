@@ -26,7 +26,7 @@ public interface SayService {
 
     List<Say> OtherSay(Integer[] idList, String uname);
 
-    List<Say> getData(String uname, String name);
+    List<Say> getData(String uname);
 
     List<Say> getOther(String uname1, String uname2);
 
