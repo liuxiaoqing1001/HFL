@@ -20,20 +20,29 @@ $(function () {
         $(".showLoginUser").text('未登录');
     }
 
+    if(userObj.photourl == null || userObj.photourl == '') {
+        $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
+    } else {
+        // console.log("name:"+userObj.name);
+        var photoSrc = userPhotoPath + userObj.name;
+        // console.log(photoSrc);
+        $("#showUserPhoto").attr("src",photoSrc);
+    }
+
     //视频库
     $("#videoLibrary").click(function () {
         $("#contentFrame").attr("src", "VideoLibrary.html");
-    })
+    });
 
     //素材库
     $("#materialLibrary").click(function () {
         $("#contentFrame").attr("src", "Material.html");
-    })
+    });
 
     //待审核
     $("#collection").click(function () {
         $("#contentFrame").attr("src", "Collection.html");
-    })
+    });
 
     $("#Search").click(function () {
         var content=$('#searchByKeyWord input[name="content"]').val();
@@ -57,18 +66,10 @@ $(function () {
                         );
                         content.appendTo($("#iframe"));
 
-                        // $(".img").eq(i).attr("id", reqData.data[i].id);
-                        // $(".editor").eq(i).attr("id", reqData.data[i].id);
-                        // $(".delete").eq(i).attr("id", reqData.data[i].id);
-                        // $(".say").eq(i).attr("id", reqData.data[i].id);
-
-                        // if (reqData.data[i].photourl != null) {
-                        //     $(".img").attr("src", reqData.data[i].photourl);
-                        // }
                     }
                 }
             })
         }
 
     });
-})
+});

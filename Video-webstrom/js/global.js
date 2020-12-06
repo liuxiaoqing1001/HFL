@@ -81,8 +81,11 @@ var sayAdd = sayPath + "addSay/";
 var msgPath = serverPath + "msg/";
 var msgAdd = msgPath + "addMsg/";
 
-var collectPath = serverPath + "collect";
+var collectPath = serverPath + "collect/";
 var collectAll = collectPath + "getAllByUname/";
+
+var praisePath = serverPath + "praise/";
+var praiseAdd = praisePath + "addPraise/";
 
 // var serverPathManager = serverPath + "/system/" ;
 

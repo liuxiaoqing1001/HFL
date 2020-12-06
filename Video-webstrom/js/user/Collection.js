@@ -19,9 +19,14 @@ $(function () {
         dataType : 'json' ,
         success : function(reqData){
             console.log(reqData);
-            for (var i = 0 ; i < reqData.data.length ; i++) {
-                createDiv(userObj.name  , reqData.data[i].description ,  videoPlayPath + reqData.data[i].vid);
-                console.log(reqData.data[i].id);
+            if (reqData.length==0){
+                str='<p style="color: #3e8f3e;text-indent:2em">您还没有收藏视频，去首页看看吧<p>';
+                $("#formUpVideo").append(str) ;
+            }else {
+                for (var i = 0 ; i < reqData.length ; i++) {
+                    createDiv(userObj.name  , reqData[i].description ,  videoPlayPath + reqData[i].vid);
+                    console.log(reqData[i].id);
+                }
             }
         }
     });
@@ -33,10 +38,14 @@ $(function () {
      * @param url   传递视频 url
      */
     function createDiv(uname  , description  , url) {
-        var childdiv=$('<div></div>');        //创建一个子div
-        childdiv.attr('id','videoDiv');            //给子div设置id
-        childdiv.css("float" , "left");         //添加css样式
-        childdiv.appendTo(parentdiv);        //将子div添加到父div中
+        //创建一个子div
+        var childdiv=$('<div></div>');
+        //给子div设置id
+        childdiv.attr('id','videoDiv');
+        //添加css样式
+        childdiv.css("float" , "left");
+        //将子div添加到父div中
+        childdiv.appendTo(parentdiv);
 
         var video = $('<video id="video" controls="controls" src="'+url+'" ' +
             'style="float: left ;margin-left: 10px ; padding-top: 0 ; width: 294px;height: 170px;">' +

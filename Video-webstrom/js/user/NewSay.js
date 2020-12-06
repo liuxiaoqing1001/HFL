@@ -41,7 +41,7 @@ $(function () {
                     '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
                     '<div style="float: right"><button class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</button>' +
                     '<button class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+reqData.data[i].collect + '</button>'+
-                    // '<button class="glyphicon glyphicon-pencil forward" style="margin-right: 50px;" type="button"/>' +
+                    // '<button class="glyphicon glyphicon-pencil forward" style=0"margin-right: 50px;" type="button"/>' +
                     '</div><hr/>'
                 );
                 content.appendTo($("#say"));
@@ -57,51 +57,185 @@ $(function () {
             $(".praise").click(function () {
                 var id = $(this).attr("id");
                 var vid = $(this).attr("vid");
+
                 $.get(
                     videoVUname +vid,
                     function(reqData) {
                         vUname=reqData.data;
                     }
                 );
+
+                var pMsg = {
+                    vid: vid,
+                    uname: userObj.name
+                };
                 $.ajax({
-                    url: sayGetPraiseCount + id,
-                    type : 'GET',
+                    url : praiseAdd ,
+                    type : "POST" ,
+                    data :JSON.stringify(pMsg),
+                    contentType : 'application/json;charset=UTF-8',
                     dataType : 'json' ,
-                    success: function (reqdata) {
-                        sessionStorage.setItem("praiseCount",reqdata.data);
-                        count=reqdata.data+1;
-                        if(reqdata.errCode==0){
+                    success : function(reqData){
+                        if (reqData.msg == "点赞成功") {
+                            alert(reqData.msg) ;
+                            /**
+                             * 发送点赞消息
+                             */
                             $.ajax({
-                                url: sayPraiseCount + vid + "/" + count,
-                                type : 'PUT',
+                                url : videoServerPath + "/getVideoById/" + videoId ,
+                                type : 'GET',
                                 dataType : 'json' ,
-                                success: function (data) {
-                                    alert("爱你哦~");
-                                    var msgObj = {
-                                        title : "给你点赞",
-                                        content : "-"+uname+"-biu～地给你点了个赞",
-                                        sender : uname,
-                                        receiver : vUname,
-                                        // time : initDate(new Date())
-                                    } ;
-                                    var msgData = JSON.stringify(msgObj) ;
-                                    // console.log(msgData);
+                                success : function(reqData){
+                                    var praiseMsg = {
+                                        title: "点赞消息" ,
+                                        content: uname +"赞了你的<<" + reqData.data.title + ">>视频" ,
+                                        sender: uname ,
+                                        receiver: vUname
+                                    };
+                                    localStorage.setItem("praiseMsg" ,JSON.stringify(praiseMsg)) ;
+                                    alert("发送点赞消息成功！");
+                                    /**
+                                     * 保存发送消息进数据库消息表
+                                     */
                                     $.ajax({
                                         url : msgAdd ,
                                         type : 'POST',
-                                        data : msgData,
+                                        data : JSON.stringify(praiseMsg),
                                         contentType : 'application/json;charset=UTF-8',
                                         dataType : 'json' ,
                                         success : function(reqData){
-                                            console.log(reqData.msg);
+                                            /**
+                                             * 更新点赞数量
+                                             */
+                                            var upData = {
+                                                id : id ,
+                                                praise : ++praise
+                                            };
+                                            $.ajax({
+                                                url : dynamicServerPath + "update",
+                                                type : 'PUT',
+                                                data : upData,
+                                                dataType : 'json' ,
+                                                success : function(reqData){
+                                                    // alert(reqData.msg) ;
+                                                    location.href = "Square.html" ;
+                                                }
+                                            });
                                         }
                                     });
-                                    location.reload([true]);
                                 }
                             });
+                        } else if (reqData.msg == "您已经赞过该视频") {
+                            /**
+                             * 发送点赞消息
+                             */
+                            $.ajax({
+                                url : videoServerPath + "/getVideoById/" + videoId ,
+                                type : 'GET',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    var praiseMsg = {
+                                        title: "取消点赞消息" ,
+                                        content: userObj.name +"取消点赞了你的" + reqData.data.title + "视频" ,
+                                        sender: userObj.name ,
+                                        receiver: vUname
+                                    };
+                                    localStorage.setItem("praiseMsg" ,JSON.stringify(praiseMsg)) ;
+                                    alert("发送取消点赞消息成功！")
+                                    /**
+                                     * 保存发送消息进数据库消息表
+                                     */
+                                    $.ajax({
+                                        url : videoAddMsg ,
+                                        type : 'POST',
+                                        data : JSON.stringify(praiseMsg),
+                                        contentType : 'application/json;charset=UTF-8',
+                                        dataType : 'json' ,
+                                        success : function(reqData){
+                                            /**
+                                             * 更新点赞数量
+                                             */
+                                            var upData = {
+                                                id : id ,
+                                                praise : --praise
+                                            };
+                                            $.ajax({
+                                                url : dynamicServerPath + "update",
+                                                type : 'PUT',
+                                                data : upData,
+                                                dataType : 'json' ,
+                                                success : function(reqData){
+                                                    // alert(reqData.msg) ;
+                                                    location.href = "Square.html" ;
+                                                    /**
+                                                     * 删除点赞记录
+                                                     */
+
+                                                    $.ajax({
+                                                        url : praiseServerPath + "deletePraise/" + videoId + "/" + userObj.name  ,
+                                                        type : 'DELETE',
+                                                        contentType : 'application/json;charset=UTF-8',
+                                                        dataType : 'json' ,
+                                                        success : function(reqData){
+                                                            // alert(reqData.msg)
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            })
                         }
                     }
-                });
+                }) ;
+
+
+                // $.get(
+                //     videoVUname +vid,
+                //     function(reqData) {
+                //         vUname=reqData.data;
+                //     }
+                // );
+                // $.ajax({
+                //     url: sayGetPraiseCount + id,
+                //     type : 'GET',
+                //     dataType : 'json' ,
+                //     success: function (reqdata) {
+                //         sessionStorage.setItem("praiseCount",reqdata.data);
+                //         count=reqdata.data+1;
+                //         if(reqdata.errCode==0){
+                //             $.ajax({
+                //                 url: sayPraiseCount + vid + "/" + count,
+                //                 type : 'PUT',
+                //                 dataType : 'json' ,
+                //                 success: function (data) {
+                //                     alert("爱你哦~");
+                //                     var msgObj = {
+                //                         title : "给你点赞",
+                //                         content : "-"+uname+"-biu～地给你点了个赞",
+                //                         sender : uname,
+                //                         receiver : vUname,
+                //                         // time : initDate(new Date())
+                //                     } ;
+                //                     var msgData = JSON.stringify(msgObj) ;
+                //                     // console.log(msgData);
+                //                     $.ajax({
+                //                         url : msgAdd ,
+                //                         type : 'POST',
+                //                         data : msgData,
+                //                         contentType : 'application/json;charset=UTF-8',
+                //                         dataType : 'json' ,
+                //                         success : function(reqData){
+                //                             console.log(reqData.msg);
+                //                         }
+                //                     });
+                //                     location.reload([true]);
+                //                 }
+                //             });
+                //         }
+                //     }
+                // });
             });
 
             $(".collect").click(function () {
@@ -154,3 +288,8 @@ $(function () {
         }
     });
 });
+
+function getPAndC() {
+
+
+}
