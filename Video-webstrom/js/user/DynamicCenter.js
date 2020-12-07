@@ -24,6 +24,20 @@ $(function () {
         $("#showUserPhoto").attr("src",photoSrc);
     }
 
+    $("#mySay").removeAttr("style");
+    $("#newSay").attr("style" , "color:white");
+
+
+    $("#mySay").click(function () {
+        $("#newSay").removeAttr("style");
+        $(this).attr("style" , "color:white");
+    });
+
+    $("#newSay").click(function () {
+        $("#mySay").removeAttr("style");
+        $(this).attr("style" , "color:white");
+    });
+
     $("#Search").click(function () {
         var content=$('#searchByKeyWord input[name="content"]').val();
         console.log(content);

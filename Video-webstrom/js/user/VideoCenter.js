@@ -29,19 +29,39 @@ $(function () {
         $("#showUserPhoto").attr("src",photoSrc);
     }
 
+    $('#collection a[name="collectVideo"]').removeAttr("style") ;
+    $('#materialLibrary a[name="libVideo"]').removeAttr("style") ;
+
+    $('#videoLibrary a[name="loadVideo"]').attr("style" , "color:white") ;
+
     //视频库
     $("#videoLibrary").click(function () {
         $("#contentFrame").attr("src", "VideoLibrary.html");
+
+        $('#collection a[name="collectVideo"]').removeAttr("style") ;
+        $('#materialLibrary a[name="libVideo"]').removeAttr("style") ;
+
+        $('#videoLibrary a[name="loadVideo"]').attr("style" , "color:white") ;
     });
 
     //素材库
     $("#materialLibrary").click(function () {
         $("#contentFrame").attr("src", "Material.html");
+
+        $('#collection a[name="collectVideo"]').removeAttr("style") ;
+        $('#videoLibrary a[name="loadVideo"]').removeAttr("style") ;
+
+        $('#materialLibrary a[name="libVideo"]').attr("style" , "color:white") ;
     });
 
     //待审核
     $("#collection").click(function () {
         $("#contentFrame").attr("src", "Collection.html");
+
+        $('#videoLibrary a[name="loadVideo"]').removeAttr("style") ;
+        $('#materialLibrary a[name="libVideo"]').removeAttr("style") ;
+
+        $('#collection a[name="collectVideo"]').attr("style" , "color:white") ;
     });
 
     $("#Search").click(function () {

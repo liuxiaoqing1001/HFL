@@ -285,14 +285,14 @@ public class VideoController {
             ,@RequestParam("file") MultipartFile[] file) throws Exception{
         //组合image名称，“;隔开”
         List<String> fileName =new ArrayList<>();
-        System.out.println("file:"+file);
-        System.out.println("file.length:"+file.length);
+//        System.out.println("file:"+file);
+//        System.out.println("file.length:"+file.length);
         if(file!=null&&file.length>0){
             try {
                 for (int i = 0; i < file.length; i++) {
                     if (!file[i].isEmpty()) {
                         fileName.add(file[i].getOriginalFilename());
-                        System.out.println("fileName:"+fileName);
+//                        System.out.println("fileName:"+fileName);
                         //上传文件，随机名称，";"分号隔开
                         // fileName.add(FileUtil.uploadImage(request, "/upload/"+TimeUtils.formateString(new Date(), "yyyy-MM-dd")+"/", file[i], true));
                     }
@@ -359,13 +359,13 @@ public class VideoController {
         String originName = null ;
         try {
             String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
-            System.out.println("path-------------------------------->" + path);
+//            System.out.println("path-------------------------------->" + path);
 
             fis = new FileInputStream(videopathAll);
             //创建字节输出流对象，构造方法中绑定写入的目的地
             // 1）获取上传文件名
             originName = videopathAll.substring(videopathAll.lastIndexOf("/") + 1);
-            System.out.println("originName:" + originName);
+//            System.out.println("originName:" + originName);
 
             fos = new FileOutputStream(path +"static/video/"+ originName) ;//newPath + "/" + originName
             //使用字节流对象中的方法 read 读取文件
@@ -396,75 +396,5 @@ public class VideoController {
             }
         }
     }
-
-//    /**
-//     * 播放视频
-//     * @param uname
-//     * @param id
-//     * @param request
-//     * @param response
-//     */
-//    @GetMapping("{uname}/{id}")
-//    public void play(@PathVariable("uname") String uname , @PathVariable("id") Integer id , HttpServletRequest request, HttpServletResponse response) {
-//        String originName = null ;
-//        String newPath = null ;
-//        List<File> files = new ArrayList<>();
-//        files = videoService.getVideoPathByUname(uname);
-//        System.out.println("files:::::::" + files);
-//        for (int i = 0; i < files.size(); i++) {
-//            File file = files.get(i);
-//            System.out.println("file------------------->" + file);
-//            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
-//            System.out.println("path-------------------------------->" + path);
-//            newPath = path.substring(1);
-//            System.out.println("newPath=======================================>" + newPath);
-//            // 1）获取上传文件名
-//            originName = file.getName();
-//            System.out.println("originName:" + originName);
-//
-//            String realPath = newPath + id + "_" + originName;
-//            System.out.println("realPath..........................................>" + realPath);
-//            Path filePath = Paths.get(realPath );
-//            if (Files.exists(filePath)) {
-//                String mimeType = null;
-//                try {
-//                    mimeType = Files.probeContentType(filePath);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                if (!StringUtils.isEmpty(mimeType)) {
-//                    response.setContentType(mimeType);
-//                }
-//                request.setAttribute(NonStaticResourceHttpRequestHandler.ATTR_FILE, filePath);
-//                try {
-//                    nonStaticResourceHttpRequestHandler.handleRequest(request, response);
-//                } catch (ServletException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            } else {
-//                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//                response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-//            }
-//        }
-//    }
-
-    /**
-     * 视频列表的分页实现
-     * @param curPage
-     * @param size
-     * @param pubdate
-     * @return
-     */
-//    @GetMapping("page/{curPage}/{size}")
-//    public Map<String , Object> page(@PathVariable("curPage") Integer curPage , @PathVariable("size")Integer size ,
-//                                     @DateTimeFormat(pattern = "yyyy年MM月dd日") Date pubdate){
-//        Page<Video> page = videoService.videoPage(pubdate , curPage , size) ;
-//        Map<String  , Object> map = new HashMap<>() ;
-//        map.put("total" , page.getRowCount()) ;
-//        map.put("rows" , page.getData()) ;
-//        return map ;
-//    }
 
 }

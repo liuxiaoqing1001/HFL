@@ -29,13 +29,23 @@ $(function () {
         $("#showUserPhoto").attr("src",photoSrc);
     }
 
+    $('#modifyInfo a[name="modifyInfoName"]').removeAttr("style") ;
+    $('#modifyPassword a[name="modifyPasswordName"]').removeAttr("style") ;
+
+    $('#userInfo a[name="userInfoName"]').attr("style" , "color:white") ;
+
     // 个人信息
     $("#userInfo").click(function () {
         // $("#userInfo ").attr("aria-expanded" , true) ;
         // $("#userInfoA").style.color="white";
         $("#contentFrame").attr("src", "UserInfo.html");
 
-    })
+        $('#modifyInfo a[name="modifyInfoName"]').removeAttr("style") ;
+        $('#modifyPassword a[name="modifyPasswordName"]').removeAttr("style") ;
+
+        $('#userInfo a[name="userInfoName"]').attr("style" , "color:white") ;
+
+    });
 
     // // 账户信息
     // $("#accountInfo").click(function () {
@@ -45,12 +55,22 @@ $(function () {
     // 修改信息
     $("#modifyInfo").click(function () {
         $("#contentFrame").attr("src", "ModifyInfo.html");
-    })
+
+        $('#userInfo a[name="userInfoName"]').removeAttr("style") ;
+        $('#modifyPassword a[name="modifyPasswordName"]').removeAttr("style") ;
+
+        $('#modifyInfo a[name="modifyInfoName"]').attr("style" , "color:white") ;
+    });
 
     // 密码管理
     $("#modifyPassword").click(function () {
         $("#contentFrame").attr("src", "ModifyPassword.html");
-    })
+
+        $('#userInfo a[name="userInfoName"]').removeAttr("style") ;
+        $('#modifyInfo a[name="modifyInfoName"]').removeAttr("style") ;
+
+        $('#modifyPassword a[name="modifyPasswordName"]').attr("style" , "color:white") ;
+    });
 
     $("#Search").click(function () {
         var content=$('#searchByKeyWord input[name="content"]').val();
