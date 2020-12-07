@@ -19,8 +19,8 @@ public interface UserDao {
 //    @Insert("insert into tb_user(name,password,age,sex,email,mobile,photourl,status) " +
 //            "values(#{name},#{password},#{age},#{sex},#{email},#{mobile},#{photourl},1)")
 //    int add(User user) ;
-    @Insert("insert into tb_user(name,password,age,sex,email,mobile,photourl,role,regdate) " +
-            "values(#{name},#{password},#{age},#{sex},#{email},#{mobile},#{photourl},1,now())")
+    @Insert("insert into tb_user(name,password,age,sex,email,mobile,role,regdate) " +
+            "values(#{name},#{password},#{age},#{sex},#{email},#{mobile},1,now())")
     int add(User user) ;
 
     //查询数据库中所有信息

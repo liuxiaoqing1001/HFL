@@ -26,6 +26,11 @@ body {
     /*z-index: 1;*/
 }
 
+video{
+    width: 400px;
+    height: 300px;
+}
+
 #first {
     background-color: #fff;
     width: 1000px;

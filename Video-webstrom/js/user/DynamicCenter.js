@@ -39,7 +39,7 @@ $(function () {
                     $("#carousel").empty();
                     for (var i = 0 ; i < reqData.data.length ; i++) {
                         var content = $('<div style="float: left;both:clear;margin-right: 23px"><div >' +
-                            '<video controls="controls" src="#" />' + '</div>' +
+                            '<video controls="controls" src="'+videoPlayPath + reqData.data[i].id+'" />' + '</div>' +
                             '<div ><span class="name">' +"用户:"+ reqData.data[i].uname + '</span>' + '</p>' +
                             '<span>'  +"标题:"+ reqData.data[i].title + '</span>' +
                             '</div></div>'

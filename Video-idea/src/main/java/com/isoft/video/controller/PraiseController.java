@@ -92,6 +92,5 @@ public class PraiseController {
            result > 0 ? "删除成功！" : "删除失败！" ,
            result
         ) ;
-
     }
 }

@@ -19,4 +19,7 @@ public interface MsgService {
     boolean delAll(String receiver);
 
 
+    Integer delMsgP(String uname, String content, String receiver);
+
+    Integer delMsgC(String uname, String content, String receiver);
 }

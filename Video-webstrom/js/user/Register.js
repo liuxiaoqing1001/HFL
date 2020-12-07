@@ -116,9 +116,6 @@ $(function () {
                         message: '手机号码由1开头的11为数字组成'
                     }
                 }
-            } ,
-            registerPhoto : {
-                uri: {}
             }
         }
 
@@ -138,8 +135,7 @@ $(function () {
             age : $('#formRegister input[name="registerAge"]').val(),
             sex : $('#formRegister select[name="registerSex"]').val(),
             email : $('#formRegister input[name="registerEmail"]').val(),
-            mobile : $('#formRegister input[name="registerPhone"]').val(),
-            photourl : $('#formRegister input[name="registerPhoto"]').val()
+            mobile : $('#formRegister input[name="registerPhone"]').val()
         } ;
         var upData = JSON.stringify(userObj) ;
         console.log(upData) ;
@@ -150,7 +146,7 @@ $(function () {
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success : function(reqData){
-                console.log(reqData)
+                console.log(reqData);
                 alert(reqData.msg) ;
                 location.href = "../Login.html" ;
             }
@@ -164,8 +160,7 @@ $(function () {
         $('#formRegister input[name="registerAge"]').val(''),
         $('#formRegister select[name="registerSex"]').val(''),
         $('#formRegister input[name="registerEmail"]').val(''),
-        $('#formRegister input[name="registerPhone"]').val(''),
-        $('#formRegister input[name="registerPhoto"]').val('')
+        $('#formRegister input[name="registerPhone"]').val('')
     })
 
 })

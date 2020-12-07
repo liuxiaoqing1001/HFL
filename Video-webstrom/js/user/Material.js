@@ -17,13 +17,12 @@ $(function () {
         dataType : 'json' ,
         success : function(reqData){
             // console.log(reqData);
-            // console.log(reqData.length);
             for (var i = 0 ; i < reqData.length ; i++) {
                 createDiv(userObj.name  , reqData[i].description , reqData[i].status , videoPlayPath + reqData[i].id , i , reqData[i].id);
                 // console.log(reqData[i].id);
             }
         }
-    })
+    });
 
     /**
      * 动态在页面上添加登录者的视频
@@ -55,46 +54,39 @@ $(function () {
         var statusDiv = $('<div id="videoStatus"></div>');  //div
         statusDiv.text("状态：" + status);
         statusDiv.css("margin-left" , "10px");
-        var button = $('<button type="button" style="float:right; padding-bottom: 2px" class="btn btn-sm btn-info btnOption">操作</button>');
+        var button = $('<button type="button" style="float:right; padding-bottom: 2px" class="btn btn-sm btn-info btnOption">提交审核</button>');
         button.appendTo(statusDiv);
         statusDiv.appendTo(childdiv);
 
         parentdiv.appendTo('form');
 
         $(".btnOption").eq(i).attr("id" , videoId);
+
+        console.log(status);
+
+        if (status == "待审核" || status == "通过") {
+            $(".btnOption").attr("disabled" , "disabled")
+        }
     }
 
     //点击操作按钮
     $(".btnOption").click(function () {
         var id =  $(this).attr("id");
-        alert(id);
         sessionStorage.setItem("videoId" , id);
-        //更改数据库中视频状态为 审核中
+        //更改数据库中视频状态为 待审核
         $.ajax({
-            url : videoPath + "未审核/" + id  ,
+            url : videoPath + "待审核/" + id  ,
             type : 'PUT',
             contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
             success : function(reqData){
-                console.log(reqData);
+                alert("提交成功！");
+                location.href = "Material.html" ;
                 $("#videoStatus").text("状态：" + reqData.data)
             }
         })
         
     })
 
-    // function playVideo(count) {
-    //     $.ajax({
-    //         url : videoServerPath + "/" + userObj.name + count  ,
-    //         type : 'GET',
-    //         contentType : 'application/json;charset=UTF-8',
-    //         dataType : 'json' ,
-    //         success : function(reqData){
-    //             console.log(reqData)
-    //         }
-    //     })
-    //
-    // }
-
-})
+});
 

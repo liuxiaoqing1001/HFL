@@ -75,37 +75,6 @@ $(function () {
     });
 
     $(".praiseOpera").click(function () {
-        // p=p+1;
-        // console.log("p:"+count);
-        // $.ajax({
-        //     url: sayPraiseCount + id + "/" + p,
-        //     type : 'PUT',
-        //     dataType : 'json' ,
-        //     success: function (data) {
-        //         $("#praise").text(p);
-        //         var msgObj = {
-        //             title : "给你点赞",
-        //             content : "-"+userObj.name+"-biu～地给你点了个赞",
-        //             sender : userObj.name,
-        //             receiver : video.uname,
-        //             // time : initDate(new Date())
-        //         } ;
-        //         var msgData = JSON.stringify(msgObj) ;
-        //         $.ajax({
-        //             url : msgAdd ,
-        //             type : 'POST',
-        //             data : msgData,
-        //             contentType : 'application/json;charset=UTF-8',
-        //             dataType : 'json' ,
-        //             success : function(reqData){
-        //                 console.log(reqData.msg);
-        //                 // alert(reqData.msg) ;
-        //                 // location.href = "VideoList.html" ;
-        //             }
-        //         });
-        //     }
-        // });
-
         var pMsg = {
             vid: id,
             uname: userObj.name
@@ -129,7 +98,7 @@ $(function () {
                         success : function(reqData){
                             var praiseMsg = {
                                 title: "点赞消息" ,
-                                content: userObj.name +"赞了你的<<" + reqData.data.title + ">>视频" ,
+                                content: userObj.name +"赞了你的 " + reqData.data.title + " 视频" ,
                                 sender: userObj.name ,
                                 receiver: videoName
                             };
@@ -151,51 +120,55 @@ $(function () {
                         }
                     });
                 } else if (reqData.msg == "您已经赞过该视频") {
+
                     $.ajax({
-                        url : praiseDel + id + "/" + userObj.name  ,
-                        type : 'DELETE',
-                        contentType : 'application/json;charset=UTF-8',
+                        url : videoById + id ,
+                        type : 'GET',
                         dataType : 'json' ,
                         success : function(reqData){
-                            location.reload();
-                            // alert(reqData.msg)
+                            // console.log(uname +"/" + reqData.data.title + "/" + vUname);
+                            $.ajax({
+                                url : msgDelP + userObj.name +"/" + reqData.data.title + "/" + videoName  ,
+                                type : 'DELETE',
+                                contentType : 'application/json;charset=UTF-8',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    // console.log(reqData);
+                                    if(reqData.errCode==0){
+                                        $.ajax({
+                                            url : praiseDel + id + "/" + userObj.name  ,
+                                            type : 'DELETE',
+                                            contentType : 'application/json;charset=UTF-8',
+                                            dataType : 'json' ,
+                                            success : function(reqData){
+                                                location.reload();
+                                                // alert(reqData.msg)
+                                            }
+                                        });
+                                    }else {
+                                        alert(reqData.msg);
+                                    }
+                                }
+                            });
                         }
                     });
+
+                    // $.ajax({
+                    //     url : praiseDel + id + "/" + userObj.name  ,
+                    //     type : 'DELETE',
+                    //     contentType : 'application/json;charset=UTF-8',
+                    //     dataType : 'json' ,
+                    //     success : function(reqData){
+                    //         location.reload();
+                    //         // alert(reqData.msg)
+                    //     }
+                    // });
                 }
             }
         }) ;
     });
 
     $(".collectOpera").click(function () {
-        // c=c+1;
-        // // console.log("c:"+count);
-        // $.ajax({
-        //     url: sayCollectCount + id + "/" + c,
-        //     type : 'PUT',
-        //     dataType : 'json' ,
-        //     success: function (data) {
-        //         $("#collect").text(c);
-        //         var msgObj = {
-        //             title : "收藏了你的视频",
-        //             content : "-"+userObj.name+"-华丽丽地～收藏了你的视频",
-        //             sender : userObj.name,
-        //             receiver : video.uname,
-        //             // time : initDate(new Date())
-        //         } ;
-        //         var msgData = JSON.stringify(msgObj) ;
-        //         $.ajax({
-        //             url : msgAdd ,
-        //             type : 'POST',
-        //             data : msgData,
-        //             contentType : 'application/json;charset=UTF-8',
-        //             dataType : 'json' ,
-        //             success : function(reqData){
-        //                 console.log(reqData.msg);
-        //             }
-        //         });
-        //     }
-        // });
-
         var cMsg = {
             vid: id,
             uname: userObj.name
@@ -219,7 +192,7 @@ $(function () {
                         success : function(reqData){
                             var collectMsg = {
                                 title: "收藏消息" ,
-                                content: userObj.name +"收藏了你的<<" + reqData.data.title + ">>视频" ,
+                                content: userObj.name +"收藏了你的 " + reqData.data.title + " 视频" ,
                                 sender: userObj.name ,
                                 receiver: videoName
                             };
@@ -240,16 +213,48 @@ $(function () {
                         }
                     });
                 } else if (reqData.msg == "您已经收藏过该视频") {
+
                     $.ajax({
-                        url : collectDel + id + "/" + userObj.name  ,
-                        type : 'DELETE',
-                        contentType : 'application/json;charset=UTF-8',
+                        url : videoById + id ,
+                        type : 'GET',
                         dataType : 'json' ,
                         success : function(reqData){
-                            location.reload();
-                            // alert(reqData.msg)
+                            $.ajax({
+                                url : msgDelC + userObj.name +"/" + reqData.data.title + "/" + videoName  ,
+                                type : 'DELETE',
+                                contentType : 'application/json;charset=UTF-8',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    // console.log(reqData);
+                                    if(reqData.errCode==0){
+                                        $.ajax({
+                                            url : collectDel + id + "/" + userObj.name  ,
+                                            type : 'DELETE',
+                                            contentType : 'application/json;charset=UTF-8',
+                                            dataType : 'json' ,
+                                            success : function(reqData){
+                                                location.reload();
+                                                // alert(reqData.msg)
+                                            }
+                                        });
+                                    }else {
+                                        alert(reqData.msg);
+                                    }
+                                }
+                            });
                         }
                     });
+
+                    // $.ajax({
+                    //     url : collectDel + id + "/" + userObj.name  ,
+                    //     type : 'DELETE',
+                    //     contentType : 'application/json;charset=UTF-8',
+                    //     dataType : 'json' ,
+                    //     success : function(reqData){
+                    //         location.reload();
+                    //         // alert(reqData.msg)
+                    //     }
+                    // });
                 }
             }
         }) ;

@@ -4,6 +4,9 @@ if (str != null || str != "" || str != undefined) {
     userObj = JSON.parse(str);
 }
 var uname=userObj.name;
+var p;
+var c;
+
 $(function () {
 
     if(userObj.photourl == null || userObj.photourl == '') {
@@ -37,8 +40,10 @@ $(function () {
                     '</div>' +
                     '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px" class="say">' +
                     '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
-                    '<div style="float: right"><span class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+reqData.data[i].praise + '</span>'+
-                    '<span class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+reqData.data[i].collect + '</span>'+
+                    '<div style="float: right"><span class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+
+                    getP(reqData.data[i].vid) + '</span>'+
+                    '<span class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+
+                    getC(reqData.data[i].vid) + '</span>'+
                     '</div><hr/>'
                 );
                 content.appendTo($("#mysay"));
@@ -81,3 +86,31 @@ $(function () {
         })
     }
 });
+
+function getP(vid) {
+    $.ajax({
+        url: praiseNum + vid,
+        type: "GET",
+        dataType: 'json',
+        async:false,
+        success: function (reqPData) {
+            // console.log(reqPData);
+            p=reqPData.data;
+        }
+    });
+    return p;
+}
+
+function getC(vid) {
+    $.ajax({
+        url: collectNum + vid ,
+        type: "GET",
+        dataType: 'json',
+        async:false,
+        success: function (reqCData) {
+            // console.log(reqCData);
+            c=reqCData.data;
+        }
+    });
+    return c;
+}

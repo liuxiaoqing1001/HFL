@@ -80,12 +80,14 @@ var sayAdd = sayPath + "addSay/";
 
 var msgPath = serverPath + "msg/";
 var msgAdd = msgPath + "addMsg/";
+var msgDelP = msgPath + "delMsgP/";
+var msgDelC = msgPath + "delMsgC/";
 
 var collectPath = serverPath + "collect/";
 var collectAll = collectPath + "getAllByUname/";
 var collectNum = collectPath  + "getCCount/";
 var collectAdd = collectPath + "addCollect/";
-var collectDel = collectPath + "deleteCollect";
+var collectDel = collectPath + "deleteCollect/";
 var collectYN = collectPath + "getCount/";
 
 var praisePath = serverPath + "praise/";

@@ -94,9 +94,10 @@ $(function () {
                                     type : 'GET',
                                     dataType : 'json' ,
                                     success : function(reqData){
+                                        // console.log(reqData.data.title);
                                         var praiseMsg = {
                                             title: "点赞消息" ,
-                                            content: uname +"赞了你的<<" + reqData.data.title + ">>视频" ,
+                                            content: uname +"赞了你的 " + reqData.data.title + " 视频" ,
                                             sender: uname ,
                                             receiver: vUname
                                         };
@@ -119,13 +120,34 @@ $(function () {
                                 });
                             } else if (reqData.msg == "您已经赞过该视频") {
                                 $.ajax({
-                                    url : praiseDel + vid + "/" + uname  ,
-                                    type : 'DELETE',
-                                    contentType : 'application/json;charset=UTF-8',
+                                    url : videoById + vid ,
+                                    type : 'GET',
                                     dataType : 'json' ,
                                     success : function(reqData){
-                                        location.reload();
-                                        // alert(reqData.msg)
+                                        // console.log(uname +"/" + reqData.data.title + "/" + vUname);
+                                        $.ajax({
+                                            url : msgDelP + uname +"/" + reqData.data.title + "/" + vUname  ,
+                                            type : 'DELETE',
+                                            contentType : 'application/json;charset=UTF-8',
+                                            dataType : 'json' ,
+                                            success : function(reqData){
+                                                // console.log(reqData);
+                                                if(reqData.errCode==0){
+                                                    $.ajax({
+                                                        url : praiseDel + vid + "/" + uname  ,
+                                                        type : 'DELETE',
+                                                        contentType : 'application/json;charset=UTF-8',
+                                                        dataType : 'json' ,
+                                                        success : function(reqData){
+                                                            location.reload();
+                                                            // alert(reqData.msg)
+                                                        }
+                                                    });
+                                                }else {
+                                                    alert(reqData.msg);
+                                                }
+                                            }
+                                        });
                                     }
                                 });
                             }
@@ -166,7 +188,7 @@ $(function () {
                                     success : function(reqData){
                                         var collectMsg = {
                                             title: "收藏消息" ,
-                                            content: uname +"收藏了你的<<" + reqData.data.title + ">>视频" ,
+                                            content: uname +"收藏了你的 " + reqData.data.title + " 视频" ,
                                             sender: uname ,
                                             receiver: vUname
                                         };
@@ -188,13 +210,34 @@ $(function () {
                                 });
                             } else if (reqData.msg == "您已经收藏过该视频") {
                                 $.ajax({
-                                    url : collectDel + vid + "/" + uname  ,
-                                    type : 'DELETE',
-                                    contentType : 'application/json;charset=UTF-8',
+                                    url : videoById + vid ,
+                                    type : 'GET',
                                     dataType : 'json' ,
                                     success : function(reqData){
-                                        location.reload();
-                                        // alert(reqData.msg)
+                                        // console.log(uname +"/" + reqData.data.title + "/" + vUname);
+                                        $.ajax({
+                                            url : msgDelC + uname +"/" + reqData.data.title + "/" + vUname  ,
+                                            type : 'DELETE',
+                                            contentType : 'application/json;charset=UTF-8',
+                                            dataType : 'json' ,
+                                            success : function(reqData){
+                                                // console.log(reqData);
+                                                if(reqData.errCode==0){
+                                                    $.ajax({
+                                                        url : collectDel + vid + "/" + uname  ,
+                                                        type : 'DELETE',
+                                                        contentType : 'application/json;charset=UTF-8',
+                                                        dataType : 'json' ,
+                                                        success : function(reqData){
+                                                            location.reload();
+                                                            // alert(reqData.msg)
+                                                        }
+                                                    });
+                                                }else {
+                                                    alert(reqData.msg);
+                                                }
+                                            }
+                                        });
                                     }
                                 });
                             }

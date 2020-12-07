@@ -54,8 +54,7 @@ public class UserServiceImpl implements UserService {
         }
         if(StringUtils.isEmpty(user.getName()) || StringUtils.isEmpty(user.getPassword()) ||
                 StringUtils.isEmpty(user.getAge()) || StringUtils.isEmpty(user.getSex()) ||
-                StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getMobile()) ||
-                StringUtils.isEmpty(user.getPhotourl())) {
+                StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getMobile()) ) {
             return REG_MSG_FAIL_INFO_NON ;
         }
         // 先进行账号是否存在检测

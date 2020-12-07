@@ -22,7 +22,7 @@ public class MsgServiceImpl implements MsgService {
 
     @Override
     public Integer addMsg(Msg msg) {
-        System.out.println(msg.toString());
+//        System.out.println(msg.toString());
         if(null == msg) {
             return REG_MSG_FAIL_INFO_NON ;
         }
@@ -53,5 +53,15 @@ public class MsgServiceImpl implements MsgService {
             return false ;
         }
         return msgDao.delAll(receiver) > 0;
+    }
+
+    @Override
+    public Integer delMsgP(String uname, String content, String receiver) {
+        return msgDao.delMsgP(uname,content,receiver);
+    }
+
+    @Override
+    public Integer delMsgC(String uname, String content, String receiver) {
+        return msgDao.delMsgC(uname,content,receiver);
     }
 }

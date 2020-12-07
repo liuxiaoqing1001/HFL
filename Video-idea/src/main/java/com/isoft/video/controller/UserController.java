@@ -87,7 +87,7 @@ public class UserController {
         user.setSex((String)map.get("sex"));
         user.setEmail((String)map.get("email"));
         user.setMobile((String)map.get("mobile"));
-        user.setPhotourl((String)map.get("photourl"));
+//        user.setPhotourl((String)map.get("photourl"));
         Integer result = userService.register(user) ;
         String msg = "" ;
         switch (result) {

@@ -3,9 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/First.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/First.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/MsgCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/MsgCenter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user/UserCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserCenter.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/DynamicCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/DynamicCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Material.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Material.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Mysay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Mysay.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/NewSay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/NewSay.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/VideoCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/DynamicCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +132,7 @@
       <workItem from="1607042122355" duration="32395000" />
       <workItem from="1607158157596" duration="16374000" />
       <workItem from="1607254654670" duration="5479000" />
-      <workItem from="1607301446270" duration="10759000" />
+      <workItem from="1607301446270" duration="20064000" />
     </task>
     <servers />
   </component>

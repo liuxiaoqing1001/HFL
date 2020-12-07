@@ -23,4 +23,12 @@ public interface MsgDao {
 
     @Delete("delete from tb_msg where receiver=#{receiver}")
     int delAll(String receiver);
+
+    @Delete("delete from tb_msg where sender=#{uname} and content like CONCAT('%',#{content},'%') " +
+            "and receiver=#{receiver} and title like '%点赞%'")
+    Integer delMsgP(String uname, String content, String receiver);
+
+    @Delete("delete from tb_msg where sender=#{uname} and content like CONCAT('%',#{content},'%') " +
+            "and receiver=#{receiver} and title like '%收藏%'")
+    Integer delMsgC(String uname, String content, String receiver);
 }

@@ -54,4 +54,28 @@ public class MsgController {
         ) ;
     }
 
+    @DeleteMapping("delMsgP/{uname}/{content}/{receiver}")
+    public ResponseData delMsgP(@PathVariable("uname") String uname,
+                                     @PathVariable("content") String content,
+                                     @PathVariable("receiver") String receiver) {
+        Integer result = msgService.delMsgP(uname,content,receiver) ;
+        return new ResponseData(
+                result > 0 ? 0 : 1 ,
+                result > 0 ? "删除成功！" : "删除失败！" ,
+                result
+        ) ;
+    }
+
+    @DeleteMapping("delMsgC/{uname}/{content}/{receiver}")
+    public ResponseData delMsgC(@PathVariable("uname") String uname,
+                                     @PathVariable("content") String content,
+                                     @PathVariable("receiver") String receiver) {
+        Integer result = msgService.delMsgC(uname,content,receiver) ;
+        return new ResponseData(
+                result > 0 ? 0 : 1 ,
+                result > 0 ? "删除成功！" : "删除失败！" ,
+                result
+        ) ;
+    }
+
 }
