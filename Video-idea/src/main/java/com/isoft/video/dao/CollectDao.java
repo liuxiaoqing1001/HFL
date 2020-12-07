@@ -33,6 +33,6 @@ public interface CollectDao {
     @Delete("delete from tb_collect where vid=#{vid} and uname=#{uname}")
     Integer deleteCollect(@Param("vid") int vid, @Param("uname") String uname) ;
 
-
-
+    @Select("select count(*) from tb_collect where vid=#{vid}")
+    Integer getCCount(int vid);
 }

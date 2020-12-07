@@ -83,9 +83,17 @@ var msgAdd = msgPath + "addMsg/";
 
 var collectPath = serverPath + "collect/";
 var collectAll = collectPath + "getAllByUname/";
+var collectNum = collectPath  + "getCCount/";
+var collectAdd = collectPath + "addCollect/";
+var collectDel = collectPath + "deleteCollect";
+var collectYN = collectPath + "getCount/";
 
 var praisePath = serverPath + "praise/";
 var praiseAdd = praisePath + "addPraise/";
+var praiseNum = praisePath + "getPCount/";
+var praiseDel = praisePath + "deletePraise/";
+var praiseYN = praisePath + "getCount/";
+
 
 // var serverPathManager = serverPath + "/system/" ;
 

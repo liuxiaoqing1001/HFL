@@ -51,80 +51,208 @@ $(function () {
         });
 
     $.ajax({
-        url: sayGetPAndC + id,
-        type : 'GET',
-        dataType : 'json' ,
-        success: function (reqdata) {
-            p = reqdata.data.praise;
-            c = reqdata.data.collect;
+        url: praiseNum + id,
+        type: "GET",
+        dataType: 'json',
+        async:false,
+        success: function (reqPData) {
+            // console.log(reqPData);
+            p=reqPData.data;
             $("#praise").text(p);
+        }
+    });
+
+    $.ajax({
+        url: collectNum + id ,
+        type: "GET",
+        dataType: 'json',
+        async:false,
+        success: function (reqCData) {
+            // console.log(reqCData);
+            c=reqCData.data;
             $("#collect").text(c);
         }
     });
 
-
     $(".praiseOpera").click(function () {
-        p=p+1;
+        // p=p+1;
         // console.log("p:"+count);
+        // $.ajax({
+        //     url: sayPraiseCount + id + "/" + p,
+        //     type : 'PUT',
+        //     dataType : 'json' ,
+        //     success: function (data) {
+        //         $("#praise").text(p);
+        //         var msgObj = {
+        //             title : "给你点赞",
+        //             content : "-"+userObj.name+"-biu～地给你点了个赞",
+        //             sender : userObj.name,
+        //             receiver : video.uname,
+        //             // time : initDate(new Date())
+        //         } ;
+        //         var msgData = JSON.stringify(msgObj) ;
+        //         $.ajax({
+        //             url : msgAdd ,
+        //             type : 'POST',
+        //             data : msgData,
+        //             contentType : 'application/json;charset=UTF-8',
+        //             dataType : 'json' ,
+        //             success : function(reqData){
+        //                 console.log(reqData.msg);
+        //                 // alert(reqData.msg) ;
+        //                 // location.href = "VideoList.html" ;
+        //             }
+        //         });
+        //     }
+        // });
+
+        var pMsg = {
+            vid: id,
+            uname: userObj.name
+        };
         $.ajax({
-            url: sayPraiseCount + id + "/" + p,
-            type : 'PUT',
+            url : praiseAdd ,
+            type : "POST" ,
+            data :JSON.stringify(pMsg),
+            contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
-            success: function (data) {
-                $("#praise").text(p);
-                var msgObj = {
-                    title : "给你点赞",
-                    content : "-"+userObj.name+"-biu～地给你点了个赞",
-                    sender : userObj.name,
-                    receiver : video.uname,
-                    // time : initDate(new Date())
-                } ;
-                var msgData = JSON.stringify(msgObj) ;
-                $.ajax({
-                    url : msgAdd ,
-                    type : 'POST',
-                    data : msgData,
-                    contentType : 'application/json;charset=UTF-8',
-                    dataType : 'json' ,
-                    success : function(reqData){
-                        console.log(reqData.msg);
-                        // alert(reqData.msg) ;
-                        // location.href = "VideoList.html" ;
-                    }
-                });
+            success : function(reqData){
+                if (reqData.msg == "点赞成功") {
+                    alert(reqData.msg) ;
+                    /**
+                     * 发送点赞消息
+                     */
+                    $.ajax({
+                        url : videoById + id ,
+                        type : 'GET',
+                        dataType : 'json' ,
+                        success : function(reqData){
+                            var praiseMsg = {
+                                title: "点赞消息" ,
+                                content: userObj.name +"赞了你的<<" + reqData.data.title + ">>视频" ,
+                                sender: userObj.name ,
+                                receiver: videoName
+                            };
+                            localStorage.setItem("praiseMsg" ,JSON.stringify(praiseMsg)) ;
+                            // alert("发送点赞消息成功！");
+                            /**
+                             * 保存发送消息进数据库消息表
+                             */
+                            $.ajax({
+                                url : msgAdd ,
+                                type : 'POST',
+                                data : JSON.stringify(praiseMsg),
+                                contentType : 'application/json;charset=UTF-8',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    location.reload();
+                                }
+                            });
+                        }
+                    });
+                } else if (reqData.msg == "您已经赞过该视频") {
+                    $.ajax({
+                        url : praiseDel + id + "/" + userObj.name  ,
+                        type : 'DELETE',
+                        contentType : 'application/json;charset=UTF-8',
+                        dataType : 'json' ,
+                        success : function(reqData){
+                            location.reload();
+                            // alert(reqData.msg)
+                        }
+                    });
+                }
             }
-        });
+        }) ;
     });
 
     $(".collectOpera").click(function () {
-        c=c+1;
-        // console.log("c:"+count);
+        // c=c+1;
+        // // console.log("c:"+count);
+        // $.ajax({
+        //     url: sayCollectCount + id + "/" + c,
+        //     type : 'PUT',
+        //     dataType : 'json' ,
+        //     success: function (data) {
+        //         $("#collect").text(c);
+        //         var msgObj = {
+        //             title : "收藏了你的视频",
+        //             content : "-"+userObj.name+"-华丽丽地～收藏了你的视频",
+        //             sender : userObj.name,
+        //             receiver : video.uname,
+        //             // time : initDate(new Date())
+        //         } ;
+        //         var msgData = JSON.stringify(msgObj) ;
+        //         $.ajax({
+        //             url : msgAdd ,
+        //             type : 'POST',
+        //             data : msgData,
+        //             contentType : 'application/json;charset=UTF-8',
+        //             dataType : 'json' ,
+        //             success : function(reqData){
+        //                 console.log(reqData.msg);
+        //             }
+        //         });
+        //     }
+        // });
+
+        var cMsg = {
+            vid: id,
+            uname: userObj.name
+        };
         $.ajax({
-            url: sayCollectCount + id + "/" + c,
-            type : 'PUT',
+            url : collectAdd ,
+            type : "POST" ,
+            data :JSON.stringify(cMsg),
+            contentType : 'application/json;charset=UTF-8',
             dataType : 'json' ,
-            success: function (data) {
-                $("#collect").text(c);
-                var msgObj = {
-                    title : "收藏了你的视频",
-                    content : "-"+userObj.name+"-华丽丽地～收藏了你的视频",
-                    sender : userObj.name,
-                    receiver : video.uname,
-                    // time : initDate(new Date())
-                } ;
-                var msgData = JSON.stringify(msgObj) ;
-                $.ajax({
-                    url : msgAdd ,
-                    type : 'POST',
-                    data : msgData,
-                    contentType : 'application/json;charset=UTF-8',
-                    dataType : 'json' ,
-                    success : function(reqData){
-                        console.log(reqData.msg);
-                    }
-                });
+            success : function(reqData){
+                if (reqData.msg == "收藏成功") {
+                    alert(reqData.msg) ;
+                    /**
+                     * 发送收藏消息
+                     */
+                    $.ajax({
+                        url : videoById + id ,
+                        type : 'GET',
+                        dataType : 'json' ,
+                        success : function(reqData){
+                            var collectMsg = {
+                                title: "收藏消息" ,
+                                content: userObj.name +"收藏了你的<<" + reqData.data.title + ">>视频" ,
+                                sender: userObj.name ,
+                                receiver: videoName
+                            };
+                            localStorage.setItem("collectMsg" ,JSON.stringify(collectMsg)) ;
+                            /**
+                             * 保存发送消息进数据库消息表
+                             */
+                            $.ajax({
+                                url : msgAdd ,
+                                type : 'POST',
+                                data : JSON.stringify(collectMsg),
+                                contentType : 'application/json;charset=UTF-8',
+                                dataType : 'json' ,
+                                success : function(reqData){
+                                    location.reload();
+                                }
+                            });
+                        }
+                    });
+                } else if (reqData.msg == "您已经收藏过该视频") {
+                    $.ajax({
+                        url : collectDel + id + "/" + userObj.name  ,
+                        type : 'DELETE',
+                        contentType : 'application/json;charset=UTF-8',
+                        dataType : 'json' ,
+                        success : function(reqData){
+                            location.reload();
+                            // alert(reqData.msg)
+                        }
+                    });
+                }
             }
-        });
+        }) ;
     });
 
     $.get(

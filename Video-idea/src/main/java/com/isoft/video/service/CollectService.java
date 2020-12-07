@@ -38,4 +38,6 @@ public interface CollectService {
      * @return
      */
     Integer deleteCollect(int vid, String uname) ;
+
+    Integer getCCount(Integer vid);
 }

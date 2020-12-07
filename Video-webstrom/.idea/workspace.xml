@@ -4,10 +4,8 @@
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Collection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/user/NewSay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/NewSay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +115,7 @@
       <workItem from="1607042122355" duration="32395000" />
       <workItem from="1607158157596" duration="16374000" />
       <workItem from="1607254654670" duration="5479000" />
+      <workItem from="1607301446270" duration="10759000" />
     </task>
     <servers />
   </component>

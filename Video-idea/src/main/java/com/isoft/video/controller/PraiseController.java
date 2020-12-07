@@ -36,6 +36,15 @@ public class PraiseController {
         return praiseService.getByUname(uname, vid) ;
     }
 
+    @GetMapping("/getPCount/{vid}")
+    public ResponseData getPCount( @PathVariable("vid") Integer vid) {
+        return new ResponseData(
+                0,
+                "请求成功",
+                praiseService.getPCount(vid)
+        );
+    }
+
     /**
      * 添加点赞记录
      * @param map

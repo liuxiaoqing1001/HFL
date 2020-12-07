@@ -38,4 +38,7 @@ public interface PraiseDao {
      */
     @Delete("delete from tb_praise where vid=#{vid} and uname=#{uname}")
     Integer deletePraise(@Param("vid") int vid, @Param("uname") String uname) ;
+
+    @Select("select count(*) from tb_praise where vid=#{vid}")
+    Integer getPCount(int vid);
 }

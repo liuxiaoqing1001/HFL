@@ -38,4 +38,6 @@ public interface PraiseService {
      * @return
      */
     Integer deletePraise(int vid, String uname) ;
+
+    Integer getPCount(Integer vid);
 }

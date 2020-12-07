@@ -54,5 +54,10 @@ public class PraiseServiceImpl implements PraiseService {
         return praiseDao.deletePraise(vid , uname);
     }
 
+    @Override
+    public Integer getPCount(Integer vid) {
+        return praiseDao.getPCount(vid);
+    }
+
 
 }

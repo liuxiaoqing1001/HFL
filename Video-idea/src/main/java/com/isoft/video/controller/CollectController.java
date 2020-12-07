@@ -36,6 +36,15 @@ public class CollectController {
         return collectService.getByUname(uname, vid) ;
     }
 
+    @GetMapping("/getCCount/{vid}")
+    public ResponseData getCCount( @PathVariable("vid") Integer vid) {
+        return new ResponseData(
+                0,
+                "请求成功",
+                collectService.getCCount(vid)
+        );
+    }
+
     /**
      * 添加收藏记录
      * @param map

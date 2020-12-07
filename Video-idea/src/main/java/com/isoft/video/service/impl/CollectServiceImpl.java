@@ -53,5 +53,10 @@ public class CollectServiceImpl implements CollectService {
         return collectDao.deleteCollect(vid , uname);
     }
 
+    @Override
+    public Integer getCCount(Integer vid) {
+        return collectDao.getCCount(vid);
+    }
+
 
 }
