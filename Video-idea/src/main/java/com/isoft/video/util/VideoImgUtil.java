@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author ChenP
  */
-public class VideoProcessing {
+public class VideoImgUtil {
 
     //视频文件路径
     private static String videoPath = ClassUtils.getDefaultClassLoader().getResource("static/video/").getPath();
@@ -29,12 +29,15 @@ public class VideoProcessing {
      *
      * @param videoFileName
      */
-    public static void grabberVideoFramer(String videoFileName) {
+    public static void grabberVideoFramer(String videoFileName,Integer vid) {
         //Frame对象
         Frame frame = null;
         //标识
-        int flag = 3;
-        Integer vid;
+        int flag = 5;
+
+//        String vid = videoFileName.substring(0,videoFileName.lastIndexOf("."));
+//        System.out.println(vid);
+
         /*
             获取视频文件
          */
@@ -86,7 +89,6 @@ public class VideoProcessing {
 //    public static void main(String[] args) {
 //        String videoFileName = "1.mp4";
 //        grabberVideoFramer(videoFileName);
-//
 //    }
 //    public static String getVideoPath() {
 //        return videoPath;

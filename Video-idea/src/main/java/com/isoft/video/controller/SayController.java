@@ -196,8 +196,8 @@ public class SayController {
         say.setVid(Integer.parseInt(map.get("vid").toString()));
         say.setTime(new Date());
         say.setSay((String)map.get("say"));
-        say.setPraise(0);//Integer.parseInt(map.get("praise").toString())
-        say.setCollect(0);//Integer.parseInt(map.get("collect").toString())
+//        say.setPraise(0);//Integer.parseInt(map.get("praise").toString())
+//        say.setCollect(0);//Integer.parseInt(map.get("collect").toString())
         Integer result = sayService.addSay(say) ;
 //        System.out.println("result:"+result);
         String str = "" ;

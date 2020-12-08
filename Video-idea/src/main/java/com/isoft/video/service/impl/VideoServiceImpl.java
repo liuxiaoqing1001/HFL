@@ -157,7 +157,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Object getNewId() {
+    public Integer getNewId() {
 //        System.out.println("videoDao.getNewId()------"+videoDao.getNewId());
         return videoDao.getNewId();
     }

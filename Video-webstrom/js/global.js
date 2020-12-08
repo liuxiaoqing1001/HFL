@@ -51,6 +51,7 @@ var videoAdd = videoPath + "addVideo/";
 var videoNewId = videoPath + "newId/";
 var videoVUname = videoPath + "uname/";
 var videoByKeyWord = videoPath + "getByKeyWord/";
+var videoImg = videoPath + "photoUrl/";
 
 var commentPath = serverPath + "comment/";
 var commentByVid = commentPath + "getAllByVid/";

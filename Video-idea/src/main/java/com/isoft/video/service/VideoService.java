@@ -71,7 +71,7 @@ public interface VideoService {
      */
     List<File> getVideoPathByUname(String uname) ;
 
-    Object getNewId();
+    Integer getNewId();
 
     List<Video> getByKeyWord(String title);
 }

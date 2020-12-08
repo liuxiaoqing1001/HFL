@@ -21,7 +21,7 @@ public class Say implements Serializable {
     private Date time;
     private String say;
     private String photourl;
-    private Integer praise;
-    private Integer collect;
+//    private Integer praise;
+//    private Integer collect;
 
 }

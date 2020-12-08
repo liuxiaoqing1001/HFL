@@ -120,7 +120,7 @@ public interface VideoDao {
     List<File> getVideoPathByUname(String uname);
 
     @Select("SELECT @@IDENTITY AS ID")
-    Object getNewId();
+    Integer getNewId();
 
     @Select("<script>" +
             "select * from tb_video " +

@@ -9,6 +9,7 @@ import com.isoft.video.entity.Video;
 import com.isoft.video.service.MsgService;
 import com.isoft.video.service.VideoService;
 import com.isoft.video.service.VideoTypeService;
+import com.isoft.video.util.VideoImgUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -339,14 +341,7 @@ public class VideoController {
         ) ;
     }
 
-    @GetMapping("/newId")
-    public ResponseData getNewId() {
-        return new ResponseData(
-                0,
-                "请求成功",
-                videoService.getNewId()
-        );
-    }
+
 
     /**
      * 下载视频
@@ -367,7 +362,7 @@ public class VideoController {
             originName = videopathAll.substring(videopathAll.lastIndexOf("/") + 1);
 //            System.out.println("originName:" + originName);
 
-            fos = new FileOutputStream(path +"static/video/"+ originName) ;//newPath + "/" + originName
+            fos = new FileOutputStream(path +"static/video/"+ originName) ;
             //使用字节流对象中的方法 read 读取文件
             //使用数组缓冲读取多个字节写入多个字节
             byte[] bytes = new byte[1024] ;
@@ -378,6 +373,11 @@ public class VideoController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+
+            Integer vid = getNewId();
+//            System.out.println("-------/------------vid:"+vid);
+            VideoImgUtil.grabberVideoFramer(originName,vid);
+
             //释放资源  【先关闭写的后关闭读的】
             if (fos != null) {
                 try {
@@ -395,6 +395,53 @@ public class VideoController {
                 }
             }
         }
+    }
+
+    //获取头像地址
+    @GetMapping("/photoUrl/{vid}")
+    public String getVideoImg(HttpServletResponse response, @PathVariable("vid") Integer vid) throws Exception{
+//        String photoUrl=videoService.getPhotoUrl(vid);
+        //获取resources文件夹的绝对地址
+        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/videoImg/"+vid+"_5.jpg").getPath();
+//        System.out.println(sourcePath);
+        FileInputStream fis = null;
+        OutputStream os = null ;
+        fis = new FileInputStream(sourcePath);
+        // 得到文件大小
+        int size = fis.available();
+        byte data[] = new byte[size];
+        // 读数据
+        fis.read(data);
+        fis.close();
+//        fis = null;
+        // 设置返回的文件类型
+        String fileType=getFileType(sourcePath);
+//        System.out.println("................."+fileType);
+        response.setContentType(fileType);
+        os = response.getOutputStream();
+        os.write(data);
+        os.flush();
+        os.close();
+//        os = null;
+        return null;
+    }
+
+    @GetMapping("/newId")
+    public Integer getNewId() {
+        return videoService.getNewId();
+    }
+
+    private static String getFileType(String path){
+        String fileType = "";
+        try{
+            InputStream file = new BufferedInputStream(new FileInputStream(path));
+            fileType = URLConnection.guessContentTypeFromStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileType;
     }
 
 }

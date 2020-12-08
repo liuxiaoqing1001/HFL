@@ -141,7 +141,7 @@ function getVideoByType(videoData) {
         if(index<4){
             str += '<div class="flexitem">'+
                 '<a href="PlayVideo.html?id='+item.id+'" target="_blank">'+
-                '<img src="../../img/yyqx1.jpg" height="220" width="300"/>'+
+                '<img src="'+videoImg + item.id+'" height="220" width="300"/>'+
                 '</a><p>'+
                 '<a href="PlayVideo.html">'+item.title+'</a>'+
                 '</p></div>';
