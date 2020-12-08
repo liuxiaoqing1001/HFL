@@ -305,4 +305,12 @@ tb_u_v(id,uid,vid,)
 *13. 头像的问题（可以先空着，要是谁研究出来了就说一声）
 
 
+-----------------------------------------------------------
+视频截图
+idea：
+增加util/VideoImgUtil.java
+修改VideoController.java(loadVideo()，getVideoImg())
+修改user/First.js
+
+
 

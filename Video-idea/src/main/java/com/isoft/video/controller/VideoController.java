@@ -374,6 +374,7 @@ public class VideoController {
             e.printStackTrace();
         } finally {
 
+//            视频截图
             Integer vid = getNewId();
 //            System.out.println("-------/------------vid:"+vid);
             VideoImgUtil.grabberVideoFramer(originName,vid);
@@ -397,7 +398,7 @@ public class VideoController {
         }
     }
 
-    //获取头像地址
+    //获取视频的截图
     @GetMapping("/photoUrl/{vid}")
     public String getVideoImg(HttpServletResponse response, @PathVariable("vid") Integer vid) throws Exception{
 //        String photoUrl=videoService.getPhotoUrl(vid);
