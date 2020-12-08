@@ -1,8 +1,8 @@
 package com.isoft.video.util;
 
-//import org.bytedeco.javacv.FFmpegFrameGrabber;
-//import org.bytedeco.javacv.Frame;
-//import org.bytedeco.javacv.Java2DFrameConverter;
+import org.bytedeco.javacv.FFmpegFrameGrabber;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.Java2DFrameConverter;
 import org.springframework.util.ClassUtils;
 
 import javax.imageio.ImageIO;
@@ -34,10 +34,14 @@ public class VideoProcessing {
         Frame frame = null;
         //标识
         int flag = 3;
+        Integer vid;
         /*
             获取视频文件
          */
-        FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(videoPath + "/" + videoFileName);
+        System.out.println("................."+videoPath);
+        System.out.println("................."+videoPath + videoFileName);
+        System.out.println("---------------------"+videoFramesPath);
+        FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(videoPath + videoFileName);
 
         try {
             fFmpegFrameGrabber.start();
@@ -53,7 +57,8 @@ public class VideoProcessing {
 
             if (flag <= ftp) {
                 //文件绝对路径+名字
-                String fileName = videoFramesPath + "/img_" + String.valueOf(flag) + ".jpg";
+                String fileName = videoFramesPath + vid+"_" + String.valueOf(flag) + ".jpg";
+                System.out.println("fileName:"+fileName);
                 //文件储存对象
                 File outPut = new File(fileName);
                 //获取帧
@@ -78,10 +83,11 @@ public class VideoProcessing {
     /*
         测试.....
      */
-    public static void main(String[] args) {
-        String videoFileName = "1.mp4";
-        grabberVideoFramer(videoFileName);
-    }
+//    public static void main(String[] args) {
+//        String videoFileName = "1.mp4";
+//        grabberVideoFramer(videoFileName);
+//
+//    }
 //    public static String getVideoPath() {
 //        return videoPath;
 //    }

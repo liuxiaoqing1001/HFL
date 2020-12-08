@@ -57,22 +57,73 @@
             <optional>true</optional>
         </dependency>
 
-        <!--视频截取第一帧-->
+<!--        <dependency>-->
+<!--            <groupId>org.jcodec</groupId>-->
+<!--            <artifactId>jcodec</artifactId>-->
+<!--            <version>0.2.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.jcodec</groupId>-->
+<!--            <artifactId>jcodec-javase</artifactId>-->
+<!--            <version>0.2.3</version>-->
+<!--        </dependency>-->
+
+
+        <!--  https://mvnrepository.com/artifact/org.bytedeco/javacv -->
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>javacv</artifactId>
-            <version>1.4.3</version>
+            <version>1.4.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.bytedeco.javacpp-presets</groupId>
-            <artifactId>ffmpeg-platform</artifactId>
-            <version>4.0.2-1.4.3</version>
+            <artifactId>opencv</artifactId>
+            <version>3.4.2-1.4.2</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>RELEASE</version>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>opencv</artifactId>
+            <version>3.4.2-1.4.2</version>
+            <classifier>linux-x86_64</classifier>
         </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.bytedeco.javacpp-presets/ffmpeg &ndash;&gt;-->
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>ffmpeg</artifactId>
+            <version>4.0.1-1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>ffmpeg</artifactId>
+            <version>4.0.1-1.4.2</version>
+            <classifier>linux-x86_64</classifier>
+        </dependency>
+
+
+
+
+        <!--        &lt;!&ndash;视频截取第一帧&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.bytedeco</groupId>-->
+<!--            <artifactId>javacv</artifactId>-->
+<!--            <version>1.4.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.bytedeco.javacpp-presets</groupId>-->
+<!--            <artifactId>ffmpeg-platform</artifactId>-->
+<!--            <version>4.0.2-1.4.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-test</artifactId>-->
+<!--            <version>RELEASE</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
