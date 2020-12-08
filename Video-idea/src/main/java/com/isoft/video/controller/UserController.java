@@ -6,7 +6,7 @@ import com.isoft.video.entity.Msg;
 import com.isoft.video.entity.User;
 import com.isoft.video.service.MsgService;
 import com.isoft.video.service.UserService;
-import com.isoft.video.util.FileUtil;
+//import com.isoft.video.util.FileUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

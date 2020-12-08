@@ -34,16 +34,11 @@ public class VideoImgUtil {
         Frame frame = null;
         //标识
         int flag = 5;
-
-//        String vid = videoFileName.substring(0,videoFileName.lastIndexOf("."));
-//        System.out.println(vid);
-
         /*
             获取视频文件
          */
-        System.out.println("................."+videoPath);
-        System.out.println("................."+videoPath + videoFileName);
-        System.out.println("---------------------"+videoFramesPath);
+//        System.out.println("................."+videoPath + videoFileName);
+//        System.out.println("---------------------"+videoFramesPath);
         FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(videoPath + videoFileName);
 
         try {
@@ -55,13 +50,13 @@ public class VideoImgUtil {
 //            System.out.println(fFmpegFrameGrabber.grabKeyFrame());
             System.out.println("时长 " + ftp / fFmpegFrameGrabber.getFrameRate() / 60);
 
-            BufferedImage bImage = null;
-            System.out.println("开始运行视频提取帧，耗时较长");
+//            BufferedImage bImage = null;
+//            System.out.println("开始运行视频提取帧，耗时较长");
 
             if (flag <= ftp) {
                 //文件绝对路径+名字
                 String fileName = videoFramesPath + vid+"_" + String.valueOf(flag) + ".jpg";
-                System.out.println("fileName:"+fileName);
+//                System.out.println("fileName:"+fileName);
                 //文件储存对象
                 File outPut = new File(fileName);
                 //获取帧
@@ -88,7 +83,7 @@ public class VideoImgUtil {
      */
 //    public static void main(String[] args) {
 //        String videoFileName = "1.mp4";
-//        grabberVideoFramer(videoFileName);
+//        grabberVideoFramer(videoFileName,1);
 //    }
 //    public static String getVideoPath() {
 //        return videoPath;
