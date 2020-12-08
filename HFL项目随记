@@ -306,10 +306,16 @@ tb_u_v(id,uid,vid,)
 
 
 -----------------------------------------------------------
-视频截图
+视频截图(在上传视频的时候就调用截图的功能，并保存图片)
+pom.xml：
+添加依赖（下载时间有些长，要是一直没下好就关掉编译器重启change）
+注意：linux-x86_64改成windows-x86_64，根据自己的情况来
+
 idea：
 增加util/VideoImgUtil.java
 修改VideoController.java(loadVideo()，getVideoImg())
+
+web：
 修改user/First.js
 
 
