@@ -45,7 +45,6 @@ public class CommentController {
         comment.setTime(new Date());
         Integer result = commentService.addComment(comment) ;
         String str = "" ;
-//        System.out.println(result);
         switch (result) {
             case CommentService.REG_MSG_OK :
                 str = "发送评论成功" ;

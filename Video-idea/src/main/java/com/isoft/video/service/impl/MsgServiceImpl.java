@@ -22,7 +22,6 @@ public class MsgServiceImpl implements MsgService {
 
     @Override
     public Integer addMsg(Msg msg) {
-//        System.out.println(msg.toString());
         if(null == msg) {
             return REG_MSG_FAIL_INFO_NON ;
         }

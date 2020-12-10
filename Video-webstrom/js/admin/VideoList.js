@@ -1,11 +1,4 @@
 $(function () {
-
-    // //点击审核页面跳转
-    // $("#btnShenHe").click(function () {
-    //     location.href = "PlayVideo.html" ;
-    // })
-
-    // console.log(videoVType);
     // 页面初始化时，填充视频类别
     $.get(
         videoVType ,
@@ -71,7 +64,7 @@ $(function () {
     $("#videoTable").bootstrapTable({
         url:videoPage,
         method:'GET',
-        toolbar : '#toolbar' ,   // 为表格绑定工具栏
+        toolbar : '#toolbar' ,  // 为表格绑定工具栏
         striped: true,			// 显示为斑马线格式，奇偶行不通背景色
 
         showRefresh: "true",	// 显示刷新按钮
@@ -85,8 +78,7 @@ $(function () {
         pageList: [3, 5, 10],	// 可以选择的每页数量
         sidePagination: "server", //表示服务端请求分页数据
 
-        // 提交到Server的参数列表 ，
-        // 参数设定相关
+        // 提交到Server的参数列表 ，参数设定相关
         queryParamsType: "undefined",  // undefined：提交到服务器端的参数自定义
         queryParams: function(params) {
             // 参数params中自带 pageSize , pageNumber , sortName , sortOrder
@@ -102,11 +94,10 @@ $(function () {
 
         columns : [
             {checkbox : true} ,   // 显示复选框列
-
             {field : 'id' , title : 'ID' , visible : false} ,
             {
                 field : 'title' ,
-                title : '标题' ,
+                title : '标题'
                 // formatter : function(value, row, index){
                 //     return  '<span class="showDetail" style="color:blue; cursor: pointer; ">'+ value +'</span>';
                 // },

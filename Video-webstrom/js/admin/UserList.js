@@ -87,7 +87,7 @@ $(function() {
     $("#size").change(function () {
         $("#tb").text("");
         f(currentPage , $("#size").val());
-    })
+    });
     //下一页
     $("#right").click(function () {
         currentPage++;
@@ -98,7 +98,7 @@ $(function() {
             alert("当前是最后一页");
             currentPage = $("#totalPage").text();
         }
-    })
+    });
 
     //最后一页
     $("#forwardLast").click(function () {

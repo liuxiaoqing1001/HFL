@@ -43,13 +43,6 @@ $(function () {
             $("#comm").text(videoData.data);
         });
 
-    $.get(
-        commentSumByVid + id ,
-        function(videoData) {
-            // console.log(videoData);
-            $("#comm").text(videoData.data);
-        });
-
     $.ajax({
         url: praiseNum + id,
         type: "GET",

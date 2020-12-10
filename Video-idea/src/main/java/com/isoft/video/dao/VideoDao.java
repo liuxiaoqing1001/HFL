@@ -48,7 +48,9 @@ public interface VideoDao {
             "        </where>"+
             " order by pubdatetime desc limit #{offset},#{rows}" +
             "</script>")
-    List<Video> getMoreBy(@Param("typeid") Integer typeid, @Param("title") String title, @Param("pubdatetime") String pubdate, @Param("offset") Integer offset, @Param("rows") Integer rows) ;
+    List<Video> getMoreBy(@Param("typeid") Integer typeid, @Param("title") String title,
+                          @Param("pubdatetime") String pubdate, @Param("offset") Integer offset,
+                          @Param("rows") Integer rows) ;
 
     @Select("<script>" +
             "select count(*) from tb_video" +
@@ -65,7 +67,8 @@ public interface VideoDao {
             "            </if>" +
             "        </where>"+
             "</script>")
-    int getMoreCount(@Param("typeid") Integer typeid, @Param("title") String title, @Param("pubdatetime") String pubdate) ;
+    int getMoreCount(@Param("typeid") Integer typeid, @Param("title") String title,
+                     @Param("pubdatetime") String pubdate) ;
 
     @Update("update tb_video set status='通过' where id=#{id}")
     int updateStatus(Integer id);
