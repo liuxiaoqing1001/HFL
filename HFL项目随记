@@ -6,7 +6,7 @@ git@github.com:liuxiaoqing1001/HFL.git
 
 
 
------------------------------------------项目说明-----------------------------------------
+-----------------------------------项目说明-----------------------------------------
 “HFL”视频平台开发与设计
 主要技术:
 	bootstrap做前台页面
@@ -121,40 +121,28 @@ controller
 
 
 
+-----------------------------------------------------------
 ********** 额外说明 **********
-DevTools热部署
-​	1）pom.xml  ==> devtools 依赖
-​	2）项目Settings下设置
-​		1) Build ==》Compiler ==》勾选上  "Build project automatically"
-​		2) 按下 ctrl+shift+alt+/  ==》Registry ==》勾选上  "compiler.automake.allow.when.app.running"
-​		3) application.properties 中添加配置项
-
-Spring Mvc 相关配置
-​	1） application.properties
-
-~~~
-# springboot 内置tomcat，tomcat默认占用8080端口号，配置应用程序启动后占用端口号
-server.port=8090
-# server.servlet.context-path=  设置应用程序启动后项目跟位置访问虚拟路径，默认就是 "/"
-# spring web mvc 视图解析器相关配置
-# spring.mvc.view.prefix=/
-# spring.mvc.view.suffix=.html
-~~~
-
-​	2） 基于Springboot框架，静态资源放置位置
-​		resources/static/
-​			imgs、css、js、html
-​		resources/templates/
-​			放：模板页
-
-​	3）首页默认  /static/HomePage.html
 
 js获取url传递参数
 正则分析法：
 https://www.cnblogs.com/h5monkey/p/5912974.html
 
 
----------------------------------------------------------------------------------------
+视频截图(在上传视频的时候就调用截图的功能，并保存图片)
+pom.xml：
+添加依赖（下载时间有些长，要是一直没下好就关掉编译器重启change）
+注意：linux-x86_64改成windows-x86_64，根据自己的情况来
+
+idea：
+增加util/VideoImgUtil.java
+修改VideoController.java(loadVideo()，getVideoImg())
+
+web：
+修改user/First.js
+
+
+--------------------------------------数据库表--------------------------------------
 CREATE TABLE tb_user (
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(30) DEFAULT NULL,
@@ -305,18 +293,7 @@ tb_u_v(id,uid,vid,)
 *13. 头像的问题（可以先空着，要是谁研究出来了就说一声）
 
 
------------------------------------------------------------
-视频截图(在上传视频的时候就调用截图的功能，并保存图片)
-pom.xml：
-添加依赖（下载时间有些长，要是一直没下好就关掉编译器重启change）
-注意：linux-x86_64改成windows-x86_64，根据自己的情况来
 
-idea：
-增加util/VideoImgUtil.java
-修改VideoController.java(loadVideo()，getVideoImg())
-
-web：
-修改user/First.js
 
 
 
