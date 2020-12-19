@@ -236,6 +236,15 @@ public class VideoController {
         );
     }
 
+//    @GetMapping("/getAll")
+//    public ResponseData getAll() {
+//        return new ResponseData(
+//                0,
+//                "请求成功",
+//                videoService.getAll()
+//        );
+//    }
+
     @GetMapping("/getVideoById/{id}")
     public ResponseData getVideoById(@PathVariable("id") Integer id) {
         Video v = videoService.getVideoById(id) ;

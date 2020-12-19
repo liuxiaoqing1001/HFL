@@ -15,6 +15,18 @@ $(function () {
         $(".showLoginUser").text('未登录');
     }
 
+    // 未登录用户不允许访问该页
+    if(str == null || str == undefined || str == "") {
+        location.href="../Login.html" ;
+    }
+
+    $("#Exit").click(function () {
+        location.href="../Login.html";
+        // 从 sessionStorage 删除所有保存的数据
+        sessionStorage.clear();
+        alert("已退出登录")
+    });
+
     if(userObj.photourl == null || userObj.photourl == '') {
         $("#showUserPhoto").attr("src" ,"../../img/userphoto_default.jpg") ;
     } else {

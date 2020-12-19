@@ -277,6 +277,51 @@ tb_user(uid)
 tb_video
 tb_u_v(id,uid,vid,)
 
+
+-----------------------------------------------------------------------------------
+关于注销：注销添加了id="Exit",注销后清空sessionStorage 所有保存的数据，那userobj为空，跳转到登录界面，这一部分修改的有First.js,Dynamic.js,MsgCenter.js,UserCenter.js,
+ //未登录用户不允许访问该页
+if(str == null || str == undefined || str == "") {
+       location.href="../Login.html" ;
+}
+
+ $("#Exit").click(function () {
+ location.href="../Login.html";
+
+ // 从 sessionStorage 删除所有保存的数据
+ sessionStorage.clear();
+   alert("已退出登录")
+ });
+
+
+
+关于背景：修改的css有:First.css,Register.css,UserCenter.css,添加了more.css,
+body{
+    font-family: "montserrat";
+    background-image: linear-gradient(125deg,#E4FFCD,#6DD5FA,#2980B9,#E4FFCD);
+    background-size: 400%;
+    animation: bganimation 60s infinite;
+}
+
+#body{
+    color: white;
+}
+
+@keyframes bganimation {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+关于布局：修改的有Login.html,More.html
+关于更多：修改的是More.js
+
 ---------------------------------------xxx-----------------------------------------
 1. 注销：浏览器左右键返回还是原来的账号，没注销成功
 *2. 忘记密码？
@@ -298,7 +343,7 @@ tb_u_v(id,uid,vid,)
 
 
 
-
+user 的test.css,text.css,    pages的test.html，test1.html，test2.html，test3.html是没用的
 
 
 

@@ -10,47 +10,29 @@
 
 .iconfont {
     font-family: "iconfont" !important;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: blue;
 }
 
-video{
-    width: 400px;
-    height: 300px;
+.home{
+    float:left;
+    height:50px;
+    padding:10px;
+    font-size:18px;
+    line-height:20px;
+    margin-right: 15px;
 }
 
-#foot {
-    width: 100%;
-    height: 100px;
-    background: #fbfbfb;
-    color: #666;
-}
-
-/*#head{*/
-/*    width: 100%;*/
-/*    height: 10px;*/
-/*    background: #fbfbfb;*/
-/*}*/
-
-html{
-    height: 100%;
-}
-
-body {
-    background-color: #fbfbfb;
-    height: 100%;
+body{
     font-family: "montserrat";
-    background-image: linear-gradient(125deg,#E4FFCD,#6DD5FA,#2980B9,#E4FFCD);
+    background-image: linear-gradient(125deg,#E4FFCD,#6DD5FA,#E4FFCD);
     background-size: 400%;
     animation: bganimation 60s infinite;
 }
 
-#body{
-    color: white;
-    height: 100%;
-}
 
 @keyframes bganimation {
     0%{
@@ -64,39 +46,13 @@ body {
     }
 }
 
-#iframe{
-    height: 100%;
+.clear{
+    both:clear;
+}
+#sort{
+    font-size:large;
 }
 
-#userCenter {
-    background-color: #fff;
-    width: 1000px;
-    height: 100%;
-    margin-top: 10px;
+.flexitem a{
+    font-size: 20px;
 }
-
-h4 {
-    color: #007dd3;
-    display:inline-block;
-    font-size: 30px;
-    margin-left: 10px;
-}
-
-
-#TopNav {
-    background-color: #003b64;
-}
-
-.TopNav {
-    color: #fff;
-}
-
-
-hr {
-    border: 1px solid #ccc;
-}
-
-
-
-
-

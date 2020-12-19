@@ -22,39 +22,44 @@ $(function () {
         dataType : 'json' ,
         cache: false,
         success:function(reqData) {
-            for (var i = 0 ; i < reqData.data.length ; i++) {
-                var content = $('<div style="float: left;clear: both" id="content" >' +
-                    '<img src='+srcUrl+' class="img-circle img"/>' + '</div>' +
-                    '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span></p>' +
-                    '<span>' + reqData.data[i].time + '</span>' +
-                    '</div>' +
-                    '<div class="btn-group" style="float: right;margin-right: 20px;" >' +
-                    '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
-                    '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
-                    '<ul class="dropdown-menu" id="menu">' +
-                    // '<li><a href="UpdateSay.html" class="editor">'+"编辑"+'</a></li>' +
-                    '<li><a class="delete">' + "删除" + '</a></li>' +
-                    // '<li role="separator" class="divider"></li>' +
-                    // '<li><a href="#">' + "取消" + '</a></li>' +
-                    '</ul>' +
-                    '</div>' +
-                    '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px" class="say">' +
-                    '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
-                    '<div style="float: right"><span class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+
-                    getP(reqData.data[i].vid) + '</span>'+
-                    '<span class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+
-                    getC(reqData.data[i].vid) + '</span>'+
-                    '</div><hr/>'
-                );
-                content.appendTo($("#mysay"));
+            if(reqData.data.length==0){
+                $("#mysay").append("<p style=\"color: #3e8f3e;text-indent:2em\">目前没有任何动态<p>") ;
+            }else {
+                for (var i = 0 ; i < reqData.data.length ; i++) {
+                    var content = $('<div style="float: left;clear: both" id="content" >' +
+                        '<img src='+srcUrl+' class="img-circle img"/>' + '</div>' +
+                        '<div style="float: left"><span class="name">' + reqData.data[i].uname + '</span></p>' +
+                        '<span>' + reqData.data[i].time + '</span>' +
+                        '</div>' +
+                        '<div class="btn-group" style="float: right;margin-right: 20px;" >' +
+                        '<button type="button" class="btn btn-default" data-toggle="dropdown" style="margin-top: 10px">' + "..." + '</button>' +
+                        '<span class="sr-only">' + "Toggle Dropdown" + '</span>' +
+                        '<ul class="dropdown-menu" id="menu">' +
+                        // '<li><a href="UpdateSay.html" class="editor">'+"编辑"+'</a></li>' +
+                        '<li><a class="delete">' + "删除" + '</a></li>' +
+                        // '<li role="separator" class="divider"></li>' +
+                        // '<li><a href="#">' + "取消" + '</a></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '<div style="clear: both;padding-top: 10px;padding-bottom: 10px;margin-right: 20px" class="say">' +
+                        '<a href="PlayVideo.html?id='+reqData.data[i].vid+'" target="_blank">'+ reqData.data[i].say+ '</a></div>' +
+                        '<div style="float: right"><span class="glyphicon glyphicon-thumbs-up praise" style="margin-right: 20px">'+
+                        getP(reqData.data[i].vid) + '</span>'+
+                        '<span class="glyphicon glyphicon-heart-empty collect" style="margin-right: 20px;" >'+
+                        getC(reqData.data[i].vid) + '</span>'+
+                        '</div><hr/>'
+                    );
+                    content.appendTo($("#mysay"));
 
-                $(".img").eq(i).attr("id", reqData.data[i].id);
+                    $(".img").eq(i).attr("id", reqData.data[i].id);
 
-                // $(".editor").eq(i).attr("id", reqData.data[i].id);
-                $(".delete").eq(i).attr("id", reqData.data[i].id);
-                // $(".say").eq(i).attr("id", reqData.data[i].id);
+                    // $(".editor").eq(i).attr("id", reqData.data[i].id);
+                    $(".delete").eq(i).attr("id", reqData.data[i].id);
+                    // $(".say").eq(i).attr("id", reqData.data[i].id);
 
+                }
             }
+
             // //点击修改按钮操作
             // $(".editor").click(function () {
             //     var id =  $(this).attr("id");

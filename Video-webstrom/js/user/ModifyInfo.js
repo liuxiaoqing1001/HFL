@@ -152,21 +152,11 @@ var FileInput = function () {
                 // 清除文件上传预览框
                 $(event.target).fileinput('clear') ;
 
-                location.reload([true]);
-
-                // $("#uPhoto").load(location.href+" #uPhoto>*","");
-
-                // 刷新头像？？？？？？？？？
-                // $("#showPhoto").attr("src" ,responseData.data.photourl) ;
-                // console.log("userPhotoPath + userObj.name:::"+responseData.data.photourl);
-
-                // $("#showUserPhoto", window.parent.document).attr("src", responseData.data.photourl);
-
-                // $("#showPhoto").attr("src" ,userPhotoPath + userObj.name) ;
-                // console.log("userPhotoPath + userObj.name:::"+userPhotoPath + userObj.name);
-
-                // sessionStorage.setItem("loginuser" , JSON.stringify(responseData.data)) ;
-                // console.log("data:"+JSON.stringify(responseData.data));
+                if(userObj.photourl == null || userObj.photourl == '') {
+                    $("#showPhoto").attr("src" ,userPhotoPath + userObj.name) ;
+                } else {
+                    location.reload();
+                }
 
             }
         }).on("fileerror" , function(event , data , msg){

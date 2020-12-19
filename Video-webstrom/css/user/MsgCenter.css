@@ -9,16 +9,34 @@ html{
 body {
     background-color: #fbfbfb;
     height: 100%;
+    font-family: "montserrat";
+    background-image: linear-gradient(125deg,#E4FFCD,#6DD5FA,#2980B9,#E4FFCD);
+    background-size: 400%;
+    animation: bganimation 60s infinite;
 }
 
 #body{
+    color: white;
     height: 100%;
+}
+
+@keyframes bganimation {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 
 #msgCenter {
     background-color: #fff;
     width: 1000px;
     height: 100%;
+    margin-top: 10px;
 }
 
 h4 {
@@ -115,11 +133,11 @@ h4 {
     color: #666;
 }
 
-#head{
-    width: 100%;
-    height: 10px;
-    background: #fbfbfb;
-}
+/*#head{*/
+/*    width: 100%;*/
+/*    height: 10px;*/
+/*    background: #fbfbfb;*/
+/*}*/
 
 .data-time{
     display: inline-block;
