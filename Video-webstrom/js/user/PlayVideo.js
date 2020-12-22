@@ -403,7 +403,7 @@ function init_barrage() {
         if (top >= (height - 150)) {
             top = 10;
         }
-        $(this).css({ left: wid, top: top, color: getColor() });
+        $(this).css({left: wid, top: top, color: getColor()});
     });
 }
 
