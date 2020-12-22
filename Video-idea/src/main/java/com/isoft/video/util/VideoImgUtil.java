@@ -12,8 +12,6 @@ import java.io.IOException;
 
 /**
  * TODO：处理视频.（1.将视频提取成帧图片）
- *
- * @author ChenP
  */
 public class VideoImgUtil {
 

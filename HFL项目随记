@@ -3,9 +3,6 @@ git@github.com:yxm1128/HFL.git
 git@github.com:liuxiaoqing1001/HFL.git
 
 
-
-
-
 -----------------------------------项目说明-----------------------------------------
 “HFL”视频平台开发与设计
 主要技术:
@@ -279,49 +276,6 @@ tb_u_v(id,uid,vid,)
 
 
 -----------------------------------------------------------------------------------
-关于注销：注销添加了id="Exit",注销后清空sessionStorage 所有保存的数据，那userobj为空，跳转到登录界面，这一部分修改的有First.js,Dynamic.js,MsgCenter.js,UserCenter.js,
- //未登录用户不允许访问该页
-if(str == null || str == undefined || str == "") {
-       location.href="../Login.html" ;
-}
-
- $("#Exit").click(function () {
- location.href="../Login.html";
-
- // 从 sessionStorage 删除所有保存的数据
- sessionStorage.clear();
-   alert("已退出登录")
- });
-
-
-
-关于背景：修改的css有:First.css,Register.css,UserCenter.css,添加了more.css,
-body{
-    font-family: "montserrat";
-    background-image: linear-gradient(125deg,#E4FFCD,#6DD5FA,#2980B9,#E4FFCD);
-    background-size: 400%;
-    animation: bganimation 60s infinite;
-}
-
-#body{
-    color: white;
-}
-
-@keyframes bganimation {
-    0%{
-        background-position: 0% 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    100%{
-        background-position: 0% 50%;
-    }
-}
-
-关于布局：修改的有Login.html,More.html
-关于更多：修改的是More.js
-
 ---------------------------------------xxx-----------------------------------------
 1. 注销：浏览器左右键返回还是原来的账号，没注销成功
 *2. 忘记密码？
@@ -334,7 +288,6 @@ body{
 *8. 修改所有的alert标题为对应的操作标题
 *9. 点赞,收藏后给发送者发送消息（xxx给你点赞），评论后给发送者发送消息（xxx评论你的xxx视频xxx）
 
-
 *10. 将动态中心的好友动态，改成广场（显示所有用户上传视频的动态，即在上传的时候在say中保存相关消息）（动态内容变为视频描述，点击foward跳入视频播放界面（有弹幕那个页面））
 *11. 将动态中心的我的说说改成我的动态，显示自己上传视频的消息
 *12. 消息中心增加其他用户给你点赞和评论的部分(点赞的时候发送)
@@ -342,8 +295,45 @@ body{
 
 
 
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+### 视频截图
+使用到 JavaCV 这个开源的视觉处理库，它是基于GPLv2协议，封装了一些常用库的接口。在项目中主要用于截取视频某一帧，以jpg格式进行存储
 
-user 的test.css,text.css,    pages的test.html，test1.html，test2.html，test3.html是没用的
+知识点：
+ffmpeg是媒体文件转换工具，常用于转码，可选择视频时长、帧率、分辨率、像素格式等
+BufferedImage是其实现类，一个带缓冲区图像类，主要作用是将一幅图片加载到内存中，方便我们使用其方法功能操作图片，因为BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片。
+
+好处：用此方法的好处是不需要在服务器上安装插件，直接代码中就可以实现视频截取。
+
+关键过程：
+使用FFmpegFrameGrabber对象获取视频文件的帧，由BufferedImage实例化对象，再利用ImageIO的write()方法传入BufferedImage的实例化对象将BufferedImage对象直接写出指定输出流
+
+注：
+什么是GPL？
+General Public License，什么意思呢，通用性公开许可证，从这个中文翻译上我们可以把GPL看成是软件所遵从或使用的各种许可证中的一种，这里不做详细解释
+
+根据GPL v2的相关规定：只要这种修改文本在整体上或者其某个部分来源于遵循GPL的程序，该修改文本的整体就必须按照GPL流通，不仅该修改文本的源码必须向社会公开，而且对于这种修改文本的流通不准许附加修改者自己作出的限制
+
+使用java.io.File.delete()函数:删除此抽象路径名表示的文件或目录
+
+### 
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

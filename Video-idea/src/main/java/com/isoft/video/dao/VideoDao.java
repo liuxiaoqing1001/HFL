@@ -73,6 +73,9 @@ public interface VideoDao {
     @Update("update tb_video set status='通过' where id=#{id}")
     int updateStatus(Integer id);
 
+    @Update("update tb_video set videopath=#{newPath} where id=#{id}")
+    int updateVideoPath(Integer id,String newPath);
+
     @Select("select * from tb_video where typeid=#{id} and status='通过'")
     List<Video> getVideoByType(Integer id);
 

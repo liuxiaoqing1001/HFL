@@ -74,4 +74,6 @@ public interface VideoService {
     Integer getNewId();
 
     List<Video> getByKeyWord(String title);
+
+    boolean updateVideoPath(Integer vid, String newPath);
 }

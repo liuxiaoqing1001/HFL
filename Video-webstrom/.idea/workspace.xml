@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/user/more.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/util/DeleteImgUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/service/impl/VideoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/util/VideoImgUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Video-idea/src/main/java/com/isoft/video/util/VideoImgUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/First.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/First.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/MsgCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/MsgCenter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/Register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/UserCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/UserCenter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/user/VideoCenter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/user/VideoCenter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin/Index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/DynamicCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/DynamicCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/First.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/First.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/ModifyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/ModifyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/More.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/More.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/MsgCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/MsgCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/Mysay.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/Mysay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/UserCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/VideoCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/VideoCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/Collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Collection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/DynamicCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/DynamicCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/First.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/First.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/Material.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/Material.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/More.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/More.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/MsgCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/MsgCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/NewSay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/NewSay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/UserCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/UserCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/VideoCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/VideoCenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/css/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -149,6 +126,7 @@
       <workItem from="1608251471472" duration="1358000" />
       <workItem from="1608254518187" duration="1380000" />
       <workItem from="1608337556901" duration="10084000" />
+      <workItem from="1608620233859" duration="3583000" />
     </task>
     <servers />
   </component>

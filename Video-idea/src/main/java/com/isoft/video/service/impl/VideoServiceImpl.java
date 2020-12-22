@@ -5,8 +5,10 @@ import com.isoft.video.dao.VideoDao;
 import com.isoft.video.dao.VideoTypeDao;
 import com.isoft.video.entity.Video;
 import com.isoft.video.service.VideoService;
+import com.isoft.video.util.DeleteImgUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ClassUtils;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -43,7 +45,15 @@ public class VideoServiceImpl implements VideoService {
         if(null == id || id < 1) {
             return false ;
         }
-        return videoDao.delById(id) > 0;
+        String fileName = videoDao.getVideoPath(id);
+        String videoPath = ClassUtils.getDefaultClassLoader().getResource("static/video/"+fileName).getPath();
+        String videoImgPath = ClassUtils.getDefaultClassLoader().getResource("static/videoImg/"+id+"_5.jpg").getPath();
+        if(videoDao.delById(id)>0){
+            DeleteImgUtil.delete(videoPath);
+            DeleteImgUtil.delete(videoImgPath);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -101,6 +111,14 @@ public class VideoServiceImpl implements VideoService {
             return false ;
         }
         return videoDao.updateStatus(id)>0;
+    }
+
+    @Override
+    public boolean updateVideoPath(Integer vid, String newPath) {
+        if(null == vid || vid < 1) {
+            return false ;
+        }
+        return videoDao.updateVideoPath(vid,newPath)>0;
     }
 
     @Override

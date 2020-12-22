@@ -340,8 +340,14 @@ public class VideoController {
         video.setDescription((String)map.get("description"));
         video.setVideopath((String)map.get("videopath"));
         Integer result = videoService.addVideo(video);
-        //调用下载视频的方法
-        loadVideo(videopathAll);
+        Integer vid = videoService.getNewId();
+        String newPath = vid+"_"+(String)map.get("videopath");
+        if (videoService.updateVideoPath(vid,newPath)){
+            //调用下载视频的方法
+            loadVideo(videopathAll,vid);
+        }
+//        videoService.updateVideoPath(vid,newPath);
+
 //        getVideos(response,7);
         return new ResponseData(
                 result > 0 ? 0 : 1 ,
@@ -357,7 +363,7 @@ public class VideoController {
      * @param videopathAll
      */
     @GetMapping("loadVideo/{videopathAll}")
-    public void loadVideo(@PathVariable("videopathAll") String videopathAll) {
+    public void loadVideo(@PathVariable("videopathAll") String videopathAll,Integer vid) {
         FileInputStream fis = null;
         FileOutputStream fos = null ;
         String originName = null ;
@@ -371,7 +377,7 @@ public class VideoController {
             originName = videopathAll.substring(videopathAll.lastIndexOf("/") + 1);
 //            System.out.println("originName:" + originName);
 
-            fos = new FileOutputStream(path +"static/video/"+ originName) ;
+            fos = new FileOutputStream(path +"static/video/"+ vid + "_" + originName) ;
             //使用字节流对象中的方法 read 读取文件
             //使用数组缓冲读取多个字节写入多个字节
             byte[] bytes = new byte[1024] ;
@@ -384,7 +390,7 @@ public class VideoController {
         } finally {
 
 //            视频截图
-            Integer vid = getNewId();
+//            Integer vid = getNewId();
 //            System.out.println("-------/------------vid:"+vid);
             VideoImgUtil.grabberVideoFramer(originName,vid);
 
