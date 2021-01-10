@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../HFL项目随记" beforeDir="false" afterPath="$PROJECT_DIR$/../HFL项目随记" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user/PlayVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user/PlayVideo.js" afterDir="false" />
-    </list>
+    <list default="true" id="79688c27-094e-4611-a0a3-3b2c872e039f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +121,7 @@
       <workItem from="1608254518187" duration="1380000" />
       <workItem from="1608337556901" duration="10084000" />
       <workItem from="1608620233859" duration="7525000" />
+      <workItem from="1608712326567" duration="184000" />
     </task>
     <servers />
   </component>
